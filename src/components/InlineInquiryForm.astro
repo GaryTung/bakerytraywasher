@@ -11,6 +11,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_ACCESS
     <input type="hidden" name="access_key" value={accessKey} />
     <input type="hidden" name="subject" value="[JD-3 Inline Inquiry] from bakerytraywasher.com" />
     <input type="hidden" name="from_name" value="bakerytraywasher.com" />
+    <input type="hidden" name="redirect" value="https://bakerytraywasher.com/thank-you/" />
     <input type="hidden" name="source_page" class="source-page" value="" />
     {businessTypePreset && <input type="hidden" name="business_type" value={businessTypePreset} />}
     <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" />
@@ -30,3 +31,49 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_ACCESS
     <div class="form-result text-sm hidden p-3 rounded-card"></div>
   </form>
 </div>
+
+<script>
+  document.querySelectorAll('.quote-form').forEach((formEl) => {
+    const form = formEl as HTMLFormElement;
+    if (form.dataset.bound === 'true') return;
+    form.dataset.bound = 'true';
+    const result = form.querySelector('.form-result') as HTMLDivElement;
+    const sourceInput = form.querySelector('.source-page') as HTMLInputElement;
+    if (sourceInput) sourceInput.value = window.location.href;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const obj: any = Object.fromEntries(formData as any);
+      const washes = formData.getAll('washes[]');
+      if (washes.length) obj['washes'] = washes.join(', ');
+      delete obj['washes[]'];
+
+      if (result) {
+        result.classList.remove('hidden');
+        result.className = 'form-result text-sm p-3 rounded-card bg-bakery-cream text-bakery-navy';
+        result.textContent = 'Sending…';
+      }
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(obj),
+        });
+        const data = await res.json();
+        if (data.success) {
+          window.location.href = '/thank-you/';
+        } else if (result) {
+          result.className = 'form-result text-sm p-3 rounded-card bg-red-50 text-red-800 border border-red-200';
+          result.innerHTML = 'Submission failed. Please email info@v-tai.com or WhatsApp +86 135 0962 3269.';
+        }
+      } catch {
+        if (result) {
+          result.className = 'form-result text-sm p-3 rounded-card bg-red-50 text-red-800 border border-red-200';
+          result.innerHTML = 'Network error. Please WhatsApp +86 135 0962 3269 directly.';
+        }
+      }
+    });
+  });
+</script>

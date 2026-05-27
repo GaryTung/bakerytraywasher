@@ -15,6 +15,7 @@ const countries = [
   <input type="hidden" name="access_key" value={accessKey} />
   <input type="hidden" name="subject" value="[JD-3 Inquiry] New lead from bakerytraywasher.com" />
   <input type="hidden" name="from_name" value="bakerytraywasher.com" />
+  <input type="hidden" name="redirect" value="https://bakerytraywasher.com/thank-you/" />
   <input type="hidden" name="source_page" class="source-page" value="" />
   <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" />
 
@@ -140,6 +141,8 @@ const countries = [
 <script>
   document.querySelectorAll('.quote-form').forEach((formEl) => {
     const form = formEl as HTMLFormElement;
+    if (form.dataset.bound === 'true') return;
+    form.dataset.bound = 'true';
     const result = form.querySelector('.form-result') as HTMLDivElement;
     const sourceInput = form.querySelector('.source-page') as HTMLInputElement;
     if (sourceInput) sourceInput.value = window.location.href;
@@ -165,9 +168,9 @@ const countries = [
         const data = await res.json();
         if (data.success) {
           result.className = 'form-result text-sm p-4 rounded-card bg-green-50 text-green-800 border border-green-200';
-          result.innerHTML = '✓ Got it. We will reply within 12 hours via WhatsApp or email. For faster reply, message us on WhatsApp at +86 135 0962 3269.';
+          result.innerHTML = '✓ Got it. Redirecting…';
           form.reset();
-          // optional redirect: window.location.href = '/thank-you/';
+          window.location.href = '/thank-you/';
         } else {
           result.className = 'form-result text-sm p-4 rounded-card bg-red-50 text-red-800 border border-red-200';
           result.innerHTML = 'Submission failed. Please email info@v-tai.com or WhatsApp +86 135 0962 3269.';
