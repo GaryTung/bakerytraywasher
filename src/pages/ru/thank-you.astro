@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const locale = 'ru' as const;
+---
+<BaseLayout title="Спасибо — Запрос получен" description="Ваш запрос на расчёт получен. Ответим в течение 12 часов." locale={locale} canonicalPath="/thank-you/" noindex={true}>
+<section class="section">
+  <div class="container-page max-w-2xl text-center">
+    <div class="w-20 h-20 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-6">
+      <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    </div>
+    <h1 class="mb-4">Спасибо. Ваш запрос получен.</h1>
+    <p class="text-lg text-bakery-navy/80 mb-3">Ответим в течение <strong>12 рабочих часов</strong> в WhatsApp или на эл. почту.</p>
+    <p class="text-bakery-navy/70 mb-8">Для более быстрого ответа напишите нам в WhatsApp:</p>
+    <a href="https://wa.me/8613509623269" class="btn-primary mb-8">WhatsApp +86 135 0962 3269</a>
+    <h2 class="mt-12 mb-4">Пока вы ждёте</h2>
+    <div class="grid sm:grid-cols-2 gap-4 text-left">
+      <a href="/ru/product/" class="card hover:scale-[1.02] transition"><h3 class="text-lg mb-1">Продукт JD-3</h3><p class="text-sm text-bakery-navy/70">Полные характеристики.</p></a>
+      <a href="/ru/product/jd-3-vs-hobart-amx/" class="card hover:scale-[1.02] transition"><h3 class="text-lg mb-1">Сравнения</h3><p class="text-sm text-bakery-navy/70">vs Hobart, Jackson, CMA.</p></a>
+    </div>
+  </div>
+</section>
+</BaseLayout>

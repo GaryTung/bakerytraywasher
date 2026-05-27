@@ -9,21 +9,21 @@ import FAQSection from '../../components/FAQSection.astro';
 const locale = 'en' as const;
 
 const tiers = [
-  { name: 'Standard JD-3 (Electric)', price: '$2,800', desc: 'Base configuration. 380V/3N/50Hz. Standard wash & rinse cycle. Includes 2 racks, peg cup rack, basic tools, operation manual, CE certificate.', features: ['SUS304 stainless construction', '650×550 mm rack', '60 racks/hour', 'LED digital display'] },
-  { name: '+ Auto Detergent Dispenser', price: '$3,000', desc: 'Standard + automatic liquid detergent pump and rinse aid dispenser. Eliminates manual dosing.', features: ['All Standard features', 'Auto detergent metering', 'Auto rinse aid', 'Consistent results'], recommended: true },
-  { name: '+ Water Treatment Module', price: '$3,300', desc: 'Standard + auto detergent + inline water softener cartridge for hard water regions (>200 ppm).', features: ['All above', 'Limescale prevention', 'Extends heater life', 'For hard-water regions'] },
-  { name: '+ Heat Recovery Upgrade', price: '$3,200', desc: 'Standard + auto detergent + enhanced heat recovery module. Pre-warms inlet water, reduces energy consumption 15–25%.', features: ['All Standard features', 'Auto detergent', 'Heat recovery system', '15–25% energy savings'] },
+  { name: 'Standard JD-3 (Electric)', price: '$4,400', desc: 'Base configuration. 380V/3N/50Hz. Standard wash & rinse cycle. Includes 2 racks, peg cup rack, basic tools, operation manual, CE certificate.', features: ['SUS304 stainless construction', '650×550 mm rack', '60 racks/hour', 'LED digital display'] },
+  { name: '+ Auto Detergent Dispenser', price: '$4,600', desc: 'Standard + automatic liquid detergent pump and rinse aid dispenser. Eliminates manual dosing.', features: ['All Standard features', 'Auto detergent metering', 'Auto rinse aid', 'Consistent results'], recommended: true },
+  { name: '+ Water Treatment Module', price: '$4,900', desc: 'Standard + auto detergent + inline water softener cartridge for hard water regions (>200 ppm).', features: ['All above', 'Limescale prevention', 'Extends heater life', 'For hard-water regions'] },
+  { name: '+ Heat Recovery Upgrade', price: '$4,800', desc: 'Standard + auto detergent + enhanced heat recovery module. Pre-warms inlet water, reduces energy consumption 15–25%.', features: ['All Standard features', 'Auto detergent', 'Heat recovery system', '15–25% energy savings'] },
 ];
 ---
 <BaseLayout
-  title="JD-3 Pricing — From $2,800 FOB | Bakery Tray Washer Pricing"
-  description="Honest, transparent pricing for the V-TAI JD-3 bakery tray washer. Starting at $2,800 FOB Shenzhen. Payment terms, lead time, configuration options."
+  title="JD-3 Pricing — From $4,400 FOB | Bakery Tray Washer Pricing"
+  description="Honest, transparent pricing for the V-TAI JD-3 bakery tray washer. Starting at $4,400 FOB Shenzhen. Payment terms, lead time, configuration options."
   locale={locale}
   canonicalPath="/pricing/"
   schemaType="Product"
   schemaData={{
     name: 'V-TAI JD-3 Bakingware Hood-type Washer',
-    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '2800', highPrice: '3500' }
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '4400', highPrice: '5500' }
   }}
 >
 <BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Pricing'}]} />
@@ -99,7 +99,7 @@ const tiers = [
         <li class="flex gap-2"><span>×</span> Jackson TempStar: $5,500–$7,500 retail</li>
         <li class="flex gap-2"><span>×</span> CMA L-1X16-BW: $5,000–$7,000 retail</li>
         <li class="flex gap-2"><span>×</span> Winterhalter UC: $8,000–$11,000 retail</li>
-        <li class="flex gap-2 font-bold text-bakery-orange"><span>✓</span> V-TAI JD-3: $2,800–$3,500 FOB</li>
+        <li class="flex gap-2 font-bold text-bakery-orange"><span>✓</span> V-TAI JD-3: $4,400–$5,500 FOB</li>
       </ul>
       <p class="mt-4 text-sm text-bakery-navy/60">Equivalent CE-certified safety and performance. We respectfully decline to be the cheapest — we aim to be the highest-value option.</p>
     </div>
@@ -115,7 +115,7 @@ const tiers = [
 
 <FAQSection items={[
   { q: 'Can I see the full price including shipping to my country?', a: 'Yes — request a quote and specify your destination port. We typically respond within 12 business hours with all-in pricing.' },
-  { q: 'Do you offer financing?', a: 'We sell direct without financing. For lease or installment financing, work with a local commercial-kitchen equipment finance broker. They can finance a $3,000 machine easily.' },
+  { q: 'Do you offer financing?', a: 'We sell direct without financing. For lease or installment financing, work with a local commercial-kitchen equipment finance broker. They can finance a $4,600 machine easily.' },
   { q: 'Refund policy?', a: 'Order cancellation before production starts: full refund. After production starts: 30% retained. After shipping: no refund possible (transport is irreversible). We work hard to make sure orders proceed correctly the first time.' },
   { q: 'Warranty included?', a: '12-month manufacturer warranty on parts. Spare parts ship globally within 5 business days.' },
   { q: 'Tax considerations?', a: 'You are responsible for local import duties and VAT/GST. We provide commercial invoice and customs documentation. Estimated tax rates vary by country — see our shipping costs page.' },

@@ -3,15 +3,17 @@ import { t, type Locale } from '../i18n/utils';
 interface Props { locale: Locale; businessTypePreset?: string; title?: string }
 const { locale, businessTypePreset, title = 'Request a Quote' } = Astro.props;
 const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY_HERE';
+const thankYouPath = locale === 'en' ? '/thank-you/' : `/${locale}/thank-you/`;
+const thankYouUrl = `https://bakerytraywasher.com${thankYouPath}`;
 ---
 <div class="card bg-bakery-cream">
   <h3 class="text-2xl font-bold mb-2">{title}</h3>
   <p class="text-bakery-navy/70 mb-4 text-sm">We reply within 12 business hours via WhatsApp or email.</p>
-  <form action="https://api.web3forms.com/submit" method="POST" class="quote-form space-y-3">
+  <form action="https://api.web3forms.com/submit" method="POST" class="quote-form space-y-3" data-thank-you={thankYouPath}>
     <input type="hidden" name="access_key" value={accessKey} />
     <input type="hidden" name="subject" value="[JD-3 Inline Inquiry] from bakerytraywasher.com" />
     <input type="hidden" name="from_name" value="bakerytraywasher.com" />
-    <input type="hidden" name="redirect" value="https://bakerytraywasher.com/thank-you/" />
+    <input type="hidden" name="redirect" value={thankYouUrl} />
     <input type="hidden" name="source_page" class="source-page" value="" />
     {businessTypePreset && <input type="hidden" name="business_type" value={businessTypePreset} />}
     <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" />
@@ -63,7 +65,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_ACCESS
         });
         const data = await res.json();
         if (data.success) {
-          window.location.href = '/thank-you/';
+          window.location.href = form.dataset.thankYou || '/thank-you/';
         } else if (result) {
           result.className = 'form-result text-sm p-3 rounded-card bg-red-50 text-red-800 border border-red-200';
           result.innerHTML = 'Submission failed. Please email info@v-tai.com or WhatsApp +86 135 0962 3269.';
