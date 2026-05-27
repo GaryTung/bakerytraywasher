@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const locale = 'en' as const;
+
+const features = [
+  {
+    title: '1. SUS304 Stainless Steel Construction',
+    body: `Every external and internal surface that touches water, steam, or food is fabricated from food-grade SUS304 stainless steel — the same alloy used in commercial kitchen counters and food processing equipment.
+
+    For a bakery owner, this matters in three concrete ways. First, no rust streaks contaminating clean trays. Cheaper galvanized steel washers begin rusting at weld seams within 18 months in hot, humid kitchens — we've seen them written off by health inspectors. Second, SUS304 resists the corrosive detergents and rinse aids used in commercial cleaning, so the chamber stays smooth and easy to wipe down for years. Third, mice and roaches can't gnaw or nest in stainless surfaces. If you've ever opened a competing brand's plastic-housed control box to find a nest, you know exactly why this matters.`,
+  },
+  {
+    title: '2. Extra-Large Washing Chamber (650×550 mm Rack)',
+    body: `The single most important measurement on this machine. Most American hood-type dishwashers — Hobart AMX, Jackson TempStar, CMA L-1X16-BW — use a 500×500 mm rack because they were designed for cafeteria plates and glasses in the 1970s.
+
+    The JD-3's 650×550 rack is intentionally wider and deeper. This is what lets it fit the 600×400 mm European Bakery Norm tray (the standard used by Convotherm, Rational, Unox combi ovens). It also fits American 18"×26" half-sheet pans diagonally, GN 2/1 gastronorm pans, KitchenAid 5-quart mixing bowls upright, and stockpots up to 11 inches tall. If you've ever stood at a sink scrubbing a Pullman loaf pan because nothing in your kitchen would fit it, this is the feature that ends that.`,
+  },
+  {
+    title: '3. Dual Rotating Wash Arms (360° Spray Coverage)',
+    body: `Two independently rotating wash arms — one above, one below the rack — driven by a 0.9 kW high-pressure pump. They spin at speeds calculated to deliver overlapping spray cones that cover 100% of the loaded surface area without dead zones.
+
+    This matters because cheap dishwashers often have one fixed spray arm and trust that the rack rotation will fill in the gaps. It doesn't. You end up with a clean front-of-tray and a still-greasy back-of-tray. The JD-3's dual-arm design was specifically tuned for tall items — like stacked baking trays or upright bowls — where single-arm sprayers fail.`,
+  },
+  {
+    title: '4. Anti-Clogging Spray Nozzles',
+    body: `The nozzles in the wash arms have a slightly oversized aperture and self-cleaning geometry. The water jets are shaped, not just blasted — meaning consistent coverage even when your kitchen's incoming water has more grit or scale than usual.
+
+    In hard-water regions like Dubai, Madrid, or Riyadh, competing washers need their nozzles unblocked weekly. JD-3 owners typically rinse them quarterly. Less downtime, less labor, less reason to call a technician.`,
+  },
+  {
+    title: '5. Intelligent Temperature Control System',
+    body: `A modular electronic control board manages the wash tank (kept at 60–65°C) and the final rinse booster (which must hit 82°C+ per NSF and EN 631 sanitization standards). An LED digital display shows you the real-time tank temperature, rinse temperature, and cycle status.
+
+    The control board is mounted on a quick-release tray. If it ever fails — almost never, but it happens — a non-specialist can pop it out and swap in a replacement in under 10 minutes. Compare that to repotted Hobart boards that require a factory tech visit.`,
+  },
+  {
+    title: '6. Ultra-Low Water Consumption (2.0–2.5 L per cycle)',
+    body: `Most commercial hood-type dishwashers consume 3.8–10 liters per cycle. The JD-3 averages 2.5 L. Over 50 cycles a day, 6 days a week, that's the difference between 156,000 liters/year and 39,000 liters/year — typically $400–$1,200 in annual water/sewer savings depending on your region's utility costs.
+
+    The savings come from a precision rinse manifold combined with reusable wash-tank water (filtered between cycles), not from cutting cleaning time.`,
+  },
+  {
+    title: '7. Heat Recovery System',
+    body: `Optional but recommended. The heat recovery module captures heat from the outgoing rinse water and the chamber steam, and uses it to pre-warm incoming cold water before it hits the 9 kW booster heater.
+
+    Net effect: the booster works less hard per cycle, electricity consumption drops 15–25%, and the kitchen's ambient temperature rises less. In a small bakery without good ventilation, that 1–2°C of recovered kitchen-air coolness is worth more than the electricity savings.`,
+  },
+  {
+    title: '8. Sealed Insulated Door (70% Steam Reduction)',
+    body: `Open a cheap commercial dishwasher mid-cycle and you'll get a faceful of steam. Open one immediately after a cycle and your kitchen humidity jumps 10%. The JD-3's hood has dual sealing gaskets and an insulated inner wall, reducing steam escape by approximately 70% versus older single-skin designs.
+
+    The kitchen stays drier and cooler. Pastry workers can't stand humid kitchens — chocolate seizes, sugar weeps, fondant won't set. This single feature has been the closing argument with more than a few patisserie owners.`,
+  },
+  {
+    title: '9. Ergonomic Operation',
+    body: `The LED control panel sits at eye level (roughly 1.4 m off the floor) so operators don't have to bend over. Push-pull basket rails on the entry side let staff slide racks in and out with one hand. The hood lift handle is positioned for an upward push motion — easier on shoulders than the side-hinge handles competitors use.
+
+    None of this matters for one cycle. It matters by the 80th cycle of an 8-hour shift, when ergonomics is the difference between "this is fine" and "I'm quitting".`,
+  },
+  {
+    title: '10. Door-Activated Start',
+    body: `Close the hood, and the wash cycle begins automatically. No buttons. No start switch. No training. A new dishwasher operator can be productive within their first 5 minutes on the job.
+
+    Open the hood mid-cycle and the door interlock cuts the wash pump and heater instantly — both for safety and to prevent steam burns. Close it again and the cycle resumes (or restarts, depending on how long it was open).`,
+  },
+  {
+    title: '11. Multiple Safety Protections',
+    body: `Beyond the door interlock, the JD-3 has voltage overload protection (cuts power if your local grid surges), thermal cut-out on the booster heater (prevents dry-burn damage if water supply fails), and a child-lock mode for facilities where the dishwasher might be accessible to non-staff.
+
+    Insurance underwriters and OSHA-equivalent regulators in most countries are familiar with the CE Safety mark — having it pre-certified saves you weeks of paperwork during the kitchen permit process.`,
+  },
+  {
+    title: '12. Functional Expandability',
+    body: `Pre-installed interfaces for an automatic detergent dispenser, a rinse-aid pump, and an inline water-treatment module. You can buy the machine in standard configuration today and add modules as your operation grows — they snap into existing ports without rewiring.
+
+    This matters for new bakery owners on a tight budget: start with the base $2,800 unit, and add the $200 detergent dispenser six months later when cashflow permits. Most competitors require an entire model upgrade.`,
+  },
+];
+---
+<BaseLayout
+  title="JD-3 Features Deep Dive | V-TAI Bakery Tray Washer"
+  description="A detailed look at all 12 key features of the V-TAI JD-3 bakery tray washer — from SUS304 construction to door-activated start, heat recovery, and safety systems."
+  locale={locale}
+  canonicalPath="/product/jd-3-features/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Product', href: '/product/'}, {label: 'Features'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-4">JD-3 Features — A Deep Dive</h1>
+    <p class="text-lg text-bakery-navy/80 mb-10">
+      The 12 design decisions that make the JD-3 the right washer for a small commercial bakery, café, or pastry kitchen — and why they each matter to a busy shop owner.
+    </p>
+    {features.map((f) => (
+      <article class="mb-10">
+        <h2 class="mb-3">{f.title}</h2>
+        <div class="text-bakery-navy/80 leading-relaxed whitespace-pre-line">{f.body}</div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

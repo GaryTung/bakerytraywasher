@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+const locale = 'en' as const;
+
+const rows = [
+  { label: 'Throughput', jd3: '60 racks/hour', competitor: '60 racks/hour' },
+  { label: 'Rack size', jd3: '650 × 550 mm', competitor: '500 × 500 mm' },
+  { label: 'Fits 600×400 mm bakery trays?', jd3: '✓ Yes', competitor: '✗ No', highlight: true },
+  { label: 'Water per cycle', jd3: '2.5 L', competitor: '3.0 L' },
+  { label: 'Cycle time', jd3: '60–90 sec', competitor: '60 sec' },
+  { label: 'Total power', jd3: '13 kW', competitor: '14 kW' },
+  { label: 'Construction', jd3: 'Full SUS304', competitor: 'SUS304' },
+  { label: 'Chamber size', jd3: 'Extra-large (oversized bakeware)', competitor: 'Standard' },
+  { label: 'Certifications', jd3: 'CE, ISO 9001', competitor: 'NSF, UL, Energy Star' },
+  { label: 'Price (FOB / retail)', jd3: '~$2,800–$3,500 FOB', competitor: '~$5,500–$7,500 retail' },
+];
+---
+<BaseLayout
+  title="JD-3 vs Jackson TempStar HH-E — Bakery Tray Washer Comparison"
+  description="Compare V-TAI JD-3 with Jackson TempStar HH-E. JD-3 offers 35% lower cost, larger chamber for oversized bakeware, and 600×400 mm tray compatibility."
+  locale={locale}
+  canonicalPath="/product/jd-3-vs-jackson-tempstar/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Product', href: '/product/'}, {label: 'vs Jackson TempStar'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-4">V-TAI JD-3 vs Jackson TempStar HH-E</h1>
+    <p class="text-lg text-bakery-navy/80 mb-6">
+      Jackson is the mid-tier US workhorse — solid, no-nonsense, popular in small restaurants. The TempStar HH-E is their hood-type bestseller. Here's where the JD-3 wins, and where Jackson still makes sense.
+    </p>
+  </div>
+
+  <div class="container-page">
+    <ComparisonTable competitorName="Jackson TempStar HH-E" rows={rows} />
+  </div>
+
+  <div class="container-prose mt-12">
+    <h2 class="mb-3">When to Choose Jackson TempStar</h2>
+    <p>Jackson is a sensible choice for a small US restaurant with no bakery operation, predictable rack sizes (500×500 mm dish racks), and a strong relationship with a US-based equipment dealer. Energy Star certification matters for some California, Oregon, and New York utility rebate programs — Jackson qualifies, JD-3 currently does not.</p>
+
+    <h2 class="mt-10 mb-3">When to Choose JD-3</h2>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li><strong>Larger items.</strong> JD-3's chamber accommodates stockpots and KitchenAid bowls upright. TempStar HH-E cannot.</li>
+      <li><strong>Bakery operations.</strong> 600×400 mm tray compatibility is JD-3-exclusive in this price class.</li>
+      <li><strong>International deployments.</strong> CE certification is widely accepted in EU, GCC, APAC, LATAM, Africa. Jackson's North-American certifications matter less outside the US.</li>
+      <li><strong>Budget.</strong> ~35% lower cost at equivalent throughput.</li>
+    </ul>
+
+    <h2 class="mt-10 mb-3">Both Machines Share</h2>
+    <p>Both deliver 60 racks/hour with door-activated cycle starts and >82°C final sanitization. Both are reliable workhorses in their respective markets. The choice is not about quality — it's about which fits your specific operation, geography, and budget.</p>
+  </div>
+</section>
+
+<FAQSection items={[
+  { q: 'Does the JD-3 ship to the US?', a: 'Yes. CE-certified machines are imported into the US daily. Confirm your kitchen has a 380V three-phase circuit, or specify a 220V conversion in your quote.' },
+  { q: 'Can I get parts in the US?', a: 'We ship from Shenzhen via DHL/FedEx (3–5 days to US). For volume buyers, we stage US-side spares in a Los Angeles warehouse partner.' },
+  { q: 'Will my Jackson rack fit in a JD-3?', a: 'No — different rack dimensions. The JD-3 ships with its own compatible racks. Existing Jackson racks would need replacement.' },
+]} />
+
+<CTASection locale={locale} />
+</BaseLayout>

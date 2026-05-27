@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+import CTASection from '../components/CTASection.astro';
+const locale = 'en' as const;
+---
+<BaseLayout
+  title="Shipping & Payment Terms | V-TAI Bakery Tray Washer"
+  description="Logistics, payment terms, and import procedures for V-TAI JD-3 bakery tray washers. TT, L/C, sea and air freight options."
+  locale={locale}
+  canonicalPath="/shipping-payment/"
+  schemaType="Organization"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Shipping & Payment'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-4">Shipping &amp; Payment</h1>
+    <p class="text-lg text-bakery-navy/80 mb-8">Everything you need to know about ordering, paying for, and receiving a JD-3.</p>
+
+    <h2 class="mb-3">Payment Terms</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li><strong>Standard:</strong> 30% deposit at order confirmation, 70% balance before shipping</li>
+      <li><strong>Methods accepted:</strong> TT (wire transfer), Letter of Credit (L/C) for orders &gt; $20,000</li>
+      <li><strong>Currency:</strong> USD primary; EUR, GBP, AED accepted on request</li>
+      <li><strong>Small orders:</strong> Western Union, PayPal possible for orders under $5,000</li>
+    </ul>
+
+    <h2 class="mt-8 mb-3">Production Lead Time</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li><strong>Standard production:</strong> 4–6 weeks from deposit confirmation</li>
+      <li><strong>Rush production:</strong> 2–3 weeks (limited slots, 10% surcharge)</li>
+      <li><strong>Stock units:</strong> Occasionally available for immediate shipment; ask</li>
+    </ul>
+
+    <h2 class="mt-8 mb-3">Shipping Options</h2>
+    <h3 class="mt-4 mb-2">Sea Freight (LCL or FCL)</h3>
+    <p>For 1–2 units, LCL (less-than-container-load) is most economical. Transit time: 20–35 days depending on destination port. Cost: $280–$650 per unit depending on country.</p>
+    <p class="mt-3">For 3+ units, FCL (full-container) shipping reduces per-unit cost by 40–60%.</p>
+
+    <h3 class="mt-4 mb-2">Air Freight</h3>
+    <p>Available for urgent orders. Transit time: 3–7 days. Cost: $900–$1,800 per unit depending on destination. Recommended only when timeline is critical (e.g., new store opening on fixed date).</p>
+
+    <h3 class="mt-4 mb-2">Incoterms</h3>
+    <p>Standard quote is FOB Shenzhen (Free On Board). We can also quote CIF (Cost, Insurance, Freight) to your destination port, or DDP (Delivered Duty Paid) for some countries. Specify your preferred incoterm in your quote request.</p>
+
+    <h2 class="mt-8 mb-3">Import Procedures by Region</h2>
+
+    <h3 class="mt-4 mb-2">European Union</h3>
+    <p>HS code 8422.11 ("commercial dishwashers"). EU common external tariff: ~5–8%. VAT applies in destination country (varies 17–27%). CE certificate satisfies customs documentation requirements.</p>
+
+    <h3 class="mt-4 mb-2">United States</h3>
+    <p>HS code 8422.11. US import duty: 0–3% under MFN rates. No federal VAT; state sales tax may apply. CE certification widely accepted but some commercial codes prefer NSF.</p>
+
+    <h3 class="mt-4 mb-2">GCC (UAE, Saudi, Qatar, Kuwait)</h3>
+    <p>GCC common tariff: 5%. VAT/GST applies (UAE 5%, Saudi 15%). CE certification accepted.</p>
+
+    <h3 class="mt-4 mb-2">Southeast Asia (Thailand, Vietnam, Indonesia)</h3>
+    <p>Import duties typically 5–10%. VAT/GST 7–11% depending on country. CE certification accepted.</p>
+
+    <h3 class="mt-4 mb-2">Latin America</h3>
+    <p>Significant per-country variation. Brazil and Argentina have higher duty + ICMS/IVA structures. Mexico, Chile, Peru have simpler structures. We work with your local customs broker to ensure smooth clearance.</p>
+
+    <h2 class="mt-8 mb-3">Documents We Provide</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li>Commercial invoice</li>
+      <li>Packing list</li>
+      <li>Bill of lading (sea) or air waybill (air)</li>
+      <li>Certificate of origin (Form A, EUR.1, or generic depending on destination)</li>
+      <li>CE certificate</li>
+      <li>ISO 9001 production attestation</li>
+      <li>HS code declaration (8422.11)</li>
+    </ul>
+
+    <h2 class="mt-8 mb-3">Receiving Your Shipment</h2>
+    <ol class="list-decimal list-inside space-y-2">
+      <li>We notify you 7–14 days before estimated arrival at your destination port</li>
+      <li>Your local customs broker clears the shipment (typical: 2–5 business days)</li>
+      <li>Local truck delivery from port to your address (your responsibility, or we can arrange)</li>
+      <li>Inspect packaging on arrival; photograph any visible damage before signing</li>
+      <li>Unbox and inspect machine; report any issues within 7 days for warranty coverage</li>
+    </ol>
+
+    <h2 class="mt-8 mb-3">Warranty</h2>
+    <p>12-month manufacturer warranty on parts. Spare parts ship globally within 5 business days via DHL or FedEx. We do not warranty consumables (gaskets, filter mesh) or damage from improper installation.</p>
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

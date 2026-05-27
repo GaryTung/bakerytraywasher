@@ -1,0 +1,20 @@
+---
+import { t, localizePath, type Locale } from '../i18n/utils';
+interface Props {
+  locale: Locale;
+  title?: string;
+  subtitle?: string;
+}
+const { locale, title = 'Ready to End Manual Tray Washing?', subtitle = 'Get a custom quote in 12 hours. CE-certified, from $2,800 FOB Shenzhen.' } = Astro.props;
+const lp = (p: string) => localizePath(p, locale);
+---
+<section class="section bg-gradient-to-br from-bakery-navy to-bakery-navy/90 text-white">
+  <div class="container-page text-center">
+    <h2 class="text-white mb-4">{title}</h2>
+    <p class="text-white/80 max-w-2xl mx-auto mb-6">{subtitle}</p>
+    <div class="flex flex-wrap gap-3 justify-center">
+      <a href={lp('/get-quote/')} class="btn-primary">{t(locale, 'cta.quote')}</a>
+      <a href="https://wa.me/8613509623269" class="btn-secondary !bg-transparent !text-white !border-white/40 hover:!bg-white/10">{t(locale, 'cta.whatsapp')}</a>
+    </div>
+  </div>
+</section>

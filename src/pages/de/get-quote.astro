@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+const locale = 'de' as const;
+---
+<BaseLayout title="Angebot anfordern — JD-3" description="Individuelles Angebot innerhalb 12 Stunden" locale={locale} canonicalPath="/get-quote/">
+<BreadcrumbNav items={[{label:'Startseite',href:'/de/'},{label:'Angebot'}]} />
+<section class="section"><div class="container-page max-w-3xl">
+<h1 class="mb-3 text-center">Individuelles Angebot in 12 Stunden</h1>
+<div class="card"><InquiryForm locale={locale} /></div>
+</div></section>
+</BaseLayout>

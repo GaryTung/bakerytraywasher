@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../../components/ComparisonTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'ru' as const;
+const rows = [
+  { label: 'Размер кассеты', jd3: '650×550 мм', competitor: '500×500 мм' },
+  { label: 'Противни 600×400', jd3: '✓ Да', competitor: '✗ Нет', highlight: true },
+  { label: 'Цена', jd3: '$2 800 FOB', competitor: '$5 500–$7 500' },
+];
+---
+<BaseLayout title="JD-3 vs Jackson TempStar | Сравнение" description="JD-3 vs Jackson TempStar HH-E." locale={locale} canonicalPath="/product/jd-3-vs-jackson-tempstar/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Главная',href:'/ru/'},{label:'vs Jackson'}]} />
+<section class="section"><div class="container-prose"><h1>JD-3 vs Jackson TempStar</h1><p class="text-lg mt-4 mb-6">Jackson — средний уровень в США. JD-3 на 35% дешевле, большая камера, совместимость с 600×400.</p></div>
+<div class="container-page"><ComparisonTable competitorName="Jackson TempStar" rows={rows} /></div></section>
+<CTASection locale={locale} />
+</BaseLayout>

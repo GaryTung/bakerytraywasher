@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import TrustBadgeStrip from '../../../components/TrustBadgeStrip.astro';
+import PriceCalloutBox from '../../../components/PriceCalloutBox.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'fr' as const;
+---
+<BaseLayout title="V-TAI JD-3 — Lave-Plaques à Hotte pour Boulangerie" description="Lave-plaques V-TAI JD-3 à hotte : 60 paniers/heure, compatible plaques 600×400, SUS304, certifié CE. À partir de 2 800 $ FOB." locale={locale} canonicalPath="/product/" schemaType="Product">
+<BreadcrumbNav items={[{label:'Accueil',href:'/fr/'},{label:'Produit'}]} />
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10">
+    <ImagePlaceholder alt="V-TAI JD-3 lave-plaques à hotte" ratio="4/3" label="JD-3 vue de face" />
+    <div>
+      <p class="eyebrow mb-2">Modèle VT-AE-JD-3</p>
+      <h1 class="mb-4">V-TAI JD-3 — Lave-Plaques à Hotte</h1>
+      <p class="text-lg mb-5">Le seul lave-vaisselle à hotte dans sa gamme de prix conçu pour le standard européen <strong>600×400 mm</strong>. Construit pour les boulangeries, cafés, et stations de pâtisserie.</p>
+      <PriceCalloutBox locale={locale} />
+    </div>
+  </div>
+</section>
+<TrustBadgeStrip locale={locale} />
+<section class="section"><div class="container-prose">
+<h2 class="mb-3">Caractéristiques Clés</h2>
+<ul class="space-y-2 list-disc list-inside text-bakery-navy/80">
+<li>Construction SUS304 inox grade alimentaire</li>
+<li>Chambre extra-large (650×550 mm) — accepte les plaques 600×400</li>
+<li>Bras de lavage rotatifs doubles, couverture 360°</li>
+<li>Contrôle de température intelligent, stérilisation auto &gt;82°C</li>
+<li>Consommation d'eau ultra-basse 2,0–2,5 L/cycle</li>
+<li>Système de récupération de chaleur optionnel</li>
+<li>Porte étanche isolée — réduit la vapeur de 70%</li>
+<li>Démarrage activé par fermeture de la hotte</li>
+<li>Certifié CE Safety</li>
+</ul>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

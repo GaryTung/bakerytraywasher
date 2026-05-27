@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'de' as const;
+---
+<BaseLayout title="JD-3 Installationsanleitung" description="Anforderungen an Raum, Wasser, Strom, Abfluss" locale={locale} canonicalPath="/product/jd-3-installation/" schemaType="HowTo">
+<BreadcrumbNav items={[{label:'Startseite',href:'/de/'},{label:'Installation'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">JD-3 Installationsanleitung</h1>
+<p class="text-lg mb-6">Die meisten kleinen Bäckereien installieren den JD-3 in 2-4 Stunden ohne große Umbauten.</p>
+<h2 class="mt-8 mb-3">Checkliste</h2>
+<ul class="space-y-2 list-disc list-inside">
+<li>Stellfläche: 850 × 850 mm</li>
+<li>Höhe: 2.200 mm</li>
+<li>Kaltwasser: G 3/4", Druck 2,5-6 kg/cm²</li>
+<li>Abfluss: G 1½"</li>
+<li>Strom: 380V/3N/50Hz, dedizierter Stromkreis 21,5 A</li>
+</ul>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

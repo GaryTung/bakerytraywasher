@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'fr' as const;
+---
+<BaseLayout title="Caractéristiques JD-3 | V-TAI Lave-Plaques" description="Les 12 caractéristiques clés du V-TAI JD-3." locale={locale} canonicalPath="/product/jd-3-features/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Accueil',href:'/fr/'},{label:'Produit',href:'/fr/product/'},{label:'Caractéristiques'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">Les 12 Caractéristiques Clés du JD-3</h1>
+<ol class="space-y-4 list-decimal list-inside">
+<li><strong>Construction SUS304</strong> — acier inoxydable grade alimentaire</li>
+<li><strong>Chambre extra-large</strong> — panier 650×550 mm accepte plaques 600×400</li>
+<li><strong>Bras de lavage rotatifs doubles</strong> — couverture 360°</li>
+<li><strong>Buses anti-obstruction</strong></li>
+<li><strong>Contrôle de température intelligent</strong> — stérilisation auto &gt;82°C, LED</li>
+<li><strong>Consommation d'eau ultra-basse</strong> — 2,0–2,5 L/cycle</li>
+<li><strong>Système de récupération de chaleur</strong></li>
+<li><strong>Porte étanche isolée</strong> — réduit vapeur 70%</li>
+<li><strong>Opération ergonomique</strong></li>
+<li><strong>Démarrage par fermeture de hotte</strong></li>
+<li><strong>Multiples protections sécurité</strong></li>
+<li><strong>Extensibilité fonctionnelle</strong> — interfaces pré-installées</li>
+</ol>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

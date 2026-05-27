@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import InlineInquiryForm from '../../../components/InlineInquiryForm.astro';
+import ComparisonTable from '../../../components/ComparisonTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'es' as const;
+
+const compatRows = [
+  { label: 'V-TAI JD-3', jd3: '650 × 550 mm', competitor: '✓ Sí', highlight: true },
+  { label: 'Hobart AMX', jd3: '500 × 500 mm', competitor: '✗ No' },
+  { label: 'Jackson TempStar', jd3: '500 × 500 mm', competitor: '✗ No' },
+  { label: 'CMA L-1X16-BW', jd3: '500 × 500 mm', competitor: '✗ No' },
+  { label: 'Winterhalter UC-M', jd3: '500 × 500 mm', competitor: '✗ No' },
+];
+---
+<BaseLayout
+  title="Lavadora para Bandejas de Panadería de 600×400 mm | JD-3"
+  description="La única lavavajillas con campana en esta clase de precio que acepta bandejas europeas de panadería de 600×400 mm. Hobart, Jackson, CMA usan racks de 500×500 y no caben."
+  locale={locale}
+  canonicalPath="/what-it-washes/baking-trays-600x400/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Inicio', href: '/es/'}, {label: 'Qué Lava'}, {label: 'Bandejas 600×400 mm'}]} />
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-3 gap-10">
+    <article class="lg:col-span-2">
+      <p class="eyebrow mb-3">⭐ Caso de uso estrella</p>
+      <h1 class="mb-4">Lavadora para Bandejas de Panadería de 600×400 mm — El Estándar Europeo, Accesible</h1>
+      <p class="text-lg text-bakery-navy/80 mb-6">
+        La JD-3 es la única lavavajillas con campana en su clase de precio que acepta el estándar europeo de bandejas de panadería de 600×400 mm. Hobart, Jackson, CMA, Winterhalter — todos usan racks de 500×500 mm. No caben.
+      </p>
+
+      <ImagePlaceholder alt="Bandeja de 600×400 mm cabiendo en el rack JD-3 vs sin caber en rack de 500×500" ratio="16/9" label="Comparación 600×400" />
+
+      <h2 class="mt-10 mb-3">¿Qué es el Estándar Europeo de Panadería 600×400?</h2>
+      <p>El tamaño de 600×400 mm — conocido formalmente como "Norma Europea de Panadería" — emergió en Europa en los años 60 como dimensión estandarizada para líneas de producción de panaderías. Hoy es el tamaño dominante usado por panaderías profesionales en Europa, Asia, Australia y crecientemente Norteamérica.</p>
+      <p class="mt-3">Es el tamaño que usan los hornos combi profesionales: Rational, Convotherm, Unox, Tecnoeka, Salva. Si su panadería usa cualquiera de estos hornos, necesita una lavavajillas que acepte este tamaño.</p>
+
+      <h2 class="mt-10 mb-3">Por Qué la Mayoría de las Lavavajillas Comerciales No las Aceptan</h2>
+      <p>Casi todas las lavavajillas con campana usan racks de 500×500 mm — un estándar diseñado para platos de cafetería en los años 70. Una bandeja de 600×400 mm simplemente no cabe.</p>
+      <ul class="list-disc list-inside space-y-1 my-3">
+        <li>Hobart AMX: 500 × 500 mm</li>
+        <li>Jackson TempStar HH-E: 500 × 500 mm</li>
+        <li>CMA L-1X16-BW: 500 × 500 mm</li>
+        <li>Winterhalter UC-M / UC-L: 500 × 500 mm</li>
+      </ul>
+
+      <h2 class="mt-10 mb-3">Cómo lo Resuelve la JD-3</h2>
+      <p>La JD-3 fue diseñada con un rack de <strong>650 × 550 mm</strong> — intencionalmente dimensionado para aceptar la bandeja de 600 × 400 con holgura. Es la decisión de diseño más importante de la máquina.</p>
+
+      <h2 class="mt-10 mb-3">Tabla de Compatibilidad</h2>
+      <ComparisonTable competitorName="¿Cabe 600×400?" rows={compatRows} />
+    </article>
+
+    <aside class="lg:sticky lg:top-24 self-start">
+      <InlineInquiryForm locale={locale} title="Cotizar para 600×400" />
+    </aside>
+  </div>
+</section>
+
+<CTASection locale={locale} title="¿Necesita lavar bandejas de panadería de 600×400 mm?" subtitle="Solo hay una máquina en esta clase de precio que las acepta. Cotización en 12 horas." />
+</BaseLayout>

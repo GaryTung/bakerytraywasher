@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import CTASection from '../../components/CTASection.astro';
+const locale = 'en' as const;
+---
+<BaseLayout
+  title="Case Study: Seoul Café Chain Standardizes on JD-3 (12 Locations)"
+  description="A 12-location Seoul-based café chain replaced inconsistent dishwashing across stores with a standardized JD-3 deployment. Result: $120,000/year saved, brand consistency restored."
+  locale={locale}
+  canonicalPath="/case-studies/seoul-cafe-chain/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Case Studies', href: '/case-studies/'}, {label: 'Seoul Café Chain'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-3">Seoul Café Chain — 12 Locations Standardized on JD-3</h1>
+    <p class="text-sm text-bakery-navy/60 mb-6">Coffee chain · Seoul, South Korea · 12 locations · Deployed 2024</p>
+    <ImagePlaceholder alt="Seoul café interior — modern coffee shop with pastry display" ratio="16/9" label="Seoul café chain interior" />
+
+    <h2 class="mt-10 mb-3">Background</h2>
+    <p>A Seoul-based specialty coffee chain operating 12 cafés across Gangnam, Hongdae, and surrounding districts. Each location offers freshly baked viennoiserie (croissants, kouign-amann, pastries) baked in-house on Convotherm combi ovens using 600×400 mm trays. Average baking output per shop: 80–120 trays per day.</p>
+
+    <h2 class="mt-8 mb-3">The Challenge</h2>
+    <p>The chain had grown from 4 to 12 locations over 3 years. Dishwashing practices had diverged dramatically across stores. Some shops used hand-washing exclusively; others had bought random consumer dishwashers; one had a used Hobart that didn't fit the 600×400 trays. Brand consistency was breaking down — Gangnam customers commented about cleaner pastry displays than Hongdae customers. Health inspections produced inconsistent results across stores.</p>
+    <p class="mt-3">The chain's operations director estimated dishwashing labor was costing the chain ~$15,000/month across all stores, with no consistency benchmark.</p>
+
+    <h2 class="mt-8 mb-3">Why They Chose JD-3</h2>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li><strong>600×400 compatibility.</strong> The chain had standardized on Convotherm ovens 2 years earlier. Any dishwasher choice had to fit the tray standard.</li>
+      <li><strong>Per-unit pricing.</strong> At $2,800 × 12 units = $33,600, the chain investment was achievable in a single capex cycle. Hobart equivalent would have been $84,000+.</li>
+      <li><strong>Standardization across stores.</strong> One SKU, one training video, one parts catalog. Operations director could enforce SOP.</li>
+      <li><strong>Lead time alignment.</strong> They needed all 12 units to deploy in a 6-week window. We delivered within the window.</li>
+    </ul>
+
+    <h2 class="mt-8 mb-3">Implementation</h2>
+    <p>The chain ordered 12 JD-3 units in March 2024 with auto-detergent dispenser package. We staged shipping to deliver 4 units per week over 3 weeks, allowing the operations director to roll out installation gradually. Each store deployment took one weekend: install Saturday, train Sunday, live Monday.</p>
+    <p class="mt-3">Cross-store training was delivered via Zoom in Korean by the chain's head baker, with our team on standby for technical questions.</p>
+
+    <h2 class="mt-8 mb-3">Results (6 months post-deployment)</h2>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li><strong>$10,000/month labor savings per store</strong> = $120,000/year annualized chain-wide</li>
+      <li><strong>Brand consistency restored:</strong> all 12 stores now produce visibly clean trays and pastry displays</li>
+      <li><strong>Health inspection pass rate:</strong> 100% across all 12 stores in the first audit cycle post-deployment</li>
+      <li><strong>Water consumption:</strong> 38% reduction chain-wide (measured)</li>
+      <li><strong>Staff retention:</strong> dishwashing-position turnover dropped by 60%, freeing the ops director from constant rehiring</li>
+    </ul>
+
+    <p class="mt-3"><strong>Total payback period:</strong> 4.5 months chain-wide.</p>
+
+    <h2 class="mt-8 mb-3">In the Operations Director's Words</h2>
+    <TestimonialCard
+      quote="Before the JD-3, every store was its own dishwashing experiment. Now they're all the same. Our brand finally looks consistent in the back-of-house, not just in front."
+      author="Operations Director"
+      role="12-location coffee chain, Seoul"
+    />
+
+    <h2 class="mt-8 mb-3">Continuing Story</h2>
+    <p>The chain has since opened 3 more locations, all with JD-3 units pre-ordered before lease signing. They've moved JD-3 onto their standard new-store-opening checklist.</p>
+  </div>
+</section>
+
+<CTASection locale={locale} title="Multi-location chain? Let's talk." subtitle="We offer volume discounts and standardized deployment support for chains of 5+ locations." />
+</BaseLayout>

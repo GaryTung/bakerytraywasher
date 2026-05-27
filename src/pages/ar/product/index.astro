@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import PriceCalloutBox from '../../../components/PriceCalloutBox.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'ar' as const;
+---
+<BaseLayout title="V-TAI JD-3 — غسالة صواني المخابز" description="غسالة V-TAI JD-3 بغطاء قبة: 60 رف/ساعة، صواني 600×400، SUS304، معتمدة CE." locale={locale} canonicalPath="/product/" schemaType="Product">
+<BreadcrumbNav items={[{label:'الرئيسية',href:'/ar/'},{label:'المنتج'}]} />
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10">
+    <ImagePlaceholder alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
+    <div>
+      <p class="eyebrow mb-2">طراز VT-AE-JD-3</p>
+      <h1 class="mb-4">V-TAI JD-3 — غسالة صواني المخابز</h1>
+      <p class="text-lg mb-5">الغسالة الوحيدة بغطاء قبة في فئة السعر هذه المصممة للمعيار الأوروبي <strong>600×400 مم</strong>.</p>
+      <PriceCalloutBox locale={locale} />
+    </div>
+  </div>
+</section>
+<section class="section"><div class="container-prose">
+<h2 class="mb-3">الميزات الرئيسية</h2>
+<ul class="space-y-2 list-disc list-inside">
+<li>هيكل SUS304 — فولاذ مقاوم للصدأ غذائي</li>
+<li>غرفة كبيرة جداً (650×550 مم)</li>
+<li>أذرع غسيل دوارة مزدوجة 360°</li>
+<li>تحكم ذكي بدرجة الحرارة >82°C</li>
+<li>استهلاك مياه منخفض 2.0-2.5 لتر/دورة</li>
+<li>نظام استرداد الحرارة الاختياري</li>
+<li>باب محكم معزول — تقليل البخار 70%</li>
+<li>بدء تلقائي عند الإغلاق</li>
+<li>معتمد CE Safety</li>
+</ul>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

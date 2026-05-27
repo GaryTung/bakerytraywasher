@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+const locale = 'en' as const;
+
+const rows = [
+  { label: 'Throughput', jd3: '60 racks/hr', competitor: '60 racks/hr' },
+  { label: 'Rack size', jd3: '650 × 550 mm', competitor: '500 × 500 mm' },
+  { label: 'Fits 600×400 bakery trays', jd3: '✓ Yes', competitor: '✗ No', highlight: true },
+  { label: 'Water per cycle', jd3: '2.5 L', competitor: '3.0 L' },
+  { label: 'Total power', jd3: '13 kW', competitor: '14 kW' },
+  { label: 'Chamber size', jd3: 'Extra-large', competitor: 'Standard' },
+  { label: 'Certifications', jd3: 'CE, ISO 9001', competitor: 'NSF, UL, Energy Star' },
+  { label: 'Price', jd3: '$2,800–$3,500 FOB', competitor: '$5,500–$7,500 retail' },
+];
+---
+<BaseLayout
+  title="JD-3 vs Jackson TempStar — Hood Dishwasher Comparison"
+  description="V-TAI JD-3 vs Jackson TempStar HH-E. 35% lower cost, larger chamber, 600×400 tray compatibility."
+  locale={locale}
+  canonicalPath="/vs/jackson-tempstar/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Compare', href: '/vs/'}, {label: 'vs Jackson TempStar'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-4">JD-3 vs Jackson TempStar HH-E</h1>
+    <p class="text-lg text-bakery-navy/80 mb-6">Jackson is the dependable mid-tier US workhorse. JD-3 wins on rack size and price; Jackson wins on US service density.</p>
+  </div>
+  <div class="container-page"><ComparisonTable competitorName="Jackson TempStar HH-E" rows={rows} /></div>
+
+  <div class="container-prose mt-12">
+    <h2 class="mb-3">When to choose Jackson TempStar</h2>
+    <p>Small US restaurant with no bakery operation, 500×500 mm dish rack standard, Energy Star utility rebate availability, established dealer relationship.</p>
+
+    <h2 class="mt-8 mb-3">When to choose JD-3</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li>Bakery operation with 600×400 mm trays</li>
+      <li>Need to wash oversized bakeware (stockpots, large mixing bowls)</li>
+      <li>International deployment</li>
+      <li>Budget tight</li>
+    </ul>
+
+    <h2 class="mt-8 mb-3">Both share</h2>
+    <p>60 racks/hour throughput, door-activated start, &gt;82°C sanitization, SUS304 construction. The choice is fit, not quality.</p>
+  </div>
+</section>
+
+<FAQSection items={[
+  { q: 'Will my Jackson racks fit in a JD-3?', a: 'No — different rack dimensions. The JD-3 ships with its own compatible racks.' },
+  { q: 'Energy Star utility rebates for JD-3?', a: 'Currently no. CE certification is widely accepted but not Energy Star listed in the US.' },
+  { q: 'US distribution?', a: 'Direct import via DHL/FedEx or sea freight. No US distributor markup.' },
+]} />
+
+<CTASection locale={locale} />
+</BaseLayout>

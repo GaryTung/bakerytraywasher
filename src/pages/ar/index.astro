@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+const locale = 'ar' as const;
+
+const types = [
+  { name: 'مخبز', href: '/ar/by-business-type/bakery-shop/', icon: '🥐' },
+  { name: 'سلسلة قهوة', href: '/ar/by-business-type/coffee-chain/', icon: '☕' },
+  { name: 'باتيسري', href: '/ar/by-business-type/patisserie/', icon: '🧁' },
+  { name: 'فندق', href: '/ar/by-business-type/hotel-pastry-kitchen/', icon: '🏨' },
+];
+
+const faqs = [
+  { q: 'هل تستوعب JD-3 صواني المخابز 600×400 مم فعلاً؟', a: 'نعم — رف 650×550 مم هو الوحيد في فئة السعر هذه يستوعب المعيار الأوروبي. Hobart وJackson وCMA يستخدمون أرفف 500×500 ولا يستوعبون.' },
+  { q: 'ما هو الجدول الزمني للتسليم؟', a: '4-6 أسابيع إنتاج في شنتشن، بالإضافة إلى شحن بحري 20-35 يوماً.' },
+  { q: 'ما الشهادات؟', a: 'CE للسوق الأوروبي، ISO 9001، تعقيم نهائي بأكثر من 82°C.' },
+];
+---
+<BaseLayout
+  title="غسالة صواني المخابز | V-TAI JD-3 تجارية"
+  description="غسالة صواني المخابز التي تسدد نفسها في 8 أشهر. تغسل صواني 600×400 مم — الحجم الذي لا تستوعبه معظم الغسالات الأمريكية. معتمدة CE."
+  locale={locale}
+  canonicalPath="/"
+>
+<section class="bg-gradient-to-br from-bakery-cream via-white to-bakery-cream/50 section">
+  <div class="container-page grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="eyebrow mb-3">V-TAI JD-3 · غسالة بغطاء قبة</p>
+      <h1 class="mb-5">غسالة صواني المخابز التي تسدد ثمنها خلال <span class="text-bakery-orange">8 أشهر</span></h1>
+      <p class="text-lg text-bakery-navy/80 mb-6 leading-relaxed">
+        تغسل صواني المخابز 600×400 مم — المعيار الأوروبي الذي لا تستوعبه معظم الغسالات الأمريكية.
+        معتمدة CE، فولاذ مقاوم للصدأ SUS304. <strong>تبدأ من 2,800$ FOB.</strong>
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/ar/get-quote/" class="btn-primary">احصل على عرض سعر</a>
+        <a href="/ar/product/" class="btn-secondary">المواصفات</a>
+      </div>
+    </div>
+    <ImagePlaceholder alt="V-TAI JD-3 غسالة صواني" ratio="4/3" label="JD-3 صورة" />
+  </div>
+</section>
+<TrustBadgeStrip locale={locale} />
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="text-center mb-10">ما هو نشاطك التجاري؟</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {types.map((bt) => (
+        <a href={bt.href} class="card text-center hover:scale-[1.02] transition">
+          <div class="text-4xl mb-2">{bt.icon}</div>
+          <p class="font-semibold">{bt.name}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <h2 class="mb-4">تسعير صادق وشفاف</h2>
+      <p class="text-bakery-navy/80 mb-4">تبدأ JD-3 من <strong>2,800$ FOB شنتشن</strong> — أقل من نصف سعر Hobart AMX بأداء وأمان معادل معتمد CE.</p>
+      <ul class="space-y-2 text-bakery-navy/80">
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> Hobart AMX: $7,000–$9,000</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> Winterhalter UC: $8,000–$11,000</li>
+        <li class="flex gap-2 font-bold text-bakery-orange"><span>✓</span> V-TAI JD-3: <strong>$2,800–$3,500 FOB</strong></li>
+      </ul>
+    </div>
+    <PriceCalloutBox locale={locale} />
+  </div>
+</section>
+<FAQSection items={faqs} title="أسئلة شائعة" />
+<CTASection locale={locale} title="جاهز لإنهاء الغسيل اليدوي؟" subtitle="عرض سعر مخصص خلال 12 ساعة." />
+</BaseLayout>

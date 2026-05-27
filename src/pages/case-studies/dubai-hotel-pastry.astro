@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import CTASection from '../../components/CTASection.astro';
+const locale = 'en' as const;
+---
+<BaseLayout
+  title="Case Study: Dubai Hotel Pastry Kitchen — Breakfast Buffet Operation"
+  description="A 4-star Dubai hotel pastry kitchen deployed the JD-3 to handle 80–120 trays/day of breakfast buffet output. Saved $28,000/year, with hard-water module."
+  locale={locale}
+  canonicalPath="/case-studies/dubai-hotel-pastry/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Case Studies', href: '/case-studies/'}, {label: 'Dubai Hotel Pastry'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-3">Dubai Hotel Pastry Kitchen — Hard Water and High Volume</h1>
+    <p class="text-sm text-bakery-navy/60 mb-6">4-star hotel · Dubai, UAE · 250 rooms · Deployed 2024</p>
+    <ImagePlaceholder alt="Hotel pastry kitchen with stainless steel work surfaces" ratio="16/9" label="Dubai hotel pastry kitchen" />
+
+    <h2 class="mt-10 mb-3">Background</h2>
+    <p>A 4-star business hotel in Dubai with full breakfast service for 250 rooms. Pastry section produces 80–120 trays of viennoiserie daily for the buffet, plus 30–50 sheet pans for à-la-carte breakfast items. Banquet operations add 50–80 trays of dessert items on a typical evening.</p>
+
+    <h2 class="mt-8 mb-3">The Challenge</h2>
+    <p>Previously operated with a 5-year-old Hobart AMX that the pastry chef described as "constantly fighting us." Two specific problems:</p>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li><strong>500×500 rack didn't fit their 600×400 trays.</strong> Pastry team hand-washed all baking trays separately — 2 hours of dedicated labor daily.</li>
+      <li><strong>Dubai's hard water (450 ppm) was scaling the Hobart's heating elements,</strong> requiring annual $800 descaling service.</li>
+    </ul>
+    <p class="mt-3">F&B director estimated that between hand-washing labor and Hobart service costs, the operation was losing $30,000+/year on dishwashing alone.</p>
+
+    <h2 class="mt-8 mb-3">Why They Chose JD-3</h2>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li>600×400 tray compatibility for the existing Convotherm ovens</li>
+      <li>Optional water treatment module specifically for hard-water markets</li>
+      <li>Lead time aligned with their planned breakfast operation upgrade</li>
+      <li>CE certification accepted by Dubai Municipality without additional certification cost</li>
+    </ul>
+
+    <h2 class="mt-8 mb-3">Configuration</h2>
+    <p>They ordered the "Water Treatment Module" tier at $3,300 plus optional heat-recovery upgrade ($200 add-on) for $3,500 total FOB. Single unit installed replacing the Hobart.</p>
+
+    <h2 class="mt-8 mb-3">Implementation</h2>
+    <p>Hotel was renovating the pastry section anyway — the JD-3 was incorporated into the renovation. Installed by hotel maintenance team with our remote support. Two-hour install, plus 30 minutes operator training for the pastry chef and two commis.</p>
+
+    <h2 class="mt-8 mb-3">Results (8 months post-deployment)</h2>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li><strong>$28,000/year labor savings</strong> (eliminated 2-hour daily hand-washing for trays)</li>
+      <li><strong>Water-treatment module performed as specified:</strong> no measurable scale buildup at 8-month inspection</li>
+      <li><strong>Heat-recovery module saved an estimated 18% on dish-pit electricity</strong> (kitchen had detailed sub-meter data)</li>
+      <li><strong>Pastry chef recovered 2 hours daily</strong> for menu development and quality control</li>
+    </ul>
+
+    <h2 class="mt-8 mb-3">In the F&B Director's Words</h2>
+    <TestimonialCard
+      quote="Honest pricing. Honest specs. Honest people. Lead time was exactly what they promised. We're now evaluating JD-3 for our sister property in Abu Dhabi."
+      author="F&B Director"
+      role="4-star hotel, Dubai"
+    />
+
+    <h2 class="mt-8 mb-3">Lesson Learned</h2>
+    <p>For hard-water markets (Middle East, Mediterranean, parts of US Southwest), the water treatment module pays back in &lt; 12 months. Without it, even premium dishwashers degrade rapidly in these conditions.</p>
+  </div>
+</section>
+
+<CTASection locale={locale} title="Hotel group? Multi-property quotes available." subtitle="We work with hotel chains on standardized specifications and group warranty terms." />
+</BaseLayout>

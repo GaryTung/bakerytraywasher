@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../../components/ComparisonTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'vi' as const;
+const rows = [{ label: 'Khay 600×400', jd3: '✓', competitor: '✗', highlight: true }];
+---
+<BaseLayout title="JD-3 vs CMA L-1X16-BW" description="So sánh" locale={locale} canonicalPath="/product/jd-3-vs-cma-l-1x16-bw/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Trang chủ',href:'/vi/'},{label:'vs CMA'}]} />
+<section class="section"><div class="container-prose"><h1>JD-3 vs CMA L-1X16-BW</h1><p class="text-lg mt-4 mb-6">CMA dùng rack 500×500 không chấp nhận 600×400. JD-3 thì có.</p></div>
+<div class="container-page"><ComparisonTable competitorName="CMA" rows={rows} /></div></section>
+<CTASection locale={locale} />
+</BaseLayout>

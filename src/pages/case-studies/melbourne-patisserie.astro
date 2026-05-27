@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import CTASection from '../../components/CTASection.astro';
+const locale = 'en' as const;
+---
+<BaseLayout
+  title="Case Study: Melbourne Patisserie — 600×400 Tray Compatibility Was Decisive"
+  description="A high-end Melbourne patisserie needed a dishwasher that could fit their 600×400 Convotherm tart trays. The JD-3 was the only option in their price range."
+  locale={locale}
+  canonicalPath="/case-studies/melbourne-patisserie/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Case Studies', href: '/case-studies/'}, {label: 'Melbourne Patisserie'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-3">Melbourne Patisserie — Choosing the Only Machine That Fit Their Trays</h1>
+    <p class="text-sm text-bakery-navy/60 mb-6">High-end patisserie · Melbourne, Australia · 1 location · Deployed 2024</p>
+    <ImagePlaceholder alt="Melbourne patisserie — tart shells on Convotherm baking trays" ratio="16/9" label="Melbourne patisserie scene" />
+
+    <h2 class="mt-10 mb-3">Background</h2>
+    <p>A 7-year-old patisserie in Melbourne's inner-north suburbs, specializing in French-style tarts, entremets, and viennoiserie. Owner-operator is a French-trained pastry chef who supplies 4 restaurants and operates an 8-table retail space. Baking output: 200–250 tart shells daily plus assorted viennoiserie. Uses Convotherm Mini combi oven exclusively, with 600×400 mm trays.</p>
+
+    <h2 class="mt-8 mb-3">The Problem</h2>
+    <p>The owner had been hand-washing all baking trays for 7 years — about 90 minutes of his own time daily, ending at midnight after retail close. He'd looked at commercial dishwashers three separate times. Every time he was told the same thing: "We don't have a machine that fits your trays at a price you'd accept."</p>
+    <p class="mt-3">Hobart quoted $11,000 for a bakery-spec model. Winterhalter quoted $13,500. Both were out of reach for a single-location patisserie.</p>
+
+    <h2 class="mt-8 mb-3">Why They Chose JD-3</h2>
+    <p>The owner found us through a Google search for "600×400 tray washer" in late 2023. Initial reaction: skeptical of Chinese manufacturer claims. We sent the spec sheet, CE certificate, and a video tour of the factory. Two weeks of due diligence later, he ordered.</p>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li><strong>Decisive factor: 600×400 fit.</strong> The only machine in his price range that physically accepted the trays.</li>
+      <li><strong>Low-temp cycle mode.</strong> Important for his silicone tart molds.</li>
+      <li><strong>Single-unit support.</strong> He was nervous about ordering from China; our 12-hour response time made him comfortable.</li>
+    </ul>
+
+    <h2 class="mt-8 mb-3">Implementation</h2>
+    <p>Ordered November 2023. Shipped air freight (paid premium for speed) to Melbourne in 5 days. Installed by his existing kitchen electrician in 3 hours. Operational by week 3 of December — just in time for the Christmas rush.</p>
+
+    <h2 class="mt-8 mb-3">Results (12 months post-deployment)</h2>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li>$5,200/year labor saved (his own time at $40/hour equivalent)</li>
+      <li>Closing time moved from 11:30 PM to 10:15 PM consistently</li>
+      <li>Improved tray cleanliness — visible difference in tart shell release from clean vs hand-washed trays</li>
+      <li>One unexpected outcome: he started accepting more wholesale orders, knowing his cleanup capacity had increased</li>
+    </ul>
+
+    <h2 class="mt-8 mb-3">In the Owner's Words</h2>
+    <TestimonialCard
+      quote="It's the only commercial dishwasher I found that fits our Convotherm 600×400 trays. Game-changer for our prep workflow. I'm sleeping better."
+      author="Patisserie owner"
+      role="Melbourne, Australia"
+    />
+
+    <h2 class="mt-8 mb-3">Lesson Learned</h2>
+    <p>The single-shop case is often "buy the machine that fits your trays — everything else is secondary." Many patisserie owners spend years working around dishwasher limitations they didn't realize were solvable.</p>
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

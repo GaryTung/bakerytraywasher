@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
+import CTASection from '../../components/CTASection.astro';
+const locale = 'ru' as const;
+---
+<BaseLayout title="О компании V-TAI" description="Shenzhen Vtai Electrical Appliance Co., Ltd. — производитель коммерческих посудомоечных машин." locale={locale} canonicalPath="/about/">
+<BreadcrumbNav items={[{label:'Главная',href:'/ru/'},{label:'О нас'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">Люди за JD-3</h1>
+<p class="text-lg mb-4">Shenzhen Vtai Electrical Appliance Co., Ltd. — известная во всём мире как V-TAI — производит коммерческие посудомоечные машины уже более 10 лет.</p>
+<h2 class="mt-10 mb-3">Производственные факты</h2>
+<ul class="space-y-2 list-disc list-inside">
+<li>Площадка: 8 000 м² умного производства</li>
+<li>Годовая мощность: 12 000 единиц</li>
+<li>Уровень брака: &lt;3%</li>
+<li>Цепь поставок: 92% вертикально контролируется</li>
+<li>Сертификации: ISO 9001, GMP, CE</li>
+</ul>
+</div></section>
+<TrustBadgeStrip locale={locale} />
+<CTASection locale={locale} />
+</BaseLayout>

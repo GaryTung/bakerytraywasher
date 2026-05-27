@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const locale = 'en' as const;
+
+const comparisons = [
+  { slug: 'hobart-amx', name: 'vs Hobart AMX', desc: 'US category leader. 60% lower cost, fits 600×400 bakery trays.' },
+  { slug: 'jackson-tempstar', name: 'vs Jackson TempStar', desc: 'US mid-tier. 35% lower cost, larger chamber.' },
+  { slug: 'cma-l-1x16-bw', name: 'vs CMA L-1X16-BW', desc: 'US/Italian bakery model. 600×400 compatibility, built-in heat recovery.' },
+  { slug: 'winterhalter', name: 'vs Winterhalter UC-M/UC-L', desc: 'German premium. 40% lower cost at equivalent CE certifications.' },
+  { slug: 'manual-washing-comparison', name: 'vs Manual Washing', desc: 'The single highest-ROI comparison. 8-month payback math.' },
+  { slug: 'undercounter-vs-hood-type', name: 'Undercounter vs Hood-Type', desc: 'Which architecture is right for your kitchen?' },
+  { slug: 'used-bakery-equipment', name: 'vs Used Bakery Equipment', desc: 'Should you buy a used Hobart instead?' },
+];
+---
+<BaseLayout
+  title="Compare JD-3 — Hood Dishwasher Comparisons | bakerytraywasher.com"
+  description="Honest, side-by-side comparisons: JD-3 vs Hobart AMX, Jackson TempStar, CMA, Winterhalter, manual washing, undercounters, and used equipment."
+  locale={locale}
+  canonicalPath="/vs/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Compare'}]} />
+
+<section class="section">
+  <div class="container-page">
+    <h1 class="mb-4 text-center">Compare the JD-3</h1>
+    <p class="text-bakery-navy/70 text-lg max-w-2xl mx-auto text-center mb-10">
+      We respect the established brands. Here are honest side-by-side comparisons so you can make a confident decision.
+    </p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {comparisons.map((c) => (
+        <a href={`/vs/${c.slug}/`} class="card hover:scale-[1.02] transition">
+          <h3 class="text-lg mb-2">{c.name}</h3>
+          <p class="text-sm text-bakery-navy/70">{c.desc}</p>
+          <p class="text-bakery-orange text-sm font-semibold mt-3">See comparison →</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

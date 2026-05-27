@@ -1,0 +1,32 @@
+---
+import { t, type Locale } from '../i18n/utils';
+interface Props { locale: Locale; businessTypePreset?: string; title?: string }
+const { locale, businessTypePreset, title = 'Request a Quote' } = Astro.props;
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY_HERE';
+---
+<div class="card bg-bakery-cream">
+  <h3 class="text-2xl font-bold mb-2">{title}</h3>
+  <p class="text-bakery-navy/70 mb-4 text-sm">We reply within 12 business hours via WhatsApp or email.</p>
+  <form action="https://api.web3forms.com/submit" method="POST" class="quote-form space-y-3">
+    <input type="hidden" name="access_key" value={accessKey} />
+    <input type="hidden" name="subject" value="[JD-3 Inline Inquiry] from bakerytraywasher.com" />
+    <input type="hidden" name="from_name" value="bakerytraywasher.com" />
+    <input type="hidden" name="source_page" class="source-page" value="" />
+    {businessTypePreset && <input type="hidden" name="business_type" value={businessTypePreset} />}
+    <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" />
+
+    <input type="text" name="full_name" required placeholder={t(locale, 'form.name') + ' *'}
+      class="block w-full rounded-card border border-bakery-navy/15 px-4 py-3 outline-none focus:border-bakery-orange" />
+    <input type="email" name="email" required placeholder={t(locale, 'form.email') + ' *'}
+      class="block w-full rounded-card border border-bakery-navy/15 px-4 py-3 outline-none focus:border-bakery-orange" />
+    <input type="tel" name="whatsapp" required placeholder={t(locale, 'form.whatsapp') + ' *'}
+      class="block w-full rounded-card border border-bakery-navy/15 px-4 py-3 outline-none focus:border-bakery-orange" />
+    <input type="text" name="country" required placeholder={t(locale, 'form.country') + ' *'}
+      class="block w-full rounded-card border border-bakery-navy/15 px-4 py-3 outline-none focus:border-bakery-orange" />
+    <textarea name="message" rows="3" placeholder={t(locale, 'form.message')}
+      class="block w-full rounded-card border border-bakery-navy/15 px-4 py-3 outline-none focus:border-bakery-orange"></textarea>
+
+    <button type="submit" class="btn-primary w-full">{t(locale, 'form.submit')}</button>
+    <div class="form-result text-sm hidden p-3 rounded-card"></div>
+  </form>
+</div>

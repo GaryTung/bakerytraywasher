@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const locale = 'en' as const;
+const posts = [
+  { slug: 'why-your-bakery-needs-a-tray-washer', title: 'Why Your Bakery Needs a Tray Washer (Even If You\'ve Survived Without One)', desc: 'The argument for buying a commercial dishwasher even when hand-washing has "worked fine" so far.' },
+  { slug: '600x400-tray-size-history-and-standard', title: 'The 600×400 Tray Size — A Brief History of the Bakery Norm', desc: 'How a German industrial standard became the global default for professional bakeries.' },
+  { slug: 'dishwasher-roi-for-small-bakery', title: 'Dishwasher ROI for a Small Bakery — Concrete Numbers' , desc: 'The actual math: capex, opex, labor savings, payback. With a downloadable spreadsheet.' },
+];
+---
+<BaseLayout
+  title="Blog — Bakery Tray Washer Insights | bakerytraywasher.com"
+  description="Articles on bakery operations, commercial dishwashing economics, the 600×400 tray standard, and ROI math for small bakery owners."
+  locale={locale}
+  canonicalPath="/blog/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Blog'}]} />
+
+<section class="section">
+  <div class="container-page">
+    <h1 class="mb-4 text-center">Bakery Tray Washer Blog</h1>
+    <p class="text-bakery-navy/70 text-lg max-w-2xl mx-auto text-center mb-10">
+      Practical writing for bakery owners and small commercial kitchen operators.
+    </p>
+    <div class="grid md:grid-cols-3 gap-6">
+      {posts.map((p) => (
+        <a href={`/blog/${p.slug}/`} class="card hover:scale-[1.02] transition">
+          <h3 class="mb-3">{p.title}</h3>
+          <p class="text-bakery-navy/70 text-sm">{p.desc}</p>
+          <p class="text-bakery-orange text-sm mt-3 font-semibold">Read article →</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

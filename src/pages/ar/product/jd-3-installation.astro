@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'ar' as const;
+---
+<BaseLayout title="دليل تركيب JD-3" description="متطلبات المساحة والماء والكهرباء والصرف." locale={locale} canonicalPath="/product/jd-3-installation/" schemaType="HowTo">
+<BreadcrumbNav items={[{label:'الرئيسية',href:'/ar/'},{label:'التركيب'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">دليل تركيب JD-3</h1>
+<p class="text-lg mb-6">معظم المخابز الصغيرة تركب JD-3 خلال 2-4 ساعات بدون تجديدات.</p>
+<h2 class="mt-8 mb-3">قائمة المراجعة</h2>
+<ul class="space-y-2 list-disc list-inside">
+<li>المساحة: 850 × 850 مم</li>
+<li>الارتفاع: 2,200 مم</li>
+<li>الماء البارد: G 3/4"</li>
+<li>الصرف: G 1½"</li>
+<li>الكهرباء: 380 فولت/3N/50Hz، قاطع 21.5 أمبير</li>
+</ul>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

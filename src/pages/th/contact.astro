@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import InlineInquiryForm from '../../components/InlineInquiryForm.astro';
+const locale = 'th' as const;
+---
+<BaseLayout title="ติดต่อ V-TAI" description="ติดต่อเรา" locale={locale} canonicalPath="/contact/">
+<BreadcrumbNav items={[{label:'หน้าแรก',href:'/th/'},{label:'ติดต่อ'}]} />
+<section class="section"><div class="container-page grid lg:grid-cols-2 gap-10">
+<div>
+<h1 class="mb-4">ติดต่อเรา</h1>
+<div class="space-y-4">
+<div class="card"><h3 class="text-lg mb-2">WhatsApp</h3><a href="https://wa.me/8613509623269" class="text-bakery-orange underline">+86 135 0962 3269</a></div>
+<div class="card"><h3 class="text-lg mb-2">อีเมล</h3><a href="mailto:info@v-tai.com" class="text-bakery-orange underline">info@v-tai.com</a></div>
+</div>
+</div>
+<InlineInquiryForm locale={locale} title="ส่งข้อความ" />
+</div></section>
+</BaseLayout>

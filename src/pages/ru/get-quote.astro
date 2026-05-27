@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+const locale = 'ru' as const;
+---
+<BaseLayout title="Получить расчёт — JD-3 | bakerytraywasher.com" description="Запросите индивидуальный расчёт V-TAI JD-3. Ответим в течение 12 рабочих часов." locale={locale} canonicalPath="/get-quote/">
+<BreadcrumbNav items={[{label:'Главная',href:'/ru/'},{label:'Расчёт'}]} />
+<section class="section">
+  <div class="container-page max-w-3xl">
+    <h1 class="mb-3 text-center">Индивидуальный расчёт за 12 часов</h1>
+    <div class="card"><InquiryForm locale={locale} /></div>
+  </div>
+</section>
+</BaseLayout>

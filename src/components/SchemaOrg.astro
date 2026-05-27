@@ -1,0 +1,29 @@
+---
+interface Props {
+  type?: 'Organization' | 'Product' | 'Article' | 'FAQPage' | 'BreadcrumbList' | 'HowTo';
+  data?: Record<string, any>;
+}
+const { type = 'Organization', data = {} } = Astro.props;
+
+const orgData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Shenzhen Vtai Electrical Appliance Co., Ltd.',
+  alternateName: 'V-TAI',
+  url: 'https://bakerytraywasher.com',
+  logo: 'https://bakerytraywasher.com/images/logo.png',
+  email: 'info@v-tai.com',
+  telephone: '+86-135-0962-3269',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Room 2202, Global Logistics Services Centre',
+    addressLocality: 'Longgang, Shenzhen',
+    addressRegion: 'Guangdong',
+    addressCountry: 'CN',
+  },
+  sameAs: ['https://v-tai.com'],
+};
+
+const schema = type === 'Organization' ? orgData : { '@context': 'https://schema.org', '@type': type, ...data };
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

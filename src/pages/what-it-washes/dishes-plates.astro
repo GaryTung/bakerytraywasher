@@ -1,0 +1,40 @@
+---
+import WhatItWashesLayout from '../../layouts/WhatItWashesLayout.astro';
+const locale = 'en' as const;
+---
+<WhatItWashesLayout
+  locale={locale}
+  canonicalPath="/what-it-washes/dishes-plates/"
+  itemName="Dishes & Plates"
+  title="Dish & Plate Washer | Restaurant Dishware in a Bakery Tray Washer"
+  description="The JD-3 doubles as a high-throughput dish washer for restaurant plates, bowls, and ceramics up to 32 cm diameter. From $2,800 FOB."
+  challenge={`Standard restaurant dishware presents the opposite challenge from bakeware: not heavy residue, but high volume and breakage risk. A 100-cover dinner service generates 250–350 plates, bowls, and glasses to wash in a 90-minute cleanup window.
+
+The dishwasher must clear them fast, sanitize reliably, and not chip or crack bone china or porcelain dishware (which represents real capital — a Steelite plate can be $8–$15 per unit).`}
+  howItHandles={`The JD-3's 60 racks/hour throughput is more than sufficient for typical small restaurant dishware loads. The standard plate rack accessory accommodates 12–16 dinner plates per rack, edge-on, with the spray pattern reaching both sides simultaneously.
+
+The 82°C final rinse meets health-code sanitization across all jurisdictions. The cycle temperature ramp is gentle enough to avoid thermal shock on bone china (the leading cause of restaurant dishware cracking).
+
+For glassware: use the optional glassware rack with cup-holders. Final rinse temperature can be reduced from 82°C to 78°C in glassware-only cycles to minimize thermal stress on thin stemware.`}
+  recommendedSettings={`For standard dishware:
+
+- Cycle: 60-second standard works for most loads
+- Wash tank: 60–65°C
+- Final rinse: 82°C (78°C for glassware-only cycles)
+- Detergent: standard commercial dishwasher detergent
+- Rinse aid: yes — spot-free finish on glasses requires rinse aid
+- Pre-scrape: yes, but pre-rinsing is typically unnecessary
+- Loading: edge-on for plates (not stacked flat); cups inverted in cup-holder rack
+- Bone china: standard cycle is fine; avoid extended high-temp cycles
+
+For mixed loads (plates + bakeware in one cycle):
+
+- Run heavy-soil cycle to accommodate the bakeware
+- The dishware will still come out clean; the cycle accommodates the tougher residue`}
+  faqs={[
+    { q: 'Will my bone china plates chip?', a: 'No — the JD-3 plate rack supports edges firmly without contact. Chipping in commercial dishwashers comes from sloppy loading or rack-to-rack collisions, not the wash cycle itself.' },
+    { q: 'Glassware fog or etching?', a: 'Glassware etching is caused by silica buildup from soft water + alkaline detergent over many cycles. The JD-3 doesn\'t cause this faster than competing washers. If your water is very soft, consider a rinse-aid that includes scale inhibitor.' },
+    { q: 'Cutlery — knives, forks, spoons?', a: 'Load in the cutlery basket (included). Knives handles-up, forks/spoons handles-down. Wooden-handled knives should not go in any commercial dishwasher.' },
+    { q: 'Cup capacity?', a: 'With the glassware rack: 20–24 coffee cups per cycle.' },
+  ]}
+/>

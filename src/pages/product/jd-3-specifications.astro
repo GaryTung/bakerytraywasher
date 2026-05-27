@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ProductSpecsTable from '../../components/ProductSpecsTable.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const locale = 'en' as const;
+
+const specSections = [
+  {
+    title: 'Physical Dimensions',
+    rows: [
+      { k: 'Machine dimensions (closed hood)', v: '804 × 816 × 1,550 mm' },
+      { k: 'Height (hood open)', v: '2,115 mm' },
+      { k: 'Rack size', v: '650 × 550 mm' },
+      { k: 'Net weight', v: '145 kg' },
+      { k: 'Door type', v: 'Lift-up hood with handle' },
+      { k: 'Construction', v: 'Full SUS304 stainless steel' },
+    ],
+  },
+  {
+    title: 'Performance',
+    rows: [
+      { k: 'Throughput', v: '60 racks per hour' },
+      { k: 'Cycle time', v: '60–90 seconds' },
+      { k: 'Rinse water usage', v: '2.0–2.5 L per cycle' },
+      { k: 'Final rinse temperature', v: '>82°C (NSF sanitization)' },
+      { k: 'Wash mechanism', v: 'Dual rotating wash arms with anti-clogging nozzles' },
+      { k: 'Steam reduction', v: 'Up to 70% via sealed insulated door' },
+      { k: 'Cycle start', v: 'Door-activated (auto-start on hood close)' },
+    ],
+  },
+  {
+    title: 'Electrical & Utilities',
+    rows: [
+      { k: 'Wash tank heater', v: '3 kW' },
+      { k: 'Booster heater', v: '9 kW' },
+      { k: 'Wash pump power', v: '0.9 kW' },
+      { k: 'Total power', v: '13 kW' },
+      { k: 'Power supply', v: '380V / 3N / 50Hz (three-phase)' },
+      { k: 'Electrical current', v: '21.5 A' },
+      { k: 'Water inlet', v: 'G 3/4" connection, 2.5–6 kg/cm², 10–45°C' },
+      { k: 'Water drain', v: 'G 1½" connection' },
+      { k: 'Water consumption', v: '2.5 L per cycle' },
+    ],
+  },
+  {
+    title: 'Cleaning Compatibility',
+    rows: [
+      { k: 'European Bakery Norm trays', v: '600 × 400 mm ✓ (USP)' },
+      { k: 'American sheet pans (18"×26")', v: '✓ fits diagonally' },
+      { k: 'Gastronorm GN 2/1', v: '✓ 650×530 mm fits' },
+      { k: 'Mixing bowls', v: 'Up to KitchenAid 5-quart' },
+      { k: 'Cake pans, pizza pans', v: 'All standard commercial sizes' },
+      { k: 'Stockpots & large bakeware', v: '✓ extra-large chamber' },
+    ],
+  },
+  {
+    title: 'Installation Requirements',
+    rows: [
+      { k: 'Floor footprint', v: '~ 850 × 850 mm (with clearance)' },
+      { k: 'Vertical clearance (door open)', v: '2,200 mm minimum' },
+      { k: 'Water inlet pressure', v: '2.5–6 kg/cm²' },
+      { k: 'Drain', v: 'Floor or wall drain within 1.5 m' },
+      { k: 'Recommended ventilation', v: 'Optional hood vent above' },
+      { k: 'Average install time', v: '2–4 hours' },
+    ],
+  },
+  {
+    title: 'Certifications',
+    rows: [
+      { k: 'CE Safety', v: '✓ Certified' },
+      { k: 'ISO 9001', v: '✓ Production facility certified' },
+      { k: 'Final rinse temp standard', v: 'Meets NSF >82°C sanitization' },
+      { k: 'Compliance', v: 'GMP, FDA-compliant production materials' },
+    ],
+  },
+];
+---
+<BaseLayout
+  title="JD-3 Specifications | V-TAI Bakery Tray Washer Spec Sheet"
+  description="Full technical specifications for the V-TAI JD-3 bakery tray washer: dimensions, performance, electrical, utility, certifications. Download PDF spec sheet."
+  locale={locale}
+  canonicalPath="/product/jd-3-specifications/"
+  schemaType="Product"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Product', href: '/product/'}, {label: 'Specifications'}]} />
+
+<section class="section">
+  <div class="container-page">
+    <h1 class="mb-3">JD-3 Full Specifications</h1>
+    <p class="text-bakery-navy/70 mb-8 max-w-3xl">
+      Complete technical specifications for the V-TAI JD-3 Bakingware Hood-type Washer (model VT-AE-JD-3).
+      Need a printable version? <a href="/pdfs/jd-3-spec-sheet.pdf" class="underline">Download PDF spec sheet</a>.
+    </p>
+    <ProductSpecsTable sections={specSections} />
+  </div>
+</section>
+
+<CTASection locale={locale} title="Need a printable spec sheet?" subtitle="Request the PDF, an engineer drawing, or installation diagrams." />
+</BaseLayout>

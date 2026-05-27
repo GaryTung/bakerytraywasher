@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+const locale = 'en' as const;
+---
+<BaseLayout
+  title="Get a Quote — JD-3 Bakery Tray Washer | bakerytraywasher.com"
+  description="Request a custom quote for the V-TAI JD-3 bakery tray washer. We respond within 12 business hours with all-in pricing including shipping to your country."
+  locale={locale}
+  canonicalPath="/get-quote/"
+  schemaType="Organization"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Get a Quote'}]} />
+
+<section class="section">
+  <div class="container-page max-w-3xl">
+    <h1 class="mb-3 text-center">Get a Custom Quote in 12 Hours</h1>
+    <p class="text-bakery-navy/70 text-center mb-8">
+      Fill in the form below. We respond within 12 business hours with all-in pricing, lead time, and shipping options for your country.
+    </p>
+    <div class="card">
+      <InquiryForm locale={locale} />
+    </div>
+    <p class="text-xs text-bakery-navy/50 mt-4 text-center">
+      Your information is used only to provide your quote. We do not share data with third parties. No spam.
+    </p>
+  </div>
+</section>
+
+<section class="section bg-bakery-cream">
+  <div class="container-page text-center max-w-2xl mx-auto">
+    <h2 class="mb-4">Prefer WhatsApp?</h2>
+    <p class="text-bakery-navy/80 mb-6">Message us at +86 135 0962 3269. Tell us your country, business type, and what trays you need to wash. We'll get back to you with a quote.</p>
+    <a href="https://wa.me/8613509623269?text=Hi%2C+I%27m+interested+in+the+JD-3+bakery+tray+washer.+I%27m+in+%5Bcountry%5D+and+I+run+a+%5Bbusiness+type%5D." class="btn-primary">Open WhatsApp</a>
+  </div>
+</section>
+</BaseLayout>

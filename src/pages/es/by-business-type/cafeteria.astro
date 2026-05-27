@@ -1,0 +1,21 @@
+---
+import BusinessTypeLayout from '../../../layouts/BusinessTypeLayout.astro';
+const locale = 'es' as const;
+---
+<BusinessTypeLayout
+  locale={locale}
+  canonicalPath="/by-business-type/cafeteria/"
+  slug="cafeteria"
+  businessName="Cafetería / Comedor"
+  icon="🥪"
+  title="Lavadora para Comedores — Capacidad en Hora Pico"
+  description="60 racks/hora clarean su rush de almuerzo en 45 minutos. Para comedores corporativos, escolares e institucionales."
+  reality="Comedor con servicio concentrado en 45 minutos. Si su lavadora no aguanta, el equipo lleva backlog a la tarde."
+  needs="Throughput pico, ciclo estandarizado para inspecciones, compatibilidad con bandejas 600×400, durabilidad."
+  fit="JD-3 maneja 90 racks en cleanup post-almuerzo. SUS304 aguanta uso continuo intenso."
+  roi="Para comedor de 150 comidas: ahorro ~$18.000/año. Retorno: bajo 3 meses."
+  faqs={[
+    { q: '¿50+ ciclos diarios por años?', a: 'Sí, dentro del envolvente de diseño.' },
+    { q: '¿Contrato de servicio?', a: 'Sí, disponibles para compradores institucionales.' },
+  ]}
+/>

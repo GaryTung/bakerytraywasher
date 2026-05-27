@@ -1,0 +1,61 @@
+---
+import { t, localizePath, type Locale } from '../i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const lp = (p: string) => localizePath(p, locale);
+const year = new Date().getFullYear();
+---
+<footer class="bg-bakery-navy text-white mt-16">
+  <div class="container-page py-12 grid md:grid-cols-4 gap-8">
+    <div>
+      <div class="font-display text-xl font-bold mb-3">V-TAI <span class="text-bakery-orange">JD-3</span></div>
+      <p class="text-sm text-white/80 leading-relaxed">
+        The bakery tray washer made for small commercial kitchens.
+        From $2,800 FOB Shenzhen.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-3">{t(locale, 'footer.quickLinks')}</h3>
+      <ul class="space-y-2 text-sm text-white/80">
+        <li><a href={lp('/product/')} class="hover:text-white">{t(locale, 'nav.product')}</a></li>
+        <li><a href={lp('/pricing/')} class="hover:text-white">{t(locale, 'nav.pricing')}</a></li>
+        <li><a href={lp('/vs/')} class="hover:text-white">{t(locale, 'nav.compare')}</a></li>
+        <li><a href={lp('/case-studies/')} class="hover:text-white">{t(locale, 'nav.cases')}</a></li>
+        <li><a href={lp('/about/')} class="hover:text-white">{t(locale, 'nav.about')}</a></li>
+        <li><a href={lp('/faq/')} class="hover:text-white">FAQ</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-3">{t(locale, 'footer.contact')}</h3>
+      <ul class="space-y-2 text-sm text-white/80">
+        <li>Email: <a href="mailto:info@v-tai.com" class="hover:text-white">info@v-tai.com</a></li>
+        <li>WhatsApp: <a href="https://wa.me/8613509623269" class="hover:text-white">+86 135 0962 3269</a></li>
+        <li class="text-white/60 mt-3">{t(locale, 'footer.address')}</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-3">{t(locale, 'footer.languages')}</h3>
+      <ul class="grid grid-cols-2 gap-2 text-sm text-white/80">
+        <li><a href="/" class="hover:text-white">English</a></li>
+        <li><a href="/es/" class="hover:text-white">Español</a></li>
+        <li><a href="/fr/" class="hover:text-white">Français</a></li>
+        <li><a href="/de/" class="hover:text-white">Deutsch</a></li>
+        <li><a href="/ru/" class="hover:text-white">Русский</a></li>
+        <li><a href="/ar/" class="hover:text-white">العربية</a></li>
+        <li><a href="/th/" class="hover:text-white">ไทย</a></li>
+        <li><a href="/vi/" class="hover:text-white">Tiếng Việt</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="container-page py-4 flex flex-col md:flex-row items-center justify-between text-xs text-white/60">
+      <p>© {year} Shenzhen Vtai Electrical Appliance Co., Ltd. {t(locale, 'footer.rights')}</p>
+      <p class="mt-2 md:mt-0">bakerytraywasher.com | A V-TAI specialist site</p>
+    </div>
+  </div>
+</footer>

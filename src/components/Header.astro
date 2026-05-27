@@ -1,0 +1,58 @@
+---
+import { t, localizePath, type Locale } from '../i18n/utils';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  locale: Locale;
+  canonicalPath: string;
+}
+const { locale, canonicalPath } = Astro.props;
+const lp = (p: string) => localizePath(p, locale);
+---
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-bakery-navy/5">
+  <div class="container-page flex items-center justify-between h-16">
+    <a href={lp('/')} class="flex items-center gap-2 font-display font-bold text-bakery-navy text-lg">
+      <svg class="w-7 h-7 text-bakery-orange" viewBox="0 0 24 24" fill="currentColor"><path d="M5 5h14v3H5zM5 10h14v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1zm3 3v4h8v-4z"/></svg>
+      <span>V-TAI <span class="text-bakery-orange">JD-3</span></span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-bakery-navy">
+      <a href={lp('/product/')} class="px-3 py-2 hover:text-bakery-orange">{t(locale, 'nav.product')}</a>
+      <a href={lp('/by-business-type/bakery-shop/')} class="px-3 py-2 hover:text-bakery-orange">{t(locale, 'nav.business')}</a>
+      <a href={lp('/what-it-washes/baking-trays-600x400/')} class="px-3 py-2 hover:text-bakery-orange">{t(locale, 'nav.washes')}</a>
+      <a href={lp('/vs/')} class="px-3 py-2 hover:text-bakery-orange">{t(locale, 'nav.compare')}</a>
+      <a href={lp('/guides/bakery-tray-cleaning-best-practices/')} class="px-3 py-2 hover:text-bakery-orange">{t(locale, 'nav.guides')}</a>
+      <a href={lp('/pricing/')} class="px-3 py-2 hover:text-bakery-orange">{t(locale, 'nav.pricing')}</a>
+      <a href={lp('/about/')} class="px-3 py-2 hover:text-bakery-orange">{t(locale, 'nav.about')}</a>
+      <a href={lp('/contact/')} class="px-3 py-2 hover:text-bakery-orange">{t(locale, 'nav.contact')}</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <LanguageSwitcher canonicalPath={canonicalPath} currentLocale={locale} />
+      <a href={lp('/get-quote/')} class="btn-primary !px-4 !py-2 !text-sm">{t(locale, 'nav.quote')}</a>
+      <button id="mobile-menu-btn" class="lg:hidden p-2" aria-label="Toggle menu">
+        <svg class="w-6 h-6 text-bakery-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobile-menu" class="lg:hidden hidden border-t border-bakery-navy/5 bg-white">
+    <div class="container-page py-4 flex flex-col gap-1 text-sm font-medium">
+      <a href={lp('/product/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.product')}</a>
+      <a href={lp('/by-business-type/bakery-shop/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.business')}</a>
+      <a href={lp('/what-it-washes/baking-trays-600x400/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.washes')}</a>
+      <a href={lp('/vs/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.compare')}</a>
+      <a href={lp('/guides/bakery-tray-cleaning-best-practices/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.guides')}</a>
+      <a href={lp('/pricing/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.pricing')}</a>
+      <a href={lp('/case-studies/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.cases')}</a>
+      <a href={lp('/about/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.about')}</a>
+      <a href={lp('/contact/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.contact')}</a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>

@@ -1,0 +1,21 @@
+---
+import BusinessTypeLayout from '../../../layouts/BusinessTypeLayout.astro';
+const locale = 'es' as const;
+---
+<BusinessTypeLayout
+  locale={locale}
+  canonicalPath="/by-business-type/cake-shop/"
+  slug="cake-shop"
+  businessName="Pastelería de Tortas"
+  icon="🎂"
+  title="Lavadora para Pastelerías — Vence Crema y Residuo de Azúcar"
+  description="La JD-3 maneja el residuo más difícil: buttercream seco, cristalización de azúcar, residuo de fondant."
+  reality="Tortas de cumpleaños y bodas. Sábado por la noche enfrentamos montaña de tazones cubiertos de buttercream, moldes con cake pegado, residuo de ganache."
+  needs="Ciclo de alta temperatura, cámara amplia (tazones KitchenAid 20 cuartos), ciclo largo opcional, química alcalina segura."
+  fit="JD-3 con ciclo alto (rinse 82°C+) rompe cristalización en una pasada. Acepta tazones 20 cuartos verticalmente con accesorio. Configurable hasta 150 segundos para residuo difícil."
+  roi="Ahorro típico: ~$4.200/año en pastelería de tamaño medio. Retorno: 8–9 meses."
+  faqs={[
+    { q: '¿Buttercream realmente sale en 90 segundos?', a: 'Sí — raspe el residuo grueso primero con espátula plástica.' },
+    { q: '¿Moldes de aluminio?', a: 'Sí — el dosificador automático usa concentración segura para aluminio.' },
+  ]}
+/>

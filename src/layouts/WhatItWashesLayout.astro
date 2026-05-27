@@ -1,0 +1,65 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import InlineInquiryForm from '../components/InlineInquiryForm.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTASection from '../components/CTASection.astro';
+import { type Locale } from '../i18n/utils';
+
+interface QA { q: string; a: string }
+interface Props {
+  locale: Locale;
+  canonicalPath: string;
+  itemName: string;
+  title: string;
+  description: string;
+  challenge: string;
+  howItHandles: string;
+  recommendedSettings: string;
+  faqs: QA[];
+}
+const { locale, canonicalPath, itemName, title, description, challenge, howItHandles, recommendedSettings, faqs } = Astro.props;
+---
+<BaseLayout title={title} description={description} locale={locale} canonicalPath={canonicalPath} schemaType="Article">
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'What It Washes', href: '/what-it-washes/'}, {label: itemName}]} />
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-3 gap-10">
+    <article class="lg:col-span-2 prose-section">
+      <h1 class="mb-4">{title}</h1>
+      <p class="text-lg text-bakery-navy/80 mb-6">{description}</p>
+
+      <ImagePlaceholder alt={`${itemName} being washed in JD-3`} ratio="16/9" label={`${itemName} in JD-3 chamber`} />
+
+      <h2 class="mt-10 mb-3">The Cleaning Challenge</h2>
+      <p class="text-bakery-navy/80 leading-relaxed whitespace-pre-line">{challenge}</p>
+
+      <h2 class="mt-10 mb-3">How the JD-3 Handles It</h2>
+      <p class="text-bakery-navy/80 leading-relaxed whitespace-pre-line">{howItHandles}</p>
+
+      <h2 class="mt-10 mb-3">Recommended Settings</h2>
+      <p class="text-bakery-navy/80 leading-relaxed whitespace-pre-line">{recommendedSettings}</p>
+    </article>
+
+    <aside class="lg:sticky lg:top-24 self-start">
+      <InlineInquiryForm locale={locale} title="Get a Quote" />
+      <div class="mt-6 card">
+        <h3 class="text-base mb-3">More items the JD-3 washes</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/what-it-washes/baking-trays-600x400/" class="hover:underline">600×400 mm bakery trays</a></li>
+          <li><a href="/what-it-washes/sheet-pans/" class="hover:underline">American sheet pans</a></li>
+          <li><a href="/what-it-washes/mixing-bowls/" class="hover:underline">Mixing bowls</a></li>
+          <li><a href="/what-it-washes/cake-pans/" class="hover:underline">Cake pans</a></li>
+          <li><a href="/what-it-washes/pizza-pans/" class="hover:underline">Pizza pans</a></li>
+          <li><a href="/what-it-washes/stockpots/" class="hover:underline">Stockpots</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<FAQSection items={faqs} />
+
+<CTASection locale={locale} />
+</BaseLayout>

@@ -1,0 +1,67 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+const locale = 'en' as const;
+---
+<GuideLayout
+  locale={locale}
+  canonicalPath="/guides/sanitization-temperature-standards/"
+  guideTitle="Sanitization Temperature Standards"
+  title="Sanitization Temperature Standards — NSF, EN, HACCP Requirements"
+  description="The temperature requirements for commercial dishwasher sanitization: NSF (US), EN 631 (Europe), HACCP, and how the JD-3 meets them."
+>
+  <h1 class="mb-4">Sanitization Temperature Standards</h1>
+  <p class="text-lg text-bakery-navy/80 mb-8">Why "hot water dishwashing" is regulated, what temperatures matter, and how to verify your machine is actually achieving them.</p>
+
+  <h2 class="mb-3">The Universal Standard: &gt;82°C Final Rinse</h2>
+  <p>Across major jurisdictions globally, the standard for thermal sanitization in commercial dishwashers is the same: the final rinse must reach at least 82°C (180°F) and apply this temperature to the items for a minimum contact time (typically 8–10 seconds).</p>
+  <p class="mt-3">This temperature is high enough to kill the major foodborne pathogens (E. coli, Salmonella, Listeria, Staphylococcus) within the contact time. Lower temperatures may kill some organisms but won't reliably hit the 4-log (99.99%) reduction that standards require.</p>
+
+  <h2 class="mt-8 mb-3">Regulatory Bodies</h2>
+
+  <h3 class="mt-6 mb-2">United States — NSF/ANSI 3</h3>
+  <p>The NSF (National Sanitation Foundation) is the dominant US standard-setting body for commercial dishwashing. NSF/ANSI Standard 3 specifies that commercial dishwashers must achieve final rinse water temperature of at least 180°F (82.2°C) at the dish surface, maintained for at least 8 seconds.</p>
+  <p class="mt-3">Health inspectors check this with temperature-sensitive labels or thermometer probes. Failed inspections result in re-inspection fees and possible operational suspension.</p>
+
+  <h3 class="mt-6 mb-2">Europe — EN 631 / DIN 10510</h3>
+  <p>European standards align: final rinse at 82°C minimum. Some EU member states (Germany, Switzerland) specify 85°C as a stricter local standard.</p>
+
+  <h3 class="mt-6 mb-2">HACCP Plans</h3>
+  <p>Hazard Analysis and Critical Control Points (HACCP) plans for any food-handling operation must specify dishwashing as a sanitization critical control point. Your HACCP plan must document: target temperature, monitoring procedure, corrective actions for out-of-spec cycles, and verification records.</p>
+
+  <h3 class="mt-6 mb-2">GCC Region (Middle East)</h3>
+  <p>GCC food safety regulations broadly align with EU standards: 82°C minimum, CE-certified equipment widely accepted.</p>
+
+  <h3 class="mt-6 mb-2">Asia-Pacific</h3>
+  <p>Most APAC jurisdictions (Australia, New Zealand, Singapore, Japan, South Korea) follow the 82°C standard. Some local variations exist; verify your specific jurisdiction.</p>
+
+  <h2 class="mt-8 mb-3">How the JD-3 Meets This Standard</h2>
+  <ul class="list-disc list-inside space-y-2 mt-3">
+    <li><strong>Booster heater:</strong> 9 kW dedicated booster heats final rinse water to &gt;82°C automatically.</li>
+    <li><strong>Temperature sensor:</strong> Real-time monitoring with LED digital display.</li>
+    <li><strong>Cycle interlock:</strong> If rinse temperature falls below 82°C, the cycle pauses until temperature recovers (preventing under-sanitized output).</li>
+    <li><strong>Verifiable logging:</strong> Optional data-logging module records every cycle's peak temperature for HACCP audit trails.</li>
+  </ul>
+
+  <h2 class="mt-8 mb-3">Chemical Sanitization Alternative</h2>
+  <p>Some lower-temperature dishwashers use chlorine-based chemical sanitization at 50–60°C instead of thermal sanitization at 82°C. NSF accepts this as an alternative, but most bakery operators prefer thermal — chemical sanitization leaves residue that affects taste-sensitive products like cake and pastry.</p>
+  <p class="mt-3">The JD-3 uses thermal sanitization. No chlorine residue risk.</p>
+
+  <h2 class="mt-8 mb-3">Verifying Your Machine</h2>
+  <p>Even an NSF-listed machine can deliver under-temperature rinses if:</p>
+  <ul class="list-disc list-inside space-y-2 mt-3">
+    <li>Booster heater is partially failed or fouled with scale</li>
+    <li>Cold water inlet pressure is too low (water flows too fast, doesn't heat fully)</li>
+    <li>Temperature sensor is miscalibrated</li>
+    <li>Cycle was started before booster heater fully ramped</li>
+  </ul>
+  <p class="mt-3">Best practice: verify rinse temperature monthly with a thermometer probe or temperature-sensitive label. If consistently under 82°C, schedule service.</p>
+
+  <h2 class="mt-8 mb-3">Why This Matters for Your Operation</h2>
+  <p>Beyond regulatory compliance, proper sanitization affects:</p>
+  <ul class="list-disc list-inside space-y-2 mt-3">
+    <li>Food safety — pathogens that survive on bakery equipment can contaminate next-batch product</li>
+    <li>Product shelf life — properly sanitized equipment means longer shelf life for finished baked goods</li>
+    <li>Insurance — many commercial liability policies require documented sanitization compliance</li>
+    <li>Brand reputation — a single foodborne illness incident can close a bakery permanently</li>
+  </ul>
+</GuideLayout>

@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+const locale = 'th' as const;
+
+const types = [
+  { name: 'ร้านเบเกอรี่', href: '/th/by-business-type/bakery-shop/', icon: '🥐' },
+  { name: 'เครือคาเฟ่', href: '/th/by-business-type/coffee-chain/', icon: '☕' },
+  { name: 'ร้านขนมหวาน', href: '/th/by-business-type/patisserie/', icon: '🧁' },
+  { name: 'ร้านเค้ก', href: '/th/by-business-type/cake-shop/', icon: '🎂' },
+  { name: 'ร้านอาหาร', href: '/th/by-business-type/small-restaurant/', icon: '🍽️' },
+  { name: 'โรงแรม', href: '/th/by-business-type/hotel-pastry-kitchen/', icon: '🏨' },
+];
+
+const faqs = [
+  { q: 'JD-3 รองรับถาด 600×400 มม. ได้จริงหรือ?', a: 'ใช่ — แร็ค 650×550 มม. เป็นเครื่องล้างแบบกระโจมเดียวในระดับราคานี้ที่รองรับมาตรฐานยุโรป' },
+  { q: 'ระยะเวลาส่งมอบ?', a: '4-6 สัปดาห์การผลิต + การขนส่งทางทะเล 20-35 วัน' },
+];
+---
+<BaseLayout
+  title="เครื่องล้างถาดเบเกอรี่ | V-TAI JD-3 เชิงพาณิชย์"
+  description="เครื่องล้างถาดเบเกอรี่ที่คืนทุนภายใน 8 เดือน ล้างถาด 600×400 มม. — ขนาดที่เครื่องล้างจานอเมริกันส่วนใหญ่ไม่รองรับ มาตรฐาน CE เริ่มต้นที่ $2,800 FOB"
+  locale={locale}
+  canonicalPath="/"
+>
+<section class="bg-gradient-to-br from-bakery-cream via-white to-bakery-cream/50 section">
+  <div class="container-page grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="eyebrow mb-3">V-TAI JD-3 · เครื่องล้างแบบกระโจมสำหรับเบเกอรี่</p>
+      <h1 class="mb-5">เครื่องล้างถาดเบเกอรี่ที่คืนทุนใน <span class="text-bakery-orange">8 เดือน</span></h1>
+      <p class="text-lg mb-6">ล้างถาด 600×400 มม. — มาตรฐานยุโรปที่เครื่องล้างจานอเมริกันส่วนใหญ่ไม่รองรับ มาตรฐาน CE สแตนเลส SUS304 <strong>เริ่มต้นที่ $2,800 FOB เซินเจิ้น</strong></p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/th/get-quote/" class="btn-primary">ขอใบเสนอราคา</a>
+        <a href="/th/product/" class="btn-secondary">ดูสเปค</a>
+      </div>
+    </div>
+    <ImagePlaceholder alt="V-TAI JD-3 เครื่องล้างถาด" ratio="4/3" label="JD-3 รูปหลัก" />
+  </div>
+</section>
+<TrustBadgeStrip locale={locale} />
+<section class="section bg-bakery-cream"><div class="container-page">
+<h2 class="text-center mb-10">ธุรกิจของคุณคืออะไร?</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+{types.map((bt) => (<a href={bt.href} class="card text-center"><div class="text-4xl mb-2">{bt.icon}</div><p class="font-semibold">{bt.name}</p></a>))}
+</div></div></section>
+<section class="section"><div class="container-page grid lg:grid-cols-2 gap-10 items-center">
+<div>
+<h2 class="mb-4">ราคาตรงไปตรงมา โปร่งใส</h2>
+<p class="text-bakery-navy/80 mb-4">JD-3 เริ่มต้นที่ <strong>$2,800 FOB เซินเจิ้น</strong> — น้อยกว่าครึ่งของ Hobart AMX ที่ประสิทธิภาพและความปลอดภัยเทียบเท่า CE</p>
+</div>
+<PriceCalloutBox locale={locale} />
+</div></section>
+<FAQSection items={faqs} title="คำถามที่พบบ่อย" />
+<CTASection locale={locale} title="พร้อมเลิกล้างมือแล้วใช่ไหม?" subtitle="ใบเสนอราคาภายใน 12 ชั่วโมง" />
+</BaseLayout>

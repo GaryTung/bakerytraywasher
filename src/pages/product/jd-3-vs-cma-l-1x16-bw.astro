@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+const locale = 'en' as const;
+
+const rows = [
+  { label: 'Throughput', jd3: '60 racks/hour', competitor: '50 racks/hour' },
+  { label: 'Rack size', jd3: '650 × 550 mm', competitor: '500 × 500 mm' },
+  { label: 'Fits 600×400 mm bakery trays?', jd3: '✓ Yes', competitor: '✗ No', highlight: true },
+  { label: 'Water per cycle', jd3: '2.5 L', competitor: '4.0 L' },
+  { label: 'Cycle time', jd3: '60–90 sec', competitor: '70 sec' },
+  { label: 'Total power', jd3: '13 kW', competitor: '16 kW' },
+  { label: 'Construction', jd3: 'Full SUS304', competitor: 'SUS304' },
+  { label: 'Heat recovery', jd3: 'Built-in option', competitor: 'Extra-cost upgrade' },
+  { label: 'Certifications', jd3: 'CE, ISO 9001', competitor: 'NSF, ETL' },
+  { label: 'Price (FOB / retail)', jd3: '~$2,800–$3,500 FOB', competitor: '~$5,000–$7,000 retail' },
+];
+---
+<BaseLayout
+  title="JD-3 vs CMA L-1X16-BW — Bakery Tray Washer Comparison"
+  description="Compare V-TAI JD-3 with CMA L-1X16-BW. JD-3 delivers 600×400 mm tray compatibility, built-in heat recovery, and 35% lower price than CMA's bakery hood washer."
+  locale={locale}
+  canonicalPath="/product/jd-3-vs-cma-l-1x16-bw/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Product', href: '/product/'}, {label: 'vs CMA L-1X16-BW'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-4">V-TAI JD-3 vs CMA L-1X16-BW</h1>
+    <p class="text-lg text-bakery-navy/80 mb-6">
+      CMA Dishmachines is a respected US/Italian brand. The L-1X16-BW is their dedicated bakery model — a serious competitor to look at. Here is the detailed comparison.
+    </p>
+  </div>
+
+  <div class="container-page">
+    <ComparisonTable competitorName="CMA L-1X16-BW" rows={rows} />
+  </div>
+
+  <div class="container-prose mt-12">
+    <h2 class="mb-3">Where CMA Wins</h2>
+    <p>CMA L-1X16-BW has stronger US service network density than the JD-3 and is NSF-listed for facilities that mandate that certification. CMA's reputation among large US institutional buyers (school districts, hospital systems) is well-earned.</p>
+
+    <h2 class="mt-10 mb-3">Where JD-3 Wins</h2>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li><strong>600×400 mm tray compatibility — CMA's rack does not fit.</strong></li>
+      <li><strong>Built-in heat recovery option</strong> — CMA charges extra ($800+) for the equivalent feature.</li>
+      <li><strong>20% higher throughput (60 vs 50 racks/hour).</strong></li>
+      <li><strong>38% lower water consumption per cycle.</strong></li>
+      <li><strong>35–45% lower total cost.</strong></li>
+    </ul>
+
+    <h2 class="mt-10 mb-3">What "BW" Means in CMA's Naming</h2>
+    <p>"BW" stands for "Bakery Wash" in CMA's nomenclature — they marketed this model toward bakeries. However, the rack remains 500×500 mm, which is exactly the limitation it was supposed to solve. If you have 600×400 mm trays, the CMA L-1X16-BW does not actually meet your needs despite its name.</p>
+
+    <h2 class="mt-10 mb-3">For Mid-Size Bakery Operations</h2>
+    <p>If you operate a 3–10 location bakery chain and want to standardize equipment across all stores, the cost difference compounds quickly. Equipping 5 locations: JD-3 = ~$15,000. CMA L-1X16-BW = ~$32,500. The $17,500 difference funds your next location buildout.</p>
+  </div>
+</section>
+
+<FAQSection items={[
+  { q: 'Is CMA more energy-efficient overall?', a: 'No — JD-3 uses less water and less power per cycle. CMA marketed energy-saving features cost extra.' },
+  { q: 'CMA installations include training. Do you?', a: 'Yes — every JD-3 ships with a 30-minute virtual operator training session and a recorded walkthrough.' },
+  { q: 'Is the JD-3 louder?', a: 'No. Both machines sit in the 65–70 dB range — about the same as a conversation. The JD-3 hood seal actually reduces audible water noise during cycles.' },
+]} />
+
+<CTASection locale={locale} />
+</BaseLayout>

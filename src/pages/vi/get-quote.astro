@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+const locale = 'vi' as const;
+---
+<BaseLayout title="Yêu cầu báo giá — JD-3" description="Yêu cầu báo giá JD-3" locale={locale} canonicalPath="/get-quote/">
+<BreadcrumbNav items={[{label:'Trang chủ',href:'/vi/'},{label:'Báo giá'}]} />
+<section class="section"><div class="container-page max-w-3xl">
+<h1 class="mb-3 text-center">Báo giá tùy chỉnh trong 12 giờ</h1>
+<div class="card"><InquiryForm locale={locale} /></div>
+</div></section>
+</BaseLayout>

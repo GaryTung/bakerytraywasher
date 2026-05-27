@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../../components/ComparisonTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'fr' as const;
+const rows = [
+  { label: 'Taille panier', jd3: '650×550 mm', competitor: '500×500 mm' },
+  { label: 'Plaques 600×400', jd3: '✓ Oui', competitor: '✗ Non', highlight: true },
+  { label: 'Prix', jd3: '2 800 $ FOB', competitor: '5 000–7 000 $' },
+];
+---
+<BaseLayout title="JD-3 vs CMA L-1X16-BW" description="Comparaison JD-3 vs CMA L-1X16-BW." locale={locale} canonicalPath="/product/jd-3-vs-cma-l-1x16-bw/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Accueil',href:'/fr/'},{label:'Produit',href:'/fr/product/'},{label:'vs CMA'}]} />
+<section class="section"><div class="container-prose"><h1>JD-3 vs CMA L-1X16-BW</h1><p class="text-lg mt-4 mb-6">Bien que CMA nomme son modèle "BW" (Bakery Wash), son panier 500×500 n'accepte pas les plaques 600×400. JD-3 oui.</p></div>
+<div class="container-page"><ComparisonTable competitorName="CMA L-1X16-BW" rows={rows} /></div></section>
+<CTASection locale={locale} />
+</BaseLayout>

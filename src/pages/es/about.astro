@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
+import CTASection from '../../components/CTASection.astro';
+const locale = 'es' as const;
+---
+<BaseLayout
+  title="Sobre V-TAI — La Empresa Detrás de la Lavadora de Bandejas"
+  description="Shenzhen Vtai Electrical Appliance Co., Ltd. fabrica lavavajillas comerciales desde hace más de 10 años, especializada en mercados de panadería y cocinas comerciales pequeñas globalmente."
+  locale={locale}
+  canonicalPath="/about/"
+>
+<BreadcrumbNav items={[{label: 'Inicio', href: '/es/'}, {label: 'Nosotros'}]} />
+<section class="section">
+  <div class="container-prose">
+    <p class="eyebrow mb-2">Sobre V-TAI</p>
+    <h1 class="mb-4">La Gente Detrás de la JD-3</h1>
+    <p class="text-lg text-bakery-navy/80 mb-4">Shenzhen Vtai Electrical Appliance Co., Ltd. — conocida globalmente como V-TAI — fabrica lavavajillas comerciales desde nuestras instalaciones en el Delta del Río Perla, China, desde hace más de 10 años. Nos especializamos en máquinas construidas para cocinas comerciales pequeñas y medianas en todo el mundo.</p>
+    <p class="mt-4">La JD-3 representa 6 años de diseño iterativo específicamente para operaciones de panadería. La construimos después de darnos cuenta que ninguna máquina en el rango de precio comercial pequeño aceptaba las bandejas de 600×400 mm que prácticamente todos los hornos modernos de panadería usan.</p>
+
+    <h2 class="mt-10 mb-3">Datos de Fabricación</h2>
+    <ul class="space-y-2 text-bakery-navy/80 list-disc list-inside">
+      <li><strong>Instalación:</strong> 8.000 m² de manufactura inteligente</li>
+      <li><strong>Capacidad anual:</strong> 12.000 unidades</li>
+      <li><strong>Tasa de defectos:</strong> &lt;3%</li>
+      <li><strong>Cadena de suministro:</strong> 92% verticalmente controlada</li>
+      <li><strong>Ventaja de costo:</strong> 30–40% menor que Hobart, Jackson, CMA, Winterhalter</li>
+      <li><strong>Certificaciones:</strong> ISO 9001, GMP, CE, materiales compatibles con FDA</li>
+    </ul>
+
+    <h2 class="mt-10 mb-3">Contacto</h2>
+    <ul class="space-y-2 text-bakery-navy/80">
+      <li><strong>Email:</strong> <a href="mailto:info@v-tai.com" class="underline">info@v-tai.com</a></li>
+      <li><strong>WhatsApp:</strong> <a href="https://wa.me/8613509623269" class="underline">+86 135 0962 3269</a></li>
+      <li><strong>Dirección:</strong> Habitación 2202, Centro de Servicios Logísticos Globales, Longgang, Shenzhen, Guangdong, China</li>
+    </ul>
+  </div>
+</section>
+<TrustBadgeStrip locale={locale} />
+<CTASection locale={locale} />
+</BaseLayout>

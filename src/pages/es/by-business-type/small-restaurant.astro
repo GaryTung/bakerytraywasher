@@ -1,0 +1,21 @@
+---
+import BusinessTypeLayout from '../../../layouts/BusinessTypeLayout.astro';
+const locale = 'es' as const;
+---
+<BusinessTypeLayout
+  locale={locale}
+  canonicalPath="/by-business-type/small-restaurant/"
+  slug="small-restaurant"
+  businessName="Restaurante Pequeño"
+  icon="🍽️"
+  title="Lavadora para Restaurantes Pequeños — Bandejas + Vajilla"
+  description="La JD-3 maneja la carga mixta de un restaurante 50–150 cubiertos: bandejas grandes, ollas, tazones y vajilla."
+  reality="Restaurante de 50–150 asientos. Lavadero recibe variedad estúpida: ollas de 8 cuartos, bandejas, tazones, platos, sartenes."
+  needs="Cámara amplia, capacidad de servicio, ciclo rápido, sanitización estándar, huella razonable."
+  fit="JD-3 acepta ollas hasta 28 cm altura. 60 racks/hora clarea servicio de 70 cubiertos en ~25 minutos. Ciclo 60s estándar, 90s para soils pesados."
+  roi="Ahorro típico: ~$12.000/año. Más ingreso por mayor velocidad de mesa."
+  faqs={[
+    { q: '¿Reemplaza mi undercounter?', a: 'Para la mayoría 50-150 asientos, sí.' },
+    { q: '¿Cristalería?', a: 'Sí, con rack opcional de cristalería.' },
+  ]}
+/>

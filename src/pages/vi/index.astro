@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+const locale = 'vi' as const;
+
+const types = [
+  { name: 'Tiệm bánh', href: '/vi/by-business-type/bakery-shop/', icon: '🥐' },
+  { name: 'Chuỗi cà phê', href: '/vi/by-business-type/coffee-chain/', icon: '☕' },
+  { name: 'Cửa hàng bánh kem', href: '/vi/by-business-type/cake-shop/', icon: '🎂' },
+  { name: 'Nhà hàng', href: '/vi/by-business-type/small-restaurant/', icon: '🍽️' },
+  { name: 'Căng tin', href: '/vi/by-business-type/cafeteria/', icon: '🥪' },
+  { name: 'Bếp khách sạn', href: '/vi/by-business-type/hotel-pastry-kitchen/', icon: '🏨' },
+];
+
+const faqs = [
+  { q: 'JD-3 có thật sự vừa khay 600×400 mm không?', a: 'Có — rack 650×550 mm là duy nhất ở phân khúc giá này chấp nhận tiêu chuẩn châu Âu' },
+];
+---
+<BaseLayout
+  title="Máy rửa khay bánh | V-TAI JD-3 thương mại"
+  description="Máy rửa khay bánh hoàn vốn trong 8 tháng. Rửa khay 600×400 mm — kích cỡ mà hầu hết máy Mỹ không chấp nhận. CE. Từ $2,800 FOB."
+  locale={locale}
+  canonicalPath="/"
+>
+<section class="bg-gradient-to-br from-bakery-cream via-white to-bakery-cream/50 section">
+  <div class="container-page grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="eyebrow mb-3">V-TAI JD-3 · Máy rửa kiểu nắp vòm cho tiệm bánh</p>
+      <h1 class="mb-5">Máy rửa khay bánh hoàn vốn trong <span class="text-bakery-orange">8 tháng</span></h1>
+      <p class="text-lg mb-6">Rửa khay 600×400 mm — tiêu chuẩn châu Âu mà hầu hết máy rửa Mỹ không chấp nhận. Chứng nhận CE, thép không gỉ SUS304. <strong>Từ $2,800 FOB Thâm Quyến.</strong></p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/vi/get-quote/" class="btn-primary">Yêu cầu báo giá</a>
+        <a href="/vi/product/" class="btn-secondary">Xem thông số</a>
+      </div>
+    </div>
+    <ImagePlaceholder alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
+  </div>
+</section>
+<TrustBadgeStrip locale={locale} />
+<section class="section bg-bakery-cream"><div class="container-page">
+<h2 class="text-center mb-10">Doanh nghiệp của bạn?</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+{types.map((bt) => (<a href={bt.href} class="card text-center"><div class="text-4xl mb-2">{bt.icon}</div><p class="font-semibold">{bt.name}</p></a>))}
+</div></div></section>
+<section class="section"><div class="container-page grid lg:grid-cols-2 gap-10 items-center">
+<div><h2 class="mb-4">Giá trung thực, minh bạch</h2><p class="text-bakery-navy/80">JD-3 từ <strong>$2,800 FOB</strong> — chưa bằng nửa giá Hobart AMX với hiệu năng tương đương CE.</p></div>
+<PriceCalloutBox locale={locale} />
+</div></section>
+<FAQSection items={faqs} title="Câu hỏi thường gặp" />
+<CTASection locale={locale} title="Sẵn sàng chấm dứt rửa tay?" subtitle="Báo giá tùy chỉnh trong 12 giờ" />
+</BaseLayout>

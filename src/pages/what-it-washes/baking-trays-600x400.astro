@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import InlineInquiryForm from '../../components/InlineInquiryForm.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const locale = 'en' as const;
+
+const compatRows = [
+  { label: 'V-TAI JD-3', jd3: '650 × 550 mm', competitor: '✓ Yes', highlight: true },
+  { label: 'Hobart AMX', jd3: '500 × 500 mm', competitor: '✗ No' },
+  { label: 'Jackson TempStar', jd3: '500 × 500 mm', competitor: '✗ No' },
+  { label: 'CMA L-1X16-BW', jd3: '500 × 500 mm', competitor: '✗ No' },
+  { label: 'Winterhalter UC-M', jd3: '500 × 500 mm', competitor: '✗ No' },
+];
+---
+<BaseLayout
+  title="600×400 mm Bakery Norm Tray Washer — JD-3 by V-TAI"
+  description="The only commercial hood-type washer in this price class that fits 600×400 mm European Bakery Norm trays. Hobart, Jackson, CMA, and Winterhalter all use 500×500 racks and cannot."
+  locale={locale}
+  canonicalPath="/what-it-washes/baking-trays-600x400/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'What It Washes', href: '/what-it-washes/'}, {label: '600×400 mm Bakery Trays'}]} />
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-3 gap-10">
+    <article class="lg:col-span-2 prose-section">
+      <p class="eyebrow mb-3">⭐ Flagship use case</p>
+      <h1 class="mb-4">The 600×400 mm Bakery Norm Tray Washer — The European Standard, Made Affordable</h1>
+      <p class="text-lg text-bakery-navy/80 mb-6">
+        The JD-3 is the only commercial hood-type dishwasher in its price class that fits the 600×400 mm European Bakery Norm tray standard. Every other major brand — Hobart, Jackson, CMA, Winterhalter — uses 500×500 mm racks. They cannot.
+      </p>
+
+      <ImagePlaceholder
+        alt="600×400 mm baking tray fitting into JD-3's 650×550 rack vs not fitting in competitor's 500×500 rack"
+        ratio="16/9"
+        label="600×400 tray compatibility infographic"
+      />
+
+      <h2 class="mt-10 mb-3">What is the 600×400 "Bakery Norm"?</h2>
+      <p>The 600×400 mm tray size — formally known as the "Euro Bakery Norm" — emerged in Europe in the 1960s as a standardized tray dimension for commercial bakery production lines. The dimension was chosen as a sub-multiple of the GN (Gastronorm) 2/1 standard, allowing trays to interlock with European baking-rack carts (called Stikkenwagen or chariots de fournil) for efficient batch transport.</p>
+      <p class="mt-3">Within a generation, the 600×400 size became the dominant standard for professional bakery operations across Europe, then Asia, then Australia. It is the tray size used by the major combi-oven manufacturers — <strong>Rational, Convotherm, Unox, Tecnoeka, Salva, Wachtel, MIWE, Werner & Pfleiderer</strong> — which means any modern professional bakery oven built in the last 25 years was designed around it.</p>
+      <p class="mt-3">North American bakeries are now adopting the standard at scale. The 18×26" American half-sheet pan (457×660 mm) is gradually losing market share to the metric 600×400 as European combi-oven imports proliferate. By 2030, the 600×400 will be the de-facto global standard for professional baking.</p>
+      <p class="mt-3">Why bakeries adopted it: it maximizes oven volume utilization, enables tray-cart standardization, fits standard wholesale bakery shelving, and is the right dimension for the most common bread loaf, pastry, and viennoiserie batches.</p>
+
+      <h2 class="mt-10 mb-3">Why Most Commercial Hood Dishwashers Can't Fit 600×400 Trays</h2>
+      <p>Standard commercial hood-type dishwasher rack sizes, by major brand:</p>
+      <ul class="list-disc list-inside space-y-1 my-3">
+        <li><strong>Hobart AMX:</strong> 500 × 500 mm rack</li>
+        <li><strong>Jackson TempStar HH-E:</strong> 500 × 500 mm rack</li>
+        <li><strong>CMA L-1X16-BW:</strong> 500 × 500 mm rack</li>
+        <li><strong>Winterhalter UC-M / UC-L:</strong> 500 × 500 mm rack</li>
+        <li><strong>Champion EHS-2:</strong> 500 × 500 mm rack</li>
+      </ul>
+      <p>A 600×400 mm tray does not fit into a 500×500 mm rack. Not edgewise, not diagonally (a diagonal of a 500×500 rack is 707 mm but the rack opening at the diagonal is still 500 mm — a 600 mm tray won't pass through). It physically does not work.</p>
+      <p class="mt-3"><strong>Workarounds bakery owners try — all bad:</strong></p>
+      <ul class="list-disc list-inside space-y-1 my-3">
+        <li><em>Cut trays smaller.</em> Impractical and ruins the tray's interlock with your oven carts.</li>
+        <li><em>Buy a separate "bakery-only" dishwasher.</em> Doubles your equipment cost and consumes scarce floor space.</li>
+        <li><em>Hand-wash all bakery trays.</em> Slow, inconsistent, miserable, and a labor cost sinkhole.</li>
+        <li><em>Buy a premium Hobart PROFI model.</em> $12,000–$18,000 with the right rack accessory — financially painful.</li>
+      </ul>
+
+      <h2 class="mt-10 mb-3">How the JD-3 Solves This</h2>
+      <p>The JD-3 was designed from the ground up with a <strong>650 × 550 mm rack</strong> — intentionally sized to accept the 600 × 400 tray with clearance. This is the single most consequential design decision in the machine.</p>
+      <p class="mt-3"><strong>What this enables:</strong></p>
+      <ul class="list-disc list-inside space-y-1 my-3">
+        <li>Multiple 600×400 trays load vertically in the chamber, with spacing for spray penetration between trays.</li>
+        <li>High-pressure dual-arm spray reaches the back-of-tray surfaces that hand-washing always misses.</li>
+        <li>360° rotating wash arms cover all surface angles.</li>
+        <li>Final >82°C rinse sanitizes without thermal shock to the tray steel.</li>
+        <li>Drip-dry within 30 seconds of cycle end — trays are ready to reload for next bake.</li>
+      </ul>
+
+      <h2 class="mt-10 mb-3">Which Bakeries Need This?</h2>
+      <p>You need 600×400 mm tray compatibility if you:</p>
+      <ul class="list-disc list-inside space-y-1 my-3">
+        <li>Use a Convotherm, Rational, Unox, Tecnoeka, Salva, Wachtel, MIWE, or Werner & Pfleiderer combi oven (all of which use 600×400 trays as the standard)</li>
+        <li>Operate a wholesale bakery supplying cafés, restaurants, or grocery</li>
+        <li>Run a multi-location patisserie or pastry chain</li>
+        <li>Operate in Europe, Asia, Australia, the Middle East, or any market dominated by metric standards</li>
+        <li>Have expanded from a European bakery model — many Asian and Latin American bakery chains follow EU bakery norms</li>
+      </ul>
+
+      <h2 class="mt-10 mb-3">Comparison Table — Tray Compatibility</h2>
+      <ComparisonTable competitorName="Fits 600×400 mm?" rows={compatRows} />
+    </article>
+
+    <aside class="lg:sticky lg:top-24 self-start">
+      <InlineInquiryForm locale={locale} title="Get a 600×400 Spec Quote" />
+      <div class="mt-6 card">
+        <h3 class="text-base mb-3">Related</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/guides/600x400-bakery-norm-explained/" class="hover:underline">Bakery Norm: full explainer</a></li>
+          <li><a href="/product/jd-3-vs-hobart-amx/" class="hover:underline">vs Hobart AMX</a></li>
+          <li><a href="/blog/600x400-tray-size-history-and-standard/" class="hover:underline">600×400 history</a></li>
+          <li><a href="/by-business-type/bakery-shop/" class="hover:underline">For bakery shops</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<FAQSection items={[
+  { q: 'Can it also wash 18×26" American half-sheet pans?', a: 'Yes — 18×26" (457×660 mm) sheet pans fit diagonally in the 650×550 chamber. Final clearance is tight but functional.' },
+  { q: 'Can it wash GN 2/1 gastronorm containers?', a: 'Yes — GN 2/1 is 650×530 mm, which fits with 0–20 mm clearance.' },
+  { q: 'How many 600×400 trays per cycle?', a: 'Up to 3 trays stacked vertically with spray-clearance spacing. For high-volume operations consider running 2 trays per cycle for faster cycle times.' },
+  { q: 'What detergent should I use?', a: 'Standard low-foam commercial dishwasher detergent (pH 12–13). For sugar-heavy residue (cakes, pastries) use a detergent rated for confectionery use.' },
+  { q: 'Maintenance schedule for 600×400 tray operations?', a: 'Daily filter rinse (2 minutes), weekly chamber wipe-down (10 minutes), monthly descale (30 minutes), annual factory-tech service.' },
+  { q: 'Lead time for the JD-3?', a: '4–6 weeks production in Shenzhen, plus 20–35 days ocean freight to most destinations. Air freight available for urgent orders (significantly more expensive).' },
+  { q: 'Will the JD-3 fit trays from Convotherm specifically?', a: 'Yes — Convotherm uses the 600×400 EN 1/1 standard, identical to all other major EU oven brands. Confirmed compatible.' },
+  { q: 'I have 400×600 GN 1/1 trays (rotated orientation). Does that fit?', a: 'Yes — 400×600 is the same dimensions as 600×400, just rotated. Fits identically.' },
+]} />
+
+<CTASection locale={locale} title="Need to clean 600×400 mm bakery trays?" subtitle="There is exactly one machine in this price class that fits them. Get a quote in 12 hours." />
+</BaseLayout>

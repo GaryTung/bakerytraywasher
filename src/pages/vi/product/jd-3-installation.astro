@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'vi' as const;
+---
+<BaseLayout title="Hướng dẫn lắp đặt JD-3" description="Yêu cầu không gian, nước, điện, thoát nước" locale={locale} canonicalPath="/product/jd-3-installation/" schemaType="HowTo">
+<BreadcrumbNav items={[{label:'Trang chủ',href:'/vi/'},{label:'Lắp đặt'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">Hướng dẫn lắp đặt JD-3</h1>
+<p class="text-lg mb-6">Hầu hết tiệm bánh nhỏ lắp đặt JD-3 trong 2-4 giờ không cần cải tạo lớn.</p>
+<h2 class="mt-8 mb-3">Danh sách kiểm tra</h2>
+<ul class="space-y-2 list-disc list-inside">
+<li>Không gian: 850 × 850 mm</li>
+<li>Chiều cao: 2.200 mm</li>
+<li>Nước lạnh: G 3/4", áp suất 2,5-6 kg/cm²</li>
+<li>Thoát nước: G 1½"</li>
+<li>Điện: 380V/3N/50Hz, mạch riêng 21,5 A</li>
+</ul>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

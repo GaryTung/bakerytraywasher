@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const locale = 'en' as const;
+
+const cases = [
+  { slug: 'seoul-cafe-chain', name: 'Seoul Café Chain', location: 'Seoul, South Korea', business: 'Coffee chain', locations: 12, savings: '$120,000/yr' },
+  { slug: 'melbourne-patisserie', name: 'Melbourne Patisserie', location: 'Melbourne, Australia', business: 'High-end patisserie', locations: 1, savings: '$5,200/yr' },
+  { slug: 'dubai-hotel-pastry', name: 'Dubai Hotel Pastry Kitchen', location: 'Dubai, UAE', business: '4-star hotel', locations: 1, savings: '$28,000/yr' },
+  { slug: 'lima-bakery-chain', name: 'Lima Artisan Bakery Chain', location: 'Lima, Peru', business: 'Artisan bakery', locations: 5, savings: '$48,000/yr' },
+];
+---
+<BaseLayout
+  title="JD-3 Case Studies — Real Bakeries, Real Numbers"
+  description="Four anonymized case studies of bakeries, cafés, and hotel pastry kitchens using the V-TAI JD-3. Real ROI numbers, real configurations, real outcomes."
+  locale={locale}
+  canonicalPath="/case-studies/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Case Studies'}]} />
+
+<section class="section">
+  <div class="container-page">
+    <h1 class="mb-4 text-center">Case Studies — Real Operations, Real Results</h1>
+    <p class="text-bakery-navy/70 text-lg max-w-2xl mx-auto text-center mb-10">
+      Four anonymized but concrete patterns from our customer base. Different scales, different geographies, same core economics.
+    </p>
+    <div class="grid sm:grid-cols-2 gap-6">
+      {cases.map((c) => (
+        <a href={`/case-studies/${c.slug}/`} class="card hover:scale-[1.02] transition">
+          <ImagePlaceholder alt={c.name} ratio="16/9" label={c.name} />
+          <h3 class="mt-4 mb-1">{c.name}</h3>
+          <p class="text-sm text-bakery-navy/60 mb-3">{c.business} · {c.location} · {c.locations} location{c.locations > 1 ? 's' : ''}</p>
+          <p class="text-bakery-orange font-semibold">Annual savings: {c.savings}</p>
+          <p class="text-bakery-orange text-sm mt-2">Read case study →</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<CTASection locale={locale} title="Want to be our next case study?" subtitle="Talk to us about your operation. We document outcomes after deployment." />
+</BaseLayout>

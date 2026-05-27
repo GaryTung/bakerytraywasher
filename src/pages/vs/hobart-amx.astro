@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+const locale = 'en' as const;
+
+const rows = [
+  { label: 'Throughput', jd3: '60 racks/hr', competitor: '60 racks/hr' },
+  { label: 'Rack size', jd3: '650 × 550 mm', competitor: '500 × 500 mm' },
+  { label: 'Fits 600×400 bakery trays', jd3: '✓ Yes', competitor: '✗ No', highlight: true },
+  { label: 'Water per cycle', jd3: '2.5 L', competitor: '3.8 L' },
+  { label: 'Total power', jd3: '13 kW', competitor: '19 kW' },
+  { label: 'Cycle time', jd3: '60–90 sec', competitor: '60 sec' },
+  { label: 'Certifications', jd3: 'CE, ISO 9001', competitor: 'NSF, UL' },
+  { label: 'Construction', jd3: 'SUS304', competitor: 'SUS304' },
+  { label: 'Display', jd3: 'LED digital', competitor: 'Button panel' },
+  { label: 'Lead time', jd3: '4–6 weeks', competitor: '6–10 weeks' },
+  { label: 'Price', jd3: '$2,800–$3,500 FOB', competitor: '$7,000–$9,000 retail' },
+];
+---
+<BaseLayout
+  title="JD-3 vs Hobart AMX — Comparison Hub | Bakery Tray Washer"
+  description="A detailed side-by-side comparison of the V-TAI JD-3 and Hobart AMX hood-type dishwashers — including when each is the right choice."
+  locale={locale}
+  canonicalPath="/vs/hobart-amx/"
+  schemaType="Article"
+  schemaData={{
+    name: 'V-TAI JD-3 vs Hobart AMX — Hood-type Dishwasher Comparison',
+    about: [
+      { '@type': 'Product', name: 'V-TAI JD-3' },
+      { '@type': 'Product', name: 'Hobart AMX' },
+    ],
+  }}
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Compare', href: '/vs/'}, {label: 'vs Hobart AMX'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-4">JD-3 vs Hobart AMX</h1>
+    <p class="text-lg text-bakery-navy/80 mb-6">Hobart is the US category leader. Here is an honest comparison from a manufacturer who respects them.</p>
+  </div>
+  <div class="container-page"><ComparisonTable competitorName="Hobart AMX" rows={rows} /></div>
+
+  <div class="container-prose mt-12">
+    <h2 class="mb-3">When to choose Hobart AMX</h2>
+    <p>You have a US-based operation with mandated NSF/UL listings, you value the Hobart service network, and your tray sizes are 500×500 mm or smaller.</p>
+
+    <h2 class="mt-8 mb-3">When to choose JD-3</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li>You bake on 600×400 mm trays (Hobart cannot fit them)</li>
+      <li>You're budget-conscious — JD-3 is 60% lower cost</li>
+      <li>You operate outside the US (Hobart's strength is its US support network)</li>
+      <li>You want lower water and energy use</li>
+    </ul>
+
+    <h2 class="mt-8 mb-3">Ask yourself</h2>
+    <ol class="list-decimal list-inside space-y-2">
+      <li>Do my trays measure 600 × 400 mm? If yes → JD-3 (Hobart literally cannot fit them)</li>
+      <li>Am I in the US with brand-mandated NSF certifications? If yes → consider Hobart</li>
+      <li>Is the $4,000+ price difference meaningful to my business? If yes → JD-3</li>
+    </ol>
+  </div>
+</section>
+
+<FAQSection items={[
+  { q: 'Is JD-3 a Hobart copy?', a: 'No. Different internal architecture, control system, and rack sizing.' },
+  { q: 'Hobart parts vs JD-3 parts?', a: 'Hobart parts cost more and are easier to source in the US. JD-3 parts are cheaper and ship globally within 5 days.' },
+  { q: 'Will Hobart-listed franchises accept JD-3?', a: 'Depends on the franchisor. Some chain agreements specify Hobart by name. Verify before ordering.' },
+]} />
+
+<CTASection locale={locale} />
+</BaseLayout>

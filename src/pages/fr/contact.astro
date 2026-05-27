@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import InlineInquiryForm from '../../components/InlineInquiryForm.astro';
+const locale = 'fr' as const;
+---
+<BaseLayout title="Contact V-TAI — Lave-Plaques de Boulangerie" description="Email, WhatsApp ou visitez V-TAI. Nous répondons sous 12 heures ouvrées." locale={locale} canonicalPath="/contact/">
+<BreadcrumbNav items={[{label:'Accueil',href:'/fr/'},{label:'Contact'}]} />
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10">
+    <div>
+      <h1 class="mb-4">Contactez-Nous</h1>
+      <div class="space-y-4">
+        <div class="card"><h3 class="text-lg mb-2">WhatsApp</h3><a href="https://wa.me/8613509623269" class="text-bakery-orange underline">+86 135 0962 3269</a></div>
+        <div class="card"><h3 class="text-lg mb-2">Email</h3><a href="mailto:info@v-tai.com" class="text-bakery-orange underline">info@v-tai.com</a></div>
+        <div class="card"><h3 class="text-lg mb-2">Bureau</h3><p>Bureau 2202, Centre de Services Logistiques Mondiaux, Longgang, Shenzhen, Guangdong, Chine</p></div>
+      </div>
+    </div>
+    <InlineInquiryForm locale={locale} title="Envoyez-Nous un Message" />
+  </div>
+</section>
+</BaseLayout>

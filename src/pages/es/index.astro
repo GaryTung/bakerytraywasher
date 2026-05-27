@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+const locale = 'es' as const;
+
+const tipos = [
+  { name: 'Panadería', href: '/es/by-business-type/bakery-shop/', icon: '🥐' },
+  { name: 'Cafetería', href: '/es/by-business-type/coffee-chain/', icon: '☕' },
+  { name: 'Patisserie', href: '/es/by-business-type/patisserie/', icon: '🧁' },
+  { name: 'Pastelería', href: '/es/by-business-type/cake-shop/', icon: '🎂' },
+  { name: 'Restaurante', href: '/es/by-business-type/small-restaurant/', icon: '🍽️' },
+  { name: 'Comedor', href: '/es/by-business-type/cafeteria/', icon: '🥪' },
+  { name: 'Hotel', href: '/es/by-business-type/hotel-pastry-kitchen/', icon: '🏨' },
+  { name: 'Cocina Cloud', href: '/es/by-business-type/cloud-kitchen/', icon: '👨‍🍳' },
+];
+
+const faqs = [
+  { q: '¿La JD-3 cabe realmente las bandejas de panadería de 600×400 mm?', a: 'Sí — el rack de 650×550 mm es la única lavavajillas con campana en esta clase de precio que acepta el estándar europeo. Hobart AMX, Jackson, CMA usan racks de 500×500 y no caben.' },
+  { q: '¿Cuál es el tiempo de entrega?', a: '4–6 semanas de producción en Shenzhen, más flete marítimo (20–35 días) a la mayoría de destinos.' },
+  { q: '¿Qué certificaciones tiene?', a: 'Certificación CE para mercado UE, producción ISO 9001. Esterilización final a >82°C cumple norma NSF.' },
+  { q: '¿Cuál es el período de retorno?', a: 'Para una panadería de una ubicación que lava 150–200 bandejas/día, el retorno es típicamente 7–9 meses.' },
+];
+---
+<BaseLayout
+  title="Lavadora de Bandejas de Panadería | V-TAI JD-3 Comercial"
+  description="La lavadora de bandejas de panadería que se paga sola en 8 meses. Lava bandejas de 600×400 mm — el tamaño que la mayoría de lavavajillas americanas no aceptan. CE. Desde $2,800 FOB."
+  locale={locale}
+  canonicalPath="/"
+  schemaType="Organization"
+>
+
+<section class="bg-gradient-to-br from-bakery-cream via-white to-bakery-cream/50 section">
+  <div class="container-page grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="eyebrow mb-3">V-TAI JD-3 · Lavadora con Campana para Panaderías</p>
+      <h1 class="mb-5">La Lavadora de Bandejas de Panadería que se Paga en <span class="text-bakery-orange">8 Meses</span></h1>
+      <p class="text-lg text-bakery-navy/80 mb-6 leading-relaxed">
+        Lava bandejas de 600×400 mm — el tamaño europeo estándar que la mayoría de lavavajillas americanas no aceptan.
+        Certificada CE, acero inoxidable SUS304 grado alimentario. <strong>Desde $2.800 FOB Shenzhen.</strong>
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/es/get-quote/" class="btn-primary">Cotizar Ahora</a>
+        <a href="/es/product/" class="btn-secondary">Ver Especificaciones</a>
+      </div>
+      <p class="mt-4 text-sm text-bakery-navy/60">⚡ Respondemos en 12 horas hábiles · Sin spam</p>
+    </div>
+    <ImagePlaceholder alt="Lavadora V-TAI JD-3 con bandejas de panadería" ratio="4/3" label="JD-3 foto principal" />
+  </div>
+</section>
+
+<TrustBadgeStrip locale={locale} />
+
+<section class="section">
+  <div class="container-page">
+    <div class="max-w-3xl mx-auto text-center mb-10">
+      <h2 class="mb-3">¿Cansado de Que Su Equipo Pase 3 Horas al Día Lavando Bandejas?</h2>
+      <p class="text-bakery-navy/70 text-lg">Si tiene una panadería, café o pastelería, lavar bandejas a mano se está comiendo su margen — y su equipo lo odia.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card">
+        <div class="text-3xl mb-3">💸</div>
+        <h3 class="mb-2">$25,000+/año desperdiciados</h3>
+        <p class="text-bakery-navy/70 text-sm">En lavadores cuando una máquina hace el trabajo 4× más rápido.</p>
+      </div>
+      <div class="card">
+        <div class="text-3xl mb-3">⚠️</div>
+        <h3 class="mb-2">Higiene inconsistente</h3>
+        <p class="text-bakery-navy/70 text-sm">Lavar a mano rara vez alcanza 82°C — inspecciones fallidas cuestan dinero real.</p>
+      </div>
+      <div class="card">
+        <div class="text-3xl mb-3">😤</div>
+        <h3 class="mb-2">Rotación de personal</h3>
+        <p class="text-bakery-navy/70 text-sm">Nadie quiere el turno de lavado. Contratar constantemente es agotador.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="max-w-2xl mx-auto text-center mb-10">
+      <h2 class="mb-3">¿Cuál es Su Negocio?</h2>
+      <p class="text-bakery-navy/70">Seleccione su tipo de negocio para ver cómo la JD-3 encaja en su operación específica.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {tipos.map((bt) => (
+        <a href={bt.href} class="card text-center hover:scale-[1.02] transition">
+          <div class="text-4xl mb-2">{bt.icon}</div>
+          <p class="font-semibold text-bakery-navy">{bt.name}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="eyebrow mb-2">Precios</p>
+      <h2 class="mb-4">Precios Honestos y Transparentes</h2>
+      <p class="text-bakery-navy/80 mb-4">
+        La mayoría de las marcas esconden sus precios. Nosotros no. La JD-3 cuesta desde
+        <strong>$2.800 FOB Shenzhen</strong> — menos de la mitad del precio de una Hobart AMX con
+        rendimiento y seguridad equivalente certificada CE.
+      </p>
+      <ul class="space-y-2 text-bakery-navy/80">
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> Hobart AMX: $7.000–$9.000</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> Jackson TempStar: $5.500–$7.500</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> Winterhalter UC: $8.000–$11.000</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> V-TAI JD-3: <strong>$2.800–$3.500 FOB</strong></li>
+      </ul>
+    </div>
+    <PriceCalloutBox locale={locale} />
+  </div>
+</section>
+
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="text-center mb-10">Lo Que Dicen los Dueños</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <TestimonialCard quote="Reemplazamos a 2 personas del área de lavado. La JD-3 se pagó sola en 7 meses." author="Dueño cadena panadería" role="Singapur, 6 sucursales" />
+      <TestimonialCard quote="Es la única lavavajillas que encontré que acepta nuestras bandejas Convotherm de 600×400." author="Dueña patisserie" role="Melbourne, Australia" />
+      <TestimonialCard quote="Precios honestos. Especificaciones honestas. Gente honesta." author="Gerente de café" role="Dubai, EAU" />
+    </div>
+  </div>
+</section>
+
+<FAQSection items={faqs} title="Preguntas Frecuentes de Dueños de Panaderías" />
+
+<CTASection locale={locale} title="¿Listo para Terminar el Lavado Manual?" subtitle="Cotización personalizada en 12 horas. CE-certificada, desde $2,800 FOB Shenzhen." />
+</BaseLayout>

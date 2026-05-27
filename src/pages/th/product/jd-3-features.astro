@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'th' as const;
+---
+<BaseLayout title="คุณสมบัติ JD-3" description="12 คุณสมบัติหลักของ V-TAI JD-3" locale={locale} canonicalPath="/product/jd-3-features/" schemaType="Article">
+<BreadcrumbNav items={[{label:'หน้าแรก',href:'/th/'},{label:'คุณสมบัติ'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">12 คุณสมบัติหลักของ JD-3</h1>
+<ol class="space-y-3 list-decimal list-inside">
+<li>โครงสร้าง SUS304</li>
+<li>ห้องล้างใหญ่พิเศษ 650×550 มม.</li>
+<li>แขนล้างหมุนคู่ 360°</li>
+<li>หัวฉีดป้องกันการอุดตัน</li>
+<li>ควบคุมอุณหภูมิอัจฉริยะ</li>
+<li>ใช้น้ำต่ำ 2.0-2.5 ลิตร</li>
+<li>ระบบกู้คืนความร้อน</li>
+<li>ประตูซีลฉนวน</li>
+<li>การทำงานตามหลักสรีรศาสตร์</li>
+<li>เริ่มต้นอัตโนมัติเมื่อปิดประตู</li>
+<li>การป้องกันความปลอดภัยหลายชั้น</li>
+<li>ขยายฟังก์ชั่นได้</li>
+</ol>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

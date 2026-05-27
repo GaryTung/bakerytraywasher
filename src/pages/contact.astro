@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+import InlineInquiryForm from '../components/InlineInquiryForm.astro';
+const locale = 'en' as const;
+---
+<BaseLayout
+  title="Contact V-TAI — Bakery Tray Washer Inquiries"
+  description="Email, WhatsApp, or visit V-TAI for bakery tray washer inquiries. We respond to all inquiries within 12 business hours."
+  locale={locale}
+  canonicalPath="/contact/"
+  schemaType="Organization"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Contact'}]} />
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10">
+    <div>
+      <h1 class="mb-4">Get In Touch</h1>
+      <p class="text-bakery-navy/80 mb-6">We respond to all inquiries within 12 business hours. For faster response, WhatsApp is usually best.</p>
+
+      <div class="space-y-4">
+        <div class="card">
+          <h3 class="text-lg mb-2">WhatsApp (Fastest)</h3>
+          <a href="https://wa.me/8613509623269" class="text-bakery-orange font-semibold underline">+86 135 0962 3269</a>
+          <p class="text-sm text-bakery-navy/60 mt-1">Direct message to our sales team. English, Chinese, Spanish supported.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="text-lg mb-2">Email</h3>
+          <a href="mailto:info@v-tai.com" class="text-bakery-orange font-semibold underline">info@v-tai.com</a>
+          <p class="text-sm text-bakery-navy/60 mt-1">Best for detailed technical questions, attachments, or formal RFPs.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="text-lg mb-2">Office</h3>
+          <p class="text-bakery-navy">Room 2202, Global Logistics Services Centre,<br>Longgang, Shenzhen, Guangdong, China</p>
+          <p class="text-sm text-bakery-navy/60 mt-1">Visits by appointment. We can also arrange factory tours.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="text-lg mb-2">Hours</h3>
+          <p class="text-bakery-navy">Mon–Sat: 9:00 AM – 6:30 PM<br>China Time (GMT+8)</p>
+          <p class="text-sm text-bakery-navy/60 mt-1">WhatsApp messages outside hours typically get a reply within 2–3 hours.</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <InlineInquiryForm locale={locale} title="Send Us a Message" />
+    </div>
+  </div>
+</section>
+</BaseLayout>

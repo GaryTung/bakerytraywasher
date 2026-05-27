@@ -1,0 +1,33 @@
+---
+import WhatItWashesLayout from '../../layouts/WhatItWashesLayout.astro';
+const locale = 'en' as const;
+---
+<WhatItWashesLayout
+  locale={locale}
+  canonicalPath="/what-it-washes/frying-baskets/"
+  itemName="Frying Baskets"
+  title="Frying Basket Washer | Deep Fryer Baskets & Inserts"
+  description="The JD-3 cleans deep fryer baskets including the mesh wire patterns where oil residue is impossible to scrub by hand. From $2,800 FOB."
+  challenge={`Deep fryer baskets and fryer inserts have a unique cleaning challenge: woven wire mesh. Hand-washing literally cannot reach into the mesh interstices effectively. Oil residue, batter crumbs, and food particles work their way into the mesh and gradually polymerize into a brown crust.
+
+Within 6 months of regular fryer use, an un-deep-cleaned basket has measurable buildup. Within 12 months, the buildup affects basket weight and oil saturation. Most operators replace baskets annually because cleaning them is impossible — adding $40–$80/basket/year to operating costs.`}
+  howItHandles={`The JD-3 attacks fryer basket mesh from both above and below with high-pressure 65°C wash water carrying alkaline detergent. The pressure dislodges residue from the mesh interstices in a way that physical scrubbing simply cannot replicate.
+
+Most operators run their fryer baskets through the JD-3 weekly. After 12 cycles, baskets that previously looked permanently brown return to clean stainless steel. Many of our customers report extending basket life from 1 year to 3+ years through regular dishwasher cleaning.`}
+  recommendedSettings={`For frying baskets:
+
+- Cycle: 90-second heavy-soil — fryer residue is among the toughest
+- Wash tank: 65°C (must be high to emulsify oil)
+- Final rinse: 82°C+
+- Detergent: high-alkaline degreasing commercial detergent
+- Frequency: weekly minimum; daily for high-volume fry operations
+- Loading: position baskets upside-down in the rack so spray penetrates the mesh from inside out
+- Important: drain excess oil before loading (don't pour fry oil down the dishwasher)
+- Pre-treatment for severely encrusted baskets: 10-minute pre-soak in degreaser solution before loading`}
+  faqs={[
+    { q: 'Can JD-3 restore an old, brown-crusted fryer basket?', a: 'Significantly improves it — multiple cycles can return many baskets to near-original condition. Severely calcified baskets may need professional cleaning service before regular maintenance cycles take over.' },
+    { q: 'Will my dishwasher get oil residue from this?', a: 'No — the JD-3 has an integrated filter that captures fryer-oil residue before it reaches the wash tank. Filter cleanup is part of daily routine (2 minutes).' },
+    { q: 'Effect on the rest of the wash load?', a: 'After a basket-heavy cycle, run one cycle empty or with light items to flush the filter. Then resume normal loading.' },
+    { q: 'Can I run baskets with the rest of the breakfast load?', a: 'Mix-loading is OK for lightly used baskets. For heavily oiled baskets, dedicate a cycle.' },
+  ]}
+/>

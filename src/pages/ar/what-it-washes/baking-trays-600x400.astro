@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import InlineInquiryForm from '../../../components/InlineInquiryForm.astro';
+import ComparisonTable from '../../../components/ComparisonTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'ar' as const;
+const rows = [
+  { label: 'V-TAI JD-3', jd3: '650 × 550 مم', competitor: '✓ نعم', highlight: true },
+  { label: 'Hobart AMX', jd3: '500 × 500 مم', competitor: '✗ لا' },
+  { label: 'Jackson TempStar', jd3: '500 × 500 مم', competitor: '✗ لا' },
+];
+---
+<BaseLayout title="غسالة صواني المخابز 600×400 مم" description="الغسالة الوحيدة بغطاء قبة في فئة السعر هذه التي تستوعب الصواني الأوروبية 600×400 مم." locale={locale} canonicalPath="/what-it-washes/baking-trays-600x400/" schemaType="Article">
+<BreadcrumbNav items={[{label:'الرئيسية',href:'/ar/'},{label:'صواني 600×400'}]} />
+<section class="section">
+<div class="container-page grid lg:grid-cols-3 gap-10">
+<article class="lg:col-span-2">
+<p class="eyebrow mb-3">⭐ الاستخدام الرئيسي</p>
+<h1 class="mb-4">غسالة صواني 600×400 مم — المعيار الأوروبي بأسعار معقولة</h1>
+<p class="text-lg mb-6">JD-3 هي الغسالة الوحيدة بغطاء قبة في فئة سعرها التي تستوعب المعيار الأوروبي لصواني المخابز 600×400 مم.</p>
+<ImagePlaceholder alt="صينية 600×400 في JD-3" ratio="16/9" label="مقارنة 600×400" />
+<h2 class="mt-10 mb-3">المعيار الأوروبي 600×400</h2>
+<p>نشأ في ألمانيا في الستينيات. اليوم المعيار المستخدم من قبل جميع أفران الكومبي المهنية: Rational, Convotherm, Unox, Tecnoeka.</p>
+<h2 class="mt-10 mb-3">جدول التوافق</h2>
+<ComparisonTable competitorName="يستوعب 600×400؟" rows={rows} />
+</article>
+<aside class="lg:sticky lg:top-24 self-start"><InlineInquiryForm locale={locale} title="عرض سعر" /></aside>
+</div>
+</section>
+<CTASection locale={locale} />
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+import { t, type Locale } from '../i18n/utils';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+
+const items = [
+  { label: t(locale, 'trust.years'), icon: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5' },
+  { label: t(locale, 'trust.ce'), icon: 'M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z' },
+  { label: t(locale, 'trust.throughput'), icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+  { label: t(locale, 'trust.defect'), icon: 'M5 13l4 4L19 7' },
+  { label: t(locale, 'trust.factory'), icon: 'M3 21h18M3 7v14M21 7v14M9 21V11M15 21V11M3 7l9-4 9 4' },
+];
+---
+<section class="bg-bakery-cream border-y border-bakery-navy/5">
+  <div class="container-page py-6">
+    <ul class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+      {items.map((it) => (
+        <li class="flex flex-col items-center gap-1">
+          <svg class="w-6 h-6 text-bakery-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={it.icon} />
+          </svg>
+          <span class="text-xs md:text-sm font-medium text-bakery-navy">{it.label}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bakerytraywasher.com/sitemap-index.xml

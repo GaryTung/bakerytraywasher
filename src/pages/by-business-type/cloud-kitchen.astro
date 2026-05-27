@@ -1,0 +1,50 @@
+---
+import BusinessTypeLayout from '../../layouts/BusinessTypeLayout.astro';
+const locale = 'en' as const;
+---
+<BusinessTypeLayout
+  locale={locale}
+  canonicalPath="/by-business-type/cloud-kitchen/"
+  slug="cloud-kitchen"
+  businessName="Cloud Kitchen"
+  icon="👨‍🍳"
+  title="Cloud Kitchen Bakery Tray Washer — Max Automation, No Front-of-House"
+  description="Cloud kitchens have no front-of-house labor cushion. The JD-3 automates the dishwashing step so your minimal staff focuses on cooking and packing. From $2,800 FOB."
+  reality={`You operate a cloud kitchen — virtual brands, no dine-in, delivery only. Your unit economics depend on minimum staff and maximum throughput. Every minute one of your cooks spends washing a baking tray is a minute they aren't fulfilling delivery orders.
+
+Cloud kitchens have a specific operational challenge: no front-of-house team to absorb dishwashing labor in slow moments. Your cooks must be 100% production-focused during open hours. Dishwashing must either happen automatically during operations or be batched at end-of-day. Hand-washing during a 7 p.m. dinner rush is operationally impossible.`}
+  needs={`Cloud kitchen dishwashing requirements:
+
+1. Maximum automation. Load it, close it, walk away. Cooks should never wait for a wash cycle.
+
+2. Quick turnaround. 60-second cycles let you reuse hot bakeware almost immediately during peak service.
+
+3. Footprint efficiency. Cloud kitchens are typically 200–600 sq ft. Every square meter matters.
+
+4. Cost discipline. Cloud kitchen P&L is brutal; the dishwasher must pay back in under 12 months.`}
+  fit={`The JD-3 is well-aligned with cloud kitchen operations:
+
+- 60-second cycle = wash a baking tray during the next order's prep, ready for reuse before that order plates.
+- Door-activated start eliminates the "did someone press start?" coordination overhead during chaotic shifts.
+- 850 × 850 mm floor footprint fits in any commercial kitchen designed in the last 30 years.
+- $2,800 FOB makes ROI math work even for single-brand cloud kitchens.
+
+Recommended configuration: standard JD-3 + auto detergent dispenser. Skip premium upgrades — cloud kitchen unit economics rarely justify them.
+
+For multi-brand cloud kitchens (4+ brands operating from one facility): a single JD-3 typically suffices unless one brand has unusually heavy tray output.`}
+  roi={`For a 2-brand cloud kitchen doing 200–300 orders/day:
+
+- Current state: cooks spend ~45 minutes per shift on tray rinsing during low-volume gaps, plus 60 minutes at end-of-day on full cleanup. Total: ~2 hours/day × 30 days × $16/hour = $960/month in cook labor on dishwashing.
+- With JD-3: cooks load racks during natural breaks; cleanup is reduced to 20 minutes at end-of-day. ~30 minutes/day = $240/month.
+
+Net labor saved: ~$720/month = $8,640/year.
+
+Payback: 4–5 months. Faster if your cloud kitchen runs 12+ hours/day and dishwashing labor is currently a chokepoint.`}
+  faqs={[
+    { q: 'Can it run 7 days a week?', a: 'Yes — JD-3 is designed for continuous commercial duty.' },
+    { q: 'Pre-rinse necessary?', a: 'Recommended for grease-heavy items (fried-food trays). Skip for breaded items, dry residue.' },
+    { q: 'What if I add a third brand next quarter?', a: 'A single JD-3 typically supports 4–5 cloud brands. If you exceed 400 trays/day, talk to us about a second unit.' },
+    { q: 'Delivery riders break dishes — is the JD-3 cycle gentle enough for thin plastic delivery containers?', a: 'For melamine and PP plastic delivery containers, yes. For thin disposable PET containers, no — those should be discarded.' },
+    { q: 'Lease vs purchase?', a: 'We currently sell only. For cloud-kitchen-specific financing, talk to your local commercial-kitchen finance broker — most can finance our machines.' },
+  ]}
+/>

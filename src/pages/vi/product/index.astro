@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import PriceCalloutBox from '../../../components/PriceCalloutBox.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'vi' as const;
+---
+<BaseLayout title="V-TAI JD-3 — Máy rửa khay bánh" description="V-TAI JD-3: 60 rack/giờ, khay 600×400, SUS304, CE." locale={locale} canonicalPath="/product/" schemaType="Product">
+<BreadcrumbNav items={[{label:'Trang chủ',href:'/vi/'},{label:'Sản phẩm'}]} />
+<section class="section"><div class="container-page grid lg:grid-cols-2 gap-10">
+<ImagePlaceholder alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
+<div>
+<p class="eyebrow mb-2">Model VT-AE-JD-3</p>
+<h1 class="mb-4">V-TAI JD-3 — Máy rửa khay bánh kiểu nắp vòm</h1>
+<p class="text-lg mb-5">Máy rửa kiểu nắp vòm duy nhất trong phân khúc giá này được thiết kế cho tiêu chuẩn châu Âu <strong>600×400 mm</strong></p>
+<PriceCalloutBox locale={locale} />
+</div>
+</div></section>
+<section class="section"><div class="container-prose">
+<h2 class="mb-3">Các tính năng chính</h2>
+<ul class="space-y-2 list-disc list-inside">
+<li>Kết cấu SUS304 — thép không gỉ thực phẩm</li>
+<li>Buồng rửa cực lớn (650×550 mm)</li>
+<li>Cánh tay phun đôi 360°</li>
+<li>Kiểm soát nhiệt độ thông minh >82°C</li>
+<li>Tiêu thụ nước thấp 2,0-2,5 L/chu kỳ</li>
+<li>Hệ thống thu hồi nhiệt (tùy chọn)</li>
+<li>Cửa kín cách nhiệt — giảm hơi 70%</li>
+<li>Chứng nhận CE Safety</li>
+</ul>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

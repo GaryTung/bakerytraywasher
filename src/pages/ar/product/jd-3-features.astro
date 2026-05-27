@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'ar' as const;
+---
+<BaseLayout title="ميزات JD-3" description="12 ميزة رئيسية لـ V-TAI JD-3." locale={locale} canonicalPath="/product/jd-3-features/" schemaType="Article">
+<BreadcrumbNav items={[{label:'الرئيسية',href:'/ar/'},{label:'الميزات'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">12 ميزة رئيسية لـ JD-3</h1>
+<ol class="space-y-3 list-decimal list-inside">
+<li>هيكل SUS304 الفولاذ غذائي</li>
+<li>غرفة كبيرة 650×550 للصواني 600×400</li>
+<li>أذرع غسيل دوارة مزدوجة 360°</li>
+<li>فوهات مقاومة للانسداد</li>
+<li>تحكم ذكي بدرجة الحرارة</li>
+<li>استهلاك مياه منخفض</li>
+<li>نظام استرداد الحرارة</li>
+<li>باب محكم معزول</li>
+<li>تشغيل مريح</li>
+<li>بدء تلقائي بإغلاق الباب</li>
+<li>حماية أمنية متعددة</li>
+<li>قابلية توسعية</li>
+</ol>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

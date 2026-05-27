@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'fr' as const;
+---
+<BaseLayout title="Guide d'Installation JD-3 | V-TAI" description="Pré-installation, espace, eau, électricité et drainage requis." locale={locale} canonicalPath="/product/jd-3-installation/" schemaType="HowTo">
+<BreadcrumbNav items={[{label:'Accueil',href:'/fr/'},{label:'Produit',href:'/fr/product/'},{label:'Installation'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">Guide d'Installation JD-3</h1>
+<p class="text-lg mb-6">La plupart des petites boulangeries installent le JD-3 en 2 à 4 heures sans rénovation importante.</p>
+<h2 class="mt-8 mb-3">Liste de Vérification</h2>
+<ul class="space-y-2 list-disc list-inside">
+<li>Espace : 850 × 850 mm</li>
+<li>Hauteur verticale : 2 200 mm</li>
+<li>Eau froide : G 3/4", pression 2,5–6 kg/cm²</li>
+<li>Drain : G 1½"</li>
+<li>Électrique : 380V/3N/50Hz, circuit dédié 21,5 A</li>
+</ul>
+<h2 class="mt-8 mb-3">Jour d'Installation</h2>
+<ol class="space-y-2 list-decimal list-inside">
+<li>Déballage et inspection (15 min)</li>
+<li>Positionnement (10 min)</li>
+<li>Raccordement eau et drain (45 min)</li>
+<li>Câblage électrique (45 min — électricien)</li>
+<li>Cycle test (15 min)</li>
+<li>Formation opérateur (30 min incluse)</li>
+</ol>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

@@ -1,0 +1,22 @@
+---
+interface Section { title: string; rows: { k: string; v: string }[] }
+interface Props { sections: Section[] }
+const { sections } = Astro.props;
+---
+<div class="space-y-6">
+  {sections.map((s) => (
+    <div class="card !p-0 overflow-hidden">
+      <h3 class="bg-bakery-navy text-white px-4 py-3 text-base">{s.title}</h3>
+      <table class="w-full text-sm">
+        <tbody>
+          {s.rows.map((r) => (
+            <tr class="border-t border-bakery-navy/5 hover:bg-bakery-cream/50">
+              <td class="p-3 text-bakery-navy/70 w-1/2 font-medium">{r.k}</td>
+              <td class="p-3 text-bakery-navy font-semibold">{r.v}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  ))}
+</div>

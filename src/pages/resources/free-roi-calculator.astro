@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import CTASection from '../../components/CTASection.astro';
+const locale = 'en' as const;
+---
+<BaseLayout
+  title="Free ROI Calculator — JD-3 Bakery Tray Washer"
+  description="Calculate your specific ROI from a JD-3 bakery tray washer. Enter your daily volume, labor cost, and water cost. Get a personalized payback number."
+  locale={locale}
+  canonicalPath="/resources/free-roi-calculator/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Resources'}, {label: 'ROI Calculator'}]} />
+
+<section class="section">
+  <div class="container-page max-w-3xl">
+    <h1 class="mb-4">Free ROI Calculator</h1>
+    <p class="text-lg text-bakery-navy/80 mb-8">Enter your numbers. We calculate your specific JD-3 payback period in real time.</p>
+
+    <div class="card">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <label class="block">
+          <span class="text-sm font-medium">Trays/items washed per day</span>
+          <input type="number" id="items" value="200" min="1" class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none" />
+        </label>
+        <label class="block">
+          <span class="text-sm font-medium">Operating days per year</span>
+          <input type="number" id="days" value="312" min="1" max="365" class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none" />
+        </label>
+        <label class="block">
+          <span class="text-sm font-medium">Current dish-pit hours per day</span>
+          <input type="number" id="hours" value="3" min="0" step="0.5" class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none" />
+        </label>
+        <label class="block">
+          <span class="text-sm font-medium">Hourly labor cost (USD)</span>
+          <input type="number" id="wage" value="13" min="1" step="0.5" class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none" />
+        </label>
+        <label class="block">
+          <span class="text-sm font-medium">JD-3 + shipping + install (USD)</span>
+          <input type="number" id="capex" value="3850" min="2800" class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none" />
+        </label>
+        <label class="block">
+          <span class="text-sm font-medium">JD-3 annual opex (USD)</span>
+          <input type="number" id="opex" value="3200" min="500" class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none" />
+        </label>
+      </div>
+
+      <button id="calc" class="btn-primary w-full mt-6">Calculate My ROI</button>
+
+      <div id="result" class="mt-6 p-4 rounded-card bg-bakery-cream hidden">
+        <p class="text-sm text-bakery-navy/70">Annual savings:</p>
+        <p id="savings" class="text-3xl font-bold text-bakery-orange">$0</p>
+        <p class="text-sm text-bakery-navy/70 mt-3">Payback period:</p>
+        <p id="payback" class="text-2xl font-bold text-bakery-navy">0 months</p>
+        <p id="note" class="text-sm text-bakery-navy/60 mt-3"></p>
+      </div>
+    </div>
+
+    <p class="text-xs text-bakery-navy/50 mt-4">This is a simplified calculator. Want a full ROI spreadsheet with your specific water cost, electricity rate, and equipment depreciation? <a href="/get-quote/" class="underline">Request a quote</a> and we'll include one in our reply.</p>
+  </div>
+</section>
+
+<script>
+  const calc = document.getElementById('calc');
+  calc?.addEventListener('click', () => {
+    const items = +(document.getElementById('items') as HTMLInputElement).value;
+    const days = +(document.getElementById('days') as HTMLInputElement).value;
+    const hours = +(document.getElementById('hours') as HTMLInputElement).value;
+    const wage = +(document.getElementById('wage') as HTMLInputElement).value;
+    const capex = +(document.getElementById('capex') as HTMLInputElement).value;
+    const opex = +(document.getElementById('opex') as HTMLInputElement).value;
+
+    const currentLabor = hours * days * wage;
+    // Assume JD-3 reduces dish-pit time to 30 min/day
+    const jd3Labor = 0.5 * days * wage;
+    const annualSavings = currentLabor - jd3Labor + 1000 /* water/detergent savings */ - (opex - jd3Labor - 1000);
+    const payback = annualSavings > 0 ? capex / annualSavings * 12 : 999;
+
+    const result = document.getElementById('result')!;
+    const savingsEl = document.getElementById('savings')!;
+    const paybackEl = document.getElementById('payback')!;
+    const note = document.getElementById('note')!;
+    result.classList.remove('hidden');
+    savingsEl.textContent = `$${Math.round(annualSavings).toLocaleString()}`;
+    paybackEl.textContent = payback > 60 ? '> 60 months (math suggests hand-washing remains economical at your volume)' : `${Math.round(payback)} months`;
+    note.textContent = payback < 12 ? 'Solid payback — most operators in this range buy within the year.' : payback < 24 ? 'Reasonable payback — typical for moderate-volume bakeries.' : 'Long payback — consider waiting until volume grows.';
+  });
+</script>
+
+<CTASection locale={locale} />
+</BaseLayout>

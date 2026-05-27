@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ProductSpecsTable from '../../../components/ProductSpecsTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'fr' as const;
+const sections = [
+  { title: 'Dimensions Physiques', rows: [
+    { k: 'Dimensions (hotte fermée)', v: '804 × 816 × 1 550 mm' },
+    { k: 'Hauteur (hotte ouverte)', v: '2 115 mm' },
+    { k: 'Taille panier', v: '650 × 550 mm' },
+    { k: 'Poids net', v: '145 kg' },
+  ]},
+  { title: 'Performance', rows: [
+    { k: 'Capacité', v: '60 paniers/heure' },
+    { k: 'Durée cycle', v: '60–90 secondes' },
+    { k: 'Eau par cycle', v: '2,0–2,5 L' },
+    { k: 'Température rinçage final', v: '>82°C' },
+  ]},
+  { title: 'Électrique', rows: [
+    { k: 'Puissance totale', v: '13 kW' },
+    { k: 'Alimentation', v: '380V / 3N / 50Hz' },
+    { k: 'Courant', v: '21,5 A' },
+  ]},
+];
+---
+<BaseLayout title="Spécifications JD-3 | Lave-Plaques V-TAI" description="Spécifications techniques complètes du V-TAI JD-3." locale={locale} canonicalPath="/product/jd-3-specifications/" schemaType="Product">
+<BreadcrumbNav items={[{label:'Accueil',href:'/fr/'},{label:'Produit',href:'/fr/product/'},{label:'Spécifications'}]} />
+<section class="section"><div class="container-page"><h1 class="mb-6">Spécifications Complètes JD-3</h1><ProductSpecsTable sections={sections} /></div></section>
+<CTASection locale={locale} />
+</BaseLayout>

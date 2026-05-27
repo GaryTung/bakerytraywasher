@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../../components/ComparisonTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'vi' as const;
+const rows = [
+  { label: 'Năng suất', jd3: '60 rack/giờ', competitor: '60 rack/giờ' },
+  { label: 'Kích thước rack', jd3: '650×550 mm', competitor: '500×500 mm' },
+  { label: 'Khay 600×400', jd3: '✓ Có', competitor: '✗ Không', highlight: true },
+  { label: 'Giá', jd3: '$2.800 FOB', competitor: '$7.000-$9.000' },
+];
+---
+<BaseLayout title="JD-3 vs Hobart AMX" description="So sánh V-TAI JD-3 và Hobart AMX" locale={locale} canonicalPath="/product/jd-3-vs-hobart-amx/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Trang chủ',href:'/vi/'},{label:'vs Hobart'}]} />
+<section class="section"><div class="container-prose"><h1>JD-3 vs Hobart AMX</h1><p class="text-lg mt-4 mb-6">Hobart là người dẫn đầu thị trường Mỹ. JD-3 thấp hơn 60% và chấp nhận khay 600×400 mà Hobart không chấp nhận.</p></div>
+<div class="container-page"><ComparisonTable competitorName="Hobart AMX" rows={rows} /></div></section>
+<CTASection locale={locale} />
+</BaseLayout>

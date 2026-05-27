@@ -1,0 +1,36 @@
+---
+import WhatItWashesLayout from '../../layouts/WhatItWashesLayout.astro';
+const locale = 'en' as const;
+---
+<WhatItWashesLayout
+  locale={locale}
+  canonicalPath="/what-it-washes/stockpots/"
+  itemName="Stockpots"
+  title="Stockpot Washer | Large Pot & Cookware up to 28 cm Tall"
+  description="The JD-3's extra-large chamber accepts stockpots up to 28 cm tall and 30 cm diameter — the size that most commercial dishwashers cannot fit. From $2,800 FOB."
+  challenge={`Stockpots are the single biggest physical item in most commercial kitchens. A 20-quart stockpot is typically 28 cm tall, 30 cm diameter. They develop the toughest residue: reduced demi-glace, caramelized onion fond, scorched milk, burned sauces, and the brown crust that forms when stock reduces over hours.
+
+Hand-washing a stockpot is brutal physical labor — bent over a sink, scrubbing inside a deep cylinder, hot water and steam in your face. Most kitchens delay washing stockpots until end-of-day, by which point the residue has dried into something approaching ceramic.`}
+  howItHandles={`The JD-3 chamber accommodates stockpots up to 28 cm tall × 30 cm diameter — the standard 20-quart size used in most commercial kitchens. The dual-arm wash with one arm above and one arm below means spray reaches the pot's interior bottom (where most residue accumulates) and the exterior simultaneously.
+
+For 12-quart and smaller stockpots: load upright, lid removed, in the standard rack.
+For 16-quart and larger: use the tall-item rack accessory; you may need to wash the lid separately in a subsequent cycle.
+
+The high-pressure spray reaches the residue zones at the bottom of a tall pot that hand-washing struggles to address effectively.`}
+  recommendedSettings={`For stockpots:
+
+- Cycle: 90-second heavy-soil mandatory — stockpot residue is the toughest in any kitchen
+- Wash tank: 65°C (essential for breaking reduced-stock fonds)
+- Final rinse: 82°C+
+- Detergent: high-alkaline commercial detergent
+- Pre-rinse with hot water: yes, immediately after the pot is emptied (don't wait for the residue to cool and harden)
+- Pre-soak for badly burned pots: 10–15 minutes in hot water with detergent before loading
+- Load orientation: upright with lid removed (lids wash separately)
+- For pots with deeply burned bottoms: a second cycle is more effective than extending one cycle`}
+  faqs={[
+    { q: 'My 30-quart stockpot is 33 cm tall. Will it fit?', a: 'Not in the standard rack. The JD-3 chamber maximum vertical clearance is ~30 cm. For 30-quart and larger pots, hand-washing is unavoidable.' },
+    { q: 'Burned-on milk residue?', a: 'Scorched milk is the toughest stockpot residue. Pre-soak with degreaser detergent for 20 minutes, then run heavy-soil cycle. Severe cases may need 2 cycles.' },
+    { q: 'Aluminum stockpot — will it stain?', a: 'Aluminum can darken slightly in commercial dishwashers due to alkaline detergent. Cosmetic, not functional. To preserve appearance, hand-wash aluminum stockpots.' },
+    { q: 'Pot lids?', a: 'Lids wash separately in subsequent cycles. They\'re flat enough to fit several per cycle in the standard rack.' },
+  ]}
+/>

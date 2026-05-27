@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'ru' as const;
+---
+<BaseLayout title="Характеристики JD-3 | V-TAI" description="12 ключевых характеристик V-TAI JD-3." locale={locale} canonicalPath="/product/jd-3-features/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Главная',href:'/ru/'},{label:'Продукт',href:'/ru/product/'},{label:'Характеристики'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">12 ключевых характеристик JD-3</h1>
+<ol class="space-y-3 list-decimal list-inside">
+<li><strong>Конструкция SUS304</strong> — пищевая нержавеющая сталь</li>
+<li><strong>Очень большая камера</strong> — кассета 650×550 мм для противней 600×400</li>
+<li><strong>Двойные вращающиеся моющие штанги</strong> — покрытие 360°</li>
+<li><strong>Самоочищающиеся форсунки</strong></li>
+<li><strong>Интеллектуальный контроль температуры</strong> — авто стерилизация >82°C, LED</li>
+<li><strong>Ультранизкое потребление воды</strong> — 2,0–2,5 л/цикл</li>
+<li><strong>Система рекуперации тепла</strong></li>
+<li><strong>Уплотненная изолированная дверь</strong> — пар -70%</li>
+<li><strong>Эргономика</strong></li>
+<li><strong>Автозапуск при закрытии</strong></li>
+<li><strong>Множественная защита</strong></li>
+<li><strong>Функциональная расширяемость</strong></li>
+</ol>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustBadgeStrip from '../components/TrustBadgeStrip.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import PriceCalloutBox from '../components/PriceCalloutBox.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import CTASection from '../components/CTASection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+
+const locale = 'en' as const;
+
+const businessTypes = [
+  { name: 'Bakery Shop', href: '/by-business-type/bakery-shop/', icon: '🥐' },
+  { name: 'Coffee Chain', href: '/by-business-type/coffee-chain/', icon: '☕' },
+  { name: 'Patisserie', href: '/by-business-type/patisserie/', icon: '🧁' },
+  { name: 'Cake Shop', href: '/by-business-type/cake-shop/', icon: '🎂' },
+  { name: 'Small Restaurant', href: '/by-business-type/small-restaurant/', icon: '🍽️' },
+  { name: 'Cafeteria', href: '/by-business-type/cafeteria/', icon: '🥪' },
+  { name: 'Hotel Pastry', href: '/by-business-type/hotel-pastry-kitchen/', icon: '🏨' },
+  { name: 'Cloud Kitchen', href: '/by-business-type/cloud-kitchen/', icon: '👨‍🍳' },
+];
+
+const faqs = [
+  { q: 'Does the JD-3 really fit 600×400 mm bakery trays?', a: 'Yes — the 650×550 mm rack is the only commercial hood-type washer in this price class that fits the European Bakery Norm tray size. Hobart AMX, Jackson TempStar, CMA L-1X16 all use 500×500 racks and cannot.' },
+  { q: 'How long is the lead time?', a: '4–6 weeks production in Shenzhen, plus ocean freight to your country (typically 20–35 days for most destinations).' },
+  { q: 'What certifications does it have?', a: 'CE Safety certified for EU market, ISO 9001 production. Final sanitization at >82°C meets NSF temperature standard.' },
+  { q: 'What about installation?', a: 'A standard 380V/3N/50Hz commercial circuit with G3/4" water inlet and G1½" drain. Most small bakeries can install in 2–4 hours without major renovation.' },
+  { q: 'What is the payback period?', a: 'For a single-shop bakery washing 150–200 trays/day, payback is typically 7–9 months versus paying a dishwasher worker.' },
+];
+
+const compareRows = [
+  { label: 'Throughput', jd3: '60 racks/hr', competitor: 'Varies' },
+  { label: 'Fits 600×400 trays', jd3: '✓ Yes', competitor: '✗ No', highlight: true },
+  { label: 'Water per cycle', jd3: '2.5 L', competitor: '3.8–10 L' },
+  { label: 'Price (FOB)', jd3: '~$2,800–$3,500', competitor: '$5,500–$11,000' },
+];
+---
+<BaseLayout
+  title="Bakery Tray Washer | V-TAI JD-3 Hood-type Commercial Dishwasher"
+  description="The bakery tray washer that pays for itself in 8 months. Cleans 600×400 mm baking trays — the size most US dishwashers can't fit. CE-certified. From $2,800 FOB."
+  locale={locale}
+  canonicalPath="/"
+  schemaType="Organization"
+>
+
+<!-- Hero -->
+<section class="bg-gradient-to-br from-bakery-cream via-white to-bakery-cream/50 section">
+  <div class="container-page grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="eyebrow mb-3">V-TAI JD-3 · Bakingware Hood Washer</p>
+      <h1 class="mb-5">The Bakery Tray Washer That Pays for Itself in <span class="text-bakery-orange">8 Months</span></h1>
+      <p class="text-lg text-bakery-navy/80 mb-6 leading-relaxed">
+        Cleans 600×400&nbsp;mm baking trays — the size most American hood dishwashers can&rsquo;t fit.
+        CE-certified, food-grade SUS304 stainless steel. <strong>From $2,800 FOB Shenzhen.</strong>
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-quote/" class="btn-primary">Get a Quote</a>
+        <a href="/product/" class="btn-secondary">See the Specs</a>
+      </div>
+      <p class="mt-4 text-sm text-bakery-navy/60">⚡ Replies within 12 business hours · No spam, ever</p>
+    </div>
+    <div>
+      <ImagePlaceholder alt="V-TAI JD-3 hood-type bakery tray washer with stacked 600×400 mm baking trays beside it" ratio="4/3" label="JD-3 hero photo" />
+    </div>
+  </div>
+</section>
+
+<TrustBadgeStrip locale={locale} />
+
+<!-- Painpoint -->
+<section class="section">
+  <div class="container-page">
+    <div class="max-w-3xl mx-auto text-center mb-10">
+      <h2 class="mb-3">Tired of Your Team Spending 3 Hours a Day Scrubbing Baking Trays?</h2>
+      <p class="text-bakery-navy/70 text-lg">If you run a bakery, café, or pastry kitchen, manual tray cleaning is eating your margins — and your staff hate it.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card">
+        <div class="text-3xl mb-3">💸</div>
+        <h3 class="mb-2">$25,000+/year wasted</h3>
+        <p class="text-bakery-navy/70 text-sm">On dishwasher labor when one machine can do the job 4× faster.</p>
+      </div>
+      <div class="card">
+        <div class="text-3xl mb-3">⚠️</div>
+        <h3 class="mb-2">Inconsistent hygiene</h3>
+        <p class="text-bakery-navy/70 text-sm">Hand-washing rarely hits 82°C — failed health inspections cost real money.</p>
+      </div>
+      <div class="card">
+        <div class="text-3xl mb-3">😤</div>
+        <h3 class="mb-2">Staff turnover</h3>
+        <p class="text-bakery-navy/70 text-sm">Nobody wants the dishwashing shift. Constant hiring is exhausting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video demo placeholder -->
+<section class="section bg-bakery-cream">
+  <div class="container-page text-center">
+    <h2 class="mb-6">See It In Action — 30 Second Demo</h2>
+    <div class="max-w-3xl mx-auto">
+      <ImagePlaceholder alt="JD-3 in action — bakery tray washer demo video" ratio="16/9" label="Demo video thumbnail (placeholder)" />
+      <p class="text-sm text-bakery-navy/60 mt-3">Video will be added during production.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Key specs -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-10">Built for Small Commercial Kitchens</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="card text-center">
+        <p class="text-4xl font-bold text-bakery-orange">60</p>
+        <p class="text-sm text-bakery-navy/70 mt-2">racks per hour throughput</p>
+      </div>
+      <div class="card text-center border-2 border-bakery-orange/40">
+        <p class="text-4xl font-bold text-bakery-orange">600×400</p>
+        <p class="text-sm text-bakery-navy/70 mt-2">mm — fits Bakery Norm trays ⭐</p>
+      </div>
+      <div class="card text-center">
+        <p class="text-4xl font-bold text-bakery-orange">2.5L</p>
+        <p class="text-sm text-bakery-navy/70 mt-2">water per cycle (vs 5–10L typical)</p>
+      </div>
+      <div class="card text-center">
+        <p class="text-4xl font-bold text-bakery-orange">13kW</p>
+        <p class="text-sm text-bakery-navy/70 mt-2">total power · 380V/3N/50Hz</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Business types -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="max-w-2xl mx-auto text-center mb-10">
+      <h2 class="mb-3">What's Your Business?</h2>
+      <p class="text-bakery-navy/70">Tap your business type to see how the JD-3 fits your specific operation.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {businessTypes.map((bt) => (
+        <a href={bt.href} class="card text-center hover:scale-[1.02] transition">
+          <div class="text-4xl mb-2">{bt.icon}</div>
+          <p class="font-semibold text-bakery-navy">{bt.name}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Pricing transparency -->
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="eyebrow mb-2">Pricing</p>
+      <h2 class="mb-4">Honest, Transparent Pricing</h2>
+      <p class="text-bakery-navy/80 mb-4">
+        Most commercial dishwasher brands hide their prices. We don't. The JD-3 starts at
+        <strong>$2,800 FOB Shenzhen</strong> — less than half the price of a Hobart AMX with equivalent
+        CE-certified safety and performance.
+      </p>
+      <ul class="space-y-2 text-bakery-navy/80">
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> Hobart AMX retail: $7,000–$9,000</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> Jackson TempStar: $5,500–$7,500</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> Winterhalter UC: $8,000–$11,000</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> V-TAI JD-3: <strong>$2,800–$3,500 FOB</strong></li>
+      </ul>
+      <p class="text-sm text-bakery-navy/60 mt-4">Final pricing depends on accessories and shipping. Get a custom quote in 12 hours.</p>
+    </div>
+    <PriceCalloutBox locale={locale} />
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="text-center mb-10">What Owners Say</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <TestimonialCard
+        quote="We replaced 2 dishwashing staff. JD-3 paid for itself in 7 months — and the trays come out cleaner than they ever did by hand."
+        author="Bakery chain owner"
+        role="Singapore, 6 locations"
+      />
+      <TestimonialCard
+        quote="It's the only commercial dishwasher I found that fits our Convotherm 600×400 trays. Game-changer for our prep workflow."
+        author="Patisserie owner"
+        role="Melbourne, Australia"
+      />
+      <TestimonialCard
+        quote="Honest pricing. Honest specs. Honest people. Lead time was exactly what they promised."
+        author="Café group operations manager"
+        role="Dubai, UAE"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- Compare teaser -->
+<section class="section">
+  <div class="container-page">
+    <div class="max-w-2xl mx-auto text-center mb-8">
+      <h2 class="mb-3">How JD-3 Compares to Hobart, Jackson, and CMA</h2>
+      <p class="text-bakery-navy/70">A quick look. See full comparisons for each competitor.</p>
+    </div>
+    <ComparisonTable competitorName="Hobart / Jackson / CMA / Winterhalter" rows={compareRows} />
+    <div class="text-center mt-6">
+      <a href="/vs/" class="btn-secondary">See all comparisons</a>
+    </div>
+  </div>
+</section>
+
+<FAQSection items={faqs} title="Quick Questions From Bakery Owners" />
+
+<CTASection locale={locale} />
+
+</BaseLayout>

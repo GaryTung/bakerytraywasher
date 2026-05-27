@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import InlineInquiryForm from '../../components/InlineInquiryForm.astro';
+const locale = 'es' as const;
+---
+<BaseLayout
+  title="Contacto V-TAI — Consultas sobre Lavadora de Bandejas"
+  description="Email, WhatsApp o visite V-TAI para consultas sobre la lavadora de bandejas de panadería. Respondemos en 12 horas hábiles."
+  locale={locale}
+  canonicalPath="/contact/"
+>
+<BreadcrumbNav items={[{label: 'Inicio', href: '/es/'}, {label: 'Contacto'}]} />
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10">
+    <div>
+      <h1 class="mb-4">Póngase en Contacto</h1>
+      <p class="text-bakery-navy/80 mb-6">Respondemos en 12 horas hábiles. WhatsApp es generalmente lo más rápido.</p>
+      <div class="space-y-4">
+        <div class="card"><h3 class="text-lg mb-2">WhatsApp (Más rápido)</h3><a href="https://wa.me/8613509623269" class="text-bakery-orange font-semibold underline">+86 135 0962 3269</a><p class="text-sm text-bakery-navy/60 mt-1">Mensaje directo a nuestro equipo. Español, inglés, chino disponibles.</p></div>
+        <div class="card"><h3 class="text-lg mb-2">Email</h3><a href="mailto:info@v-tai.com" class="text-bakery-orange font-semibold underline">info@v-tai.com</a><p class="text-sm text-bakery-navy/60 mt-1">Mejor para preguntas técnicas detalladas o RFPs formales.</p></div>
+        <div class="card"><h3 class="text-lg mb-2">Oficina</h3><p class="text-bakery-navy">Habitación 2202, Centro de Servicios Logísticos Globales, Longgang, Shenzhen, Guangdong, China</p></div>
+        <div class="card"><h3 class="text-lg mb-2">Horario</h3><p class="text-bakery-navy">Lun–Sáb: 9:00 – 18:30 hora China (GMT+8)</p></div>
+      </div>
+    </div>
+    <div><InlineInquiryForm locale={locale} title="Envíenos un Mensaje" /></div>
+  </div>
+</section>
+</BaseLayout>

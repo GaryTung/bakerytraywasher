@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+const locale = 'es' as const;
+---
+<BaseLayout
+  title="Cotizar — Lavadora de Bandejas JD-3 | bakerytraywasher.com"
+  description="Solicite una cotización personalizada de la lavadora V-TAI JD-3. Respondemos en 12 horas hábiles con precio todo incluido."
+  locale={locale}
+  canonicalPath="/get-quote/"
+  schemaType="Organization"
+>
+<BreadcrumbNav items={[{label: 'Inicio', href: '/es/'}, {label: 'Cotizar'}]} />
+<section class="section">
+  <div class="container-page max-w-3xl">
+    <h1 class="mb-3 text-center">Cotización Personalizada en 12 Horas</h1>
+    <p class="text-bakery-navy/70 text-center mb-8">Complete el formulario. Respondemos en 12 horas hábiles con precio todo incluido, plazo de entrega y opciones de envío para su país.</p>
+    <div class="card"><InquiryForm locale={locale} /></div>
+  </div>
+</section>
+<section class="section bg-bakery-cream">
+  <div class="container-page text-center max-w-2xl mx-auto">
+    <h2 class="mb-4">¿Prefiere WhatsApp?</h2>
+    <p class="text-bakery-navy/80 mb-6">Escríbanos al +86 135 0962 3269. Indique su país, tipo de negocio y qué bandejas necesita lavar.</p>
+    <a href="https://wa.me/8613509623269" class="btn-primary">Abrir WhatsApp</a>
+  </div>
+</section>
+</BaseLayout>

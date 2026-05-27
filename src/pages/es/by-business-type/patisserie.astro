@@ -1,0 +1,21 @@
+---
+import BusinessTypeLayout from '../../../layouts/BusinessTypeLayout.astro';
+const locale = 'es' as const;
+---
+<BusinessTypeLayout
+  locale={locale}
+  canonicalPath="/by-business-type/patisserie/"
+  slug="patisserie"
+  businessName="Patisserie"
+  icon="🧁"
+  title="Lavadora para Patisserie — Gentil con Moldes Delicados"
+  description="La JD-3 lava moldes de silicona, aros de tarta y utensilios de patisserie sin deformar. Modo de lavado a baja temperatura."
+  reality="Patisserie estilo francés. Día estructurado por moldes para tartas en la mañana, entremets por la tarde. Herramientas caras y frágiles que pesa lavar a máquina por miedo a deformación."
+  needs="Ciclo gentil (60–65°C), aclarado final 82°C sin choque térmico, capacidad para formas irregulares, sin residuos corrosivos."
+  fit="JD-3 tiene modo de baja temperatura específico para patisserie. Aclarado 82°C aplicado solo 8 segundos. Rack 650×550 amplio para tartas en capa única."
+  roi="Ahorro típico: ~$5.200/año. Retorno: ~7 meses."
+  faqs={[
+    { q: '¿Mis moldes de silicona se deformarán?', a: 'No, con el modo de baja temperatura.' },
+    { q: '¿Cuencos Mauviel de cobre?', a: 'Lavar aparte en ciclo estándar.' },
+  ]}
+/>

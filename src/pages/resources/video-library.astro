@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import CTASection from '../../components/CTASection.astro';
+const locale = 'en' as const;
+
+const videos = [
+  { title: '30-Second JD-3 Demo', desc: 'Watch a full cycle from load to clean output.', length: '0:30' },
+  { title: 'Loading 600×400 Bakery Trays', desc: 'How to correctly load European Bakery Norm trays.', length: '2:15' },
+  { title: 'Daily Cleaning Routine', desc: 'End-of-day filter rinse, chamber wipe-down (under 5 minutes).', length: '4:40' },
+  { title: 'Monthly Descaling Procedure', desc: 'Step-by-step descale to maintain heater performance.', length: '6:20' },
+  { title: 'Installation Walkthrough', desc: 'For installers — power, water, drain connection sequence.', length: '8:15' },
+  { title: 'Operator Training Module', desc: '30-minute full training video, English narration.', length: '30:00' },
+];
+---
+<BaseLayout
+  title="JD-3 Video Library — Demos, Training, Service"
+  description="Video walkthroughs of the JD-3 bakery tray washer: demo, loading techniques, daily routine, descaling, installation, and operator training."
+  locale={locale}
+  canonicalPath="/resources/video-library/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Resources'}, {label: 'Video Library'}]} />
+
+<section class="section">
+  <div class="container-page">
+    <h1 class="mb-4 text-center">JD-3 Video Library</h1>
+    <p class="text-bakery-navy/70 text-lg max-w-2xl mx-auto text-center mb-10">
+      Demos, training, and service walkthroughs. All videos in English. Spanish, French, Russian, and Arabic versions available on request.
+    </p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {videos.map((v) => (
+        <div class="card">
+          <ImagePlaceholder alt={v.title} ratio="16/9" label={`${v.title} thumbnail`} />
+          <h3 class="mt-3 mb-1">{v.title}</h3>
+          <p class="text-sm text-bakery-navy/70 mb-2">{v.desc}</p>
+          <p class="text-xs text-bakery-navy/50">Length: {v.length}</p>
+        </div>
+      ))}
+    </div>
+    <p class="text-center mt-8 text-sm text-bakery-navy/60">Videos are being produced for the production launch. Until they're live, contact us for direct WhatsApp video walkthroughs.</p>
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

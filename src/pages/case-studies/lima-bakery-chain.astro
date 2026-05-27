@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import CTASection from '../../components/CTASection.astro';
+const locale = 'en' as const;
+---
+<BaseLayout
+  title="Case Study: Lima Artisan Bakery Chain (5 Locations)"
+  description="A 5-location artisan bakery chain in Lima, Peru, replaced inconsistent dishwashing across stores with a JD-3 fleet. Saved $48,000/year and improved health-inspection consistency."
+  locale={locale}
+  canonicalPath="/case-studies/lima-bakery-chain/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Case Studies', href: '/case-studies/'}, {label: 'Lima Bakery Chain'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-3">Lima Artisan Bakery Chain — 5 Locations, Spanish-Speaking Support</h1>
+    <p class="text-sm text-bakery-navy/60 mb-6">Artisan bakery chain · Lima, Peru · 5 locations · Deployed 2024</p>
+    <ImagePlaceholder alt="Lima bakery interior — wood-fired artisan bread" ratio="16/9" label="Lima artisan bakery interior" />
+
+    <h2 class="mt-10 mb-3">Background</h2>
+    <p>A 6-year-old artisan bakery chain in Lima, Peru, with 5 locations producing French-style baguettes, sourdough, and viennoiserie. Family-owned, with the two co-founders splitting operations and finance roles. Each location bakes 200–250 items daily on 600×400 mm trays in shared MIWE combi ovens.</p>
+
+    <h2 class="mt-8 mb-3">The Challenge</h2>
+    <p>The chain had grown organically. Three of the five locations had no dishwasher and used hand-washing exclusively. Two had cheap consumer-grade dishwashers that broke down monthly. The co-founder responsible for operations described the situation as "$10,000/month worth of pain we keep paying because we don't know how to solve it."</p>
+
+    <h2 class="mt-8 mb-3">Why They Chose JD-3</h2>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li>600×400 compatibility for the existing MIWE ovens</li>
+      <li>Per-unit pricing affordable for a 5-store family-owned chain</li>
+      <li>Spanish-language operation manual and Spanish-speaking support staff</li>
+      <li>Reasonable lead time to Lima (sea freight via Callao port: ~35 days)</li>
+      <li>Volume discount (8% off for 5+ units)</li>
+    </ul>
+
+    <h2 class="mt-8 mb-3">Configuration and Order</h2>
+    <p>Ordered 5 units of "Standard + Auto Detergent Dispenser" configuration at $3,000 each, less 8% volume discount = $13,800. Total landed cost in Lima including freight, port fees, import duty, and IGV (Peru VAT): ~$19,500.</p>
+
+    <h2 class="mt-8 mb-3">Implementation</h2>
+    <p>Sea freight to Callao port took 32 days. Local customs broker cleared in 4 business days. Installation done over 2 weekends by the chain's existing maintenance contractor with our remote video support (Spanish-language).</p>
+    <p class="mt-3">Operator training delivered via WhatsApp video calls in Spanish to each store's lead baker. Recordings provided for future hires.</p>
+
+    <h2 class="mt-8 mb-3">Results (10 months post-deployment)</h2>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li><strong>$48,000/year labor savings chain-wide</strong> (eliminated 1 dishwasher worker per store, redeployed others to baking prep)</li>
+      <li><strong>Health inspection consistency:</strong> all 5 stores passed with no remarks in the first audit cycle post-deployment</li>
+      <li><strong>Water bills reduced</strong> by ~28% across the chain</li>
+      <li><strong>Family quality of life:</strong> the operating co-founder reported being able to take his first vacation in 4 years — kitchen ops no longer required his constant supervision</li>
+    </ul>
+
+    <p class="mt-3"><strong>Total payback period:</strong> 5 months chain-wide.</p>
+
+    <h2 class="mt-8 mb-3">In the Co-founder's Words</h2>
+    <TestimonialCard
+      quote="We were ready to give up on commercial dishwashers entirely after the consumer-grade ones failed. JD-3 changed our entire operations. Five units, five locations, zero problems in 10 months."
+      author="Operations Co-founder"
+      role="5-location artisan bakery chain, Lima"
+    />
+
+    <h2 class="mt-8 mb-3">Notable Detail</h2>
+    <p>The chain is currently planning expansion to Arequipa and Trujillo. They've pre-ordered 2 more JD-3 units (one for each new location) before lease signing — the machine has moved onto their standard new-store checklist.</p>
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

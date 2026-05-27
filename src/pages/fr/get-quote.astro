@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+const locale = 'fr' as const;
+---
+<BaseLayout title="Obtenir un Devis — JD-3 Lave-Plaques | bakerytraywasher.com" description="Demandez un devis personnalisé pour le V-TAI JD-3. Nous répondons sous 12 heures ouvrées." locale={locale} canonicalPath="/get-quote/">
+<BreadcrumbNav items={[{label:'Accueil',href:'/fr/'},{label:'Devis'}]} />
+<section class="section">
+  <div class="container-page max-w-3xl">
+    <h1 class="mb-3 text-center">Devis Personnalisé en 12 Heures</h1>
+    <div class="card"><InquiryForm locale={locale} /></div>
+  </div>
+</section>
+</BaseLayout>

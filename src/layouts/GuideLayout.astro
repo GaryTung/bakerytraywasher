@@ -1,0 +1,44 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+import InlineInquiryForm from '../components/InlineInquiryForm.astro';
+import CTASection from '../components/CTASection.astro';
+import { type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  canonicalPath: string;
+  title: string;
+  description: string;
+  guideTitle: string;
+}
+const { locale, canonicalPath, title, description, guideTitle } = Astro.props;
+---
+<BaseLayout title={title} description={description} locale={locale} canonicalPath={canonicalPath} schemaType="Article">
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Guides', href: '/guides/bakery-tray-cleaning-best-practices/'}, {label: guideTitle}]} />
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-3 gap-10">
+    <article class="lg:col-span-2 prose-section">
+      <slot />
+    </article>
+
+    <aside class="lg:sticky lg:top-24 self-start">
+      <InlineInquiryForm locale={locale} title="Get a Quote" />
+      <div class="mt-6 card">
+        <h3 class="text-base mb-3">More guides</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/guides/bakery-tray-cleaning-best-practices/" class="hover:underline">Best practices</a></li>
+          <li><a href="/guides/how-to-choose-bakery-tray-washer/" class="hover:underline">How to choose</a></li>
+          <li><a href="/guides/600x400-bakery-norm-explained/" class="hover:underline">600×400 explained</a></li>
+          <li><a href="/guides/cost-of-manual-tray-cleaning/" class="hover:underline">Cost of manual washing</a></li>
+          <li><a href="/guides/water-consumption-comparison/" class="hover:underline">Water consumption</a></li>
+          <li><a href="/guides/sanitization-temperature-standards/" class="hover:underline">Sanitization temps</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

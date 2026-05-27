@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
+import CTASection from '../../components/CTASection.astro';
+const locale = 'fr' as const;
+---
+<BaseLayout title="À Propos de V-TAI — Lave-Plaques de Boulangerie" description="Shenzhen Vtai Electrical Appliance Co., Ltd. fabrique des lave-vaisselle commerciaux depuis plus de 10 ans." locale={locale} canonicalPath="/about/">
+<BreadcrumbNav items={[{label:'Accueil',href:'/fr/'},{label:'À Propos'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">L'Équipe Derrière le JD-3</h1>
+<p class="text-lg mb-4">Shenzhen Vtai Electrical Appliance Co., Ltd. — connue mondialement sous le nom de V-TAI — fabrique des lave-vaisselle commerciaux depuis notre site dans le delta de la rivière des Perles depuis plus de 10 ans.</p>
+<p class="mt-4">Le JD-3 représente 6 années de conception itérative spécifiquement pour les opérations de boulangerie.</p>
+<h2 class="mt-10 mb-3">Faits de Fabrication</h2>
+<ul class="space-y-2 list-disc list-inside">
+<li>Installation : 8 000 m² de production intelligente</li>
+<li>Capacité annuelle : 12 000 unités</li>
+<li>Taux de défauts : &lt;3%</li>
+<li>Chaîne d'approvisionnement : 92% verticalement contrôlée</li>
+<li>Avantage coût : 30–40% inférieur aux concurrents</li>
+<li>Certifications : ISO 9001, GMP, CE</li>
+</ul>
+</div></section>
+<TrustBadgeStrip locale={locale} />
+<CTASection locale={locale} />
+</BaseLayout>

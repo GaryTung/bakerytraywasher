@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../../components/ComparisonTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'th' as const;
+const rows = [{ label: 'ถาด 600×400', jd3: '✓', competitor: '✗', highlight: true }];
+---
+<BaseLayout title="JD-3 vs Jackson TempStar" description="เปรียบเทียบ JD-3 vs Jackson" locale={locale} canonicalPath="/product/jd-3-vs-jackson-tempstar/" schemaType="Article">
+<BreadcrumbNav items={[{label:'หน้าแรก',href:'/th/'},{label:'vs Jackson'}]} />
+<section class="section"><div class="container-prose"><h1>JD-3 vs Jackson TempStar</h1><p class="text-lg mt-4 mb-6">JD-3 ราคาต่ำกว่า 35% ห้องล้างใหญ่กว่า รองรับถาด 600×400</p></div>
+<div class="container-page"><ComparisonTable competitorName="Jackson TempStar" rows={rows} /></div></section>
+<CTASection locale={locale} />
+</BaseLayout>

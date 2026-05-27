@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+const locale = 'en' as const;
+
+const rows = [
+  { label: 'Throughput', jd3: '60 racks/hour', competitor: '60 racks/hour' },
+  { label: 'Rack size', jd3: '650 × 550 mm', competitor: '500 × 500 mm' },
+  { label: 'Fits 600×400 mm bakery trays?', jd3: '✓ Yes', competitor: '✗ No', highlight: true },
+  { label: 'Water per cycle', jd3: '2.5 L', competitor: '3.8 L' },
+  { label: 'Cycle time', jd3: '60–90 sec', competitor: '60 sec' },
+  { label: 'Total power', jd3: '13 kW', competitor: '19 kW' },
+  { label: 'Construction', jd3: 'Full SUS304', competitor: 'SUS304' },
+  { label: 'Sanitization temperature', jd3: '>82°C automatic', competitor: '>82°C automatic' },
+  { label: 'Certifications', jd3: 'CE, ISO 9001', competitor: 'NSF, UL' },
+  { label: 'Display', jd3: 'LED digital', competitor: 'Button panel' },
+  { label: 'Lead time', jd3: '4–6 weeks', competitor: '6–10 weeks' },
+  { label: 'Price (FOB / retail)', jd3: '~$2,800–$3,500 FOB', competitor: '~$7,000–$9,000 retail' },
+];
+---
+<BaseLayout
+  title="JD-3 vs Hobart AMX — Bakery Tray Washer Comparison"
+  description="Side-by-side comparison: V-TAI JD-3 vs Hobart AMX. Same throughput, 60% lower price, and JD-3 fits 600×400 mm bakery trays that the Hobart cannot."
+  locale={locale}
+  canonicalPath="/product/jd-3-vs-hobart-amx/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Product', href: '/product/'}, {label: 'vs Hobart AMX'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-4">V-TAI JD-3 vs Hobart AMX — Honest Side-by-Side</h1>
+    <p class="text-lg text-bakery-navy/80 mb-6">
+      Hobart is the established US category leader in commercial hood-type dishwashers, and the AMX is their flagship bakery-adjacent model. Here's how the JD-3 actually compares — line by line, no marketing fluff.
+    </p>
+  </div>
+
+  <div class="container-page">
+    <ComparisonTable competitorName="Hobart AMX" rows={rows} />
+  </div>
+
+  <div class="container-prose mt-12">
+    <h2 class="mb-3">When to Choose Hobart AMX</h2>
+    <p>Choose the Hobart AMX if you operate in the United States, value a domestic service network you can reach by phone in your time zone, and your kitchen is already standardized on Hobart equipment (so your maintenance staff knows the parts). The Hobart brand also carries weight with US health inspectors and franchise headquarters — if you're operating under a parent company that mandates NSF/UL listings, Hobart is the safer paperwork choice.</p>
+    <p class="mt-3">You should also choose Hobart if your trays are all 500×500 mm or smaller and you have no plans to introduce 600×400 European-norm bakery trays into your workflow. The AMX is a fine machine within its rack size limits.</p>
+
+    <h2 class="mt-10 mb-3">When to Choose JD-3</h2>
+    <p>Choose the JD-3 when any of the following are true:</p>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li><strong>You bake in 600×400 mm trays.</strong> The Hobart AMX physically cannot fit this size. There is no workaround.</li>
+      <li><strong>You are budget-conscious.</strong> JD-3 is 60% lower in cost while delivering identical throughput and equivalent CE-certified safety standards.</li>
+      <li><strong>You operate outside the United States.</strong> Hobart's strength is its US service network — outside the US, you're paying premium pricing for an imported machine without the local support advantage.</li>
+      <li><strong>You want lower water/energy bills.</strong> The JD-3 uses 34% less water and 32% less peak power per cycle.</li>
+      <li><strong>Your kitchen is on a tight footprint.</strong> Both machines have similar external sizes, but JD-3's larger internal chamber means more washing capacity in the same floor space.</li>
+    </ul>
+
+    <h2 class="mt-10 mb-3">The 600×400 Question — Why It Matters</h2>
+    <p>The Hobart AMX uses a 500×500 mm rack, which was the de-facto US standard when the AMX line was first designed. A 600×400 mm European Bakery Norm tray simply does not fit in that rack — diagonally or otherwise. If you've adopted Convotherm, Rational, or Unox combi ovens (which use 600×400 baking trays), you cannot wash those trays in a Hobart AMX. The JD-3's 650×550 rack solves this — it's the only machine in this price class engineered specifically for this tray size.</p>
+  </div>
+</section>
+
+<FAQSection items={[
+  { q: 'Is the JD-3 a Hobart copy?', a: 'No — different internal architecture, different control board, different rack sizing. They share the general hood-type category, like Toyota and Honda share the sedan category.' },
+  { q: 'Will US health inspectors accept a CE-certified machine instead of NSF-listed?', a: 'In most US states, yes — CE certification meets or exceeds the safety standards inspectors check for. However, some franchise chains mandate NSF specifically; verify with your franchisor.' },
+  { q: 'Spare parts availability outside China?', a: 'We ship spare parts globally within 5 business days via DHL/FedEx. Common parts (pumps, heaters, control boards) are kept in stock.' },
+  { q: 'Resale value?', a: 'Less established on the secondary market than Hobart. If you plan to resell within 3 years, factor this in.' },
+]} />
+
+<CTASection locale={locale} title="Want a Hobart-AMX-equivalent quote?" subtitle="We'll spec out a JD-3 configuration that matches your AMX needs — and saves you $4,000+." />
+</BaseLayout>

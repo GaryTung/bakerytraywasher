@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import TrustBadgeStrip from '../components/TrustBadgeStrip.astro';
+import CTASection from '../components/CTASection.astro';
+const locale = 'en' as const;
+---
+<BaseLayout
+  title="About V-TAI — The Bakery Tray Washer Company"
+  description="Shenzhen Vtai Electrical Appliance Co., Ltd. is a 10+ year manufacturer of commercial dishwashers, specializing in bakery and small commercial kitchen markets globally."
+  locale={locale}
+  canonicalPath="/about/"
+  schemaType="Organization"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'About'}]} />
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="eyebrow mb-2">About V-TAI</p>
+      <h1 class="mb-4">The People Behind the JD-3</h1>
+      <p class="text-lg text-bakery-navy/80 mb-4">
+        Shenzhen Vtai Electrical Appliance Co., Ltd. — known globally as V-TAI — has been manufacturing commercial dishwashers from our facility in the Pearl River Delta for over a decade. We specialize in machines built for small-to-mid commercial kitchens worldwide.
+      </p>
+      <p class="text-lg text-bakery-navy/80">
+        The JD-3 represents 6 years of iterative design specifically for bakery operations. We built it after realizing that no machine in the small-commercial price range fit the 600×400 mm tray size that virtually every modern bakery oven uses.
+      </p>
+    </div>
+    <ImagePlaceholder alt="V-TAI factory in Pearl River Delta, Guangdong, China" ratio="4/3" label="V-TAI factory exterior" />
+  </div>
+</section>
+
+<TrustBadgeStrip locale={locale} />
+
+<section class="section">
+  <div class="container-prose">
+    <h2 class="mb-3">Our Story</h2>
+    <p>V-TAI started in 2013 as a contract manufacturer for European commercial-kitchen-equipment brands. By 2016, we had developed our own product lines and begun selling under the V-TAI brand to international customers. The JD-3 (model VT-AE-JD-3) was developed in 2019–2020 in response to repeated requests from European patisseries and Asian bakery chains for an affordable hood-type machine that could handle 600×400 trays.</p>
+
+    <p class="mt-4">Today, our 8,000 m² smart manufacturing base produces approximately 12,000 commercial dishwashers per year for customers in over 60 countries. We are ISO 9001 certified, our products are CE-certified for EU compliance, and our production methodology is built around what we call "Smart Localization" — combining French Schneider Electric components with localized supply-chain sourcing in the Pearl River Delta to deliver a 30–40% cost advantage versus comparable products from Hobart, Jackson, Winterhalter, or CMA.</p>
+
+    <h2 class="mt-10 mb-3">What We Believe</h2>
+    <ul class="space-y-3 text-bakery-navy/80">
+      <li class="flex gap-3"><span class="text-bakery-orange font-bold">1.</span> <span><strong>Small bakeries deserve good equipment.</strong> The premium commercial-kitchen market has long ignored the small operator. We design for the bakery owner, not the corporate procurement team.</span></li>
+      <li class="flex gap-3"><span class="text-bakery-orange font-bold">2.</span> <span><strong>Honest pricing builds trust.</strong> We publish our prices. We respond to inquiries within 12 hours. We tell you what shipping will cost before you commit.</span></li>
+      <li class="flex gap-3"><span class="text-bakery-orange font-bold">3.</span> <span><strong>The tray dictates the machine.</strong> If your dishwasher doesn't fit your tray, every other feature is irrelevant. We sized the JD-3 chamber around the 600×400 tray standard from day one.</span></li>
+      <li class="flex gap-3"><span class="text-bakery-orange font-bold">4.</span> <span><strong>Service follows the sale, globally.</strong> We ship spare parts via DHL/FedEx within 5 business days to any country. No "your model is discontinued" surprises.</span></li>
+    </ul>
+
+    <h2 class="mt-10 mb-3">Manufacturing Facts</h2>
+    <ul class="space-y-2 text-bakery-navy/80 list-disc list-inside">
+      <li><strong>Facility size:</strong> 8,000 m² smart manufacturing base</li>
+      <li><strong>Annual production capacity:</strong> 12,000 commercial dishwasher units</li>
+      <li><strong>Defect rate:</strong> &lt;3% (industry-leading)</li>
+      <li><strong>Component sourcing:</strong> 92% vertically controlled supply chain</li>
+      <li><strong>Cost advantage:</strong> 30–40% lower than equivalent Hobart, Jackson, CMA, Winterhalter products</li>
+      <li><strong>Waste reduction:</strong> 25% lower waste than industry average</li>
+      <li><strong>Turnaround speed:</strong> 30% faster than industry average</li>
+      <li><strong>Certifications:</strong> ISO 9001, GMP, CE, FDA-compliant production materials</li>
+    </ul>
+
+    <h2 class="mt-10 mb-3">Where We Ship</h2>
+    <p>We ship globally. Major markets we currently serve: European Union (all member states), United Kingdom, GCC (UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, Oman), broader Middle East (Egypt, Jordan, Morocco), Russia and CIS countries, Thailand, Vietnam, Singapore, Malaysia, Indonesia, Philippines, Japan, South Korea, Australia, New Zealand, Brazil, Argentina, Chile, Colombia, Peru, Mexico, South Africa, Kenya, Nigeria, and the United States.</p>
+
+    <h2 class="mt-10 mb-3">How to Reach Us</h2>
+    <ul class="space-y-2 text-bakery-navy/80">
+      <li><strong>Email:</strong> <a href="mailto:info@v-tai.com" class="underline">info@v-tai.com</a></li>
+      <li><strong>WhatsApp:</strong> <a href="https://wa.me/8613509623269" class="underline">+86 135 0962 3269</a></li>
+      <li><strong>Address:</strong> Room 2202, Global Logistics Services Centre, Longgang, Shenzhen, Guangdong, China</li>
+      <li><strong>Corporate website:</strong> <a href="https://v-tai.com" class="underline">v-tai.com</a></li>
+    </ul>
+
+    <p class="mt-6 text-sm text-bakery-navy/60">Office hours: Monday–Saturday, 9:00 AM–6:30 PM China time (GMT+8). We typically respond to WhatsApp inquiries outside hours within 2–3 hours.</p>
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

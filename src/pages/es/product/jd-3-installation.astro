@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'es' as const;
+---
+<BaseLayout title="Guía de Instalación JD-3 | Lavadora V-TAI" description="Lista de verificación pre-instalación, requisitos de espacio, agua, electricidad y drenaje para la JD-3." locale={locale} canonicalPath="/product/jd-3-installation/" schemaType="HowTo">
+<BreadcrumbNav items={[{label:'Inicio',href:'/es/'},{label:'Producto',href:'/es/product/'},{label:'Instalación'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">Guía de Instalación JD-3</h1>
+<p class="text-lg mb-6">La mayoría de panaderías pequeñas instalan la JD-3 en 2–4 horas sin renovación importante.</p>
+<h2 class="mt-8 mb-3">Lista de Verificación</h2>
+<ul class="space-y-2 list-disc list-inside">
+<li>Espacio: 850 × 850 mm (máquina + holgura)</li>
+<li>Altura vertical: 2.200 mm para abrir la campana</li>
+<li>Agua fría: G 3/4", presión 2,5–6 kg/cm²</li>
+<li>Drenaje: G 1½" en suelo o pared</li>
+<li>Eléctrico: 380V/3N/50Hz, 21,5 A circuito dedicado</li>
+</ul>
+<h2 class="mt-8 mb-3">Día de Instalación</h2>
+<ol class="space-y-2 list-decimal list-inside">
+<li>Desempaque e inspección (15 min)</li>
+<li>Posicionamiento sobre suelo nivelado (10 min)</li>
+<li>Conexión de agua y drenaje (45 min)</li>
+<li>Cableado eléctrico (45 min — electricista)</li>
+<li>Ciclo de prueba (15 min)</li>
+<li>Capacitación al operador (30 min incluida)</li>
+</ol>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'vi' as const;
+---
+<BaseLayout title="Tính năng JD-3" description="12 tính năng chính của V-TAI JD-3" locale={locale} canonicalPath="/product/jd-3-features/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Trang chủ',href:'/vi/'},{label:'Tính năng'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">12 tính năng chính của JD-3</h1>
+<ol class="space-y-3 list-decimal list-inside">
+<li>Kết cấu SUS304</li>
+<li>Buồng rửa cực lớn 650×550 mm</li>
+<li>Cánh tay phun đôi 360°</li>
+<li>Vòi phun chống tắc</li>
+<li>Kiểm soát nhiệt độ thông minh</li>
+<li>Tiêu thụ nước thấp</li>
+<li>Hệ thống thu hồi nhiệt</li>
+<li>Cửa kín cách nhiệt</li>
+<li>Vận hành ergonomic</li>
+<li>Tự khởi động khi đóng cửa</li>
+<li>Bảo vệ an toàn nhiều lớp</li>
+<li>Khả năng mở rộng</li>
+</ol>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

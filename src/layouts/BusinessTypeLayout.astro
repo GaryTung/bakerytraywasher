@@ -1,0 +1,70 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import InlineInquiryForm from '../components/InlineInquiryForm.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTASection from '../components/CTASection.astro';
+import { type Locale } from '../i18n/utils';
+
+interface QA { q: string; a: string }
+interface Props {
+  locale: Locale;
+  canonicalPath: string;
+  slug: string;
+  businessName: string;
+  title: string;
+  description: string;
+  reality: string;
+  needs: string;
+  fit: string;
+  roi: string;
+  faqs: QA[];
+  icon?: string;
+}
+const { locale, canonicalPath, slug, businessName, title, description, reality, needs, fit, roi, faqs, icon = '🥐' } = Astro.props;
+---
+<BaseLayout title={title} description={description} locale={locale} canonicalPath={canonicalPath} schemaType="Article">
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'For Your Business', href: '/by-business-type/'}, {label: businessName}]} />
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-3 gap-10">
+    <article class="lg:col-span-2 prose-section">
+      <div class="text-5xl mb-4">{icon}</div>
+      <h1 class="mb-3">{title}</h1>
+      <p class="text-lg text-bakery-navy/80 mb-8">{description}</p>
+
+      <ImagePlaceholder alt={`${businessName} — interior with JD-3`} ratio="16/9" label={`${businessName} lifestyle photo`} />
+
+      <h2 class="mt-10 mb-3">Your Business Reality</h2>
+      <p class="text-bakery-navy/80 leading-relaxed whitespace-pre-line">{reality}</p>
+
+      <h2 class="mt-10 mb-3">What You Specifically Need From a Dishwasher</h2>
+      <p class="text-bakery-navy/80 leading-relaxed whitespace-pre-line">{needs}</p>
+
+      <h2 class="mt-10 mb-3">How JD-3 Fits Your Operation</h2>
+      <p class="text-bakery-navy/80 leading-relaxed whitespace-pre-line">{fit}</p>
+
+      <h2 class="mt-10 mb-3">ROI for Your Operation</h2>
+      <p class="text-bakery-navy/80 leading-relaxed whitespace-pre-line">{roi}</p>
+    </article>
+
+    <aside class="lg:sticky lg:top-24 self-start">
+      <InlineInquiryForm locale={locale} businessTypePreset={businessName} title={`Quote for ${businessName}`} />
+      <div class="mt-6 card">
+        <h3 class="text-base mb-3">Related reading</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/what-it-washes/baking-trays-600x400/" class="hover:underline">600×400 mm Bakery Norm trays</a></li>
+          <li><a href="/pricing/" class="hover:underline">JD-3 pricing</a></li>
+          <li><a href="/vs/hobart-amx/" class="hover:underline">vs Hobart AMX</a></li>
+          <li><a href="/guides/cost-of-manual-tray-cleaning/" class="hover:underline">Cost of manual tray cleaning</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<FAQSection items={faqs} />
+
+<CTASection locale={locale} />
+</BaseLayout>

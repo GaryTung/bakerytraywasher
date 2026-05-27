@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
+import InlineInquiryForm from '../../components/InlineInquiryForm.astro';
+import CTASection from '../../components/CTASection.astro';
+const locale = 'es' as const;
+
+const tiers = [
+  { name: 'JD-3 Estándar (Eléctrica)', price: '$2.800', desc: 'Configuración base. 380V/3N/50Hz. Incluye 2 racks, herramientas básicas, manual, certificado CE.', features: ['Acero SUS304', 'Rack 650×550 mm', '60 racks/hora', 'Display LED'] },
+  { name: '+ Dispensador Automático de Detergente', price: '$3.000', desc: 'Estándar + bomba automática de detergente y abrillantador.', features: ['Todo lo anterior', 'Dosificación automática', 'Resultados consistentes'], recommended: true },
+  { name: '+ Módulo de Tratamiento de Agua', price: '$3.300', desc: 'Para regiones con agua dura (>200 ppm).', features: ['Todo lo anterior', 'Prevención de cal'] },
+  { name: '+ Recuperación de Calor', price: '$3.200', desc: 'Ahorro de energía 15–25%.', features: ['Todo lo anterior', 'Sistema de recuperación'] },
+];
+---
+<BaseLayout
+  title="Precios JD-3 — Desde $2.800 FOB | Lavadora de Bandejas"
+  description="Precios honestos y transparentes para la lavadora V-TAI JD-3. Desde $2.800 FOB Shenzhen. Términos de pago, plazos de entrega, opciones de configuración."
+  locale={locale}
+  canonicalPath="/pricing/"
+  schemaType="Product"
+>
+<BreadcrumbNav items={[{label: 'Inicio', href: '/es/'}, {label: 'Precios'}]} />
+<section class="section">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h1 class="mb-4">Precios Honestos y Transparentes</h1>
+      <p class="text-bakery-navy/70 text-lg">Sin cargos ocultos. Aquí está exactamente lo que cuesta la JD-3.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      {tiers.map((t) => (
+        <div class={`card ${t.recommended ? 'border-2 border-bakery-orange' : ''}`}>
+          {t.recommended && <p class="eyebrow text-bakery-orange mb-1">★ Más popular</p>}
+          <h3 class="text-lg mb-2">{t.name}</h3>
+          <p class="text-3xl font-bold text-bakery-orange mb-2">Desde {t.price}</p>
+          <p class="text-xs text-bakery-navy/60 mb-4">FOB Shenzhen</p>
+          <p class="text-sm text-bakery-navy/70 mb-4">{t.desc}</p>
+          <ul class="space-y-1 text-sm">
+            {t.features.map((f) => <li class="flex gap-2"><span class="text-bakery-orange">✓</span> {f}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <p class="text-center mt-6 text-sm text-bakery-navy/60">Todos los precios en USD, FOB Shenzhen. Flete y aduanas según país.</p>
+  </div>
+</section>
+<section class="section bg-bakery-cream">
+  <div class="container-page max-w-2xl mx-auto">
+    <InlineInquiryForm locale={locale} title="Cotización Personalizada en 12 Horas" />
+  </div>
+</section>
+<CTASection locale={locale} />
+</BaseLayout>

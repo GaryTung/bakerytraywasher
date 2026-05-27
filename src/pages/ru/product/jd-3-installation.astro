@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'ru' as const;
+---
+<BaseLayout title="Руководство по установке JD-3" description="Требования по пространству, воде, электричеству и дренажу." locale={locale} canonicalPath="/product/jd-3-installation/" schemaType="HowTo">
+<BreadcrumbNav items={[{label:'Главная',href:'/ru/'},{label:'Продукт',href:'/ru/product/'},{label:'Установка'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">Руководство по установке JD-3</h1>
+<p class="text-lg mb-6">Большинство малых пекарен устанавливают JD-3 за 2-4 часа без серьёзного ремонта.</p>
+<h2 class="mt-8 mb-3">Чек-лист</h2>
+<ul class="space-y-2 list-disc list-inside">
+<li>Пространство: 850 × 850 мм</li>
+<li>Высота: 2 200 мм для открытия купола</li>
+<li>Холодная вода: G 3/4", давление 2,5–6 кг/см²</li>
+<li>Дренаж: G 1½"</li>
+<li>Электричество: 380V/3N/50Гц, выделенный 21,5 А автомат</li>
+</ul>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+const locale = 'ar' as const;
+---
+<BaseLayout title="احصل على عرض سعر — JD-3" description="اطلب عرض سعر مخصص. نرد خلال 12 ساعة عمل." locale={locale} canonicalPath="/get-quote/">
+<BreadcrumbNav items={[{label:'الرئيسية',href:'/ar/'},{label:'عرض السعر'}]} />
+<section class="section"><div class="container-page max-w-3xl">
+<h1 class="mb-3 text-center">عرض سعر مخصص خلال 12 ساعة</h1>
+<div class="card"><InquiryForm locale={locale} /></div>
+</div></section>
+</BaseLayout>

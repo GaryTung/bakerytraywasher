@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ProductSpecsTable from '../../../components/ProductSpecsTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'ar' as const;
+const sections = [
+  { title: 'الأبعاد', rows: [
+    { k: 'الأبعاد (مغلق)', v: '804 × 816 × 1,550 مم' },
+    { k: 'الارتفاع (مفتوح)', v: '2,115 مم' },
+    { k: 'حجم الرف', v: '650 × 550 مم' },
+    { k: 'الوزن', v: '145 كجم' },
+  ]},
+  { title: 'الأداء', rows: [
+    { k: 'الإنتاجية', v: '60 رف/ساعة' },
+    { k: 'وقت الدورة', v: '60-90 ثانية' },
+    { k: 'الماء/دورة', v: '2.0-2.5 لتر' },
+    { k: 'درجة الشطف', v: '>82°C' },
+  ]},
+  { title: 'الكهرباء', rows: [
+    { k: 'القدرة', v: '13 كيلوواط' },
+    { k: 'الجهد', v: '380 فولت / 3N / 50Hz' },
+    { k: 'التيار', v: '21.5 أمبير' },
+  ]},
+];
+---
+<BaseLayout title="مواصفات JD-3" description="المواصفات التقنية الكاملة لـ V-TAI JD-3." locale={locale} canonicalPath="/product/jd-3-specifications/" schemaType="Product">
+<BreadcrumbNav items={[{label:'الرئيسية',href:'/ar/'},{label:'المنتج',href:'/ar/product/'},{label:'المواصفات'}]} />
+<section class="section"><div class="container-page"><h1 class="mb-6">المواصفات الكاملة لـ JD-3</h1><ProductSpecsTable sections={sections} /></div></section>
+<CTASection locale={locale} />
+</BaseLayout>

@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
+import InlineInquiryForm from '../../components/InlineInquiryForm.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+const locale = 'en' as const;
+
+const tiers = [
+  { name: 'Standard JD-3 (Electric)', price: '$2,800', desc: 'Base configuration. 380V/3N/50Hz. Standard wash & rinse cycle. Includes 2 racks, peg cup rack, basic tools, operation manual, CE certificate.', features: ['SUS304 stainless construction', '650×550 mm rack', '60 racks/hour', 'LED digital display'] },
+  { name: '+ Auto Detergent Dispenser', price: '$3,000', desc: 'Standard + automatic liquid detergent pump and rinse aid dispenser. Eliminates manual dosing.', features: ['All Standard features', 'Auto detergent metering', 'Auto rinse aid', 'Consistent results'], recommended: true },
+  { name: '+ Water Treatment Module', price: '$3,300', desc: 'Standard + auto detergent + inline water softener cartridge for hard water regions (>200 ppm).', features: ['All above', 'Limescale prevention', 'Extends heater life', 'For hard-water regions'] },
+  { name: '+ Heat Recovery Upgrade', price: '$3,200', desc: 'Standard + auto detergent + enhanced heat recovery module. Pre-warms inlet water, reduces energy consumption 15–25%.', features: ['All Standard features', 'Auto detergent', 'Heat recovery system', '15–25% energy savings'] },
+];
+---
+<BaseLayout
+  title="JD-3 Pricing — From $2,800 FOB | Bakery Tray Washer Pricing"
+  description="Honest, transparent pricing for the V-TAI JD-3 bakery tray washer. Starting at $2,800 FOB Shenzhen. Payment terms, lead time, configuration options."
+  locale={locale}
+  canonicalPath="/pricing/"
+  schemaType="Product"
+  schemaData={{
+    name: 'V-TAI JD-3 Bakingware Hood-type Washer',
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '2800', highPrice: '3500' }
+  }}
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Pricing'}]} />
+
+<section class="section">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h1 class="mb-4">Honest, Transparent Pricing</h1>
+      <p class="text-bakery-navy/70 text-lg">No hidden fees, no "request a quote" mind games. Here is exactly what the JD-3 costs.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      {tiers.map((t) => (
+        <div class={`card ${t.recommended ? 'border-2 border-bakery-orange' : ''}`}>
+          {t.recommended && <p class="eyebrow text-bakery-orange mb-1">★ Most popular</p>}
+          <h3 class="text-lg mb-2">{t.name}</h3>
+          <p class="text-3xl font-bold text-bakery-orange mb-2">From {t.price}</p>
+          <p class="text-xs text-bakery-navy/60 mb-4">FOB Shenzhen</p>
+          <p class="text-sm text-bakery-navy/70 mb-4">{t.desc}</p>
+          <ul class="space-y-1 text-sm text-bakery-navy/80">
+            {t.features.map((f) => <li class="flex gap-2"><span class="text-bakery-orange">✓</span> {f}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-center mt-6 text-sm text-bakery-navy/60 max-w-2xl mx-auto">
+      All prices in USD, FOB Shenzhen. Shipping, import duties, and local taxes vary by country.
+      See <a href="/pricing/shipping-and-import-cost-by-country/" class="underline">estimated landed costs by country</a>.
+    </p>
+  </div>
+</section>
+
+<section class="section bg-bakery-cream">
+  <div class="container-page grid md:grid-cols-3 gap-8">
+    <div class="card">
+      <h3 class="mb-3">Payment Terms</h3>
+      <ul class="space-y-2 text-sm">
+        <li class="flex gap-2"><span class="text-bakery-orange">→</span> 30% deposit at order</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">→</span> 70% balance before shipping</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">→</span> TT (wire transfer) preferred</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">→</span> L/C accepted for orders &gt; $20,000</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">→</span> Western Union for small orders</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="mb-3">Lead Time</h3>
+      <ul class="space-y-2 text-sm">
+        <li class="flex gap-2"><span class="text-bakery-orange">→</span> Production: 4–6 weeks</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">→</span> Sea freight: 20–35 days</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">→</span> Air freight: 3–7 days</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">→</span> Rush orders: contact us</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="mb-3">Volume Discounts</h3>
+      <ul class="space-y-2 text-sm">
+        <li class="flex gap-2"><span class="text-bakery-orange">→</span> 5+ units: 8% off</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">→</span> 10+ units: 12% off</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">→</span> 20+ units: 15% off</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">→</span> 50+ units: contact us</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10">
+    <div>
+      <h2 class="mb-4">Compared to Competitors</h2>
+      <ul class="space-y-3 text-bakery-navy/80">
+        <li class="flex gap-2"><span>×</span> Hobart AMX: $7,000–$9,000 retail</li>
+        <li class="flex gap-2"><span>×</span> Jackson TempStar: $5,500–$7,500 retail</li>
+        <li class="flex gap-2"><span>×</span> CMA L-1X16-BW: $5,000–$7,000 retail</li>
+        <li class="flex gap-2"><span>×</span> Winterhalter UC: $8,000–$11,000 retail</li>
+        <li class="flex gap-2 font-bold text-bakery-orange"><span>✓</span> V-TAI JD-3: $2,800–$3,500 FOB</li>
+      </ul>
+      <p class="mt-4 text-sm text-bakery-navy/60">Equivalent CE-certified safety and performance. We respectfully decline to be the cheapest — we aim to be the highest-value option.</p>
+    </div>
+    <PriceCalloutBox locale={locale} />
+  </div>
+</section>
+
+<section class="section bg-bakery-cream">
+  <div class="container-page max-w-2xl mx-auto">
+    <InlineInquiryForm locale={locale} title="Get a Custom Quote in 12 Hours" />
+  </div>
+</section>
+
+<FAQSection items={[
+  { q: 'Can I see the full price including shipping to my country?', a: 'Yes — request a quote and specify your destination port. We typically respond within 12 business hours with all-in pricing.' },
+  { q: 'Do you offer financing?', a: 'We sell direct without financing. For lease or installment financing, work with a local commercial-kitchen equipment finance broker. They can finance a $3,000 machine easily.' },
+  { q: 'Refund policy?', a: 'Order cancellation before production starts: full refund. After production starts: 30% retained. After shipping: no refund possible (transport is irreversible). We work hard to make sure orders proceed correctly the first time.' },
+  { q: 'Warranty included?', a: '12-month manufacturer warranty on parts. Spare parts ship globally within 5 business days.' },
+  { q: 'Tax considerations?', a: 'You are responsible for local import duties and VAT/GST. We provide commercial invoice and customs documentation. Estimated tax rates vary by country — see our shipping costs page.' },
+]} />
+
+<CTASection locale={locale} />
+</BaseLayout>

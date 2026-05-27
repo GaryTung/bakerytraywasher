@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import InlineInquiryForm from '../../components/InlineInquiryForm.astro';
+const locale = 'en' as const;
+---
+<BaseLayout
+  title="Bakery Tray Washer Buyer's Guide PDF — Free Download"
+  description="A 28-page PDF guide to buying a commercial bakery tray washer. Specs to look for, questions to ask vendors, financing options, and installation tips."
+  locale={locale}
+  canonicalPath="/resources/buyers-guide-pdf/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Resources'}, {label: 'Buyer\'s Guide PDF'}]} />
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10">
+    <div>
+      <h1 class="mb-4">The Bakery Tray Washer Buyer's Guide</h1>
+      <p class="text-lg text-bakery-navy/80 mb-6">28 pages. Everything you need to know before buying a commercial dishwasher for your bakery operation.</p>
+
+      <h2 class="text-xl mb-3">What's inside</h2>
+      <ul class="space-y-2 text-bakery-navy/80 list-disc list-inside">
+        <li>How to measure your largest tray and why it matters</li>
+        <li>Throughput math: matching machine capacity to your peak load</li>
+        <li>Electrical and water utility requirements</li>
+        <li>Budget tiers from undercounter to conveyor</li>
+        <li>Certifications by region (CE, NSF, UL, GB)</li>
+        <li>Questions to ask vendors before you commit</li>
+        <li>The 600×400 tray standard, explained</li>
+        <li>Detergent selection guide</li>
+        <li>Detailed ROI calculation worksheet</li>
+        <li>Installation checklist</li>
+        <li>Glossary of dishwasher terminology</li>
+      </ul>
+
+      <p class="mt-6 text-sm text-bakery-navy/60">No email required to download. Just click below.</p>
+      <a href="/pdfs/bakery-tray-washer-buyers-guide.pdf" class="btn-primary mt-4 inline-block">Download PDF (free)</a>
+      <p class="text-xs text-bakery-navy/50 mt-2">PDF will be available with the production launch. Until then, content is mirrored in our <a href="/guides/how-to-choose-bakery-tray-washer/" class="underline">how-to-choose guide</a>.</p>
+    </div>
+    <InlineInquiryForm locale={locale} title="Want a custom buyer's guide?" />
+  </div>
+</section>
+</BaseLayout>

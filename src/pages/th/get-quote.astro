@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+const locale = 'th' as const;
+---
+<BaseLayout title="ขอใบเสนอราคา — JD-3" description="ขอใบเสนอราคา JD-3 ตอบกลับภายใน 12 ชั่วโมง" locale={locale} canonicalPath="/get-quote/">
+<BreadcrumbNav items={[{label:'หน้าแรก',href:'/th/'},{label:'ขอใบเสนอราคา'}]} />
+<section class="section"><div class="container-page max-w-3xl">
+<h1 class="mb-3 text-center">ใบเสนอราคาภายใน 12 ชั่วโมง</h1>
+<div class="card"><InquiryForm locale={locale} /></div>
+</div></section>
+</BaseLayout>

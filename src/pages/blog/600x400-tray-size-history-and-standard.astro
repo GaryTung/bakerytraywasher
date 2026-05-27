@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import CTASection from '../../components/CTASection.astro';
+const locale = 'en' as const;
+---
+<BaseLayout
+  title="The 600×400 Tray Size — A Brief History of the Bakery Norm"
+  description="How a 1960s German industrial standard became the global default for professional bakeries. The history of the 600×400 mm Bakery Norm and why American bakeries are switching to it."
+  locale={locale}
+  canonicalPath="/blog/600x400-tray-size-history-and-standard/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Blog', href: '/blog/'}, {label: '600×400 History'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-4">The 600×400 Tray Size — A Brief History of the Bakery Norm</h1>
+    <p class="text-sm text-bakery-navy/60 mb-8">Posted 2026 · ~6 min read</p>
+
+    <p class="text-lg leading-relaxed">If you've shopped for commercial bakery equipment in the last decade, you've encountered the number "600 × 400." It's the dimension of the tray that the major combi-oven brands all use, the shelf that wholesale-bakery rack carts are built around, and (frustratingly) the dimension that almost no American commercial dishwasher fits. Where did this strange dimension come from?</p>
+
+    <h2 class="mt-10 mb-3">West Germany, 1960s</h2>
+    <p>The 600×400 mm dimension emerged in West Germany during the 1960s as part of the broader German industrial standardization movement (DIN — Deutsches Institut für Normung). DIN was the engine behind dozens of metric standards that would shape modern European industry: paper sizes (A4, A3), container dimensions, electrical plugs, and yes, baking trays.</p>
+
+    <p class="mt-4">DIN bakers wanted a standardized tray that could:</p>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li>Stack efficiently on transport carts</li>
+      <li>Subdivide cleanly into halves, thirds, and quarters for portioning</li>
+      <li>Match the new generation of forced-convection ovens that German manufacturers were developing</li>
+      <li>Be a sub-multiple of existing food-service standards (Gastronorm GN 2/1)</li>
+    </ul>
+
+    <p class="mt-4">The 600 × 400 mm dimension fit all four criteria. It became formalized in DIN 18876 and was widely adopted across German bakery operations within a decade.</p>
+
+    <h2 class="mt-10 mb-3">From Germany to Europe (1970s–1980s)</h2>
+    <p>As German bakery oven manufacturers (Wachtel, MIWE, Werner & Pfleiderer) expanded across Europe, their ovens — built around 600×400 trays — spread the standard. Italian (Tecnoeka, Unox), Spanish (Salva), and Swiss (Hostatherm) manufacturers adopted compatible cavity dimensions. By the late 1980s, "600×400" was the de facto European bakery standard.</p>
+
+    <h2 class="mt-10 mb-3">From Europe to Asia (1990s–2000s)</h2>
+    <p>Asia's commercial bakery scene developed largely from European templates. The "French-style bakery" emerging in Korea, Japan, and Taiwan in the 1990s used imported European ovens and naturally adopted European trays. By the 2000s, Asian bakery chains — including the rapidly-expanding café-bakery hybrids like Tous les Jours and Paris Baguette — were standardizing on 600×400 across thousands of locations.</p>
+
+    <p class="mt-4">The Middle East followed similar logic. The Gulf region's bakery scene, dominated by French and Lebanese-influenced patisseries, adopted European norms early.</p>
+
+    <h2 class="mt-10 mb-3">North America: The Holdout</h2>
+    <p>The United States adopted a different bakery standard in the 20th century: the 18 × 26 inch "half-sheet pan" (457 × 660 mm) and its smaller cousin the "quarter-sheet" (228 × 330 mm). These dimensions came from the early-20th-century American sheet-metal industry that supplied American bakeries.</p>
+
+    <p class="mt-4">American commercial dishwasher brands — Hobart, Jackson, Champion, CMA — designed their machines around the 18×26" pan dimension (which fits in a 500×500 mm rack diagonally). For decades this was fine, because American bakeries used American pans.</p>
+
+    <h2 class="mt-10 mb-3">The Shift (2010s–Now)</h2>
+    <p>Starting around 2010, American bakeries began adopting European combi ovens (Rational, Convotherm, Unox). These ovens use 600×400 trays as the standard. As US bakery operators imported the ovens, they imported the trays. By 2020, an increasing percentage of US bakery operations were running on 600×400 trays — but their American dishwashers couldn't accommodate them.</p>
+
+    <p class="mt-4">This is the source of a peculiar paradox: a US bakery owner with a $40,000 Rational combi oven and a $7,000 Hobart AMX cannot wash the trays from her own oven in her own dishwasher. The Hobart's 500×500 rack physically doesn't fit a 600×400 tray.</p>
+
+    <h2 class="mt-10 mb-3">Where This Leaves Us</h2>
+    <p>The 600×400 tray is the global standard. Even in the US, where the 18×26" half-sheet pan still dominates, the trajectory is clear: as more European ovens enter the market, 600×400 adoption grows.</p>
+
+    <p class="mt-4">The commercial dishwasher industry has been slow to follow. Most major brands still build around 500×500 mm racks because changing this dimension means changing the entire chamber and rack inventory. We built the JD-3 around the 650×550 mm rack specifically to solve this — and it remains the only entry-level commercial hood-type machine to do so.</p>
+
+    <p class="mt-4">If you run a modern bakery using a European combi oven, you almost certainly have 600×400 trays in your kitchen right now. <a href="/what-it-washes/baking-trays-600x400/" class="underline">Here's exactly what to look for in a dishwasher that fits them.</a></p>
+
+    <h2 class="mt-10 mb-3">Sources / Further Reading</h2>
+    <ul class="list-disc list-inside space-y-2 mt-3 text-sm text-bakery-navy/70">
+      <li>DIN 18876 (German industrial standard for bakery trays)</li>
+      <li>EN 631-1 (European standard for gastronorm containers and bakery norms)</li>
+      <li>Wachtel and Werner & Pfleiderer historical product documentation</li>
+      <li>Rational AG corporate history</li>
+    </ul>
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

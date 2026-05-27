@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+const locale = 'fr' as const;
+
+const types = [
+  { name: 'Boulangerie', href: '/fr/by-business-type/bakery-shop/', icon: '🥐' },
+  { name: 'Pâtisserie', href: '/fr/by-business-type/patisserie/', icon: '🧁' },
+  { name: 'Pâtisserie de Gâteaux', href: '/fr/by-business-type/cake-shop/', icon: '🎂' },
+  { name: 'Restaurant', href: '/fr/by-business-type/small-restaurant/', icon: '🍽️' },
+  { name: 'Cafétéria', href: '/fr/by-business-type/cafeteria/', icon: '🥪' },
+  { name: 'Hôtel Pâtisserie', href: '/fr/by-business-type/hotel-pastry-kitchen/', icon: '🏨' },
+];
+
+const faqs = [
+  { q: 'Le JD-3 accepte-t-il vraiment les plaques de boulangerie de 600×400 mm ?', a: 'Oui — le panier de 650×550 mm est le seul lave-vaisselle à capot dans cette gamme de prix qui accepte le standard européen 600×400 mm. Hobart, Jackson, CMA utilisent tous des paniers de 500×500 et ne peuvent pas.' },
+  { q: 'Quel est le délai de livraison ?', a: '4 à 6 semaines de production à Shenzhen, plus le fret maritime (20 à 35 jours).' },
+  { q: 'Quelles sont les certifications ?', a: 'Sécurité CE pour le marché de l\'UE, production ISO 9001. Rinçage final à plus de 82°C.' },
+  { q: 'Quel est le retour sur investissement ?', a: 'Pour une boulangerie indépendante lavant 150 à 200 plaques/jour, le payback est typiquement de 7 à 9 mois.' },
+];
+---
+<BaseLayout
+  title="Lave-Plaques de Boulangerie | V-TAI JD-3 Hotte Commerciale"
+  description="Le lave-plaques de boulangerie qui se rentabilise en 8 mois. Lave les plaques de 600×400 mm — la taille que la plupart des lave-vaisselle américains ne peuvent pas accepter. Certifié CE. À partir de 2 800 $ FOB."
+  locale={locale}
+  canonicalPath="/"
+  schemaType="Organization"
+>
+
+<section class="bg-gradient-to-br from-bakery-cream via-white to-bakery-cream/50 section">
+  <div class="container-page grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="eyebrow mb-3">V-TAI JD-3 · Lave-Plaques à Hotte</p>
+      <h1 class="mb-5">Le Lave-Plaques de Boulangerie Rentabilisé en <span class="text-bakery-orange">8 Mois</span></h1>
+      <p class="text-lg text-bakery-navy/80 mb-6 leading-relaxed">
+        Lave les plaques de 600×400 mm — la taille standard européenne que la plupart des lave-vaisselle américains ne peuvent pas accepter.
+        Certifié CE, acier inoxydable SUS304. <strong>À partir de 2 800 $ FOB Shenzhen.</strong>
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/fr/get-quote/" class="btn-primary">Obtenir un Devis</a>
+        <a href="/fr/product/" class="btn-secondary">Voir les Spécifications</a>
+      </div>
+    </div>
+    <ImagePlaceholder alt="Lave-plaques V-TAI JD-3 avec plaques de boulangerie" ratio="4/3" label="JD-3 photo principale" />
+  </div>
+</section>
+
+<TrustBadgeStrip locale={locale} />
+
+<section class="section">
+  <div class="container-page">
+    <div class="max-w-3xl mx-auto text-center mb-10">
+      <h2 class="mb-3">Fatigué de Voir Votre Équipe Passer 3 Heures par Jour à Récurer les Plaques ?</h2>
+      <p class="text-bakery-navy/70 text-lg">Si vous gérez une boulangerie, un café ou une pâtisserie, le lavage manuel ronge vos marges — et votre équipe le déteste.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card"><div class="text-3xl mb-3">💸</div><h3 class="mb-2">25 000 $+/an gaspillés</h3><p class="text-sm text-bakery-navy/70">En main-d'œuvre quand une machine fait le travail 4× plus vite.</p></div>
+      <div class="card"><div class="text-3xl mb-3">⚠️</div><h3 class="mb-2">Hygiène irrégulière</h3><p class="text-sm text-bakery-navy/70">Le lavage à la main atteint rarement 82°C — risque d'inspection ratée.</p></div>
+      <div class="card"><div class="text-3xl mb-3">😤</div><h3 class="mb-2">Rotation du personnel</h3><p class="text-sm text-bakery-navy/70">Personne ne veut le poste de plonge. Recruter sans cesse est épuisant.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="text-center mb-10">Quel est Votre Métier ?</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      {types.map((bt) => (
+        <a href={bt.href} class="card text-center hover:scale-[1.02] transition">
+          <div class="text-4xl mb-2">{bt.icon}</div>
+          <p class="font-semibold text-bakery-navy">{bt.name}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <h2 class="mb-4">Tarification Honnête et Transparente</h2>
+      <p class="text-bakery-navy/80 mb-4">Le JD-3 commence à <strong>2 800 $ FOB Shenzhen</strong> — moins de la moitié du prix d'un Hobart AMX avec une performance et une sécurité certifiées CE équivalentes.</p>
+      <ul class="space-y-2 text-bakery-navy/80">
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> Hobart AMX : 7 000 $ – 9 000 $</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> Jackson TempStar : 5 500 $ – 7 500 $</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> Winterhalter UC : 8 000 $ – 11 000 $</li>
+        <li class="flex gap-2 font-bold text-bakery-orange"><span>✓</span> V-TAI JD-3 : <strong>2 800 $ – 3 500 $ FOB</strong></li>
+      </ul>
+    </div>
+    <PriceCalloutBox locale={locale} />
+  </div>
+</section>
+
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="text-center mb-10">Ce Que Disent les Propriétaires</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <TestimonialCard quote="Nous avons remplacé 2 personnes au lavage. Le JD-3 s'est rentabilisé en 7 mois." author="Propriétaire chaîne de boulangerie" role="Singapour, 6 sites" />
+      <TestimonialCard quote="C'est le seul lave-vaisselle commercial que j'ai trouvé qui accepte nos plaques Convotherm 600×400." author="Propriétaire de pâtisserie" role="Melbourne" />
+      <TestimonialCard quote="Prix honnête. Specs honnêtes. Personnes honnêtes." author="Gérant de café" role="Dubaï" />
+    </div>
+  </div>
+</section>
+
+<FAQSection items={faqs} title="Questions Rapides des Boulangers" />
+
+<CTASection locale={locale} title="Prêt à en finir avec le lavage manuel ?" subtitle="Devis personnalisé en 12 heures. Certifié CE, à partir de 2 800 $ FOB Shenzhen." />
+</BaseLayout>

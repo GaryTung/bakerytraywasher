@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ProductSpecsTable from '../../../components/ProductSpecsTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'ru' as const;
+const sections = [
+  { title: 'Физические размеры', rows: [
+    { k: 'Размеры (дверь закрыта)', v: '804 × 816 × 1 550 мм' },
+    { k: 'Высота (дверь открыта)', v: '2 115 мм' },
+    { k: 'Размер кассеты', v: '650 × 550 мм' },
+    { k: 'Вес нетто', v: '145 кг' },
+  ]},
+  { title: 'Производительность', rows: [
+    { k: 'Производительность', v: '60 кассет/час' },
+    { k: 'Время цикла', v: '60–90 секунд' },
+    { k: 'Вода на цикл', v: '2,0–2,5 л' },
+    { k: 'Температура полоскания', v: '>82°C' },
+  ]},
+  { title: 'Электрика', rows: [
+    { k: 'Общая мощность', v: '13 кВт' },
+    { k: 'Питание', v: '380V / 3N / 50Гц' },
+    { k: 'Ток', v: '21,5 А' },
+  ]},
+];
+---
+<BaseLayout title="Спецификации JD-3 | V-TAI мойка" description="Полные технические характеристики JD-3." locale={locale} canonicalPath="/product/jd-3-specifications/" schemaType="Product">
+<BreadcrumbNav items={[{label:'Главная',href:'/ru/'},{label:'Продукт',href:'/ru/product/'},{label:'Спецификации'}]} />
+<section class="section"><div class="container-page"><h1 class="mb-6">Полные спецификации JD-3</h1><ProductSpecsTable sections={sections} /></div></section>
+<CTASection locale={locale} />
+</BaseLayout>

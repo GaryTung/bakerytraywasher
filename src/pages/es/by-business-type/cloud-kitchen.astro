@@ -1,0 +1,21 @@
+---
+import BusinessTypeLayout from '../../../layouts/BusinessTypeLayout.astro';
+const locale = 'es' as const;
+---
+<BusinessTypeLayout
+  locale={locale}
+  canonicalPath="/by-business-type/cloud-kitchen/"
+  slug="cloud-kitchen"
+  businessName="Cocina Cloud"
+  icon="👨‍🍳"
+  title="Lavadora para Cocina Cloud — Máxima Automatización"
+  description="Cocinas cloud no tienen front-of-house. La JD-3 automatiza el lavado para que su equipo mínimo se enfoque en cocinar."
+  reality="Operación de delivery puro. Economía depende de personal mínimo y throughput máximo. No hay equipo para absorber lavado en momentos lentos."
+  needs="Automatización máxima, vuelta rápida, eficiencia de espacio, disciplina de costos."
+  fit="JD-3 ciclo 60s permite reusar bandeja en mismo turno. Inicio automático elimina coordinación. $2.800 FOB hace que la matemática ROI funcione."
+  roi="Para cocina de 200-300 pedidos/día: ahorro ~$8.640/año. Retorno: 4-5 meses."
+  faqs={[
+    { q: '¿7 días por semana?', a: 'Sí, diseñada para servicio comercial continuo.' },
+    { q: '¿Y si agrego más marcas?', a: 'Una JD-3 soporta 4-5 marcas cloud.' },
+  ]}
+/>

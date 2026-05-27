@@ -1,0 +1,77 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+const locale = 'en' as const;
+---
+<GuideLayout
+  locale={locale}
+  canonicalPath="/guides/electrical-requirements-bakery-dishwasher/"
+  guideTitle="Electrical Requirements for Bakery Dishwashers"
+  title="Electrical Requirements for Bakery Dishwashers — Power, Voltage, Circuits"
+  description="Understanding voltage, current, and circuit requirements for a commercial bakery dishwasher. 380V three-phase vs 220V single-phase, regional variations, installation tips."
+>
+  <h1 class="mb-4">Electrical Requirements for Bakery Dishwashers</h1>
+  <p class="text-lg text-bakery-navy/80 mb-8">Most "installation didn't go smoothly" stories start with electrical mismatches. Here's what you need to know before you order.</p>
+
+  <h2 class="mb-3">JD-3 Standard Electrical Specs</h2>
+  <ul class="list-disc list-inside space-y-2 mt-3">
+    <li><strong>Voltage:</strong> 380V three-phase (also written as 380V/3N/50Hz)</li>
+    <li><strong>Current:</strong> 21.5 A</li>
+    <li><strong>Total power:</strong> 13 kW</li>
+    <li><strong>Cable requirement:</strong> 5-core (3 phases + neutral + earth), 4 mm² recommended</li>
+    <li><strong>Breaker:</strong> Dedicated 32 A three-phase circuit breaker</li>
+    <li><strong>Grounding:</strong> Required and must be verified</li>
+  </ul>
+
+  <h2 class="mt-8 mb-3">Why 380V Three-Phase?</h2>
+  <p>Three-phase power delivers significantly more power efficiently than single-phase. The JD-3's 9 kW booster heater needs three-phase to ramp up quickly enough for the 60-second cycle. A single-phase 220V circuit could not deliver this power without an unreasonably long cycle time.</p>
+
+  <h2 class="mt-8 mb-3">Regional Voltage Variations</h2>
+  <table class="w-full text-sm mt-3">
+    <thead class="bg-bakery-navy text-white">
+      <tr><th class="p-3 text-left">Region</th><th class="p-3 text-left">Standard voltage</th><th class="p-3 text-left">JD-3 fit</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="p-3 border-b">Europe, Australia, GCC, Russia, China</td><td class="p-3 border-b">380V three-phase</td><td class="p-3 border-b text-green-700">Direct fit</td></tr>
+      <tr><td class="p-3 border-b">Brazil, Argentina, parts of LATAM</td><td class="p-3 border-b">380V three-phase</td><td class="p-3 border-b text-green-700">Direct fit</td></tr>
+      <tr><td class="p-3 border-b">Mexico, Caribbean</td><td class="p-3 border-b">220V single-phase typical</td><td class="p-3 border-b text-amber-700">Conversion or 220V option</td></tr>
+      <tr><td class="p-3 border-b">United States</td><td class="p-3 border-b">208V three-phase common in commercial</td><td class="p-3 border-b text-amber-700">208V option available</td></tr>
+      <tr><td class="p-3 border-b">Japan</td><td class="p-3 border-b">200V three-phase</td><td class="p-3 border-b text-amber-700">200V option available</td></tr>
+      <tr><td class="p-3 border-b">Thailand, Vietnam, Indonesia</td><td class="p-3 border-b">380V three-phase</td><td class="p-3 border-b text-green-700">Direct fit</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="mt-8 mb-3">If You Only Have 220V Single-Phase</h2>
+  <p>Two options:</p>
+  <ol class="list-decimal list-inside space-y-2 mt-3">
+    <li><strong>Install 380V three-phase circuit.</strong> A licensed electrician can run a new circuit from your building's main distribution panel. Cost varies by country and circuit length: $300–$1,500 typically.</li>
+    <li><strong>Order JD-3 in 220V configuration.</strong> We offer a 220V option that uses a smaller booster heater (6 kW instead of 9 kW). Cycle time extends to ~90 seconds (vs 60 seconds standard). Specify "220V single-phase" in your quote request.</li>
+  </ol>
+
+  <h2 class="mt-8 mb-3">Dedicated Circuit Required</h2>
+  <p>Do NOT share the JD-3's circuit with other equipment. Sharing causes:</p>
+  <ul class="list-disc list-inside space-y-2 mt-3">
+    <li>Voltage drops when other equipment cycles on (refrigerators, ovens)</li>
+    <li>Booster heater inability to reach 82°C</li>
+    <li>Premature breaker tripping</li>
+    <li>Potential damage to control electronics</li>
+  </ul>
+
+  <h2 class="mt-8 mb-3">Grounding Is Critical</h2>
+  <p>Improper grounding is the most common cause of commercial dishwasher electrical failures. Verify with your electrician:</p>
+  <ul class="list-disc list-inside space-y-2 mt-3">
+    <li>Earth wire connected to the machine's dedicated grounding lug</li>
+    <li>Ground continuity tested and recorded</li>
+    <li>RCD (residual current device) on the circuit</li>
+  </ul>
+
+  <h2 class="mt-8 mb-3">Energy Cost Estimation</h2>
+  <p>13 kW for 60 seconds per cycle = 0.22 kWh per cycle. At commercial rates of $0.12–$0.25 per kWh (depending on country):</p>
+  <ul class="list-disc list-inside space-y-2 mt-3">
+    <li>50 cycles/day × 300 days/year = 15,000 cycles/year × 0.22 kWh = 3,300 kWh/year</li>
+    <li>Annual electricity cost: $396–$825</li>
+  </ul>
+  <p class="mt-3">Heat recovery module reduces this by 15–25%.</p>
+
+  <h2 class="mt-8 mb-3">Installation Cost</h2>
+  <p>Have a licensed commercial electrician do the installation. Time required: 45–90 minutes. Cost varies by country: $80–$300 typical. Don't DIY this — incorrect electrical install voids warranty and creates fire risk.</p>
+</GuideLayout>

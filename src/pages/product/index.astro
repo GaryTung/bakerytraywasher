@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
+import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+const locale = 'en' as const;
+
+const features = [
+  { icon: '🛡️', title: 'SUS304 Stainless Construction', text: 'Entire machine is food-grade SUS304 — rust-resistant, rodent-resistant, easy to sanitize.' },
+  { icon: '📏', title: 'Extra-Large Wash Chamber', text: '650×550 mm rack fits 600×400 mm Bakery Norm trays, oversized stockpots, KitchenAid bowls.' },
+  { icon: '💧', title: 'Dual Rotating Wash Arms', text: '360° omnidirectional cleaning with powerful motor and anti-clogging spray nozzles.' },
+  { icon: '🌡️', title: 'Intelligent Temp Control', text: 'Auto-sanitize above 82°C with LED digital display. Modular control board for easy service.' },
+  { icon: '💦', title: 'Ultra-Low Water Use', text: 'Just 2.0–2.5 L per cycle vs the 5–10 L most competitors consume.' },
+  { icon: '♻️', title: 'Heat Recovery System', text: 'Preheats incoming cold water with the steam from the last rinse — energy savings.' },
+  { icon: '🚪', title: 'Sealed Insulated Door', text: 'Reduces steam escape by up to 70%, keeping your kitchen cooler and drier.' },
+  { icon: '🧑‍🍳', title: 'Ergonomic Operation', text: 'Eye-level control panel, push-pull rails. Door-activated cycle start — close the hood and walk away.' },
+  { icon: '🔒', title: 'Multiple Safety Protections', text: 'Door interlock cuts power on open. Voltage overload protection built in.' },
+  { icon: '🧪', title: 'Auto Detergent Ready', text: 'Pre-installed interface for automatic dispenser and water-treatment modules.' },
+  { icon: '⚡', title: 'CE Safety Certified', text: 'EU compliance. Ready to ship to EU, GCC, APAC, LATAM, Africa.' },
+  { icon: '⏱️', title: 'Door-Activated Cycle Start', text: 'Close the hood and the wash cycle starts automatically. No buttons, no waiting.' },
+];
+---
+<BaseLayout
+  title="V-TAI JD-3 — Bakingware Hood-type Washer | Full Product"
+  description="V-TAI JD-3 hood-type bakery tray washer: 60 racks/hour, 600×400 mm Bakery Norm compatibility, SUS304 stainless steel, CE-certified. From $2,800 FOB Shenzhen."
+  locale={locale}
+  canonicalPath="/product/"
+  schemaType="Product"
+  schemaData={{
+    name: 'V-TAI JD-3 Bakingware Hood-type Washer',
+    sku: 'VT-AE-JD-3',
+    brand: { '@type': 'Brand', name: 'V-TAI' },
+    description: 'Commercial hood-type dishwasher for bakeries with 650×550 mm rack — fits 600×400 mm European Bakery Norm trays. 60 racks/hour throughput, SUS304 stainless steel, CE-certified.',
+    image: 'https://bakerytraywasher.com/images/jd-3-hero.webp',
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '2800', highPrice: '3500', availability: 'https://schema.org/InStock' },
+  }}
+>
+
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Product'}]} />
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10">
+    <div>
+      <ImagePlaceholder alt="V-TAI JD-3 hood-type bakery tray washer, front view" ratio="4/3" label="JD-3 front view" />
+      <div class="grid grid-cols-3 gap-3 mt-3">
+        <ImagePlaceholder alt="JD-3 interior chamber" ratio="1/1" label="Inside chamber" />
+        <ImagePlaceholder alt="JD-3 LED control panel close-up" ratio="1/1" label="LED control" />
+        <ImagePlaceholder alt="JD-3 wash arms" ratio="1/1" label="Wash arms" />
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow mb-2">Model VT-AE-JD-3</p>
+      <h1 class="mb-4">V-TAI JD-3 Bakingware Hood-type Washer</h1>
+      <p class="text-lg text-bakery-navy/80 mb-5">
+        The only commercial hood-type dishwasher in its price class designed for the
+        <strong>600×400&nbsp;mm European Bakery Norm</strong> tray standard. Built for
+        small commercial kitchens — bakeries, cafés, patisseries, hotel pastry stations.
+      </p>
+      <div class="grid grid-cols-2 gap-3 mb-6">
+        <div class="rounded-card border border-bakery-navy/10 p-3"><p class="text-xs text-bakery-navy/60">Throughput</p><p class="font-semibold">60 racks/hour</p></div>
+        <div class="rounded-card border border-bakery-orange/30 p-3 bg-bakery-cream"><p class="text-xs text-bakery-brown">Rack size</p><p class="font-semibold">650×550 mm ⭐</p></div>
+        <div class="rounded-card border border-bakery-navy/10 p-3"><p class="text-xs text-bakery-navy/60">Water/cycle</p><p class="font-semibold">2.0–2.5 L</p></div>
+        <div class="rounded-card border border-bakery-navy/10 p-3"><p class="text-xs text-bakery-navy/60">Total power</p><p class="font-semibold">13 kW</p></div>
+      </div>
+      <PriceCalloutBox locale={locale} />
+    </div>
+  </div>
+</section>
+
+<TrustBadgeStrip locale={locale} />
+
+<!-- How it works -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-10">How It Works — 4 Steps</h2>
+    <div class="grid md:grid-cols-4 gap-6">
+      {[
+        { n: '1', t: 'Load', d: 'Slide racks of trays, pans, or bowls into the chamber.' },
+        { n: '2', t: 'Close hood', d: 'Cycle starts automatically — no buttons.' },
+        { n: '3', t: 'Wash + rinse', d: 'Dual arms blast 360°. Final rinse hits 82°C.' },
+        { n: '4', t: 'Unload', d: 'In 60–90 seconds. Clean, sanitized, drip-drying.' },
+      ].map((s) => (
+        <div class="text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-bakery-orange text-white font-bold flex items-center justify-center mb-3">{s.n}</div>
+          <h3 class="text-base mb-2">{s.t}</h3>
+          <p class="text-sm text-bakery-navy/70">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Features grid -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="mb-3">12 Features That Matter</h2>
+      <p class="text-bakery-navy/70">Every detail is engineered for the small commercial kitchen — not industrial overkill, not consumer compromise.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {features.map((f) => (
+        <div class="card">
+          <div class="text-3xl mb-2">{f.icon}</div>
+          <h3 class="text-lg mb-1">{f.title}</h3>
+          <p class="text-sm text-bakery-navy/70">{f.text}</p>
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <a href="/product/jd-3-features/" class="btn-secondary">Deep dive on all features</a>
+    </div>
+  </div>
+</section>
+
+<!-- What it cleans -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-8">What It Cleans</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-5 gap-3 text-center">
+      {[
+        ['600×400 Bakery Norm Trays', '/what-it-washes/baking-trays-600x400/'],
+        ['American Sheet Pans', '/what-it-washes/sheet-pans/'],
+        ['Mixing Bowls', '/what-it-washes/mixing-bowls/'],
+        ['Cake Pans', '/what-it-washes/cake-pans/'],
+        ['Pizza Pans', '/what-it-washes/pizza-pans/'],
+        ['Frying Baskets', '/what-it-washes/frying-baskets/'],
+        ['Stockpots', '/what-it-washes/stockpots/'],
+        ['Plates & Dishware', '/what-it-washes/dishes-plates/'],
+        ['Utensils & Mixers', '/what-it-washes/utensils-mixers/'],
+        ['Large Bakeware', '/what-it-washes/large-bakeware/'],
+      ].map(([label, href]) => (
+        <a href={href} class="card hover:bg-bakery-cream text-sm">
+          <p class="font-medium text-bakery-navy">{label}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Configuration options -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="text-center mb-8">Configuration Options</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {[
+        { t: 'Standard Electric', p: '$2,800', d: 'Base JD-3, 380V/3N/50Hz' },
+        { t: '+ Auto Detergent Dispenser', p: '$3,000', d: 'Adds liquid detergent & rinse-aid pumps' },
+        { t: '+ Water Treatment Module', p: '$3,300', d: 'For hard water regions' },
+        { t: '+ Heat Recovery Upgrade', p: '$3,200', d: 'Enhanced energy-saving package' },
+      ].map((cfg) => (
+        <div class="card">
+          <h3 class="text-lg mb-1">{cfg.t}</h3>
+          <p class="text-2xl font-bold text-bakery-orange mb-2">From {cfg.p}</p>
+          <p class="text-sm text-bakery-navy/70">{cfg.d}</p>
+        </div>
+      ))}
+    </div>
+    <p class="text-center mt-6 text-sm text-bakery-navy/60">All prices FOB Shenzhen. Shipping and duties depend on destination.</p>
+  </div>
+</section>
+
+<FAQSection items={[
+  { q: 'What is included in the box?', a: 'JD-3 machine, 2 standard wash racks, peg cup rack, basic tools, English operation manual, CE certificate.' },
+  { q: 'Can it ship to the US?', a: 'Yes — CE-certified models ship globally. For US installations, confirm with your electrician that your kitchen has the 380V three-phase circuit, or specify a 220V conversion option in your quote.' },
+  { q: 'Warranty?', a: '12-month manufacturer warranty on parts. We air-freight replacement parts globally.' },
+  { q: 'What if I need spare parts in 5 years?', a: 'All key components — pumps, heating elements, control boards — are stocked at the factory. Same-day shipment of common parts.' },
+]} />
+
+<CTASection locale={locale} />
+</BaseLayout>

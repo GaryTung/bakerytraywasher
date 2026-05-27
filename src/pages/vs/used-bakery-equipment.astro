@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+const locale = 'en' as const;
+
+const rows = [
+  { label: 'Initial price', jd3: '$2,800–$3,500 new', competitor: '$2,000–$4,500 used' },
+  { label: 'Warranty', jd3: '12-month manufacturer', competitor: '0–90 days dealer' },
+  { label: 'Service history', jd3: 'Brand new', competitor: 'Unknown / partial' },
+  { label: 'Parts availability', jd3: 'Direct from factory, 5-day ship', competitor: 'Varies; older models may be discontinued' },
+  { label: 'Sanitization reliability', jd3: 'Verified at factory', competitor: 'Depends on prior maintenance' },
+  { label: 'Energy efficiency', jd3: 'Current-generation', competitor: 'Older units use more power and water' },
+  { label: 'Resale value (1 year)', jd3: '~60% of new', competitor: 'Limited — already used' },
+];
+---
+<BaseLayout
+  title="JD-3 vs Used Hobart / Used Bakery Equipment — Should You Buy Used?"
+  description="Is buying a used Hobart AMX or Jackson hood-type dishwasher a smart move? Comparison of total cost, risk, and longevity vs a new JD-3."
+  locale={locale}
+  canonicalPath="/vs/used-bakery-equipment/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Compare', href: '/vs/'}, {label: 'vs Used Equipment'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-4">JD-3 vs Used Bakery Equipment — Is "Used Hobart" a Smart Buy?</h1>
+    <p class="text-lg text-bakery-navy/80 mb-6">A used Hobart AMX for $3,000 looks like a bargain next to a new JD-3 at $3,000. Sometimes it is. Often it isn't. Here is how to think about it.</p>
+  </div>
+  <div class="container-page"><ComparisonTable competitorName="Used (Hobart/Jackson/CMA)" rows={rows} /></div>
+
+  <div class="container-prose mt-12">
+    <h2 class="mb-3">When used wins</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li>You can inspect the unit in person and verify cycle output</li>
+      <li>The seller is a known reputable dealer with at least a 90-day warranty</li>
+      <li>Service history is documented</li>
+      <li>The model is current-generation (parts still available)</li>
+      <li>You have an on-site technician who can handle repairs</li>
+    </ul>
+
+    <h2 class="mt-8 mb-3">When new (JD-3) wins</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li>You need 600×400 mm tray compatibility (no used commercial dishwasher fits these — they all use 500×500 racks)</li>
+      <li>You need warranty protection</li>
+      <li>You don't have technical staff to evaluate used equipment condition</li>
+      <li>You want a known, single-known-source supply chain for the next 5+ years</li>
+      <li>Local used-equipment market is thin or markups are excessive</li>
+    </ul>
+
+    <h2 class="mt-8 mb-3">The Pricing Trap</h2>
+    <p>Used commercial dishwashers in good condition typically sell for 40–60% of new retail. A "$3,000 used Hobart AMX" implies the seller paid $5,000–$7,500 originally. If the price is much below that, the unit is either old (parts discontinued), heavily worn (will fail soon), or wasn't a real Hobart AMX to begin with.</p>
+
+    <h2 class="mt-8 mb-3">The Mismatch Trap</h2>
+    <p>The most common bad outcome we see: someone buys a $2,800 used Hobart AMX, then realizes their 600×400 trays don't fit. Now they're stuck — either re-sell at a loss, or live with the limitation. New JD-3 was $200 more and would have fit.</p>
+  </div>
+</section>
+
+<FAQSection items={[
+  { q: 'Where do small bakeries find used Hobarts?', a: 'Auction sites (BidSpotter), used commercial-kitchen dealers, and direct from closing restaurants. Inspect in person before paying.' },
+  { q: 'Is a used Winterhalter a better buy than a new JD-3?', a: 'For European operations with proven service histories, possibly. For non-European deployments, no — service is harder than you expect.' },
+  { q: 'Refurbished/factory-reconditioned units?', a: 'Hobart sells factory-reconditioned at ~70% of new retail. Better than auction units, but still no 600×400 compatibility.' },
+]} />
+
+<CTASection locale={locale} />
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import InlineInquiryForm from '../../../components/InlineInquiryForm.astro';
+import ComparisonTable from '../../../components/ComparisonTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'vi' as const;
+const rows = [
+  { label: 'V-TAI JD-3', jd3: '650 × 550 mm', competitor: '✓ Có', highlight: true },
+  { label: 'Hobart AMX', jd3: '500 × 500 mm', competitor: '✗ Không' },
+];
+---
+<BaseLayout title="Máy rửa khay 600×400 mm" description="Máy duy nhất trong phân khúc giá này chấp nhận khay châu Âu 600×400 mm" locale={locale} canonicalPath="/what-it-washes/baking-trays-600x400/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Trang chủ',href:'/vi/'},{label:'Khay 600×400'}]} />
+<section class="section"><div class="container-page grid lg:grid-cols-3 gap-10">
+<article class="lg:col-span-2">
+<p class="eyebrow mb-3">⭐ Sử dụng chính</p>
+<h1 class="mb-4">Máy rửa khay 600×400 mm — Tiêu chuẩn châu Âu, giá phải chăng</h1>
+<p class="text-lg mb-6">JD-3 là máy rửa kiểu nắp vòm duy nhất trong phân khúc giá này chấp nhận tiêu chuẩn châu Âu 600×400 mm.</p>
+<ImagePlaceholder alt="Khay 600×400 trong JD-3" ratio="16/9" label="So sánh 600×400" />
+<h2 class="mt-10 mb-3">Tiêu chuẩn 600×400</h2>
+<p>Xuất hiện ở Đức trong những năm 1960. Hôm nay là tiêu chuẩn được sử dụng bởi tất cả lò Combi chuyên nghiệp: Rational, Convotherm, Unox.</p>
+<ComparisonTable competitorName="Chấp nhận 600×400?" rows={rows} />
+</article>
+<aside class="lg:sticky lg:top-24 self-start"><InlineInquiryForm locale={locale} title="Báo giá" /></aside>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

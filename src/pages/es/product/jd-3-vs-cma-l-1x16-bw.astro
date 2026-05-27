@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../../components/ComparisonTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'es' as const;
+const rows = [
+  { label: 'Tamaño rack', jd3: '650×550 mm', competitor: '500×500 mm' },
+  { label: 'Bandejas 600×400', jd3: '✓ Sí', competitor: '✗ No', highlight: true },
+  { label: 'Recuperación de calor', jd3: 'Opcional', competitor: 'Extra' },
+  { label: 'Precio', jd3: '$2.800 FOB', competitor: '$5.000–$7.000' },
+];
+---
+<BaseLayout title="JD-3 vs CMA L-1X16-BW | Comparación" description="Comparación JD-3 vs CMA L-1X16-BW." locale={locale} canonicalPath="/product/jd-3-vs-cma-l-1x16-bw/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Inicio',href:'/es/'},{label:'Producto',href:'/es/product/'},{label:'vs CMA'}]} />
+<section class="section"><div class="container-prose"><h1>JD-3 vs CMA L-1X16-BW</h1><p class="text-lg mt-4 mb-6">Aunque CMA llama "BW" a su modelo (Bakery Wash), su rack 500×500 no acepta bandejas 600×400. JD-3 sí.</p></div>
+<div class="container-page"><ComparisonTable competitorName="CMA L-1X16-BW" rows={rows} /></div></section>
+<CTASection locale={locale} />
+</BaseLayout>

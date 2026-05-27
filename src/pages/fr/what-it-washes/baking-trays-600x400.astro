@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import InlineInquiryForm from '../../../components/InlineInquiryForm.astro';
+import ComparisonTable from '../../../components/ComparisonTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'fr' as const;
+const compatRows = [
+  { label: 'V-TAI JD-3', jd3: '650 × 550 mm', competitor: '✓ Oui', highlight: true },
+  { label: 'Hobart AMX', jd3: '500 × 500 mm', competitor: '✗ Non' },
+  { label: 'Jackson TempStar', jd3: '500 × 500 mm', competitor: '✗ Non' },
+  { label: 'CMA L-1X16-BW', jd3: '500 × 500 mm', competitor: '✗ Non' },
+  { label: 'Winterhalter UC-M', jd3: '500 × 500 mm', competitor: '✗ Non' },
+];
+---
+<BaseLayout title="Lave-Plaques 600×400 mm Norme Boulangère | V-TAI JD-3" description="Le seul lave-vaisselle à hotte dans cette gamme de prix qui accepte les plaques 600×400 mm norme européenne." locale={locale} canonicalPath="/what-it-washes/baking-trays-600x400/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Accueil',href:'/fr/'},{label:'Ce qu\'il lave'},{label:'Plaques 600×400'}]} />
+<section class="section">
+  <div class="container-page grid lg:grid-cols-3 gap-10">
+    <article class="lg:col-span-2">
+      <p class="eyebrow mb-3">⭐ Cas d'usage phare</p>
+      <h1 class="mb-4">Lave-Plaques 600×400 mm Norme Boulangère — Le Standard Européen, Abordable</h1>
+      <p class="text-lg mb-6">Le JD-3 est le seul lave-vaisselle à hotte dans sa gamme de prix qui accepte le standard européen de plaques de boulangerie 600×400 mm.</p>
+      <ImagePlaceholder alt="Plaque 600×400 dans le JD-3" ratio="16/9" label="Comparaison 600×400" />
+      <h2 class="mt-10 mb-3">La Norme Européenne 600×400</h2>
+      <p>Émergée en Allemagne dans les années 60. Aujourd'hui le standard utilisé par tous les fours combinés professionnels : Rational, Convotherm, Unox, Tecnoeka, Salva.</p>
+      <h2 class="mt-10 mb-3">Tableau de Compatibilité</h2>
+      <ComparisonTable competitorName="Accepte 600×400 ?" rows={compatRows} />
+    </article>
+    <aside class="lg:sticky lg:top-24 self-start"><InlineInquiryForm locale={locale} title="Devis pour 600×400" /></aside>
+  </div>
+</section>
+<CTASection locale={locale} />
+</BaseLayout>

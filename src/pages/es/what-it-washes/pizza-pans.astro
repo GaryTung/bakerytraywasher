@@ -1,0 +1,18 @@
+---
+import WhatItWashesLayout from '../../../layouts/WhatItWashesLayout.astro';
+const locale = 'es' as const;
+---
+<WhatItWashesLayout
+  locale={locale}
+  canonicalPath="/what-it-washes/pizza-pans/"
+  itemName="Moldes para Pizza"
+  title="Lavadora para Moldes de Pizza | Redondos, Perforados, Detroit"
+  description="La JD-3 lava moldes para pizza hasta 16 pulgadas diámetro — perforados, sólidos, cuadrados, Detroit-style."
+  challenge="Moldes para pizza acumulan el residuo más duro: queso quemado, harina de maíz, caramelización de tomate, polimerización de aceite de oliva."
+  howItHandles="Agua de lavado alta temp (65°C) es muy por encima del punto de fusión de mozzarella. Para perforados: spray penetra los orificios directamente."
+  recommendedSettings="Ciclo 90s para residuo de queso pesado. Detergente alcalino (pH 12+). Pre-raspe residuo obvio."
+  faqs={[
+    { q: '¿Queso quemado en 90 segundos?', a: 'Sí para residuo típico.' },
+    { q: '¿Tamices de pizza?', a: 'Sí, en canasta de partes pequeñas.' },
+  ]}
+/>

@@ -1,0 +1,34 @@
+---
+import WhatItWashesLayout from '../../layouts/WhatItWashesLayout.astro';
+const locale = 'en' as const;
+---
+<WhatItWashesLayout
+  locale={locale}
+  canonicalPath="/what-it-washes/pizza-pans/"
+  itemName="Pizza Pans"
+  title="Pizza Pan Washer | Round, Perforated, Square & Detroit-Style"
+  description="The JD-3 cleans pizza pans up to 16-inch diameter — perforated, solid, square, and Detroit-style. Handles burned-on cheese and oil residue. From $2,800 FOB."
+  challenge={`Pizza pans accumulate the toughest residue in a commercial kitchen: burned-on mozzarella (a protein-fat composite that bonds to metal), cornmeal flour (granular residue that sticks to oily surfaces), tomato sauce caramelization, and olive oil polymerization.
+
+Perforated pizza pans add a special difficulty — residue collects in the perforations and is impossible to scrub out fully by hand.`}
+  howItHandles={`The JD-3 attacks pizza-pan residue with high-temperature wash water and dual-arm spray pressure. The 65°C wash tank temperature is well above the melting point of mozzarella and provolone cheese fats, so the residue softens and releases during the wash phase.
+
+For perforated pans, the high-pressure spray penetrates the perforations directly — something hand-washing fundamentally cannot do well.
+
+Round pizza pans up to 16-inch diameter (40 cm) fit flat in the rack. Pans up to 18-inch fit diagonally. Square Detroit-style pans (typically 10×14") fit easily.`}
+  recommendedSettings={`For pizza pans:
+
+- Cycle: 90-second heavy-soil for cheese-heavy residue; 60-second for lighter residue
+- Wash tank: 65°C
+- Final rinse: 82°C+
+- Detergent: alkaline commercial detergent (pH 12+), specifically rated for grease removal
+- Pre-scrape: yes — scrape obvious cheese residue with a metal pan scraper before loading
+- Cornmeal: rinse pans briefly before loading to remove gross cornmeal residue (otherwise it clogs the filter)
+- Cast iron pizza pans: hand-wash these — commercial dishwasher cycles will strip the seasoning`}
+  faqs={[
+    { q: 'Will burned-on cheese really come off in 90 seconds?', a: 'Yes for typical residue. Severe burn-on (cheese that has been baked at 250°C+ for an extended cycle and left overnight) may need a second cycle or a brief pre-soak.' },
+    { q: 'Perforated pan perforations — they\'ll be clean?', a: 'Yes — the spray pressure clears the perforations far better than manual scrubbing. This is one of the JD-3\'s strongest use cases.' },
+    { q: 'Detroit-style pans with their high sidewalls?', a: 'Yes — standard 4-inch-tall Detroit pans fit in the JD-3 chamber upright.' },
+    { q: 'Pizza screens (metal mesh)?', a: 'Yes — load in the small-parts basket so they don\'t shift during the cycle.' },
+  ]}
+/>

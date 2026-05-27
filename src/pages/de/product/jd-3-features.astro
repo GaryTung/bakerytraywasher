@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'de' as const;
+---
+<BaseLayout title="JD-3 Merkmale" description="12 Hauptmerkmale des V-TAI JD-3" locale={locale} canonicalPath="/product/jd-3-features/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Startseite',href:'/de/'},{label:'Merkmale'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">12 Hauptmerkmale des JD-3</h1>
+<ol class="space-y-3 list-decimal list-inside">
+<li>SUS304-Konstruktion</li>
+<li>Extra-große Kammer 650×550 mm</li>
+<li>Doppelt rotierende Waschdüsen 360°</li>
+<li>Verstopfungssichere Düsen</li>
+<li>Intelligente Temperaturregelung</li>
+<li>Niedriger Wasserverbrauch</li>
+<li>Wärmerückgewinnungssystem</li>
+<li>Versiegelte isolierte Tür</li>
+<li>Ergonomische Bedienung</li>
+<li>Türaktivierter Start</li>
+<li>Mehrfachschutz</li>
+<li>Funktionale Erweiterbarkeit</li>
+</ol>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

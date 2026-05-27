@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import CTASection from '../../components/CTASection.astro';
+const locale = 'en' as const;
+---
+<BaseLayout
+  title="Dishwasher ROI for a Small Bakery — Concrete Numbers"
+  description="The actual math behind a $3,000 commercial dishwasher purchase: capex, opex, labor savings, payback period. With downloadable spreadsheet template."
+  locale={locale}
+  canonicalPath="/blog/dishwasher-roi-for-small-bakery/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Blog', href: '/blog/'}, {label: 'Dishwasher ROI'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-4">Dishwasher ROI for a Small Bakery — Concrete Numbers</h1>
+    <p class="text-sm text-bakery-navy/60 mb-8">Posted 2026 · ~5 min read</p>
+
+    <p class="text-lg leading-relaxed">When you're deciding whether to spend $3,000 on a commercial dishwasher, vague claims like "pays for itself in months" aren't helpful. Here is the actual math, with the assumptions I'm using clearly stated so you can adapt it to your situation.</p>
+
+    <h2 class="mt-10 mb-3">The Baseline Scenario</h2>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li>Single-location bakery</li>
+      <li>200 trays washed per day, 26 days/month, 312 days/year</li>
+      <li>Currently hand-washing with one part-time worker at $13/hour</li>
+      <li>Located in a city with moderate water/electricity costs (US Midwest, mid-tier EU, Australia outside Sydney)</li>
+    </ul>
+
+    <h2 class="mt-10 mb-3">Current State: Annual Hand-Washing Cost</h2>
+    <table class="w-full text-sm border border-bakery-navy/15 mt-3">
+      <tbody>
+        <tr><td class="p-3 border-b">Dish-pit worker labor (3 hrs/day × $13 × 312 days)</td><td class="p-3 border-b text-right">$12,168</td></tr>
+        <tr><td class="p-3 border-b">Hot water + sewer</td><td class="p-3 border-b text-right">$600</td></tr>
+        <tr><td class="p-3 border-b">Hot-water electricity</td><td class="p-3 border-b text-right">$400</td></tr>
+        <tr><td class="p-3 border-b">Dish soap + sanitizer + scouring pads</td><td class="p-3 border-b text-right">$480</td></tr>
+        <tr><td class="p-3 border-b">Sink maintenance (faucet, sprayer, disposal)</td><td class="p-3 border-b text-right">$150</td></tr>
+        <tr><td class="p-3 border-b">Worker turnover (3/year × $700)</td><td class="p-3 border-b text-right">$2,100</td></tr>
+        <tr class="bg-bakery-cream font-bold"><td class="p-3">Total Year 1 hand-wash cost</td><td class="p-3 text-right">$15,898</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="mt-10 mb-3">JD-3 Year 1 Cost</h2>
+    <table class="w-full text-sm border border-bakery-navy/15 mt-3">
+      <tbody>
+        <tr><td class="p-3 border-b">JD-3 + auto detergent dispenser, FOB Shenzhen</td><td class="p-3 border-b text-right">$3,000</td></tr>
+        <tr><td class="p-3 border-b">Sea freight + import duty (US example)</td><td class="p-3 border-b text-right">$550</td></tr>
+        <tr><td class="p-3 border-b">Local installation (electrician + plumber)</td><td class="p-3 border-b text-right">$300</td></tr>
+        <tr><td class="p-3 border-b">Year 1 electricity (3,300 kWh × $0.15)</td><td class="p-3 border-b text-right">$495</td></tr>
+        <tr><td class="p-3 border-b">Year 1 water + sewer</td><td class="p-3 border-b text-right">$200</td></tr>
+        <tr><td class="p-3 border-b">Year 1 detergent + rinse aid</td><td class="p-3 border-b text-right">$300</td></tr>
+        <tr><td class="p-3 border-b">Operator labor (30 min/day × $13 × 312)</td><td class="p-3 border-b text-right">$2,028</td></tr>
+        <tr class="bg-bakery-cream font-bold"><td class="p-3">Total JD-3 Year 1 cost</td><td class="p-3 text-right">$6,873</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="mt-10 mb-3">Year 1 Net Savings</h2>
+    <p class="text-2xl font-bold text-bakery-orange">$15,898 − $6,873 = <strong>$9,025</strong> saved in Year 1</p>
+
+    <h2 class="mt-10 mb-3">Year 2+ Operating Costs</h2>
+    <table class="w-full text-sm border border-bakery-navy/15 mt-3">
+      <tbody>
+        <tr><td class="p-3 border-b">Electricity</td><td class="p-3 border-b text-right">$495</td></tr>
+        <tr><td class="p-3 border-b">Water + sewer</td><td class="p-3 border-b text-right">$200</td></tr>
+        <tr><td class="p-3 border-b">Detergent</td><td class="p-3 border-b text-right">$300</td></tr>
+        <tr><td class="p-3 border-b">Operator labor</td><td class="p-3 border-b text-right">$2,028</td></tr>
+        <tr><td class="p-3 border-b">Annual maintenance (gaskets, descale)</td><td class="p-3 border-b text-right">$150</td></tr>
+        <tr class="bg-bakery-cream font-bold"><td class="p-3">Year 2+ annual JD-3 cost</td><td class="p-3 text-right">$3,173</td></tr>
+        <tr class="font-bold"><td class="p-3 text-bakery-orange">Year 2+ annual savings vs hand-wash</td><td class="p-3 text-right text-bakery-orange">$12,725/yr</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="mt-10 mb-3">Simple Payback</h2>
+    <p>$3,850 capex (machine + shipping + install) ÷ $12,725 annual savings = <strong>3.6 months payback</strong></p>
+
+    <h2 class="mt-10 mb-3">10-Year View</h2>
+    <p>Over 10 years (typical machine lifespan):</p>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li>Cumulative JD-3 cost: $3,850 capex + $31,730 opex = $35,580</li>
+      <li>Cumulative hand-wash cost: $158,980</li>
+      <li><strong>10-year savings: ~$123,400</strong></li>
+    </ul>
+
+    <h2 class="mt-10 mb-3">Things Not Included in This Math</h2>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li>Workflow efficiency gains (your kitchen runs faster with consistent clean trays)</li>
+      <li>Health-code compliance reliability</li>
+      <li>Insurance impact (lower workplace-injury rates)</li>
+      <li>Owner quality-of-life improvements</li>
+      <li>Optionality for future expansion (your operation can scale without proportional labor increase)</li>
+    </ul>
+
+    <p class="mt-4">None of these have a clean dollar number, but they all matter to your real-world experience of owning the bakery.</p>
+
+    <h2 class="mt-10 mb-3">Customize the Math for Your Operation</h2>
+    <p>Change the assumptions to fit your reality:</p>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      <li><strong>Higher labor cost</strong> (London, NYC, Sydney): annual savings increase proportionally</li>
+      <li><strong>Lower volume</strong> (under 100 trays/day): payback extends to ~9–12 months but still positive</li>
+      <li><strong>Higher water cost</strong> (Dubai, Las Vegas): water savings alone justify the machine</li>
+      <li><strong>You're the owner doing the dishes</strong>: factor your time at $30–$50/hour, not minimum wage</li>
+    </ul>
+
+    <p class="mt-4">Want a custom ROI spreadsheet for your specific operation? <a href="/get-quote/" class="underline">Request a quote</a> and we'll send one with your specific labor, water, and volume numbers worked through.</p>
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

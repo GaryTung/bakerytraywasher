@@ -1,0 +1,181 @@
+---
+import { t, type Locale } from '../i18n/utils';
+interface Props { locale: Locale; compact?: boolean }
+const { locale, compact = false } = Astro.props;
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY_HERE';
+
+const countries = [
+  'United States','United Kingdom','Australia','Canada','Germany','France','Spain','Italy','Netherlands',
+  'United Arab Emirates','Saudi Arabia','Qatar','Kuwait','Egypt','Morocco','Russia','Ukraine','Kazakhstan',
+  'Thailand','Vietnam','Singapore','Malaysia','Indonesia','Philippines','Japan','South Korea','India',
+  'Brazil','Mexico','Argentina','Chile','Colombia','Peru','South Africa','Nigeria','Kenya','New Zealand','Other'
+];
+---
+<form action="https://api.web3forms.com/submit" method="POST" class="quote-form space-y-4">
+  <input type="hidden" name="access_key" value={accessKey} />
+  <input type="hidden" name="subject" value="[JD-3 Inquiry] New lead from bakerytraywasher.com" />
+  <input type="hidden" name="from_name" value="bakerytraywasher.com" />
+  <input type="hidden" name="source_page" class="source-page" value="" />
+  <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" />
+
+  <div class="grid md:grid-cols-2 gap-4">
+    <label class="block">
+      <span class="text-sm font-medium text-bakery-navy">{t(locale, 'form.name')} *</span>
+      <input type="text" name="full_name" required
+        class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none" />
+    </label>
+    <label class="block">
+      <span class="text-sm font-medium text-bakery-navy">{t(locale, 'form.business')} *</span>
+      <input type="text" name="business_name" required
+        class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none" />
+    </label>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-4">
+    <label class="block">
+      <span class="text-sm font-medium text-bakery-navy">{t(locale, 'form.email')} *</span>
+      <input type="email" name="email" required
+        class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none" />
+    </label>
+    <label class="block">
+      <span class="text-sm font-medium text-bakery-navy">{t(locale, 'form.whatsapp')} *</span>
+      <input type="tel" name="whatsapp" required placeholder="+1234567890"
+        class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none" />
+    </label>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-4">
+    <label class="block">
+      <span class="text-sm font-medium text-bakery-navy">{t(locale, 'form.country')} *</span>
+      <select name="country" required
+        class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none">
+        <option value="">Select...</option>
+        {countries.map((c) => <option>{c}</option>)}
+      </select>
+    </label>
+    <label class="block">
+      <span class="text-sm font-medium text-bakery-navy">{t(locale, 'form.city')}</span>
+      <input type="text" name="city"
+        class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none" />
+    </label>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-4">
+    <label class="block">
+      <span class="text-sm font-medium text-bakery-navy">{t(locale, 'form.businessType')} *</span>
+      <select name="business_type" required
+        class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none">
+        <option value="">Select...</option>
+        <option>Bakery / Patisserie</option>
+        <option>Coffee Shop / Café</option>
+        <option>Cake Shop</option>
+        <option>Restaurant</option>
+        <option>Cafeteria / Canteen</option>
+        <option>Hotel / Resort</option>
+        <option>Cloud / Ghost Kitchen</option>
+        <option>Other</option>
+      </select>
+    </label>
+    <label class="block">
+      <span class="text-sm font-medium text-bakery-navy">{t(locale, 'form.locations')}</span>
+      <input type="number" name="num_locations" min="1" value="1"
+        class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none" />
+    </label>
+  </div>
+
+  {!compact && (
+    <fieldset class="rounded-card border border-bakery-navy/15 p-4">
+      <legend class="text-sm font-medium text-bakery-navy px-2">{t(locale, 'form.washes')}</legend>
+      <div class="grid grid-cols-2 gap-2 text-sm">
+        <label class="flex items-center gap-2"><input type="checkbox" name="washes[]" value="600x400 baking trays" /> 600×400 baking trays</label>
+        <label class="flex items-center gap-2"><input type="checkbox" name="washes[]" value="American sheet pans" /> American sheet pans</label>
+        <label class="flex items-center gap-2"><input type="checkbox" name="washes[]" value="Mixing bowls" /> Mixing bowls</label>
+        <label class="flex items-center gap-2"><input type="checkbox" name="washes[]" value="Cake pans" /> Cake pans</label>
+        <label class="flex items-center gap-2"><input type="checkbox" name="washes[]" value="Pizza pans" /> Pizza pans</label>
+        <label class="flex items-center gap-2"><input type="checkbox" name="washes[]" value="Pots and stockpots" /> Pots and stockpots</label>
+        <label class="flex items-center gap-2"><input type="checkbox" name="washes[]" value="General dishware" /> General dishware</label>
+        <label class="flex items-center gap-2"><input type="checkbox" name="washes[]" value="Other" /> Other</label>
+      </div>
+    </fieldset>
+  )}
+
+  <div class="grid md:grid-cols-2 gap-4">
+    <label class="block">
+      <span class="text-sm font-medium text-bakery-navy">{t(locale, 'form.timeline')} *</span>
+      <select name="timeline" required
+        class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none">
+        <option value="">Select...</option>
+        <option>Ready to buy now</option>
+        <option>Within 1 month</option>
+        <option>1–3 months</option>
+        <option>3–6 months</option>
+        <option>Just researching</option>
+      </select>
+    </label>
+    <label class="block">
+      <span class="text-sm font-medium text-bakery-navy">{t(locale, 'form.budget')}</span>
+      <select name="budget"
+        class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none">
+        <option value="">Optional...</option>
+        <option>Under $3,000</option>
+        <option>$3,000–$5,000</option>
+        <option>$5,000–$10,000</option>
+        <option>Open / Need recommendations</option>
+      </select>
+    </label>
+  </div>
+
+  <label class="block">
+    <span class="text-sm font-medium text-bakery-navy">{t(locale, 'form.message')}</span>
+    <textarea name="message" rows="4"
+      class="mt-1 block w-full rounded-card border border-bakery-navy/15 px-4 py-3 focus:border-bakery-orange focus:ring-2 focus:ring-bakery-orange/30 outline-none"
+      placeholder="Tell us about your business, current cleaning setup, or any questions..."></textarea>
+  </label>
+
+  <button type="submit" class="btn-primary w-full md:w-auto">{t(locale, 'form.submit')}</button>
+
+  <div class="form-result text-sm hidden p-4 rounded-card"></div>
+</form>
+
+<script>
+  document.querySelectorAll('.quote-form').forEach((formEl) => {
+    const form = formEl as HTMLFormElement;
+    const result = form.querySelector('.form-result') as HTMLDivElement;
+    const sourceInput = form.querySelector('.source-page') as HTMLInputElement;
+    if (sourceInput) sourceInput.value = window.location.href;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const obj: any = Object.fromEntries(formData as any);
+      const washes = formData.getAll('washes[]');
+      if (washes.length) obj['washes'] = washes.join(', ');
+      delete obj['washes[]'];
+
+      result.classList.remove('hidden');
+      result.className = 'form-result text-sm p-4 rounded-card bg-bakery-cream text-bakery-navy';
+      result.textContent = 'Sending your quote request...';
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(obj),
+        });
+        const data = await res.json();
+        if (data.success) {
+          result.className = 'form-result text-sm p-4 rounded-card bg-green-50 text-green-800 border border-green-200';
+          result.innerHTML = '✓ Got it. We will reply within 12 hours via WhatsApp or email. For faster reply, message us on WhatsApp at +86 135 0962 3269.';
+          form.reset();
+          // optional redirect: window.location.href = '/thank-you/';
+        } else {
+          result.className = 'form-result text-sm p-4 rounded-card bg-red-50 text-red-800 border border-red-200';
+          result.innerHTML = 'Submission failed. Please email info@v-tai.com or WhatsApp +86 135 0962 3269.';
+        }
+      } catch {
+        result.className = 'form-result text-sm p-4 rounded-card bg-red-50 text-red-800 border border-red-200';
+        result.innerHTML = 'Network error. Please WhatsApp +86 135 0962 3269 directly.';
+      }
+    });
+  });
+</script>

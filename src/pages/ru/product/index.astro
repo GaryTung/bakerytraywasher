@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import PriceCalloutBox from '../../../components/PriceCalloutBox.astro';
+import TrustBadgeStrip from '../../../components/TrustBadgeStrip.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'ru' as const;
+---
+<BaseLayout title="V-TAI JD-3 — Купольная мойка для пекарен" description="V-TAI JD-3: 60 кассет/час, противни 600×400, SUS304, CE-сертификат. От $2 800 FOB." locale={locale} canonicalPath="/product/" schemaType="Product">
+<BreadcrumbNav items={[{label:'Главная',href:'/ru/'},{label:'Продукт'}]} />
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10">
+    <ImagePlaceholder alt="V-TAI JD-3 мойка" ratio="4/3" label="JD-3 вид спереди" />
+    <div>
+      <p class="eyebrow mb-2">Модель VT-AE-JD-3</p>
+      <h1 class="mb-4">V-TAI JD-3 — Купольная мойка пекарских противней</h1>
+      <p class="text-lg mb-5">Единственная купольная мойка в своём ценовом классе, спроектированная для <strong>европейского стандарта 600×400 мм</strong>. Для пекарен, кофеен, кондитерских.</p>
+      <PriceCalloutBox locale={locale} />
+    </div>
+  </div>
+</section>
+<TrustBadgeStrip locale={locale} />
+<section class="section"><div class="container-prose">
+<h2 class="mb-3">Ключевые особенности</h2>
+<ul class="space-y-2 list-disc list-inside">
+<li>Конструкция SUS304 — пищевая нержавеющая сталь</li>
+<li>Очень большая камера (650×550 мм) — принимает противни 600×400</li>
+<li>Двойные вращающиеся моющие штанги — покрытие 360°</li>
+<li>Интеллектуальный контроль температуры >82°C</li>
+<li>Ультранизкое потребление воды 2,0–2,5 л/цикл</li>
+<li>Опциональная система рекуперации тепла</li>
+<li>Уплотненная изолированная дверь — пар снижен на 70%</li>
+<li>Автозапуск при закрытии</li>
+<li>CE Safety сертификат</li>
+</ul>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ProductSpecsTable from '../../../components/ProductSpecsTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'es' as const;
+const sections = [
+  { title: 'Dimensiones Físicas', rows: [
+    { k: 'Dimensiones (puerta cerrada)', v: '804 × 816 × 1.550 mm' },
+    { k: 'Altura (puerta abierta)', v: '2.115 mm' },
+    { k: 'Tamaño rack', v: '650 × 550 mm' },
+    { k: 'Peso neto', v: '145 kg' },
+    { k: 'Tipo de puerta', v: 'Campana con asa' },
+    { k: 'Construcción', v: 'Acero inoxidable SUS304' },
+  ]},
+  { title: 'Rendimiento', rows: [
+    { k: 'Capacidad', v: '60 racks por hora' },
+    { k: 'Tiempo de ciclo', v: '60–90 segundos' },
+    { k: 'Agua por ciclo', v: '2,0–2,5 L' },
+    { k: 'Temperatura aclarado final', v: '>82°C' },
+    { k: 'Mecanismo de lavado', v: 'Brazos rotativos duales' },
+  ]},
+  { title: 'Eléctrico', rows: [
+    { k: 'Potencia total', v: '13 kW' },
+    { k: 'Voltaje', v: '380V / 3N / 50Hz' },
+    { k: 'Corriente', v: '21,5 A' },
+    { k: 'Entrada de agua', v: 'G 3/4", 2,5–6 kg/cm²' },
+  ]},
+];
+---
+<BaseLayout title="Especificaciones JD-3 | Lavadora V-TAI" description="Especificaciones técnicas completas del lavadora V-TAI JD-3." locale={locale} canonicalPath="/product/jd-3-specifications/" schemaType="Product">
+<BreadcrumbNav items={[{label:'Inicio',href:'/es/'},{label:'Producto',href:'/es/product/'},{label:'Especificaciones'}]} />
+<section class="section"><div class="container-page"><h1 class="mb-6">Especificaciones Completas JD-3</h1><ProductSpecsTable sections={sections} /></div></section>
+<CTASection locale={locale} />
+</BaseLayout>

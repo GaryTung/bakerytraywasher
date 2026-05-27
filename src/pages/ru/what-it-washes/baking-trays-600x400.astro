@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import InlineInquiryForm from '../../../components/InlineInquiryForm.astro';
+import ComparisonTable from '../../../components/ComparisonTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'ru' as const;
+const rows = [
+  { label: 'V-TAI JD-3', jd3: '650 × 550 мм', competitor: '✓ Да', highlight: true },
+  { label: 'Hobart AMX', jd3: '500 × 500 мм', competitor: '✗ Нет' },
+  { label: 'Jackson TempStar', jd3: '500 × 500 мм', competitor: '✗ Нет' },
+  { label: 'CMA L-1X16-BW', jd3: '500 × 500 мм', competitor: '✗ Нет' },
+];
+---
+<BaseLayout title="Мойка противней 600×400 мм | V-TAI JD-3" description="Единственная купольная мойка в этом ценовом классе, принимающая европейские противни 600×400 мм." locale={locale} canonicalPath="/what-it-washes/baking-trays-600x400/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Главная',href:'/ru/'},{label:'Что моет'},{label:'Противни 600×400'}]} />
+<section class="section">
+  <div class="container-page grid lg:grid-cols-3 gap-10">
+    <article class="lg:col-span-2">
+      <p class="eyebrow mb-3">⭐ Главное применение</p>
+      <h1 class="mb-4">Мойка пекарских противней 600×400 мм — Европейский стандарт по доступной цене</h1>
+      <p class="text-lg mb-6">JD-3 — единственная купольная мойка в своём ценовом классе, которая принимает европейский стандарт 600×400 мм.</p>
+      <ImagePlaceholder alt="Противень 600×400 в JD-3" ratio="16/9" label="Сравнение 600×400" />
+      <h2 class="mt-10 mb-3">Европейский стандарт 600×400</h2>
+      <p>Появился в Германии в 1960-х. Сегодня стандарт используется всеми профессиональными пароконвекторами: Rational, Convotherm, Unox, Tecnoeka, Salva.</p>
+      <h2 class="mt-10 mb-3">Совместимость</h2>
+      <ComparisonTable competitorName="Принимает 600×400?" rows={rows} /></article>
+    <aside class="lg:sticky lg:top-24 self-start"><InlineInquiryForm locale={locale} title="Расчёт для 600×400" /></aside>
+  </div>
+</section>
+<CTASection locale={locale} />
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductSpecsTable from '../../../components/ProductSpecsTable.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'de' as const;
+const sections = [
+  { title: 'Abmessungen', rows: [
+    { k: 'Maße (geschlossen)', v: '804 × 816 × 1.550 mm' },
+    { k: 'Höhe (offen)', v: '2.115 mm' },
+    { k: 'Korbgröße', v: '650 × 550 mm' },
+    { k: 'Gewicht', v: '145 kg' },
+  ]},
+  { title: 'Leistung', rows: [
+    { k: 'Durchsatz', v: '60 Körbe/Stunde' },
+    { k: 'Zykluszeit', v: '60-90 Sekunden' },
+    { k: 'Wasser/Zyklus', v: '2,0-2,5 L' },
+    { k: 'Endspültemperatur', v: '>82°C' },
+  ]},
+  { title: 'Elektrik', rows: [
+    { k: 'Gesamtleistung', v: '13 kW' },
+    { k: 'Spannung', v: '380V / 3N / 50Hz' },
+    { k: 'Strom', v: '21,5 A' },
+  ]},
+];
+---
+<BaseLayout title="JD-3 Spezifikationen" description="Vollständige technische Daten V-TAI JD-3" locale={locale} canonicalPath="/product/jd-3-specifications/" schemaType="Product">
+<BreadcrumbNav items={[{label:'Startseite',href:'/de/'},{label:'Spezifikationen'}]} />
+<section class="section"><div class="container-page"><h1 class="mb-6">JD-3 Vollständige Spezifikationen</h1><ProductSpecsTable sections={sections} /></div></section>
+<CTASection locale={locale} />
+</BaseLayout>

@@ -1,0 +1,54 @@
+---
+import BusinessTypeLayout from '../../layouts/BusinessTypeLayout.astro';
+const locale = 'en' as const;
+---
+<BusinessTypeLayout
+  locale={locale}
+  canonicalPath="/by-business-type/small-restaurant/"
+  slug="small-restaurant"
+  businessName="Small Restaurant"
+  icon="🍽️"
+  title="Small Restaurant Bakery Tray Washer — Mixed Bakeware + Dishware"
+  description="The JD-3 handles the mixed load a small 50–150 seat restaurant faces: oversized bakeware, stockpots, mixing bowls, plus regular plates and bowls. From $2,800 FOB."
+  reality={`You run a 50–150 seat restaurant — a bistro, a trattoria, a neighborhood American kitchen. You bake your own bread, you cure your own pickles, you make stocks from scratch, and you plate on real ceramic dishware. Your dishwashing area gets hit with a stupid variety of items: 8-quart stockpots, sheet pans, baking trays, mixing bowls, dinner plates, salad bowls, ramekins, sauce pans, sauté pans, knives, and the occasional immersion blender bell.
+
+Your current undercounter dishwasher does plates and glassware well but chokes on anything over 30 cm. So you have a sink station for bakeware that's perpetually backed up during service.`}
+  needs={`A small restaurant needs a "Swiss Army knife" of a dishwasher:
+
+1. Chamber large enough for stockpots. Most undercounters can't fit anything taller than 25 cm.
+
+2. Throughput high enough to clear a 70-cover service in 90 minutes.
+
+3. Quick cycle. During service rush, no one has time for 4-minute cycles.
+
+4. Sanitization standard for plates. Health code requires final rinse >82°C for items that touch food.
+
+5. Reasonable footprint. You can't lose 2 m² of kitchen to a dishroom-sized machine.`}
+  fit={`The JD-3 is a single-machine solution that handles your full range:
+
+- Stockpots up to 28 cm tall fit upright.
+- 60 racks/hour means a 70-cover service's dishware clears in ~25 minutes when run continuously.
+- 60-second standard cycle suits your service pace; 90-second cycle for heavier soils.
+- >82°C final rinse meets health code in every jurisdiction.
+- 850 × 850 mm floor footprint — slightly larger than an undercounter, much smaller than a typical bakery-only washer.
+
+Recommended configuration: standard JD-3 + auto detergent dispenser + standard plate rack accessory (for your dinner-service plate volume). Skip the heat recovery upgrade unless your monthly electricity bill exceeds $500.
+
+For restaurants with limited space behind the line: position the JD-3 in the dish-pit area near the existing 3-bay sink. Use the sink for scrape/pre-rinse and the JD-3 for everything else.`}
+  roi={`For a 100-seat restaurant doing 2 services daily:
+
+- Current dishwashing labor: 1 dish-pit worker × 6 hours/day × 26 days/month × $14/hour = $2,184/month.
+- With JD-3: ~3 hours/day of the same worker, who now has time for prep work between cycles.
+- Net labor saved: ~$1,000/month = $12,000/year.
+
+Plus: faster dish-clearing means faster table turn during peak service. We've seen 10–15% increase in 2nd-seating capacity from kitchens that previously bottlenecked on dishware availability.
+
+Payback: 4–5 months on labor alone. Add the revenue from improved table turn and ROI is even faster.`}
+  faqs={[
+    { q: 'Can it replace my undercounter dishwasher entirely?', a: 'For most 50–150 seat restaurants, yes. The JD-3 throughput exceeds an undercounter, and the larger chamber handles items the undercounter cannot.' },
+    { q: 'Glassware?', a: 'Yes — use the optional glassware rack with cup-holders. JD-3 final rinse heat is configurable to avoid thermal shock on thin stemware.' },
+    { q: 'Will my dinner plates fit?', a: 'Plates up to 32 cm diameter fit edgewise in the standard rack. Use the dedicated plate-rack insert for higher density.' },
+    { q: 'What about knives?', a: 'Small parts basket included. Note: keep wooden-handled knives out of the dishwasher (any commercial dishwasher will dry-crack the wood).' },
+    { q: 'Drainage in a basement kitchen?', a: 'Add the optional drain pump if your drain is above the machine. Pumps wastewater up to 2 m vertical.' },
+  ]}
+/>

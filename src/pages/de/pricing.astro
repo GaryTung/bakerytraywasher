@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
+import CTASection from '../../components/CTASection.astro';
+const locale = 'de' as const;
+---
+<BaseLayout title="JD-3 Preise — Ab $2.800 FOB" description="Ehrliche Preise für V-TAI JD-3" locale={locale} canonicalPath="/pricing/" schemaType="Product">
+<BreadcrumbNav items={[{label:'Startseite',href:'/de/'},{label:'Preise'}]} />
+<section class="section"><div class="container-page">
+<h1 class="text-center mb-4">Ehrliche, transparente Preise</h1>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+<div class="card"><h3>Standard</h3><p class="text-3xl font-bold text-bakery-orange">$2.800</p></div>
+<div class="card border-2 border-bakery-orange"><h3>+ Reinigungsmittel-Dispenser</h3><p class="text-3xl font-bold text-bakery-orange">$3.000</p></div>
+<div class="card"><h3>+ Wasserbehandlung</h3><p class="text-3xl font-bold text-bakery-orange">$3.300</p></div>
+<div class="card"><h3>+ Wärmerückgewinnung</h3><p class="text-3xl font-bold text-bakery-orange">$3.200</p></div>
+</div>
+<div class="mt-6 max-w-md mx-auto"><PriceCalloutBox locale={locale} /></div>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

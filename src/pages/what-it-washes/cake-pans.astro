@@ -1,0 +1,35 @@
+---
+import WhatItWashesLayout from '../../layouts/WhatItWashesLayout.astro';
+const locale = 'en' as const;
+---
+<WhatItWashesLayout
+  locale={locale}
+  canonicalPath="/what-it-washes/cake-pans/"
+  itemName="Cake Pans"
+  title="Cake Pan Washer | Round, Square, Fluted & Springform Pans"
+  description="The JD-3 washes round, square, fluted Bundt, and springform cake pans up to 30 cm diameter. Handles dried buttercream and sugar residue. From $2,800 FOB."
+  challenge={`Cake pans come in a punishing variety of shapes — round (6 to 14 inch diameter), square, rectangle, fluted Bundt designs, springform with detachable bottoms, layer-cake pans, sheet-cake pans. Each shape creates different residue retention zones.
+
+The cleaning enemies: dried buttercream (a sticky emulsion that resists water alone), caramelized sugar (forms a glassy varnish), fondant residue (a starchy film), and ganache (high-fat residue that requires both heat and detergent action to release).`}
+  howItHandles={`The JD-3 handles cake pans through three converging mechanisms: high-temperature wash water (65°C) emulsifies fats, high-pressure dual-arm spray dislodges sticky residue, and alkaline commercial detergent dissolves sugar bonds.
+
+Springform pans clean particularly well in the JD-3 because the spray reaches both sides of the detachable bottom simultaneously when the pan is disassembled for loading.
+
+Bundt and fluted pans should be loaded inverted so the spray reaches every fluted channel.`}
+  recommendedSettings={`For cake pans:
+
+- Cycle: 90-second heavy-soil for buttercream/ganache; 60-second standard for light residue
+- Wash tank: 65°C (high for sugar/fat dissolution)
+- Final rinse: 82°C
+- Detergent: commercial alkaline detergent rated for confectionery cleaning
+- Pre-scrape buttercream and fondant residue with a plastic scraper — this halves the cycle workload
+- Disassemble springform pans before loading
+- Load Bundt pans inverted (channels down)
+- Aluminum pans: use slightly lower detergent concentration to avoid surface dulling`}
+  faqs={[
+    { q: 'Will it remove ALL dried buttercream?', a: 'Yes, given a 90-second heavy-soil cycle and proper detergent. Heavy crusting that has dried for 24+ hours may need pre-soaking.' },
+    { q: 'Springform pan latches — will they corrode?', a: 'Standard nickel-plated latches: no, with reasonable care. Cheaper unplated steel latches may rust over time — that\'s a pan quality issue, not the dishwasher.' },
+    { q: 'Silicone cake pans?', a: 'Yes — JD-3 low-temp cycle mode (60°C wash) keeps silicone within safe thermal range over many cycles.' },
+    { q: 'Non-stick coated cake pans?', a: 'Use pH-balanced detergent; standard cycle is fine. Avoid harsh tablet detergents which can degrade non-stick.' },
+  ]}
+/>

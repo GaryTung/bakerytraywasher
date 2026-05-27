@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../../components/ComparisonTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'ar' as const;
+const rows = [
+  { label: 'حجم الرف', jd3: '650×550 مم', competitor: '500×500 مم' },
+  { label: 'صواني 600×400', jd3: '✓ نعم', competitor: '✗ لا', highlight: true },
+];
+---
+<BaseLayout title="JD-3 مقابل CMA L-1X16-BW" description="مقارنة JD-3 vs CMA." locale={locale} canonicalPath="/product/jd-3-vs-cma-l-1x16-bw/" schemaType="Article">
+<BreadcrumbNav items={[{label:'الرئيسية',href:'/ar/'},{label:'مقابل CMA'}]} />
+<section class="section"><div class="container-prose"><h1>JD-3 مقابل CMA L-1X16-BW</h1><p class="text-lg mt-4 mb-6">رغم تسمية CMA لطرازها "BW" (غسيل المخبز)، فإن رف 500×500 لا يستوعب 600×400. JD-3 يستوعب.</p></div>
+<div class="container-page"><ComparisonTable competitorName="CMA L-1X16-BW" rows={rows} /></div></section>
+<CTASection locale={locale} />
+</BaseLayout>

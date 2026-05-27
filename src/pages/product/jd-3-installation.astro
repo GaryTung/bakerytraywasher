@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+const locale = 'en' as const;
+---
+<BaseLayout
+  title="JD-3 Installation Guide | V-TAI Bakery Tray Washer Setup"
+  description="Pre-installation checklist, space, water, electrical, and drain requirements for the V-TAI JD-3 bakery tray washer. Most small bakeries install in 2–4 hours."
+  locale={locale}
+  canonicalPath="/product/jd-3-installation/"
+  schemaType="HowTo"
+  schemaData={{
+    name: 'How to install the V-TAI JD-3 hood-type bakery tray washer',
+    step: [
+      { '@type': 'HowToStep', name: 'Verify space', text: '850 × 850 mm footprint plus 2.2 m vertical clearance for hood opening' },
+      { '@type': 'HowToStep', name: 'Connect water', text: 'G 3/4" cold water inlet, pressure 2.5–6 kg/cm²' },
+      { '@type': 'HowToStep', name: 'Connect drain', text: 'G 1½" drain to floor or wall drain within 1.5 m' },
+      { '@type': 'HowToStep', name: 'Wire electrical', text: '380V three-phase circuit, 21.5 A dedicated breaker, with proper grounding' },
+      { '@type': 'HowToStep', name: 'Test cycle', text: 'Run two empty test cycles, verify final rinse hits 82°C' },
+    ],
+  }}
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Product', href: '/product/'}, {label: 'Installation'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-4">JD-3 Installation Guide</h1>
+    <p class="text-lg text-bakery-navy/80 mb-8">
+      Most small bakeries install the JD-3 in 2–4 hours without major renovation. Here is exactly what your space and utilities need.
+    </p>
+
+    <ImagePlaceholder alt="JD-3 installation diagram showing space, water, electrical requirements" ratio="16/9" label="Installation diagram" />
+
+    <h2 class="mt-10 mb-4">Pre-Installation Checklist</h2>
+    <ul class="space-y-2 text-bakery-navy/80 list-disc list-inside">
+      <li>Confirm floor footprint: 850 × 850 mm (machine + clearance around all sides)</li>
+      <li>Vertical clearance: 2,200 mm minimum so the hood can lift fully</li>
+      <li>Cold water supply within 1.5 m, G 3/4" connection, 2.5–6 kg/cm² pressure</li>
+      <li>Drain within 1.5 m, G 1½" connection (floor drain or wall drain both work)</li>
+      <li>Dedicated 380V / 3N / 50Hz three-phase circuit, 21.5 A capacity, with grounding</li>
+      <li>Optional: 220V single-phase conversion available — specify in your quote</li>
+    </ul>
+
+    <h2 class="mt-10 mb-4">Space Requirements</h2>
+    <p class="mb-3">The JD-3's external dimensions are 804 × 816 mm at the base, with a maximum height of 2,115 mm when the hood is fully open.</p>
+    <ul class="space-y-2 text-bakery-navy/80 list-disc list-inside">
+      <li><strong>Front clearance:</strong> 600 mm minimum for operator and rack loading</li>
+      <li><strong>Side clearance:</strong> 100 mm minimum for ventilation; 400 mm recommended for service access on one side</li>
+      <li><strong>Rear clearance:</strong> 150 mm minimum for plumbing and electrical connections</li>
+      <li><strong>Counter integration:</strong> The machine can be installed flush with adjacent countertops; specify height adjustment in your quote</li>
+    </ul>
+
+    <h2 class="mt-10 mb-4">Water Connections</h2>
+    <ul class="space-y-2 text-bakery-navy/80 list-disc list-inside">
+      <li><strong>Inlet:</strong> G 3/4" thread, cold water 10–45°C, 2.5–6 kg/cm². A simple shut-off valve and inline filter (mesh strainer) are recommended.</li>
+      <li><strong>Drain:</strong> G 1½" thread. Connect to a P-trap leading to floor drain or wall drain. If your drain rises above 200 mm, specify a drain pump option.</li>
+      <li><strong>Hard water:</strong> If your municipal water exceeds 200 ppm hardness, we recommend the optional water treatment module to protect heating elements.</li>
+    </ul>
+
+    <h2 class="mt-10 mb-4">Electrical Requirements</h2>
+    <ul class="space-y-2 text-bakery-navy/80 list-disc list-inside">
+      <li>Power supply: 380V / 3N / 50Hz three-phase</li>
+      <li>Total power: 13 kW</li>
+      <li>Electrical current: 21.5 A — needs a dedicated breaker, NOT shared with other equipment</li>
+      <li>Ground wire: required and verified by your licensed electrician</li>
+      <li>Cable: 5-core (3 phases + neutral + earth), 4 mm² recommended</li>
+    </ul>
+    <p class="mt-3 text-sm text-bakery-navy/60">If your kitchen is on a 220V/single-phase grid (common in North America), confirm with us before ordering — we offer a 220V conversion option.</p>
+
+    <h2 class="mt-10 mb-4">Why Most Small Bakeries Can Install Without Major Renovation</h2>
+    <p>The JD-3 is sized for the realities of small commercial spaces. The 850 mm footprint fits next to a standard 3-bay sink. The 380V circuit is the same one your commercial oven uses. The drain requirement matches what every commercial kitchen already has. In 95% of installations, the only "renovation" needed is a small modification to where the existing water supply pipe routes.</p>
+
+    <h2 class="mt-10 mb-4">Day-of Installation</h2>
+    <ol class="space-y-2 text-bakery-navy/80 list-decimal list-inside">
+      <li>Unbox and inspect (15 minutes)</li>
+      <li>Position on level floor surface (10 minutes)</li>
+      <li>Connect water inlet and drain (45 minutes — licensed plumber recommended)</li>
+      <li>Wire electrical to dedicated breaker (45 minutes — licensed electrician required in most jurisdictions)</li>
+      <li>Test run: two empty cycles, verify temperature display and water flow (15 minutes)</li>
+      <li>Operator training: 30-minute walkthrough included with every machine</li>
+    </ol>
+
+    <h2 class="mt-10 mb-4">Training</h2>
+    <p>Included with every JD-3: a 30-minute virtual operator training session (via WhatsApp video or Zoom) with our customer support team. We walk your staff through daily startup, loading techniques, cleaning routine, and emergency shutdown. Recording provided for future hires.</p>
+  </div>
+</section>
+
+<FAQSection items={[
+  { q: 'Do you provide on-site installation in my country?', a: 'For most major markets we partner with local installers — share your address with your quote request and we will connect you. For DIY installations, our video guide and remote support are usually sufficient.' },
+  { q: 'My kitchen is 220V single-phase. Can the JD-3 work?', a: 'Yes — we offer a 220V conversion (longer heating cycle, ~90 vs 60 seconds). Note this in your quote request.' },
+  { q: 'Can the JD-3 be moved later?', a: 'Yes. It is not bolted to the floor. Two adults can move it on a furniture dolly. Reconnecting at a new location is straightforward.' },
+  { q: 'What if my drain is on the opposite side of the kitchen?', a: 'We offer an optional drain pump that can push wastewater up to 2 m vertically or 5 m horizontally to reach your existing drain.' },
+]} />
+
+<CTASection locale={locale} title="Need installation help?" subtitle="Share your kitchen layout and we'll review feasibility before you commit." />
+</BaseLayout>
