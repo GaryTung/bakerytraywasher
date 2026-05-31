@@ -2,26 +2,27 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import CTASection from '../../components/CTASection.astro';
+import { t } from '../../i18n/utils';
 const locale = 'ru' as const;
 ---
-<BaseLayout title="Shipping & Payment | JD-3" description="Shipping and payment terms for V-TAI JD-3." locale={locale} canonicalPath="/shipping-payment/">
-<BreadcrumbNav items={[{label:'Home',href:'/ru/'},{label:'Shipping & Payment'}]} />
+<BaseLayout title="Доставка и оплата | JD-3" description="Доставка и оплата V-TAI JD-3." locale={locale} canonicalPath="/shipping-payment/">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/ru/'},{label: 'Доставка и оплата'}]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">Shipping &amp; Payment</h1>
-<h2 class="mt-6 mb-3">Payment</h2>
+<h1 class="mb-4">Доставка и оплата</h1>
+<h2 class="mt-6 mb-3">Оплата</h2>
 <ul class="list-disc list-inside space-y-1">
-<li>30% deposit at order, 70% balance before shipping</li>
-<li>TT (wire transfer), L/C for orders &gt; $20,000</li>
-<li>USD primary; EUR/GBP/AED accepted</li>
+<li>30% предоплата при заказе, 70% остаток до отгрузки</li>
+<li>TT (банковский перевод), L/C для заказов > 20 000 $</li>
+<li>USD основная; EUR/GBP/AED принимаются</li>
 </ul>
-<h2 class="mt-6 mb-3">Lead Time</h2>
+<h2 class="mt-6 mb-3">Сроки</h2>
 <ul class="list-disc list-inside space-y-1">
-<li>Production: 4 weeks</li>
-<li>Sea freight: 20-35 days</li>
-<li>Air freight: 3-7 days</li>
+<li>Производство: 4 недели</li>
+<li>Морской фрахт: 20–35 дней</li>
+<li>Авиафрахт: 3–7 дней</li>
 </ul>
-<h2 class="mt-6 mb-3">DDP for 18 Markets</h2>
-<p>For 18 major markets, we provide DDP landed pricing in local currency. See <a href="/ru/pricing/by-country/" class="underline">by-country pricing</a>.</p>
+<h2 class="mt-6 mb-3">DDP для 18 рынков</h2>
+<p>Для 18 ключевых рынков мы предоставляем цены DDP в местной валюте. См. <a href="/ru/pricing/by-country/" class="underline">цены по странам</a>.</p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

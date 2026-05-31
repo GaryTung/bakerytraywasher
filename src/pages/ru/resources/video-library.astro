@@ -2,14 +2,15 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'ru' as const;
 ---
-<BaseLayout title="Video Library | JD-3" description="Video Library" locale={locale} canonicalPath="/resources/video-library/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/ru/'},{label:'Resources'},{label:'Video Library'}]} />
+<BaseLayout title="Видеотека | JD-3" description="Видеотека" locale={locale} canonicalPath="/resources/video-library/" schemaType="Article">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/ru/'},{label: t(locale,'nav.resources'), href:'/ru/resources/'},{label: 'Видеотека'}]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">Video Library</h1>
-<p class="text-lg mb-6">Practical resource for bakery operators considering the V-TAI JD-3.</p>
-<p>For the full English version, visit <a href="/resources/video-library/" class="underline">/resources/video-library/</a>.</p>
+<h1 class="mb-4">Видеотека</h1>
+<p class="text-lg mb-6 text-bakery-navy/70">Эта страница доступна на английском:</p>
+<p><a href="/resources/video-library/" class="btn-primary inline-block">Видеотека (EN) →</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

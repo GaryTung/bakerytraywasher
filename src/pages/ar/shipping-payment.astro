@@ -2,26 +2,27 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import CTASection from '../../components/CTASection.astro';
+import { t } from '../../i18n/utils';
 const locale = 'ar' as const;
 ---
-<BaseLayout title="Shipping & Payment | JD-3" description="Shipping and payment terms for V-TAI JD-3." locale={locale} canonicalPath="/shipping-payment/">
-<BreadcrumbNav items={[{label:'Home',href:'/ar/'},{label:'Shipping & Payment'}]} />
+<BaseLayout title="الشحن والدفع | JD-3" description="الشحن والدفع V-TAI JD-3." locale={locale} canonicalPath="/shipping-payment/">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/ar/'},{label: 'الشحن والدفع'}]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">Shipping &amp; Payment</h1>
-<h2 class="mt-6 mb-3">Payment</h2>
+<h1 class="mb-4">الشحن والدفع</h1>
+<h2 class="mt-6 mb-3">الدفع</h2>
 <ul class="list-disc list-inside space-y-1">
-<li>30% deposit at order, 70% balance before shipping</li>
-<li>TT (wire transfer), L/C for orders &gt; $20,000</li>
-<li>USD primary; EUR/GBP/AED accepted</li>
+<li>عربون 30% عند الطلب، 70% رصيد قبل الشحن</li>
+<li>TT (تحويل بنكي)، L/C للطلبات > 20,000 دولار</li>
+<li>الدولار أساسي؛ يقبل اليورو/الجنيه/الدرهم</li>
 </ul>
-<h2 class="mt-6 mb-3">Lead Time</h2>
+<h2 class="mt-6 mb-3">الجدول الزمني</h2>
 <ul class="list-disc list-inside space-y-1">
-<li>Production: 4 weeks</li>
-<li>Sea freight: 20-35 days</li>
-<li>Air freight: 3-7 days</li>
+<li>الإنتاج: 4 أسابيع</li>
+<li>الشحن البحري: 20-35 يوماً</li>
+<li>الشحن الجوي: 3-7 أيام</li>
 </ul>
-<h2 class="mt-6 mb-3">DDP for 18 Markets</h2>
-<p>For 18 major markets, we provide DDP landed pricing in local currency. See <a href="/ar/pricing/by-country/" class="underline">by-country pricing</a>.</p>
+<h2 class="mt-6 mb-3">DDP لـ 18 سوقاً</h2>
+<p>لـ 18 سوقاً رئيسياً نقدم أسعار DDP بالعملة المحلية. انظر <a href="/ar/pricing/by-country/" class="underline">الأسعار حسب الدولة</a>.</p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

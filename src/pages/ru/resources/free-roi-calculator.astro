@@ -2,14 +2,15 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'ru' as const;
 ---
-<BaseLayout title="Free ROI Calculator | JD-3" description="Free ROI Calculator" locale={locale} canonicalPath="/resources/free-roi-calculator/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/ru/'},{label:'Resources'},{label:'Free ROI Calculator'}]} />
+<BaseLayout title="Бесплатный калькулятор ROI | JD-3" description="Бесплатный калькулятор ROI" locale={locale} canonicalPath="/resources/free-roi-calculator/" schemaType="Article">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/ru/'},{label: t(locale,'nav.resources'), href:'/ru/resources/'},{label: 'Бесплатный калькулятор ROI'}]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">Free ROI Calculator</h1>
-<p class="text-lg mb-6">Practical resource for bakery operators considering the V-TAI JD-3.</p>
-<p>For the full English version, visit <a href="/resources/free-roi-calculator/" class="underline">/resources/free-roi-calculator/</a>.</p>
+<h1 class="mb-4">Бесплатный калькулятор ROI</h1>
+<p class="text-lg mb-6 text-bakery-navy/70">Эта страница доступна на английском:</p>
+<p><a href="/resources/free-roi-calculator/" class="btn-primary inline-block">Бесплатный калькулятор ROI (EN) →</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

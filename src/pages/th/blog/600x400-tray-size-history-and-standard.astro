@@ -2,14 +2,15 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'th' as const;
 ---
-<BaseLayout title="600×400 Tray Size — History and Standard | JD-3 Blog" description="600×400 Tray Size — History and Standard" locale={locale} canonicalPath="/blog/600x400-tray-size-history-and-standard/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/th/'},{label:'Blog',href:'/th/blog/'},{label:'600×400 Tray Size — History and Standard'}]} />
+<BaseLayout title="ประวัติและมาตรฐานขนาด 600×400 (ฉบับภาษาอังกฤษ) | JD-3" description="ประวัติและมาตรฐานขนาด 600×400" locale={locale} canonicalPath="/blog/600x400-tray-size-history-and-standard/" schemaType="Article">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/th/'},{label: t(locale,'nav.blog'), href:'/th/blog/'},{label: 'ประวัติและมาตรฐานขนาด 600×400'}]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">600×400 Tray Size — History and Standard</h1>
-<p class="text-lg mb-6">Practical writing for bakery owners and small commercial kitchen operators.</p>
-<p>For the full English version, visit <a href="/blog/600x400-tray-size-history-and-standard/" class="underline">/blog/600x400-tray-size-history-and-standard/</a>.</p>
+<h1 class="mb-4">ประวัติและมาตรฐานขนาด 600×400</h1>
+<p class="text-lg mb-6 text-bakery-navy/70">บทความนี้ยังไม่ได้แปลเป็นภาษาไทย อ่านฉบับเต็มภาษาอังกฤษ:</p>
+<p><a href="/blog/600x400-tray-size-history-and-standard/" class="btn-primary inline-block">ประวัติและมาตรฐานขนาด 600×400 (EN) →</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

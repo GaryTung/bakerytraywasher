@@ -2,14 +2,15 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'vi' as const;
 ---
-<BaseLayout title="Dishwasher ROI for a Small Bakery | JD-3 Blog" description="Dishwasher ROI for a Small Bakery" locale={locale} canonicalPath="/blog/dishwasher-roi-for-small-bakery/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/vi/'},{label:'Blog',href:'/vi/blog/'},{label:'Dishwasher ROI for a Small Bakery'}]} />
+<BaseLayout title="ROI máy rửa bát cho tiệm bánh (bản tiếng Anh) | JD-3" description="ROI máy rửa bát cho tiệm bánh" locale={locale} canonicalPath="/blog/dishwasher-roi-for-small-bakery/" schemaType="Article">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/vi/'},{label: t(locale,'nav.blog'), href:'/vi/blog/'},{label: 'ROI máy rửa bát cho tiệm bánh'}]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">Dishwasher ROI for a Small Bakery</h1>
-<p class="text-lg mb-6">Practical writing for bakery owners and small commercial kitchen operators.</p>
-<p>For the full English version, visit <a href="/blog/dishwasher-roi-for-small-bakery/" class="underline">/blog/dishwasher-roi-for-small-bakery/</a>.</p>
+<h1 class="mb-4">ROI máy rửa bát cho tiệm bánh</h1>
+<p class="text-lg mb-6 text-bakery-navy/70">Bài viết này chưa được dịch sang tiếng Việt. Xem bản đầy đủ tiếng Anh:</p>
+<p><a href="/blog/dishwasher-roi-for-small-bakery/" class="btn-primary inline-block">ROI máy rửa bát cho tiệm bánh (EN) →</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

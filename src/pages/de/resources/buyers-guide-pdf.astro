@@ -2,14 +2,15 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'de' as const;
 ---
-<BaseLayout title="Buyers Guide PDF | JD-3" description="Buyers Guide PDF" locale={locale} canonicalPath="/resources/buyers-guide-pdf/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/de/'},{label:'Resources'},{label:'Buyers Guide PDF'}]} />
+<BaseLayout title="Käuferleitfaden (PDF) | JD-3" description="Käuferleitfaden (PDF)" locale={locale} canonicalPath="/resources/buyers-guide-pdf/" schemaType="Article">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/de/'},{label: t(locale,'nav.resources'), href:'/de/resources/'},{label: 'Käuferleitfaden (PDF)'}]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">Buyers Guide PDF</h1>
-<p class="text-lg mb-6">Practical resource for bakery operators considering the V-TAI JD-3.</p>
-<p>For the full English version, visit <a href="/resources/buyers-guide-pdf/" class="underline">/resources/buyers-guide-pdf/</a>.</p>
+<h1 class="mb-4">Käuferleitfaden (PDF)</h1>
+<p class="text-lg mb-6 text-bakery-navy/70">Diese Seite ist auf Englisch verfügbar:</p>
+<p><a href="/resources/buyers-guide-pdf/" class="btn-primary inline-block">Käuferleitfaden (PDF) (EN) →</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

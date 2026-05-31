@@ -2,14 +2,15 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'de' as const;
 ---
-<BaseLayout title="Dishwasher ROI for a Small Bakery | JD-3 Blog" description="Dishwasher ROI for a Small Bakery" locale={locale} canonicalPath="/blog/dishwasher-roi-for-small-bakery/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/de/'},{label:'Blog',href:'/de/blog/'},{label:'Dishwasher ROI for a Small Bakery'}]} />
+<BaseLayout title="Spülmaschinen-ROI für Bäckereien (englische Version) | JD-3" description="Spülmaschinen-ROI für Bäckereien" locale={locale} canonicalPath="/blog/dishwasher-roi-for-small-bakery/" schemaType="Article">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/de/'},{label: t(locale,'nav.blog'), href:'/de/blog/'},{label: 'Spülmaschinen-ROI für Bäckereien'}]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">Dishwasher ROI for a Small Bakery</h1>
-<p class="text-lg mb-6">Practical writing for bakery owners and small commercial kitchen operators.</p>
-<p>For the full English version, visit <a href="/blog/dishwasher-roi-for-small-bakery/" class="underline">/blog/dishwasher-roi-for-small-bakery/</a>.</p>
+<h1 class="mb-4">Spülmaschinen-ROI für Bäckereien</h1>
+<p class="text-lg mb-6 text-bakery-navy/70">Dieser Artikel ist noch nicht ins Deutsche übersetzt. Lesen Sie die vollständige englische Version:</p>
+<p><a href="/blog/dishwasher-roi-for-small-bakery/" class="btn-primary inline-block">Spülmaschinen-ROI für Bäckereien (EN) →</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

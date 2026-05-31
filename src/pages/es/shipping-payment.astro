@@ -2,26 +2,27 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import CTASection from '../../components/CTASection.astro';
+import { t } from '../../i18n/utils';
 const locale = 'es' as const;
 ---
-<BaseLayout title="Shipping & Payment | JD-3" description="Shipping and payment terms for V-TAI JD-3." locale={locale} canonicalPath="/shipping-payment/">
-<BreadcrumbNav items={[{label:'Home',href:'/es/'},{label:'Shipping & Payment'}]} />
+<BaseLayout title="Envío y pago | JD-3" description="Envío y pago V-TAI JD-3." locale={locale} canonicalPath="/shipping-payment/">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/es/'},{label: 'Envío y pago'}]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">Shipping &amp; Payment</h1>
-<h2 class="mt-6 mb-3">Payment</h2>
+<h1 class="mb-4">Envío y pago</h1>
+<h2 class="mt-6 mb-3">Pago</h2>
 <ul class="list-disc list-inside space-y-1">
-<li>30% deposit at order, 70% balance before shipping</li>
-<li>TT (wire transfer), L/C for orders &gt; $20,000</li>
-<li>USD primary; EUR/GBP/AED accepted</li>
+<li>30% depósito al ordenar, 70% saldo antes del envío</li>
+<li>TT (transferencia bancaria), L/C para pedidos > $20.000</li>
+<li>USD primario; EUR/GBP/AED aceptados</li>
 </ul>
-<h2 class="mt-6 mb-3">Lead Time</h2>
+<h2 class="mt-6 mb-3">Plazos</h2>
 <ul class="list-disc list-inside space-y-1">
-<li>Production: 4 weeks</li>
-<li>Sea freight: 20-35 days</li>
-<li>Air freight: 3-7 days</li>
+<li>Producción: 4 semanas</li>
+<li>Flete marítimo: 20–35 días</li>
+<li>Flete aéreo: 3–7 días</li>
 </ul>
-<h2 class="mt-6 mb-3">DDP for 18 Markets</h2>
-<p>For 18 major markets, we provide DDP landed pricing in local currency. See <a href="/es/pricing/by-country/" class="underline">by-country pricing</a>.</p>
+<h2 class="mt-6 mb-3">DDP para 18 mercados</h2>
+<p>Para 18 mercados principales ofrecemos precios DDP en moneda local. Vea <a href="/es/pricing/by-country/" class="underline">precios por país</a>.</p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

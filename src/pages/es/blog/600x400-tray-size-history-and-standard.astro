@@ -2,14 +2,15 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'es' as const;
 ---
-<BaseLayout title="600×400 Tray Size — History and Standard | JD-3 Blog" description="600×400 Tray Size — History and Standard" locale={locale} canonicalPath="/blog/600x400-tray-size-history-and-standard/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/es/'},{label:'Blog',href:'/es/blog/'},{label:'600×400 Tray Size — History and Standard'}]} />
+<BaseLayout title="Historia y estándar del tamaño 600×400 (versión en inglés) | JD-3" description="Historia y estándar del tamaño 600×400" locale={locale} canonicalPath="/blog/600x400-tray-size-history-and-standard/" schemaType="Article">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/es/'},{label: t(locale,'nav.blog'), href:'/es/blog/'},{label: 'Historia y estándar del tamaño 600×400'}]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">600×400 Tray Size — History and Standard</h1>
-<p class="text-lg mb-6">Practical writing for bakery owners and small commercial kitchen operators.</p>
-<p>For the full English version, visit <a href="/blog/600x400-tray-size-history-and-standard/" class="underline">/blog/600x400-tray-size-history-and-standard/</a>.</p>
+<h1 class="mb-4">Historia y estándar del tamaño 600×400</h1>
+<p class="text-lg mb-6 text-bakery-navy/70">Este artículo aún no está traducido al español. Lea la versión completa en inglés:</p>
+<p><a href="/blog/600x400-tray-size-history-and-standard/" class="btn-primary inline-block">Historia y estándar del tamaño 600×400 (EN) →</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

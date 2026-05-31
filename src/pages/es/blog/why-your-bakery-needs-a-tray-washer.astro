@@ -2,14 +2,15 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'es' as const;
 ---
-<BaseLayout title="Why Your Bakery Needs a Tray Washer | JD-3 Blog" description="Why Your Bakery Needs a Tray Washer" locale={locale} canonicalPath="/blog/why-your-bakery-needs-a-tray-washer/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/es/'},{label:'Blog',href:'/es/blog/'},{label:'Why Your Bakery Needs a Tray Washer'}]} />
+<BaseLayout title="Por qué tu panadería necesita una lavadora de bandejas (versión en inglés) | JD-3" description="Por qué tu panadería necesita una lavadora de bandejas" locale={locale} canonicalPath="/blog/why-your-bakery-needs-a-tray-washer/" schemaType="Article">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/es/'},{label: t(locale,'nav.blog'), href:'/es/blog/'},{label: 'Por qué tu panadería necesita una lavadora de bandejas'}]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">Why Your Bakery Needs a Tray Washer</h1>
-<p class="text-lg mb-6">Practical writing for bakery owners and small commercial kitchen operators.</p>
-<p>For the full English version, visit <a href="/blog/why-your-bakery-needs-a-tray-washer/" class="underline">/blog/why-your-bakery-needs-a-tray-washer/</a>.</p>
+<h1 class="mb-4">Por qué tu panadería necesita una lavadora de bandejas</h1>
+<p class="text-lg mb-6 text-bakery-navy/70">Este artículo aún no está traducido al español. Lea la versión completa en inglés:</p>
+<p><a href="/blog/why-your-bakery-needs-a-tray-washer/" class="btn-primary inline-block">Por qué tu panadería necesita una lavadora de bandejas (EN) →</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>
