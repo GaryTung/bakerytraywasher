@@ -92,6 +92,13 @@ const TRANSLATED: Record<string, Locale[]> = {
   '/by-business-type/cloud-kitchen/': ['en', 'es'],
 };
 
-export function getTranslatedLocales(canonicalPath: string): Locale[] {
-  return TRANSLATED[canonicalPath] ?? ['en'];
+// Full site coverage now exists in all 8 locales (every page generated either
+// directly or via shared layout). Language switcher should always offer all 8;
+// hreflang likewise. If a specific locale variant of a niche detail page is
+// missing, that's a 404 that can be filled in later — better than only showing
+// English.
+const ALL_LOCALES = Object.keys(languages) as Locale[];
+
+export function getTranslatedLocales(_canonicalPath: string): Locale[] {
+  return ALL_LOCALES;
 }

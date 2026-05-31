@@ -1,0 +1,76 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTASection from '../components/CTASection.astro';
+import { type Locale, localizePath, t } from '../i18n/utils';
+
+interface QA { q: string; a: string }
+interface Props {
+  locale: Locale;
+  canonicalPath: string;
+  slug: string;
+  title: string;
+  description: string;
+  pubDate: string; // ISO YYYY-MM-DD
+  tldr: string;
+  faqs?: QA[];
+}
+const { locale, canonicalPath, slug, title, description, pubDate, tldr, faqs = [] } = Astro.props;
+const lp = (p: string) => localizePath(p, locale);
+
+const tldrLabels: Record<Locale, string> = {
+  en: 'TL;DR', es: 'Resumen', fr: 'En bref', de: 'Kurz gesagt',
+  ru: 'Кратко', th: 'สรุปสั้นๆ', vi: 'Tóm tắt', ar: 'باختصار',
+};
+
+const publishedLabel: Record<Locale, string> = {
+  en: 'Published', es: 'Publicado', fr: 'Publié', de: 'Veröffentlicht',
+  ru: 'Опубликовано', th: 'เผยแพร่', vi: 'Đăng', ar: 'نُشر',
+};
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: pubDate,
+  author: { '@type': 'Organization', name: 'V-TAI' },
+  publisher: { '@type': 'Organization', name: 'V-TAI', url: 'https://bakerytraywasher.com' },
+  mainEntityOfPage: `https://bakerytraywasher.com${canonicalPath}`,
+};
+---
+<BaseLayout
+  title={title + ' | bakerytraywasher.com'}
+  description={description}
+  locale={locale}
+  canonicalPath={canonicalPath}
+  schemaType="Article"
+>
+<BreadcrumbNav items={[
+  { label: t(locale, 'nav.home'), href: lp('/') },
+  { label: t(locale, 'nav.blog'), href: lp('/blog/') },
+  { label: title }
+]} />
+
+<article class="section">
+  <div class="container-prose">
+    <p class="text-sm text-bakery-navy/60 mb-3">{publishedLabel[locale]}: <time datetime={pubDate}>{pubDate}</time></p>
+    <h1 class="mb-6">{title}</h1>
+
+    <!-- TL;DR — GEO-friendly answer-first block -->
+    <div class="card bg-bakery-cream border-l-4 border-bakery-orange mb-8">
+      <p class="eyebrow mb-2">{tldrLabels[locale]}</p>
+      <p class="text-bakery-navy leading-relaxed" set:html={tldr} />
+    </div>
+
+    <slot />
+  </div>
+</article>
+
+{faqs.length > 0 && <FAQSection items={faqs} locale={locale} />}
+
+<CTASection locale={locale} />
+
+<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+</BaseLayout>

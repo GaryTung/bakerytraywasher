@@ -1,0 +1,82 @@
+---
+import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+const locale = 'fr' as const;
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/norme-en-631-plaque-600x400-expliquee/"
+  slug="norme-en-631-plaque-600x400-expliquee"
+  title="Norme EN 631 et plaque 600×400 mm : ce que tout boulanger francophone doit savoir"
+  description="La norme EN 631-1 et la plaque boulangère 600×400 mm expliquées. Origine DIN 18876, fours combi compatibles (Rational, Convotherm, Unox), et comment choisir un lave-plaques qui accepte ce format standard."
+  pubDate="2026-01-22"
+  tldr="La <strong>plaque 600×400 mm</strong> est le standard européen de boulangerie (DIN 18876 / EN 631) utilisé par tous les fours combi professionnels — Rational, Convotherm, Unox, Salva. La plupart des lave-vaisselle commerciaux dans cette gamme de prix utilisent des paniers de 500×500 mm et <strong>ne l'acceptent pas</strong>. Le V-TAI JD-3 a un panier de 650×550 mm conçu spécifiquement pour cette norme."
+  faqs={[
+    { q: 'Qu\'est-ce que la norme EN 631 exactement ?', a: 'EN 631-1 est la norme européenne pour les contenants Gastronorm. Elle inclut la dimension EN 1/1 (600×400 mm) comme sous-multiple du GN 2/1 (650×530 mm). La même dimension est également formalisée dans la norme allemande DIN 18876 pour les plaques de boulangerie.' },
+    { q: 'Quels fours professionnels utilisent cette norme ?', a: 'Tous les fours combi européens professionnels : Rational iCombi Pro/Classic, Convotherm Mini/OEC, Unox Cheftop et Bakertop, Tecnoeka EKF, Salva, Wachtel, MIWE et Werner & Pfleiderer. Si votre boulangerie utilise l\'un de ces fours, vos plaques sont 600×400 mm.' },
+    { q: 'Pourquoi la plupart des lave-vaisselle ne l\'acceptent pas ?', a: 'Les marques premium (Hobart AMX, Jackson TempStar, CMA L-1X16, Winterhalter UC-M) utilisent toutes des paniers de 500×500 mm, conçus à l\'origine pour les assiettes de cafétéria dans les années 1970. Une plaque de 600 mm n\'y entre tout simplement pas.' },
+    { q: 'Le JD-3 accepte-t-il d\'autres formats ?', a: 'Oui. Son panier de 650×550 mm accepte également les plaques américaines 18×26" (en diagonale), GN 2/1, bols KitchenAid jusqu\'à 6 litres debout, et marmites jusqu\'à 28 cm de hauteur.' },
+    { q: 'Quel est le prix ?', a: 'Le V-TAI JD-3 standard commence à 4 400 $ FOB Shenzhen, soit 4 200 € DDP Paris (livraison incluse, droits de douane et TVA française inclus). Voir la <a href="/fr/pricing/by-country/france/">page DDP France</a>.' },
+  ]}
+>
+
+<h2>Un standard que peu de gens connaissent vraiment</h2>
+<p>La dimension <strong>600×400 millimètres</strong> est probablement la mesure la plus importante de la boulangerie professionnelle moderne. Pourtant, la plupart des acheteurs d'équipement n'en connaissent ni l'origine, ni les implications pratiques.</p>
+
+<p>La norme est née en Allemagne de l'Ouest dans les années 1960 dans le cadre du mouvement de standardisation industrielle DIN. Les fabricants allemands de fours cherchaient une dimension répondant à quatre critères :</p>
+
+<ul>
+  <li>S'empiler efficacement sur les chariots de transport de boulangerie (Stikkenwagen)</li>
+  <li>Se subdiviser proprement en moitiés (300×400), tiers (200×400) et quarts (300×200) pour le portionnement</li>
+  <li>Correspondre à la nouvelle génération de fours à convection forcée</li>
+  <li>Être un sous-multiple du Gastronorm GN 2/1 (650×530 mm)</li>
+</ul>
+
+<p>La mesure 600×400 mm remplissait les quatre conditions. Elle a été formalisée dans DIN 18876 puis intégrée à la norme européenne EN 631. C'est aujourd'hui le standard mondial de facto des opérations de boulangerie professionnelle.</p>
+
+<h2>Pourquoi cela importe pour votre boulangerie maintenant</h2>
+<p>Si votre boulangerie utilise un four combi moderne — et c'est le cas de la majorité des établissements professionnels — vos plaques sont au format 600×400 mm. Mais à l'achat d'un lave-vaisselle commercial, vous découvrez un problème inattendu : <strong>presque aucun ne l'accepte</strong>.</p>
+
+<h3>Tableau de compatibilité — panier vs plaque</h3>
+<div class="card !p-0 overflow-hidden my-4">
+  <table class="w-full text-sm">
+    <thead class="bg-bakery-navy text-white">
+      <tr><th class="p-3 text-left">Lave-vaisselle</th><th class="p-3 text-left">Taille du panier</th><th class="p-3 text-left">Accepte 600×400 ?</th></tr>
+    </thead>
+    <tbody>
+      <tr class="bg-bakery-cream"><td class="p-3 font-bold">V-TAI JD-3</td><td class="p-3">650×550 mm</td><td class="p-3 text-bakery-orange font-bold">✓ Oui</td></tr>
+      <tr><td class="p-3">Hobart AMX</td><td class="p-3">500×500 mm</td><td class="p-3">✗ Non</td></tr>
+      <tr><td class="p-3">Jackson TempStar HH-E</td><td class="p-3">500×500 mm</td><td class="p-3">✗ Non</td></tr>
+      <tr><td class="p-3">CMA L-1X16-BW</td><td class="p-3">500×500 mm</td><td class="p-3">✗ Non</td></tr>
+      <tr><td class="p-3">Winterhalter UC-M</td><td class="p-3">500×500 mm</td><td class="p-3">✗ Non</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Solutions qui ne fonctionnent pas</h2>
+<p>Les contournements courants — et pourquoi ils sont mauvais :</p>
+<ul>
+  <li><strong>Couper les plaques.</strong> Vous perdez la compatibilité avec vos chariots de four.</li>
+  <li><strong>Acheter un lave-vaisselle dédié boulangerie.</strong> Double investissement et perte de 2 m² d'espace.</li>
+  <li><strong>Laver à la main.</strong> 2–3 heures par jour de main-d'œuvre.</li>
+  <li><strong>Modèles Hobart PROFI.</strong> Compatibles mais à un prix significativement plus élevé.</li>
+</ul>
+
+<h2>La réponse JD-3</h2>
+<p>Le <a href="/fr/product/">V-TAI JD-3</a> a été conçu dès le départ avec un panier de <strong>650×550 mm</strong> précisément pour accommoder la norme 600×400. C'est l'une des rares machines de sa gamme de prix qui accepte physiquement le standard européen.</p>
+
+<p>Spécifications qui comptent pour un boulanger :</p>
+<ul>
+  <li>180 plaques par heure (30 cycles × 6 plaques)</li>
+  <li>Cycle de 2 minutes</li>
+  <li>Rinçage final à plus de 82°C (norme HACCP)</li>
+  <li>2,0–2,5 L d'eau par cycle</li>
+  <li>Construction inox SUS304 alimentaire</li>
+  <li>Certification CE Safety</li>
+</ul>
+
+<p>Si vous êtes en France ou dans un pays francophone et souhaitez voir le prix DDP livré à votre adresse — sans surprise de douane — consultez notre <a href="/fr/pricing/by-country/">tableau des prix DDP par pays</a>.</p>
+
+<h2>Conclusion</h2>
+<p>La norme 600×400 mm n'est pas optionnelle pour une boulangerie professionnelle moderne. C'est la dimension qui détermine quels fours vous achetez, quelles plaques vous utilisez et — critique — quel lave-vaisselle peut nettoyer votre matériel. Vérifier la compatibilité avant l'achat est le facteur n°1 qui sépare une décision juste d'une erreur coûteuse.</p>
+
+</BlogPostLayout>

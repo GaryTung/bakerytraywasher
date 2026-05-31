@@ -2,20 +2,37 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'ru' as const;
 const posts = [
-  { slug: 'why-your-bakery-needs-a-tray-washer', title: 'Why Your Bakery Needs a Tray Washer', desc: 'The case for buying a commercial dishwasher.' },
-  { slug: '600x400-tray-size-history-and-standard', title: '600×400 Tray Size — History', desc: 'How a 1960s German standard became global default.' },
-  { slug: 'dishwasher-roi-for-small-bakery', title: 'Dishwasher ROI Math', desc: 'Concrete numbers for ~4-month payback.' },
+  {
+    slug: 'evropejskij-standart-600x400-protivnej',
+    title: 'Европейский стандарт 600×400 — объяснение',
+    desc: 'История стандарта DIN 18876 / EN 631 и совместимость с печами Rational, Unox, Convotherm.',
+    date: '2026-01-28',
+  },
+  {
+    slug: 'stoimost-mojki-protivnej-dostavka-moskva',
+    title: 'Стоимость доставки DDP в Москву',
+    desc: 'FOB Шэньчжэнь, морской фрахт, российская пошлина, НДС 20% — реальные цифры 2026.',
+    date: '2026-02-11',
+  },
+  {
+    slug: 'okupaemost-mojki-pekarnia-4-mesyatsa',
+    title: 'Окупаемость за 4 месяца',
+    desc: 'Конкретный расчёт ROI для малых и средних пекарен в России, Казахстане, Беларуси.',
+    date: '2026-02-25',
+  },
 ];
 ---
-<BaseLayout title="Blog | JD-3" description="Articles on bakery operations and JD-3 deployments." locale={locale} canonicalPath="/blog/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/ru/'},{label:'Blog'}]} />
+<BaseLayout title={`${t(locale,'nav.blog')} | JD-3`} description="Статьи об операциях пекарни и развёртывании JD-3." locale={locale} canonicalPath="/blog/" schemaType="Article">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/ru/'},{label: t(locale,'nav.blog')}]} />
 <section class="section"><div class="container-page">
-<h1 class="text-center mb-10">Blog</h1>
+<h1 class="text-center mb-10">Блог</h1>
 <div class="grid md:grid-cols-3 gap-6">
 {posts.map((p) => (
   <a href={`/ru/blog/${p.slug}/`} class="card hover:scale-[1.02] transition">
+    <p class="text-xs text-bakery-navy/50 mb-2">{p.date}</p>
     <h3 class="mb-3">{p.title}</h3>
     <p class="text-sm text-bakery-navy/70">{p.desc}</p>
   </a>

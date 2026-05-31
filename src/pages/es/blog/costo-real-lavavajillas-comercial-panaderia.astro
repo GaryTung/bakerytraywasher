@@ -1,0 +1,83 @@
+---
+import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+const locale = 'es' as const;
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/costo-real-lavavajillas-comercial-panaderia/"
+  slug="costo-real-lavavajillas-comercial-panaderia"
+  title="¿Cuánto cuesta realmente una lavadora comercial para panadería en 2026?"
+  description="Análisis completo del costo de una lavadora comercial para panadería: precio FOB, flete marítimo, aduana, IVA local y entrega DDP. Ejemplo concreto para España y México con cifras reales."
+  pubDate="2026-02-03"
+  tldr="El precio FOB de una lavadora comercial competente para panadería (V-TAI JD-3) empieza en <strong>$4,400 USD FOB Shenzhen</strong>. Con flete marítimo, aduana e IVA local incluidos: <strong>€4,300 DDP Madrid</strong> o <strong>MX$87,000 DDP CDMX</strong> entregada a tu dirección. La diferencia entre FOB y DDP suele ser de $300–$800 según el destino. Los precios de marcas premium (Hobart, Jackson, CMA, Winterhalter) son significativamente más altos por el mismo nivel de certificación CE."
+  faqs={[
+    { q: '¿Qué significa FOB y por qué importa?', a: 'FOB ("Free On Board") es el precio del equipo cargado en el puerto de origen — en nuestro caso Shenzhen. No incluye flete marítimo, aduana, impuestos de importación, IVA local ni entrega final a tu dirección. Para comparar precios honestamente, hay que sumar todo eso o pedir precio DDP.' },
+    { q: '¿Qué es DDP y por qué lo recomiendan?', a: 'DDP ("Delivered Duty Paid") significa que el vendedor maneja todo: flete, aduana, impuestos, entrega final. Tú pagas un solo precio y la máquina llega a tu puerta. No hay sorpresas en el puerto ni facturas de agente aduanal.' },
+    { q: '¿Cuánto pagaré exactamente en España?', a: '€4,300 EUR DDP Madrid (~$4,700 USD) para la JD-3 estándar. Incluye flete marítimo desde Shenzhen, aduana, arancel de importación de la UE (0–5% para HS 8422.11) e IVA español 21%. Otras ciudades de España: dentro del ±2% por trucking interno.' },
+    { q: '¿Y en México?', a: 'MX$87,000 MXN DDP Ciudad de México (~$4,800 USD) para la JD-3 estándar. Incluye flete vía Manzanillo o Veracruz, arancel del 5%, e IVA mexicano 16%. Las ciudades fronterizas (Tijuana, Monterrey) pueden tener routing de flete ligeramente distinto.' },
+    { q: '¿Qué costos adicionales hay después de la entrega?', a: 'Instalación local (electricista + plomero, típicamente $200–$500 dependiendo del país), opcionales (dispensador automático de detergente +$200, recuperación de calor +$500). La capacitación del operador es gratuita por videollamada WhatsApp.' },
+  ]}
+>
+
+<h2>El problema con cómo se comunican los precios en este mercado</h2>
+<p>La industria de equipo comercial de cocina tiene una mala costumbre: cotizar solo FOB y dejar al comprador descifrar lo que realmente pagará. El resultado: una lavadora "de $4,400" termina costando $6,000 o más cuando sumas flete forwarder, agente aduanal, impuestos sorpresa y entrega de última milla.</p>
+
+<p>Para 18 mercados clave — incluyendo España, México, Brasil, Argentina, Chile y Perú — V-TAI publica precios <a href="/es/pricing/by-country/">DDP en moneda local, todo incluido</a>. Es decir: el número que ves es lo que pagarás.</p>
+
+<h2>Desglose para España (€4,300 EUR DDP Madrid)</h2>
+
+<div class="card !p-0 overflow-hidden my-4">
+  <table class="w-full text-sm">
+    <tbody>
+      <tr><td class="p-3 border-b">JD-3 estándar FOB Shenzhen</td><td class="p-3 border-b text-right">$4,400 USD</td></tr>
+      <tr><td class="p-3 border-b">Flete marítimo Shenzhen → Valencia</td><td class="p-3 border-b text-right text-bakery-navy/70">incluido</td></tr>
+      <tr><td class="p-3 border-b">Arancel UE (0–5% HS 8422.11)</td><td class="p-3 border-b text-right text-bakery-navy/70">incluido</td></tr>
+      <tr><td class="p-3 border-b">IVA español 21%</td><td class="p-3 border-b text-right text-bakery-navy/70">incluido</td></tr>
+      <tr><td class="p-3 border-b">Trucking final a Madrid</td><td class="p-3 border-b text-right text-bakery-navy/70">incluido</td></tr>
+      <tr class="bg-bakery-cream font-bold">
+        <td class="p-3">Total DDP Madrid</td>
+        <td class="p-3 text-right text-bakery-orange text-lg">€4,300 EUR</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Detalle completo en la <a href="/es/pricing/by-country/spain/">página de España</a>.</p>
+
+<h2>Desglose para México (MX$87,000 MXN DDP CDMX)</h2>
+<div class="card !p-0 overflow-hidden my-4">
+  <table class="w-full text-sm">
+    <tbody>
+      <tr><td class="p-3 border-b">JD-3 estándar FOB Shenzhen</td><td class="p-3 border-b text-right">$4,400 USD</td></tr>
+      <tr><td class="p-3 border-b">Flete marítimo → Manzanillo</td><td class="p-3 border-b text-right text-bakery-navy/70">incluido</td></tr>
+      <tr><td class="p-3 border-b">Arancel mexicano 5%</td><td class="p-3 border-b text-right text-bakery-navy/70">incluido</td></tr>
+      <tr><td class="p-3 border-b">IVA 16%</td><td class="p-3 border-b text-right text-bakery-navy/70">incluido</td></tr>
+      <tr><td class="p-3 border-b">Trucking final a CDMX</td><td class="p-3 border-b text-right text-bakery-navy/70">incluido</td></tr>
+      <tr class="bg-bakery-cream font-bold">
+        <td class="p-3">Total DDP CDMX</td>
+        <td class="p-3 text-right text-bakery-orange text-lg">MX$87,000 MXN</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Detalle completo en la <a href="/es/pricing/by-country/mexico/">página de México</a>.</p>
+
+<h2>Costos adicionales que NO están incluidos</h2>
+<ul>
+  <li><strong>Instalación local</strong> (electricista + plomero): $200–$500 dependiendo del país. La máquina viene preparada — un electricista estándar la conecta en 1–2 horas siguiendo el videotutorial.</li>
+  <li><strong>Opcionales</strong>: dispensador automático de detergente (+$200), módulo de recuperación de calor (+$500).</li>
+  <li><strong>Mantenimiento anual</strong>: ~$150 (juntas, descalcificación). El esquema eléctrico viaja dentro de la máquina para que cualquier electricista local pueda diagnosticar.</li>
+</ul>
+
+<h2>Comparación con marcas premium</h2>
+<p>Para una panadería de un solo local con bandejas 600×400 mm, la decisión real es:</p>
+<ol>
+  <li><strong>V-TAI JD-3</strong>: desde $4,400 FOB / €4,300 DDP Madrid. CE-certificada. <a href="/es/product/">Especificaciones completas</a>.</li>
+  <li><strong>Marcas premium</strong> (Hobart, Jackson, CMA, Winterhalter): precio de venta significativamente más alto por equipos con certificación equivalente. Algunas (Hobart AMX, Jackson TempStar, CMA L-1X16) usan racks de 500×500 mm y no caben las bandejas 600×400.</li>
+</ol>
+
+<h2>Conclusión y siguiente paso</h2>
+<p>El costo real depende de dónde estés. Para España, México y 16 mercados más, publicamos el <a href="/es/pricing/by-country/">precio DDP exacto en moneda local</a>. Si tu país no está listado, <a href="/es/get-quote/">solicita una cotización personalizada</a> — respondemos en 12 horas con un número final todo incluido.</p>
+
+</BlogPostLayout>

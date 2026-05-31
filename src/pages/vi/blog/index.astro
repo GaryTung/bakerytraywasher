@@ -2,20 +2,37 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'vi' as const;
 const posts = [
-  { slug: 'why-your-bakery-needs-a-tray-washer', title: 'Why Your Bakery Needs a Tray Washer', desc: 'The case for buying a commercial dishwasher.' },
-  { slug: '600x400-tray-size-history-and-standard', title: '600×400 Tray Size — History', desc: 'How a 1960s German standard became global default.' },
-  { slug: 'dishwasher-roi-for-small-bakery', title: 'Dishwasher ROI Math', desc: 'Concrete numbers for ~4-month payback.' },
+  {
+    slug: 'tieu-chuan-khay-600x400-giai-thich',
+    title: 'Tiêu chuẩn khay 600×400 mm là gì',
+    desc: 'Giải thích DIN 18876 / EN 631 và tương thích với lò Rational, Convotherm, Unox',
+    date: '2026-01-28',
+  },
+  {
+    slug: 'chi-phi-ddp-ha-noi-hcm',
+    title: 'Chi phí DDP Hà Nội / HCM',
+    desc: 'FOB Thâm Quyến, cước biển, thuế nhập khẩu 20%, VAT 8% — số liệu thực tế',
+    date: '2026-02-11',
+  },
+  {
+    slug: 'hoan-von-4-thang-tiem-banh',
+    title: 'Hoàn vốn trong 4 tháng',
+    desc: 'Tính toán ROI thực tế cho tiệm bánh tại Hà Nội, HCM, Đà Nẵng',
+    date: '2026-02-25',
+  },
 ];
 ---
-<BaseLayout title="Blog | JD-3" description="Articles on bakery operations and JD-3 deployments." locale={locale} canonicalPath="/blog/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/vi/'},{label:'Blog'}]} />
+<BaseLayout title={`${t(locale,'nav.blog')} | JD-3`} description="Bài viết về vận hành tiệm bánh và triển khai JD-3" locale={locale} canonicalPath="/blog/" schemaType="Article">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/vi/'},{label: t(locale,'nav.blog')}]} />
 <section class="section"><div class="container-page">
 <h1 class="text-center mb-10">Blog</h1>
 <div class="grid md:grid-cols-3 gap-6">
 {posts.map((p) => (
   <a href={`/vi/blog/${p.slug}/`} class="card hover:scale-[1.02] transition">
+    <p class="text-xs text-bakery-navy/50 mb-2">{p.date}</p>
     <h3 class="mb-3">{p.title}</h3>
     <p class="text-sm text-bakery-navy/70">{p.desc}</p>
   </a>

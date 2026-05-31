@@ -2,20 +2,37 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'es' as const;
 const posts = [
-  { slug: 'why-your-bakery-needs-a-tray-washer', title: 'Why Your Bakery Needs a Tray Washer', desc: 'The case for buying a commercial dishwasher.' },
-  { slug: '600x400-tray-size-history-and-standard', title: '600×400 Tray Size — History', desc: 'How a 1960s German standard became global default.' },
-  { slug: 'dishwasher-roi-for-small-bakery', title: 'Dishwasher ROI Math', desc: 'Concrete numbers for ~4-month payback.' },
+  {
+    slug: 'norma-europea-600x400-bandejas-explicada',
+    title: 'Norma europea 600×400 mm explicada',
+    desc: 'Qué es DIN 18876 / EN 631 y por qué importa para panaderías hispanohablantes.',
+    date: '2026-01-28',
+  },
+  {
+    slug: 'costo-real-lavavajillas-comercial-panaderia',
+    title: 'Costo real de importación DDP',
+    desc: 'FOB Shenzhen, flete marítimo, aranceles y IVA — números 2026 para México, España, Colombia, Argentina y Chile.',
+    date: '2026-02-11',
+  },
+  {
+    slug: 'roi-lavavajillas-panaderia-4-meses',
+    title: 'ROI: payback en 4 meses',
+    desc: 'Cálculo concreto del retorno de inversión para panaderías hispanohablantes pequeñas y medianas.',
+    date: '2026-02-25',
+  },
 ];
 ---
-<BaseLayout title="Blog | JD-3" description="Articles on bakery operations and JD-3 deployments." locale={locale} canonicalPath="/blog/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/es/'},{label:'Blog'}]} />
+<BaseLayout title={`${t(locale,'nav.blog')} | JD-3`} description="Artículos sobre operaciones de panadería y despliegues de JD-3." locale={locale} canonicalPath="/blog/" schemaType="Article">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/es/'},{label: t(locale,'nav.blog')}]} />
 <section class="section"><div class="container-page">
 <h1 class="text-center mb-10">Blog</h1>
 <div class="grid md:grid-cols-3 gap-6">
 {posts.map((p) => (
   <a href={`/es/blog/${p.slug}/`} class="card hover:scale-[1.02] transition">
+    <p class="text-xs text-bakery-navy/50 mb-2">{p.date}</p>
     <h3 class="mb-3">{p.title}</h3>
     <p class="text-sm text-bakery-navy/70">{p.desc}</p>
   </a>

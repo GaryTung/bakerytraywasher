@@ -1,0 +1,75 @@
+---
+import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+const locale = 'vi' as const;
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/chi-phi-ddp-ha-noi-hcm/"
+  slug="chi-phi-ddp-ha-noi-hcm"
+  title="Chi phí thực của máy rửa khay bánh nhập khẩu vào Việt Nam (DDP Hà Nội & HCM)"
+  description="Phân tích chi phí DDP máy rửa khay bánh giao đến cửa tại Hà Nội và TP. HCM — FOB Thâm Quyến, cước biển, thuế nhập khẩu 20%, VAT 8%. Số liệu thực 2026"
+  pubDate="2026-02-11"
+  tldr="Giá FOB máy rửa bát thương mại có thể rửa khay bánh (V-TAI JD-3) bắt đầu từ <strong>$4,400 USD FOB Thâm Quyến</strong>. Giá DDP đến cửa tại Hà Nội/HCM: <strong>122 triệu VND</strong> — đã bao gồm cước biển, hải quan, thuế nhập khẩu Việt Nam 20% và VAT 8%. Các thương hiệu cao cấp (Hobart, Jackson, CMA, Winterhalter) đắt hơn nhiều ở cùng cấp chứng nhận CE."
+  faqs={[
+    { q: 'FOB là gì?', a: 'FOB ("Free On Board") là giá hàng được nạp lên tàu tại cảng xuất xứ — Thâm Quyến trong trường hợp của chúng tôi. Không bao gồm cước biển, hải quan, thuế nhập khẩu, VAT Việt Nam hay giao đến địa chỉ.' },
+    { q: 'Tại sao chọn DDP thay vì FOB?', a: 'DDP ("Delivered Duty Paid") nghĩa là người bán lo tất cả: cước biển, hải quan, thuế, giao hàng cuối. Bạn trả một giá. Máy đến cửa. Không có chi phí bất ngờ tại cảng, không có hóa đơn từ môi giới hải quan.' },
+    { q: 'Tôi thực sự trả bao nhiêu tại Việt Nam?', a: '122 triệu VND DDP Hà Nội/HCM (~$4,800 USD) cho JD-3 tiêu chuẩn. Đã bao gồm cước biển từ Thâm Quyến đến Hải Phòng/Cát Lái, thuế nhập khẩu Việt Nam 20% (HS 8422.11) và VAT Việt Nam 8%. Đà Nẵng: ±3% do vận chuyển nội địa.' },
+    { q: 'Có chi phí bổ sung sau giao hàng không?', a: 'Có — lắp đặt tại chỗ (thợ điện + thợ nước, 2–5 triệu VND), phụ kiện (bộ phân phối hóa chất tự động +$200, thu hồi nhiệt +$500). Đào tạo nhân viên miễn phí qua WhatsApp video call (30 phút).' },
+    { q: 'Còn hoàn VAT thì sao?', a: 'Nếu tiệm bánh của bạn đã đăng ký VAT, bạn có thể yêu cầu hoàn thuế VAT đã nộp khi nhập khẩu qua hồ sơ hàng tháng. Giá ròng sau hoàn VAT khoảng 113 triệu VND. Chi tiết tại <a href="/vi/pricing/by-country/vietnam/">trang Việt Nam</a>.' },
+  ]}
+>
+
+<h2>Vấn đề với cách thông báo giá trong ngành này</h2>
+<p>Ngành thiết bị bếp thương mại có một thói quen xấu: chỉ báo giá FOB và để người mua tự tìm ra họ thực sự sẽ trả bao nhiêu. Kết quả: một máy rửa "giá $4,400" cuối cùng tốn $6,000+ sau khi cộng thêm chi phí giao nhận, môi giới hải quan, thuế bất ngờ và giao hàng cuối.</p>
+
+<p>Cho 18 thị trường trọng điểm — bao gồm Việt Nam — V-TAI công bố giá <a href="/vi/pricing/by-country/">DDP bằng tiền địa phương, tất cả đã bao gồm</a>. Con số bạn thấy là con số bạn trả.</p>
+
+<h2>Phân tích cho Việt Nam (122 triệu VND DDP)</h2>
+
+<div class="card !p-0 overflow-hidden my-4">
+  <table class="w-full text-sm">
+    <tbody>
+      <tr><td class="p-3 border-b">JD-3 tiêu chuẩn FOB Thâm Quyến</td><td class="p-3 border-b text-right">$4,400 USD</td></tr>
+      <tr><td class="p-3 border-b">Cước biển Thâm Quyến → Hải Phòng/Cát Lái</td><td class="p-3 border-b text-right text-bakery-navy/70">Bao gồm</td></tr>
+      <tr><td class="p-3 border-b">Thuế nhập khẩu Việt Nam 20% (HS 8422.11)</td><td class="p-3 border-b text-right text-bakery-navy/70">Bao gồm</td></tr>
+      <tr><td class="p-3 border-b">VAT Việt Nam 8%</td><td class="p-3 border-b text-right text-bakery-navy/70">Bao gồm</td></tr>
+      <tr><td class="p-3 border-b">Giao hàng cuối Hà Nội/HCM</td><td class="p-3 border-b text-right text-bakery-navy/70">Bao gồm</td></tr>
+      <tr class="bg-bakery-cream font-bold">
+        <td class="p-3">Tổng DDP Hà Nội/HCM</td>
+        <td class="p-3 text-right text-bakery-orange text-lg">122 triệu VND</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Chi tiết tại <a href="/vi/pricing/by-country/vietnam/">trang Việt Nam</a>.</p>
+
+<h2>Chi phí không bao gồm trong DDP</h2>
+<ul>
+  <li><strong>Lắp đặt tại chỗ</strong> (thợ điện + thợ nước): 2–5 triệu VND tùy khu vực. Máy đến sẵn sàng cắm — thợ điện tổng quát lắp trong 1–2 giờ theo video hướng dẫn.</li>
+  <li><strong>Phụ kiện</strong>: Bộ phân phối hóa chất tự động (+$200), mô-đun thu hồi nhiệt (+$500)</li>
+  <li><strong>Bảo dưỡng hàng năm</strong>: ~1.5 triệu VND (gioăng, khử cặn). Sơ đồ điện nằm trong máy — bất kỳ thợ điện địa phương nào cũng có thể chẩn đoán.</li>
+</ul>
+
+<h2>So sánh với thương hiệu cao cấp</h2>
+<p>Cho tiệm bánh độc lập với khay 600×400 mm, các lựa chọn thực tế là:</p>
+<ol>
+  <li><strong>V-TAI JD-3</strong>: từ $4,400 FOB / 122 triệu VND DDP Hà Nội. Chứng nhận CE. <a href="/vi/product/">Xem thông số đầy đủ</a></li>
+  <li><strong>Thương hiệu cao cấp</strong> (Hobart, Jackson, CMA, Winterhalter): giá bán lẻ cao hơn đáng kể ở cùng cấp chứng nhận. Nhiều dòng (Hobart AMX, Jackson TempStar, CMA L-1X16) dùng rack 500×500 mm và không vừa khay 600×400.</li>
+</ol>
+
+<h2>Quy trình nhập khẩu</h2>
+<p>Chúng tôi xử lý mọi thứ, nhưng để minh bạch đây là trình tự:</p>
+<ol>
+  <li>Xác nhận đơn hàng + đặt cọc 30% → Sản xuất tại Thâm Quyến (4 tuần)</li>
+  <li>Thanh toán 70% còn lại + đặt cước tàu</li>
+  <li>Vận chuyển biển Thâm Quyến → Hải Phòng/Cát Lái: 5–8 ngày</li>
+  <li>Thông quan: 3–7 ngày làm việc (qua môi giới địa phương của chúng tôi)</li>
+  <li>Giao hàng nội địa đến địa chỉ của bạn: 2–5 ngày</li>
+  <li><strong>Tổng: khoảng 6–8 tuần từ đặt hàng đến cửa</strong></li>
+</ol>
+
+<h2>Kết luận</h2>
+<p>Chi phí thực phụ thuộc vào vị trí của bạn. Cho Việt Nam và 17 thị trường khác, chúng tôi công bố <a href="/vi/pricing/by-country/">giá DDP chính xác bằng tiền địa phương</a>. Nếu quốc gia của bạn không có trong danh sách, <a href="/vi/get-quote/">yêu cầu báo giá riêng</a> — chúng tôi phản hồi trong 12 giờ với con số cuối cùng tất cả đã bao gồm.</p>
+
+</BlogPostLayout>

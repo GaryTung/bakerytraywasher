@@ -2,20 +2,37 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'de' as const;
 const posts = [
-  { slug: 'why-your-bakery-needs-a-tray-washer', title: 'Why Your Bakery Needs a Tray Washer', desc: 'The case for buying a commercial dishwasher.' },
-  { slug: '600x400-tray-size-history-and-standard', title: '600×400 Tray Size — History', desc: 'How a 1960s German standard became global default.' },
-  { slug: 'dishwasher-roi-for-small-bakery', title: 'Dishwasher ROI Math', desc: 'Concrete numbers for ~4-month payback.' },
+  {
+    slug: 'din-18876-backblech-norm-erklaert',
+    title: 'DIN 18876 Backblech-Norm erklärt',
+    desc: 'Geschichte und Kompatibilität von 600×400 mm — Rational, Convotherm, Unox, MIWE.',
+    date: '2026-01-28',
+  },
+  {
+    slug: 'mwst-zoll-ddp-baeckerei-spuelmaschine-import',
+    title: 'MwSt., Zoll & DDP: Import 2026',
+    desc: 'FOB Shenzhen, Seefracht, deutscher Einfuhrumsatzsteuer 19% — alle Kosten transparent.',
+    date: '2026-02-11',
+  },
+  {
+    slug: 'amortisation-spuelmaschine-baeckerei-4-monate',
+    title: 'Amortisation in 4 Monaten',
+    desc: 'Konkrete ROI-Berechnung für deutsche, österreichische und schweizer Bäckereien.',
+    date: '2026-02-25',
+  },
 ];
 ---
-<BaseLayout title="Blog | JD-3" description="Articles on bakery operations and JD-3 deployments." locale={locale} canonicalPath="/blog/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/de/'},{label:'Blog'}]} />
+<BaseLayout title={`${t(locale,'nav.blog')} | JD-3`} description="Artikel über Bäckereibetrieb und JD-3-Einsatz." locale={locale} canonicalPath="/blog/" schemaType="Article">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/de/'},{label: t(locale,'nav.blog')}]} />
 <section class="section"><div class="container-page">
 <h1 class="text-center mb-10">Blog</h1>
 <div class="grid md:grid-cols-3 gap-6">
 {posts.map((p) => (
   <a href={`/de/blog/${p.slug}/`} class="card hover:scale-[1.02] transition">
+    <p class="text-xs text-bakery-navy/50 mb-2">{p.date}</p>
     <h3 class="mb-3">{p.title}</h3>
     <p class="text-sm text-bakery-navy/70">{p.desc}</p>
   </a>
