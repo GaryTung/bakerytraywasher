@@ -6,6 +6,12 @@ import { t } from '../../../i18n/utils';
 const locale = 'ru' as const;
 const posts = [
   {
+    slug: 'sertifikat-eac-vvoz-posudomojki-iz-kitaja',
+    title: 'Сертификат EAC и ввоз из Китая',
+    desc: 'ТР ТС 010/2011, 004/2011, 020/2011. Процесс таможенного оформления, код ТН ВЭД 8422 11 000 0, без задержек.',
+    date: '2026-04-15',
+  },
+  {
     slug: 'evropejskij-standart-600x400-protivnej',
     title: 'Европейский стандарт 600×400 — объяснение',
     desc: 'История стандарта DIN 18876 / EN 631 и совместимость с печами Rational, Unox, Convotherm.',
@@ -29,7 +35,7 @@ const posts = [
 <BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/ru/'},{label: t(locale,'nav.blog')}]} />
 <section class="section"><div class="container-page">
 <h1 class="text-center mb-10">Блог</h1>
-<div class="grid md:grid-cols-3 gap-6">
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 {posts.map((p) => (
   <a href={`/ru/blog/${p.slug}/`} class="card hover:scale-[1.02] transition">
     <p class="text-xs text-bakery-navy/50 mb-2">{p.date}</p>

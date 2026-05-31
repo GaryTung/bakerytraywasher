@@ -6,6 +6,12 @@ import { t } from '../../../i18n/utils';
 const locale = 'th' as const;
 const posts = [
   {
+    slug: 'aor-yor-gmp-tray-washer-thai-bakery',
+    title: 'อย. GMP และเครื่องล้างถาด',
+    desc: 'ประกาศ ฉบับที่ 193, ใบอนุญาต อ.18, วิธีผ่านการตรวจ อย. สำหรับเบเกอรี่ไทย',
+    date: '2026-04-15',
+  },
+  {
     slug: '600x400-tray-norm-explained',
     title: 'มาตรฐานถาด 600×400 มม. คืออะไร',
     desc: 'อธิบาย DIN 18876 / EN 631 และความเข้ากันได้กับเตา Rational, Convotherm, Unox',
@@ -29,7 +35,7 @@ const posts = [
 <BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/th/'},{label: t(locale,'nav.blog')}]} />
 <section class="section"><div class="container-page">
 <h1 class="text-center mb-10">บล็อก</h1>
-<div class="grid md:grid-cols-3 gap-6">
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 {posts.map((p) => (
   <a href={`/th/blog/${p.slug}/`} class="card hover:scale-[1.02] transition">
     <p class="text-xs text-bakery-navy/50 mb-2">{p.date}</p>

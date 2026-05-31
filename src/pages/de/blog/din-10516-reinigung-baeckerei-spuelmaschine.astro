@@ -1,0 +1,106 @@
+---
+import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+const locale = 'de' as const;
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/din-10516-reinigung-baeckerei-spuelmaschine/"
+  slug="din-10516-reinigung-baeckerei-spuelmaschine"
+  title="DIN 10516 und Reinigung in Bäckereien: rechtskonformes Spülen von Backblechen"
+  description="Praxisleitfaden 2026 für deutsche Bäckereien: DIN 10516:2018, EU-Verordnung 852/2004, IFS-Food-Audit, Bäcker-Innung-Empfehlungen und wie eine Haubenspülmaschine mit ≥82°C-Endspülung die Compliance vereinfacht."
+  pubDate="2026-04-15"
+  tldr="Deutsche Bäckereien unterliegen <strong>DIN 10516:2018</strong> (Lebensmittelhygiene — Reinigung und Desinfektion) und der EU-Verordnung 852/2004. Die Norm verlangt nachweisbare Sanitisierung — entweder thermisch (Endspülung <strong>≥82°C</strong>) oder chemisch (geprüfte Desinfektionsmittel mit DVG-Listung). Für IFS-Food-Audits ist zusätzlich ein dokumentierter Reinigungsplan Pflicht. Eine gewerbliche Haubenspülmaschine mit CE-Kennzeichnung und automatischer 82°C-Endspülung erfüllt beide Anforderungen ohne manuelle Temperaturprotokolle."
+  faqs={[
+    { q: 'Was regelt DIN 10516 genau?', a: 'DIN 10516:2018-12 — "Lebensmittelhygiene — Reinigung und Desinfektion" — ist die deutsche Norm, die Verfahren und Anforderungen für Reinigung und Desinfektion in Lebensmittelbetrieben festlegt. Sie konkretisiert die allgemeinen EU-Hygienevorschriften (852/2004) für den deutschen Markt und ist Referenz bei Lebensmittelkontrollen sowie IFS- und BRC-Audits.' },
+    { q: 'Ist eine gewerbliche Spülmaschine vorgeschrieben?', a: 'Nicht namentlich. Vorgeschrieben ist der Nachweis der Sanitisierung. In der Praxis ist eine Spülmaschine mit zertifizierter ≥82°C-Endspülung der einfachste Nachweis. Haushaltsspüler scheitern an dieser Anforderung — sie erreichen die Temperatur nicht und sind nicht für Dauerbetrieb ausgelegt.' },
+    { q: 'Was prüft die Lebensmittelaufsicht?', a: 'CE-Kennzeichnung der Maschine, Bedienungsanleitung, Sicherheitsdatenblätter der Reiniger (HACCP-konform, DVG-gelistet), Reinigungsplan mit Frequenzen und Verantwortlichen, Temperaturprotokolle (entfallen weitgehend bei automatisierter Endspülung), und Mitarbeiterschulung nach §4 LMHV.' },
+    { q: 'Was ist mit IFS Food und BRC?', a: 'Für Bäckereien, die Großhandel oder Einzelhandel beliefern, ist häufig ein IFS-Food- oder BRC-Audit gefordert. Beide Standards verlangen einen dokumentierten Reinigungs- und Desinfektionsplan (CCP 5 bei IFS) sowie nachweisbare Wirksamkeit. Eine Spülmaschine mit zertifizierter 82°C-Endspülung vereinfacht die Audit-Vorbereitung erheblich.' },
+    { q: 'Was kostet ein JD-3 nach Deutschland?', a: 'Ab 4.400 $ FOB Shenzhen, entspricht etwa <strong>5.100 € DDP Berlin/München/Hamburg</strong> — inklusive Seefracht, EU-Einfuhrzoll 1,7%, deutscher Einfuhrumsatzsteuer 19%, und Endzustellung. Details auf der <a href="/de/pricing/by-country/germany/">Deutschland-Seite</a>.' },
+  ]}
+>
+
+<h2>Der regulatorische Rahmen im Detail</h2>
+<p>In Deutschland unterliegen Bäckereien einer mehrstufigen Regulierung:</p>
+
+<ul>
+  <li><strong>EU-Verordnung (EG) Nr. 852/2004</strong> — über Lebensmittelhygiene, gilt EU-weit</li>
+  <li><strong>Lebensmittelhygiene-Verordnung (LMHV)</strong> — deutsche Umsetzung</li>
+  <li><strong>DIN 10516:2018</strong> — konkrete Reinigungs- und Desinfektionsanforderungen</li>
+  <li><strong>Bäckereiverordnung (BäckerVO)</strong> — branchenspezifische Vorschriften</li>
+  <li><strong>HACCP-Pflicht</strong> seit 2006 für alle Lebensmittelbetriebe</li>
+</ul>
+
+<h2>Was DIN 10516 für Ihre Backbleche bedeutet</h2>
+<p>Die Norm unterscheidet drei Reinigungsverfahren:</p>
+
+<div class="card !p-0 overflow-hidden my-4">
+  <table class="w-full text-sm">
+    <thead class="bg-bakery-navy text-white">
+      <tr><th class="p-3 text-left">Verfahren</th><th class="p-3 text-left">Temperatur</th><th class="p-3 text-left">Eignung Bäckerei</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="p-3 border-b">Manuelle Reinigung</td><td class="p-3 border-b">≤45°C (Hautkontakt)</td><td class="p-3 border-b">Nur Vorreinigung; Sanitisierung erfordert Chemie</td></tr>
+      <tr><td class="p-3 border-b">Chemische Desinfektion</td><td class="p-3 border-b">10–60°C</td><td class="p-3 border-b">DVG-gelistete Mittel erforderlich; aufwändige Dokumentation</td></tr>
+      <tr class="bg-bakery-cream"><td class="p-3 font-bold">Thermische Desinfektion</td><td class="p-3 font-bold">≥82°C</td><td class="p-3">Standardverfahren für Backbleche; automatisierbar</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Die thermische Desinfektion bei ≥82°C deaktiviert vegetative Bakterien (Salmonella, E. coli, Listeria) zuverlässig innerhalb von 10 Sekunden Oberflächenkontakt — und sie hinterlässt keine chemischen Rückstände, was insbesondere bei Backblechen für sensible Produkte (Sauerteig, Hefekulturen, Allergikerprodukte) wichtig ist.</p>
+
+<h2>Was die Lebensmittelaufsicht konkret prüft</h2>
+<p>Bei einer Routinekontrolle nach LMHV werden in einer Bäckerei typischerweise folgende Punkte erfasst:</p>
+
+<ul>
+  <li>Bauliche Hygiene (Trennung roh/fertig, Bodenbeläge, Lüftung)</li>
+  <li>Reinigungs- und Desinfektionsplan mit Verantwortlichkeiten</li>
+  <li>Temperaturüberwachung (Kühlung, Heißhaltung, Spülung)</li>
+  <li>Schädlingsmonitoring</li>
+  <li>Personalschulung nach §4 LMHV (alle 2 Jahre)</li>
+  <li>HACCP-Dokumentation</li>
+</ul>
+
+<p>Beim Punkt „Spülung" sind die häufigsten Beanstandungen: keine Temperaturaufzeichnung, Verwendung eines Haushaltsgeräts, fehlende Sicherheitsdatenblätter der Reiniger, kein dokumentierter Plan. Eine gewerbliche Spülmaschine mit automatischer 82°C-Endspülung eliminiert die ersten drei.</p>
+
+<h2>Der 600×400-mm-Standard (DIN 18876 / EN 631)</h2>
+<p>Deutsche Bäckereien arbeiten überwiegend mit Backblechen nach <strong>DIN 18876</strong> — dem 600×400-mm-Standard, der auch in EN 631 als EN 1/1 verankert ist. Dieser Standard ist die Basis für jeden modernen Kombiofen (Rational, Convotherm, MIWE, Wachtel, Werner & Pfleiderer).</p>
+
+<p>Die meisten gewerblichen Spülmaschinen unter 8.000 € haben jedoch 500×500-mm-Körbe — sie können die 600×400-Bleche nicht aufnehmen. Die <a href="/de/product/">V-TAI JD-3</a> hat einen 650×550-mm-Korb, der speziell für den EN-Norm-Standard ausgelegt ist. <a href="/de/what-it-washes/baking-trays-600x400/">Vollständige Kompatibilitätsanalyse</a>.</p>
+
+<h2>Praktischer Reinigungsplan nach DIN 10516</h2>
+<div class="card !p-0 overflow-hidden my-4">
+  <table class="w-full text-sm">
+    <thead class="bg-bakery-navy text-white">
+      <tr><th class="p-3 text-left">Häufigkeit</th><th class="p-3 text-left">Tätigkeit</th><th class="p-3 text-left">Mit JD-3</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="p-3 border-b">Nach jeder Charge</td><td class="p-3 border-b">Backbleche spülen</td><td class="p-3 border-b text-bakery-orange">2-min-Zyklus, automatisch ≥82°C</td></tr>
+      <tr><td class="p-3 border-b">Täglich</td><td class="p-3 border-b">Maschinen-Innenraum, Siebe</td><td class="p-3 border-b text-bakery-orange">5 min — kein Werkzeug erforderlich</td></tr>
+      <tr><td class="p-3 border-b">Wöchentlich</td><td class="p-3 border-b">Sprüharme, Düsen</td><td class="p-3 border-b text-bakery-orange">10 min — abschrauben + spülen</td></tr>
+      <tr><td class="p-3 border-b">Monatlich</td><td class="p-3 border-b">Entkalkung</td><td class="p-3 border-b text-bakery-orange">30 min — DVG-gelistetes Mittel</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>IFS Food und BRC: zusätzliche Anforderungen</h2>
+<p>Für Bäckereien mit Großhandelsgeschäft (Belieferung von Hotels, Catering, Lebensmittelhandel) ist häufig IFS Food oder BRC Global Standard Pflicht. Beide Standards verlangen über LMHV hinaus:</p>
+
+<ul>
+  <li>Validierte Reinigungsverfahren mit Wirksamkeitsnachweis</li>
+  <li>Allergenmanagement (Reinigung zwischen allergenfreien und -haltigen Chargen)</li>
+  <li>Rückverfolgbarkeit aller eingesetzten Chemikalien</li>
+  <li>Mindestens jährliche externe Audits</li>
+</ul>
+
+<p>Auch hier ist eine zertifizierte 82°C-Endspülung der einfachste Weg, „validierte Sanitisierung" nachzuweisen.</p>
+
+<h2>Nächste Schritte</h2>
+<ul>
+  <li>Wenn Ihr Reinigungsplan noch nicht DIN-10516-konform dokumentiert ist: die <a href="https://www.baeckerhandwerk.de" target="_blank" rel="noopener">Bäcker-Innung</a> bietet branchenspezifische Vorlagen</li>
+  <li>Für CE-Konformitätserklärung und Datenblätter in Deutsch: erhalten Sie mit Ihrem Angebot</li>
+  <li><a href="/de/pricing/by-country/germany/">Preis DDP Deutschland anzeigen</a> oder <a href="/de/get-quote/">individuelles Angebot anfordern</a> — Antwort innerhalb 12 Stunden</li>
+</ul>
+
+<p>DIN 10516 ist kein Hindernis — sie ist eine bewährte Vorlage. Eine gewerbliche Spülmaschine mit automatischer 82°C-Endspülung bringt Sie automatisch in den konformen Bereich und reduziert die Audit-Vorbereitung von Tagen auf Stunden.</p>
+
+</BlogPostLayout>

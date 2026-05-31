@@ -6,6 +6,12 @@ import { t } from '../../../i18n/utils';
 const locale = 'vi' as const;
 const posts = [
   {
+    slug: 'vfa-may-rua-khay-tiem-banh-viet',
+    title: 'VFA và máy rửa khay trong tiệm bánh Việt',
+    desc: 'Thông tư 30/2012/TT-BYT, Giấy chứng nhận ATTP, quy trình thanh tra Cục An toàn thực phẩm.',
+    date: '2026-04-15',
+  },
+  {
     slug: 'tieu-chuan-khay-600x400-giai-thich',
     title: 'Tiêu chuẩn khay 600×400 mm là gì',
     desc: 'Giải thích DIN 18876 / EN 631 và tương thích với lò Rational, Convotherm, Unox',
@@ -29,7 +35,7 @@ const posts = [
 <BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/vi/'},{label: t(locale,'nav.blog')}]} />
 <section class="section"><div class="container-page">
 <h1 class="text-center mb-10">Blog</h1>
-<div class="grid md:grid-cols-3 gap-6">
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 {posts.map((p) => (
   <a href={`/vi/blog/${p.slug}/`} class="card hover:scale-[1.02] transition">
     <p class="text-xs text-bakery-navy/50 mb-2">{p.date}</p>

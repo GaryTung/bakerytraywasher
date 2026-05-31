@@ -6,6 +6,12 @@ import { t } from '../../../i18n/utils';
 const locale = 'fr' as const;
 const posts = [
   {
+    slug: 'ddpp-haccp-lavage-plaques-boulangerie-france',
+    title: 'DDPP, HACCP et lavage des plaques',
+    desc: 'Méthode HACCP, méthode des 5M, ce que la DDPP exige vraiment lors des inspections de boulangerie.',
+    date: '2026-04-15',
+  },
+  {
     slug: 'norme-en-631-plaque-600x400-expliquee',
     title: 'Norme EN 631 / 600×400 expliquée',
     desc: 'Origine du standard européen et compatibilité avec les fours Rational, Convotherm, Unox, MIWE.',
@@ -29,7 +35,7 @@ const posts = [
 <BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/fr/'},{label: t(locale,'nav.blog')}]} />
 <section class="section"><div class="container-page">
 <h1 class="text-center mb-10">Blog</h1>
-<div class="grid md:grid-cols-3 gap-6">
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 {posts.map((p) => (
   <a href={`/fr/blog/${p.slug}/`} class="card hover:scale-[1.02] transition">
     <p class="text-xs text-bakery-navy/50 mb-2">{p.date}</p>

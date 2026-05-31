@@ -1,0 +1,101 @@
+---
+import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+const locale = 'fr' as const;
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/ddpp-haccp-lavage-plaques-boulangerie-france/"
+  slug="ddpp-haccp-lavage-plaques-boulangerie-france"
+  title="DDPP, HACCP et lavage des plaques : ce que la réglementation française exige vraiment"
+  description="Guide 2026 pour les boulangeries en France : exigences de la DDPP, méthode HACCP issue du Règlement CE 852/2004, méthode des 5M, et comment un lave-vaisselle commercial avec rinçage final >82°C simplifie la conformité."
+  pubDate="2026-04-15"
+  tldr="Toute boulangerie en France est soumise à la <strong>méthode HACCP</strong> (Règlement CE 852/2004) supervisée par la <strong>DDPP</strong> (Direction départementale de la protection des populations). Le lavage des plaques entre dans le pilier « Matériel » de la méthode des 5M. La DDPP exige : nettoyage documenté, désinfection à ≥82°C OU sanitisant chimique dosé, et plan de maîtrise sanitaire (PMS) écrit. Un lave-plaques commercial avec rinçage final automatique >82°C transforme cette exigence en case déjà cochée — preuve présentée en 30 secondes."
+  faqs={[
+    { q: "Qu'est-ce que la DDPP exactement ?", a: "La Direction départementale de la protection des populations — service de l'État qui inspecte les commerces alimentaires au niveau départemental. Successeur des anciens services vétérinaires et de la répression des fraudes. Toute boulangerie peut recevoir une visite inopinée, en général 1 fois tous les 2 à 5 ans selon le département et la taille." },
+    { q: "Le lave-vaisselle commercial est-il obligatoire ?", a: "Le règlement CE 852/2004 et le Paquet hygiène ne l'imposent pas nommément. Mais ils exigent que vous démontriez la sanitisation des « matériels en contact avec les aliments ». En pratique, prouver une désinfection à 82°C en lavage manuel demande des thermomètres, des bandelettes, des registres horaires — ou un lave-vaisselle avec rinçage final automatique." },
+    { q: "Qu'est-ce que le PMS ?", a: "Plan de maîtrise sanitaire — document écrit obligatoire qui décrit vos procédures de nettoyage, désinfection, traçabilité, gestion des allergènes. Il fait partie de votre méthode HACCP. La DDPP demande à le voir lors d'une inspection." },
+    { q: "Ma boulangerie est petite. Suis-je vraiment concerné ?", a: "Oui — même les artisans-boulangers indépendants sont soumis aux mêmes règles que les industriels (proportionnellement). Il existe un guide de bonnes pratiques d'hygiène (GBPH) spécifique à la boulangerie-pâtisserie, validé par la DGAL, qui sert de base à la mise en conformité simplifiée." },
+    { q: "Combien coûte un JD-3 livré en France ?", a: "À partir de 4 400 $ FOB Shenzhen, soit environ <strong>5 100 € DDP Paris/Lyon/Marseille</strong> — incluant fret maritime, droits de douane UE 1,7%, TVA française 20%, livraison finale. Détail sur la <a href='/fr/pricing/by-country/france/'>page France</a>." },
+  ]}
+>
+
+<h2>Le cadre réglementaire que beaucoup de boulangers ne maîtrisent pas</h2>
+<p>En France, toute boulangerie est soumise au <strong>Paquet hygiène européen</strong> (règlements CE 178/2002 et CE 852/2004), transposé dans le Code de la consommation et le Code rural. Les obligations principales :</p>
+
+<ul>
+  <li>Déclaration d'activité à la DDPP de votre département (formulaire CERFA n° 13984*06, gratuit, par voie postale ou en ligne)</li>
+  <li>Mise en place de la <strong>méthode HACCP</strong> (Hazard Analysis Critical Control Point)</li>
+  <li>Rédaction et maintien d'un <strong>plan de maîtrise sanitaire (PMS)</strong></li>
+  <li>Acceptation des inspections inopinées de la DDPP</li>
+</ul>
+
+<h2>La méthode des 5M et où entre votre lave-plaques</h2>
+<p>La méthode HACCP s'applique en France via la méthode des 5M, un outil de classification utilisé par les inspecteurs :</p>
+
+<div class="card !p-0 overflow-hidden my-4">
+  <table class="w-full text-sm">
+    <thead class="bg-bakery-navy text-white">
+      <tr><th class="p-3 text-left">M</th><th class="p-3 text-left">Domaine</th><th class="p-3 text-left">Ce qui est contrôlé</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="p-3 border-b">Main-d'œuvre</td><td class="p-3 border-b">Personnel</td><td class="p-3 border-b">Formation hygiène, tenue, état de santé</td></tr>
+      <tr><td class="p-3 border-b">Matière</td><td class="p-3 border-b">Matières premières</td><td class="p-3 border-b">Traçabilité, températures, fournisseurs</td></tr>
+      <tr class="bg-bakery-cream"><td class="p-3 font-bold">Matériel</td><td class="p-3 font-bold">Équipement</td><td class="p-3">État, nettoyage, désinfection (votre lave-plaques)</td></tr>
+      <tr><td class="p-3 border-b">Milieu</td><td class="p-3 border-b">Locaux</td><td class="p-3 border-b">Marche en avant, températures, ventilation</td></tr>
+      <tr><td class="p-3 border-b">Méthode</td><td class="p-3 border-b">Procédures</td><td class="p-3 border-b">Procédures écrites, registres, plan de nettoyage</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Ce que la DDPP regarde sur votre lave-plaques</h2>
+<p>Lors d'une inspection, le contrôleur vérifie :</p>
+
+<ul>
+  <li><strong>Équipement professionnel</strong> — pas de lave-vaisselle ménager pour les plaques en contact direct avec les aliments</li>
+  <li><strong>Température du rinçage final</strong> — minimum <strong>82°C</strong> pour assurer la sanitisation thermique (norme EN 12875-2, reprise par AFNOR NF EN 631)</li>
+  <li><strong>Documentation</strong> — notice technique, certificat CE, fiches techniques des détergents (FDS)</li>
+  <li><strong>Plan de nettoyage</strong> — fréquence, produits, températures, signatures dans un registre</li>
+  <li><strong>Étalonnage</strong> — thermomètre vérifié au moins 1×/an</li>
+</ul>
+
+<h2>Lavage manuel vs lave-plaques commercial</h2>
+<div class="card !p-0 overflow-hidden my-4">
+  <table class="w-full text-sm">
+    <thead class="bg-bakery-navy text-white">
+      <tr><th class="p-3 text-left">Critère</th><th class="p-3 text-left">Manuel</th><th class="p-3 text-left">JD-3</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="p-3 border-b">Sanitisation 82°C</td><td class="p-3 border-b">Difficile à prouver</td><td class="p-3 border-b text-bakery-orange">Automatique, traçable</td></tr>
+      <tr><td class="p-3 border-b">Temps quotidien</td><td class="p-3 border-b">2–3 h</td><td class="p-3 border-b text-bakery-orange">15 min chargement</td></tr>
+      <tr><td class="p-3 border-b">Plaques 600×400 mm</td><td class="p-3 border-b">Lentement</td><td class="p-3 border-b text-bakery-orange">Rack adapté</td></tr>
+      <tr><td class="p-3 border-b">Preuve à la DDPP</td><td class="p-3 border-b">Registres manuels détaillés</td><td class="p-3 border-b text-bakery-orange">Fiche technique + cycle automatique</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Le détail qui change tout : le standard EN 631 / 600×400 mm</h2>
+<p>Les fours combi utilisés dans les boulangeries professionnelles françaises (Convotherm, Rational, Unox, Bongard, Pavailler) sont dimensionnés autour des plaques 600×400 mm — la norme européenne EN 631 / DIN 18876. Cette dimension est le standard de facto depuis 30 ans.</p>
+
+<p>Or, <strong>la plupart des lave-vaisselle commerciaux dans la gamme 5 000–8 000 € utilisent des paniers 500×500 mm</strong>. Ils ne peuvent physiquement pas accepter une plaque 600×400, ni à plat ni en diagonale. <a href="/fr/product/">Le V-TAI JD-3</a> est l'une des rares machines de cette gamme conçue avec un rack 650×550 mm — spécifiquement pour les plaques EN-Norm.</p>
+
+<h2>Importation depuis la Chine vers la France</h2>
+<p>Pour les boulangeries qui importent directement de Shenzhen :</p>
+<ol>
+  <li>Production : 4 semaines</li>
+  <li>Fret maritime Shenzhen → Le Havre/Marseille/Fos : 30–35 jours</li>
+  <li>Dédouanement UE : 2–5 jours (droits de douane 1,7%, TVA 20%)</li>
+  <li>Livraison finale : 3–7 jours</li>
+</ol>
+
+<p>Total : ~9–10 semaines DDP. Voir <a href="/fr/pricing/by-country/france/">prix exact DDP France</a>.</p>
+
+<h2>Prochaines étapes</h2>
+<ul>
+  <li>Si vous n'avez pas encore déclaré votre activité à la DDPP : utilisez le formulaire CERFA n° 13984*06</li>
+  <li>Pour les documents de conformité (CE, fiches techniques) en français pour votre inspection : disponibles avec votre devis</li>
+  <li><a href="/fr/pricing/by-country/france/">Voir prix DDP rendu en France</a> ou <a href="/fr/get-quote/">demander un devis personnalisé</a> — réponse sous 12 h</li>
+</ul>
+
+<p>La méthode HACCP n'est pas une formalité administrative — c'est une discipline qui protège votre établissement et vos clients. Un lave-plaques commercial avec rinçage final automatique à 82°C ne fait pas le HACCP à votre place, mais il transforme le pilier « Matériel » en case déjà cochée.</p>
+
+</BlogPostLayout>

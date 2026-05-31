@@ -6,6 +6,12 @@ import { t } from '../../../i18n/utils';
 const locale = 'es' as const;
 const posts = [
   {
+    slug: 'cofepris-lavavajillas-panaderia-mexico',
+    title: 'Cofepris y lavavajillas: guía para México',
+    desc: 'NOM-251-SSA1-2009, Aviso de Funcionamiento Cofepris, e importación DDP a CDMX/GDL/MTY desde Shenzhen.',
+    date: '2026-04-15',
+  },
+  {
     slug: 'norma-europea-600x400-bandejas-explicada',
     title: 'Norma europea 600×400 mm explicada',
     desc: 'Qué es DIN 18876 / EN 631 y por qué importa para panaderías hispanohablantes.',
@@ -29,7 +35,7 @@ const posts = [
 <BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/es/'},{label: t(locale,'nav.blog')}]} />
 <section class="section"><div class="container-page">
 <h1 class="text-center mb-10">Blog</h1>
-<div class="grid md:grid-cols-3 gap-6">
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 {posts.map((p) => (
   <a href={`/es/blog/${p.slug}/`} class="card hover:scale-[1.02] transition">
     <p class="text-xs text-bakery-navy/50 mb-2">{p.date}</p>

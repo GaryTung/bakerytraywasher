@@ -6,6 +6,12 @@ import { t } from '../../../i18n/utils';
 const locale = 'de' as const;
 const posts = [
   {
+    slug: 'din-10516-reinigung-baeckerei-spuelmaschine',
+    title: 'DIN 10516 und Reinigung in Bäckereien',
+    desc: 'Rechtskonformes Spülen nach LMHV und DIN 10516:2018 — IFS-Food-Audit, BRC, ≥82°C-Endspülung als Compliance-Schlüssel.',
+    date: '2026-04-15',
+  },
+  {
     slug: 'din-18876-backblech-norm-erklaert',
     title: 'DIN 18876 Backblech-Norm erklärt',
     desc: 'Geschichte und Kompatibilität von 600×400 mm — Rational, Convotherm, Unox, MIWE.',
@@ -29,7 +35,7 @@ const posts = [
 <BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/de/'},{label: t(locale,'nav.blog')}]} />
 <section class="section"><div class="container-page">
 <h1 class="text-center mb-10">Blog</h1>
-<div class="grid md:grid-cols-3 gap-6">
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 {posts.map((p) => (
   <a href={`/de/blog/${p.slug}/`} class="card hover:scale-[1.02] transition">
     <p class="text-xs text-bakery-navy/50 mb-2">{p.date}</p>

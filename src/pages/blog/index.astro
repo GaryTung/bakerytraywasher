@@ -5,9 +5,10 @@ import CTASection from '../../components/CTASection.astro';
 
 const locale = 'en' as const;
 const posts = [
-  { slug: 'why-your-bakery-needs-a-tray-washer', title: 'Why Your Bakery Needs a Tray Washer (Even If You\'ve Survived Without One)', desc: 'The argument for buying a commercial dishwasher even when hand-washing has "worked fine" so far.' },
-  { slug: '600x400-tray-size-history-and-standard', title: 'The 600×400 Tray Size — A Brief History of the Bakery Norm', desc: 'How a German industrial standard became the global default for professional bakeries.' },
-  { slug: 'dishwasher-roi-for-small-bakery', title: 'Dishwasher ROI for a Small Bakery — Concrete Numbers' , desc: 'The actual math: capex, opex, labor savings, payback. With a downloadable spreadsheet.' },
+  { slug: 'residential-dishwasher-for-commercial-bakery', title: 'Can You Use a Residential Dishwasher in a Commercial Bakery?', desc: 'FDA Food Code 4-501.112, NSF/ANSI 3 temperatures, real lifespan numbers, and the 24-month math.', date: '2026-04-15' },
+  { slug: 'why-your-bakery-needs-a-tray-washer', title: 'Why Your Bakery Needs a Tray Washer (Even If You\'ve Survived Without One)', desc: 'The argument for buying a commercial dishwasher even when hand-washing has "worked fine" so far.', date: '2026-01-15' },
+  { slug: '600x400-tray-size-history-and-standard', title: 'The 600×400 Tray Size — A Brief History of the Bakery Norm', desc: 'How a German industrial standard became the global default for professional bakeries.', date: '2026-01-22' },
+  { slug: 'dishwasher-roi-for-small-bakery', title: 'Dishwasher ROI for a Small Bakery — Concrete Numbers', desc: 'The actual math: capex, opex, labor savings, payback. With a downloadable spreadsheet.', date: '2026-01-29' },
 ];
 ---
 <BaseLayout
@@ -25,9 +26,10 @@ const posts = [
     <p class="text-bakery-navy/70 text-lg max-w-2xl mx-auto text-center mb-10">
       Practical writing for bakery owners and small commercial kitchen operators.
     </p>
-    <div class="grid md:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       {posts.map((p) => (
         <a href={`/blog/${p.slug}/`} class="card hover:scale-[1.02] transition">
+          <p class="text-xs text-bakery-navy/50 mb-2">{p.date}</p>
           <h3 class="mb-3">{p.title}</h3>
           <p class="text-bakery-navy/70 text-sm">{p.desc}</p>
           <p class="text-bakery-orange text-sm mt-3 font-semibold">Read article →</p>
