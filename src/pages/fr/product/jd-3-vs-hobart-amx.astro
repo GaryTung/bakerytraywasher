@@ -5,16 +5,16 @@ import ComparisonTable from '../../../components/ComparisonTable.astro';
 import CTASection from '../../../components/CTASection.astro';
 const locale = 'fr' as const;
 const rows = [
-  { label: 'Capacité', jd3: '180 plaques/h', competitor: '180 plaques/h' },
+  { label: 'Capacité', jd3: '180 plaques/h', competitor: '60 paniers/h' },
   { label: 'Taille panier', jd3: '650×550 mm', competitor: '500×500 mm' },
   { label: 'Plaques 600×400', jd3: '✓ Oui', competitor: '✗ Non', highlight: true },
   { label: 'Eau/cycle', jd3: '2,5 L', competitor: '3,8 L' },
-  { label: 'Prix', jd3: '4 400–5 500 $ FOB', competitor: '7 000–9 000 $' },
+  { label: 'Prix', jd3: '4 400–5 500 $ FOB', competitor: 'Nettement plus élevé' },
 ];
 ---
 <BaseLayout title="JD-3 vs Hobart AMX | Comparaison Lave-Plaques" description="Comparaison côte à côte V-TAI JD-3 vs Hobart AMX." locale={locale} canonicalPath="/product/jd-3-vs-hobart-amx/" schemaType="Article">
 <BreadcrumbNav items={[{label:'Accueil',href:'/fr/'},{label:'Produit',href:'/fr/product/'},{label:'vs Hobart'}]} />
-<section class="section"><div class="container-prose"><h1>JD-3 vs Hobart AMX</h1><p class="text-lg mt-4 mb-6">Hobart est le leader américain. JD-3 offre 60% de moins en coût et accepte les plaques 600×400 que Hobart ne peut pas.</p></div>
+<section class="section"><div class="container-prose"><h1>JD-3 vs Hobart AMX</h1><p class="text-lg mt-4 mb-6">Hobart est le leader américain. JD-3 offre un coût nettement inférieur et accepte les plaques 600×400 que Hobart ne peut pas.</p></div>
 <div class="container-page"><ComparisonTable competitorName="Hobart AMX" rows={rows} /></div></section>
 <CTASection locale={locale} />
 </BaseLayout>

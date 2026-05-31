@@ -7,33 +7,39 @@ const lp = (p: string) => localizePath(p, locale);
 const year = new Date().getFullYear();
 ---
 <footer class="bg-bakery-navy text-white mt-16">
-  <div class="container-page py-12 grid md:grid-cols-4 gap-8">
-    <div>
+  <div class="container-page py-12 grid md:grid-cols-5 gap-8">
+    <div class="md:col-span-2">
       <div class="font-display text-xl font-bold mb-3">V-TAI <span class="text-bakery-orange">JD-3</span></div>
-      <p class="text-sm text-white/80 leading-relaxed">
-        The bakery tray washer made for small commercial kitchens.
-        From $4,400 FOB Shenzhen.
+      <p class="text-sm text-white/80 leading-relaxed mb-4">
+        The bakery tray washer made for small commercial kitchens. 180 trays per hour, 600×400 mm Bakery Norm compatible. From $4,400 FOB Shenzhen.
       </p>
+      <div class="space-y-2 text-sm text-white/80">
+        <p>Email: <a href="mailto:info@v-tai.com" class="hover:text-white">info@v-tai.com</a></p>
+        <p>WhatsApp: <a href="https://wa.me/8613509623269" class="hover:text-white">+86 135 0962 3269</a></p>
+        <p class="text-white/60 mt-3 text-xs">{t(locale, 'footer.address')}</p>
+      </div>
     </div>
 
     <div>
       <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-3">{t(locale, 'footer.quickLinks')}</h3>
       <ul class="space-y-2 text-sm text-white/80">
         <li><a href={lp('/product/')} class="hover:text-white">{t(locale, 'nav.product')}</a></li>
-        <li><a href={lp('/pricing/')} class="hover:text-white">{t(locale, 'nav.pricing')}</a></li>
+        <li><a href={lp('/by-business-type/bakery-shop/')} class="hover:text-white">{t(locale, 'nav.business')}</a></li>
+        <li><a href={lp('/what-it-washes/baking-trays-600x400/')} class="hover:text-white">{t(locale, 'nav.washes')}</a></li>
         <li><a href={lp('/vs/')} class="hover:text-white">{t(locale, 'nav.compare')}</a></li>
-        <li><a href={lp('/case-studies/')} class="hover:text-white">{t(locale, 'nav.cases')}</a></li>
-        <li><a href={lp('/about/')} class="hover:text-white">{t(locale, 'nav.about')}</a></li>
-        <li><a href={lp('/faq/')} class="hover:text-white">FAQ</a></li>
+        <li><a href={lp('/pricing/')} class="hover:text-white">{t(locale, 'nav.pricing')}</a></li>
       </ul>
     </div>
 
     <div>
-      <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-3">{t(locale, 'footer.contact')}</h3>
+      <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-3">Resources</h3>
       <ul class="space-y-2 text-sm text-white/80">
-        <li>Email: <a href="mailto:info@v-tai.com" class="hover:text-white">info@v-tai.com</a></li>
-        <li>WhatsApp: <a href="https://wa.me/8613509623269" class="hover:text-white">+86 135 0962 3269</a></li>
-        <li class="text-white/60 mt-3">{t(locale, 'footer.address')}</li>
+        <li><a href={lp('/guides/bakery-tray-cleaning-best-practices/')} class="hover:text-white">{t(locale, 'nav.guides')}</a></li>
+        <li><a href={lp('/case-studies/')} class="hover:text-white">{t(locale, 'nav.cases')}</a></li>
+        <li><a href={lp('/blog/')} class="hover:text-white">Blog</a></li>
+        <li><a href={lp('/faq/')} class="hover:text-white">FAQ</a></li>
+        <li><a href={lp('/about/')} class="hover:text-white">{t(locale, 'nav.about')}</a></li>
+        <li><a href={lp('/contact/')} class="hover:text-white">{t(locale, 'nav.contact')}</a></li>
       </ul>
     </div>
 

@@ -5,15 +5,15 @@ import ComparisonTable from '../../../components/ComparisonTable.astro';
 import CTASection from '../../../components/CTASection.astro';
 const locale = 'ar' as const;
 const rows = [
-  { label: 'الإنتاجية', jd3: '180 صينية/ساعة', competitor: '180 صينية/ساعة' },
+  { label: 'الإنتاجية', jd3: '180 صينية/ساعة', competitor: '60 رف/ساعة (وفقاً للمصنّع)' },
   { label: 'حجم الرف', jd3: '650×550 مم', competitor: '500×500 مم' },
   { label: 'صواني 600×400', jd3: '✓ نعم', competitor: '✗ لا', highlight: true },
-  { label: 'السعر', jd3: '$4,400-$5,500 FOB', competitor: '$7,000-$9,000' },
+  { label: 'السعر', jd3: '$4,400-$5,500 FOB', competitor: 'Significantly higher' },
 ];
 ---
 <BaseLayout title="JD-3 مقابل Hobart AMX" description="مقارنة V-TAI JD-3 و Hobart AMX." locale={locale} canonicalPath="/product/jd-3-vs-hobart-amx/" schemaType="Article">
 <BreadcrumbNav items={[{label:'الرئيسية',href:'/ar/'},{label:'مقابل Hobart'}]} />
-<section class="section"><div class="container-prose"><h1>JD-3 مقابل Hobart AMX</h1><p class="text-lg mt-4 mb-6">Hobart رائد السوق الأمريكي. JD-3 أقل بـ 60% وتستوعب صواني 600×400 التي لا تستوعبها Hobart.</p></div>
+<section class="section"><div class="container-prose"><h1>JD-3 مقابل Hobart AMX</h1><p class="text-lg mt-4 mb-6">Hobart رائد السوق الأمريكي. JD-3 أقل بشكل كبير وتستوعب صواني 600×400 التي لا تستوعبها Hobart.</p></div>
 <div class="container-page"><ComparisonTable competitorName="Hobart AMX" rows={rows} /></div></section>
 <CTASection locale={locale} />
 </BaseLayout>

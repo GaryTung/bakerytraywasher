@@ -8,7 +8,7 @@ import FAQSection from '../../components/FAQSection.astro';
 const locale = 'en' as const;
 
 const rows = [
-  { label: 'Throughput', jd3: '180 trays/hour', competitor: '180 trays/hour' },
+  { label: 'Throughput', jd3: '180 trays/hour', competitor: '60 racks/hour (published)' },
   { label: 'Rack size', jd3: '650 × 550 mm', competitor: '500 × 500 mm' },
   { label: 'Fits 600×400 mm bakery trays?', jd3: '✓ Yes', competitor: '✗ No', highlight: true },
   { label: 'Water per cycle', jd3: '2.5 L', competitor: '3.8 L' },
@@ -19,12 +19,12 @@ const rows = [
   { label: 'Certifications', jd3: 'CE, ISO 9001', competitor: 'NSF, UL' },
   { label: 'Display', jd3: 'LED digital', competitor: 'Button panel' },
   { label: 'Lead time', jd3: '4–6 weeks', competitor: '6–10 weeks' },
-  { label: 'Price (FOB / retail)', jd3: '~$4,400–$5,500 FOB', competitor: '~$7,000–$9,000 retail' },
+  { label: 'Price (FOB / retail)', jd3: '~$4,400–$5,500 FOB', competitor: 'Significantly higher (retail)' },
 ];
 ---
 <BaseLayout
   title="JD-3 vs Hobart AMX — Bakery Tray Washer Comparison"
-  description="Side-by-side comparison: V-TAI JD-3 vs Hobart AMX. Same throughput, 60% lower price, and JD-3 fits 600×400 mm bakery trays that the Hobart cannot."
+  description="Side-by-side comparison: V-TAI JD-3 vs Hobart AMX. Same throughput, significantly lower price, and JD-3 fits 600×400 mm bakery trays that the Hobart cannot."
   locale={locale}
   canonicalPath="/product/jd-3-vs-hobart-amx/"
   schemaType="Article"
@@ -52,9 +52,9 @@ const rows = [
     <p>Choose the JD-3 when any of the following are true:</p>
     <ul class="list-disc list-inside space-y-2 mt-3">
       <li><strong>You bake in 600×400 mm trays.</strong> The Hobart AMX physically cannot fit this size. There is no workaround.</li>
-      <li><strong>You are budget-conscious.</strong> JD-3 is 60% lower in cost while delivering identical throughput and equivalent CE-certified safety standards.</li>
+      <li><strong>You are budget-conscious.</strong> JD-3 is significantly lower in cost while delivering identical throughput and equivalent CE-certified safety standards.</li>
       <li><strong>You operate outside the United States.</strong> Hobart's strength is its US service network — outside the US, you're paying premium pricing for an imported machine without the local support advantage.</li>
-      <li><strong>You want lower water/energy bills.</strong> The JD-3 uses 34% less water and 32% less peak power per cycle.</li>
+      <li><strong>You want lower water/energy bills.</strong> The JD-3 uses less water and less peak power per cycle than Hobart's published specs.</li>
       <li><strong>Your kitchen is on a tight footprint.</strong> Both machines have similar external sizes, but JD-3's larger internal chamber means more washing capacity in the same floor space.</li>
     </ul>
 
