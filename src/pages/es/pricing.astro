@@ -9,8 +9,7 @@ const locale = 'es' as const;
 const tiers = [
   { name: 'JD-3 Estándar (Eléctrica)', price: '$4.400', desc: 'Configuración base. 380V/3N/50Hz. Incluye 2 racks, herramientas básicas, manual, certificado CE.', features: ['Acero SUS304', 'Rack 650×550 mm', '180 bandejas/hora', 'Display LED'] },
   { name: '+ Dispensador Automático de Detergente', price: '$4.600', desc: 'Estándar + bomba automática de detergente y abrillantador.', features: ['Todo lo anterior', 'Dosificación automática', 'Resultados consistentes'], recommended: true },
-  { name: '+ Módulo de Tratamiento de Agua', price: '$4.900', desc: 'Para regiones con agua dura (>200 ppm).', features: ['Todo lo anterior', 'Prevención de cal'] },
-  { name: '+ Recuperación de Calor', price: '$4.800', desc: 'Ahorro de energía 15–25%.', features: ['Todo lo anterior', 'Sistema de recuperación'] },
+  { name: '+ Recuperación de Calor', price: '$4.900', desc: 'El agua caliente del enjuague final entra al tanque principal para mantener temperatura y ahorrar energía 15–25%.', features: ['Todo lo anterior', 'Sistema de recuperación', 'Menor humedad en cocina'] },
 ];
 ---
 <BaseLayout
@@ -27,7 +26,7 @@ const tiers = [
       <h1 class="mb-4">Precios Honestos y Transparentes</h1>
       <p class="text-bakery-navy/70 text-lg">Sin cargos ocultos. Aquí está exactamente lo que cuesta la JD-3.</p>
     </div>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div class="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
       {tiers.map((t) => (
         <div class={`card ${t.recommended ? 'border-2 border-bakery-orange' : ''}`}>
           {t.recommended && <p class="eyebrow text-bakery-orange mb-1">★ Más popular</p>}

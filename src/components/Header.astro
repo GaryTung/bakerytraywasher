@@ -18,7 +18,7 @@ const lp = (p: string) => localizePath(p, locale);
 
     <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-bakery-navy">
       <a href={lp('/product/')} class="px-3 py-2 hover:text-bakery-orange">{t(locale, 'nav.product')}</a>
-      <a href={lp('/by-business-type/bakery-shop/')} class="px-3 py-2 hover:text-bakery-orange">{t(locale, 'nav.business')}</a>
+      <a href={lp('/by-business-type/')} class="px-3 py-2 hover:text-bakery-orange">{t(locale, 'nav.business')}</a>
       <a href={lp('/what-it-washes/baking-trays-600x400/')} class="px-3 py-2 hover:text-bakery-orange">{t(locale, 'nav.washes')}</a>
       <a href={lp('/vs/')} class="px-3 py-2 hover:text-bakery-orange">{t(locale, 'nav.compare')}</a>
       <a href={lp('/pricing/')} class="px-3 py-2 hover:text-bakery-orange">{t(locale, 'nav.pricing')}</a>
@@ -36,7 +36,7 @@ const lp = (p: string) => localizePath(p, locale);
   <nav id="mobile-menu" class="lg:hidden hidden border-t border-bakery-navy/5 bg-white">
     <div class="container-page py-4 flex flex-col gap-1 text-sm font-medium">
       <a href={lp('/product/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.product')}</a>
-      <a href={lp('/by-business-type/bakery-shop/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.business')}</a>
+      <a href={lp('/by-business-type/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.business')}</a>
       <a href={lp('/what-it-washes/baking-trays-600x400/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.washes')}</a>
       <a href={lp('/vs/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.compare')}</a>
       <a href={lp('/pricing/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.pricing')}</a>

@@ -12,12 +12,12 @@ const locale = 'en' as const;
 const features = [
   { icon: '🛡️', title: 'SUS304 Stainless Construction', text: 'Entire machine is food-grade SUS304 — rust-resistant, rodent-resistant, easy to sanitize.' },
   { icon: '📏', title: 'Extra-Large Wash Chamber', text: '650×550 mm rack fits 600×400 mm Bakery Norm trays, oversized stockpots, KitchenAid bowls.' },
-  { icon: '💧', title: 'Dual Rotating Wash Arms', text: '360° omnidirectional cleaning with powerful motor and anti-clogging spray nozzles.' },
+  { icon: '💧', title: 'Dual Rotating Wash Arms + Tray-Specific Nozzles', text: '360° omnidirectional cleaning with tray-optimized nozzle geometry that maximizes water coverage across long flat baking-tray surfaces.' },
   { icon: '🌡️', title: 'Intelligent Temp Control', text: 'Auto-sanitize above 82°C with LED digital display. Modular control board for easy service.' },
   { icon: '💦', title: 'Ultra-Low Water Use', text: 'Just 2.0–2.5 L per cycle vs the 5–10 L most competitors consume.' },
-  { icon: '♻️', title: 'Heat Recovery System', text: 'Preheats incoming cold water with the steam from the last rinse — energy savings.' },
+  { icon: '♻️', title: 'Heat Recovery System', text: 'Hot water from the previous high-temp rinse flows into the main wash tank to maintain wash temperature and save energy 15–25%.' },
   { icon: '🚪', title: 'Sealed Insulated Door', text: 'Reduces steam escape by up to 70%, keeping your kitchen cooler and drier.' },
-  { icon: '🧑‍🍳', title: 'Ergonomic Operation', text: 'Eye-level control panel, push-pull rails. Door-activated cycle start — close the hood and walk away.' },
+  { icon: '🧑‍🍳', title: 'Ergonomic Operation', text: 'Push-pull basket rails. Door-activated cycle start — close the hood and walk away.' },
   { icon: '🔒', title: 'Multiple Safety Protections', text: 'Door interlock cuts power on open. Voltage overload protection built in.' },
   { icon: '🧪', title: 'Auto Detergent Ready', text: 'Pre-installed interface for automatic dispenser and water-treatment modules.' },
   { icon: '⚡', title: 'CE Safety Certified', text: 'EU compliance. Ready to ship to EU, GCC, APAC, LATAM, Africa.' },
@@ -36,7 +36,7 @@ const features = [
     brand: { '@type': 'Brand', name: 'V-TAI' },
     description: 'Commercial hood-type dishwasher for bakeries with 650×550 mm rack — fits 600×400 mm European Bakery Norm trays. 180 trays/hour throughput, SUS304 stainless steel, CE-certified.',
     image: 'https://bakerytraywasher.com/images/jd-3-hero.webp',
-    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '4400', highPrice: '5500', availability: 'https://schema.org/InStock' },
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '4400', highPrice: '4900', availability: 'https://schema.org/InStock' },
   }}
 >
 
@@ -145,12 +145,11 @@ const features = [
 <section class="section bg-bakery-cream">
   <div class="container-page">
     <h2 class="text-center mb-8">Configuration Options</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
       {[
         { t: 'Standard Electric', p: '$4,400', d: 'Base JD-3, 380V/3N/50Hz' },
         { t: '+ Auto Detergent Dispenser', p: '$4,600', d: 'Adds liquid detergent & rinse-aid pumps' },
-        { t: '+ Water Treatment Module', p: '$4,900', d: 'For hard water regions' },
-        { t: '+ Heat Recovery Upgrade', p: '$4,800', d: 'Enhanced energy-saving package' },
+        { t: '+ Heat Recovery Upgrade', p: '$4,900', d: 'Enhanced energy-saving package; hot rinse water flows back into wash tank' },
       ].map((cfg) => (
         <div class="card">
           <h3 class="text-lg mb-1">{cfg.t}</h3>
@@ -165,7 +164,7 @@ const features = [
 
 <FAQSection items={[
   { q: 'What is included in the box?', a: 'JD-3 machine, 2 standard wash racks, peg cup rack, basic tools, English operation manual, CE certificate.' },
-  { q: 'Can it ship to the US?', a: 'Yes — CE-certified models ship globally. For US installations, confirm with your electrician that your kitchen has the 380V three-phase circuit, or specify a 220V conversion option in your quote.' },
+  { q: 'Can it ship to the US?', a: 'Yes. US commercial kitchens typically have a 400V single-phase circuit, which the JD-3 connects to directly. CE-certified machines are imported into the US daily.' },
   { q: 'Warranty?', a: '12-month manufacturer warranty on parts. We air-freight replacement parts globally.' },
   { q: 'What if I need spare parts in 5 years?', a: 'All key components — pumps, heating elements, control boards — are stocked at the factory. Same-day shipment of common parts.' },
 ]} />

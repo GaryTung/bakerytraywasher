@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'th' as const;
+
+const types = [
+  { slug: 'bakery-shop', name: 'Bakery Shop', icon: '🥐' },
+  { slug: 'coffee-chain', name: 'Coffee Chain', icon: '☕' },
+  { slug: 'patisserie', name: 'Patisserie', icon: '🧁' },
+  { slug: 'cake-shop', name: 'Cake Shop', icon: '🎂' },
+  { slug: 'small-restaurant', name: 'Small Restaurant', icon: '🍽️' },
+  { slug: 'cafeteria', name: 'Cafeteria', icon: '🥪' },
+  { slug: 'hotel-pastry-kitchen', name: 'Hotel Pastry Kitchen', icon: '🏨' },
+  { slug: 'cloud-kitchen', name: 'Cloud Kitchen', icon: '👨‍🍳' },
+];
+---
+<BaseLayout title="สำหรับธุรกิจของคุณ | V-TAI JD-3" description="สำหรับธุรกิจของคุณ — V-TAI JD-3" locale={locale} canonicalPath="/by-business-type/" schemaType="Article">
+<BreadcrumbNav items={[{label: 'หน้าแรก', href: '/th/'}, {label: 'สำหรับธุรกิจของคุณ'}]} />
+<section class="section">
+  <div class="container-page">
+    <h1 class="mb-4 text-center">สำหรับธุรกิจของคุณ</h1>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-8">
+      {types.map((t) => (
+        <a href={`/th/by-business-type/${t.slug}/`} class="card text-center hover:scale-[1.02] transition">
+          <div class="text-4xl mb-3">{t.icon}</div>
+          <h3 class="text-lg">{t.name}</h3>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+<CTASection locale={locale} />
+</BaseLayout>

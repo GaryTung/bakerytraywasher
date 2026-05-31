@@ -4,18 +4,26 @@ import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
 const locale = 'ru' as const;
 ---
-<BaseLayout title="Руководство по установке JD-3" description="Требования по пространству, воде, электричеству и дренажу." locale={locale} canonicalPath="/product/jd-3-installation/" schemaType="HowTo">
+<BaseLayout title="Руководство по установке JD-3" description="Получите машину, посмотрите видеоинструкцию, подключите воду и электричество — и начинайте мыть." locale={locale} canonicalPath="/product/jd-3-installation/" schemaType="HowTo">
 <BreadcrumbNav items={[{label:'Главная',href:'/ru/'},{label:'Продукт',href:'/ru/product/'},{label:'Установка'}]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">Руководство по установке JD-3</h1>
-<p class="text-lg mb-6">Большинство малых пекарен устанавливают JD-3 за 2-4 часа без серьёзного ремонта.</p>
-<h2 class="mt-8 mb-3">Чек-лист</h2>
-<ul class="space-y-2 list-disc list-inside">
-<li>Пространство: 850 × 850 мм</li>
-<li>Высота: 2 200 мм для открытия купола</li>
-<li>Холодная вода: G 3/4", давление 2,5–6 кг/см²</li>
-<li>Дренаж: G 1½"</li>
-<li>Электричество: 380V/3N/50Гц, выделенный 21,5 А автомат</li>
+<h1 class="mb-4">Установка JD-3 — Получить, Подключить, Мыть</h1>
+<p class="text-lg mb-6">JD-3 спроектирован для самостоятельной установки. После получения машины следуйте включённой видеоинструкции, подключите воду и электричество — и начинайте мыть. Специализированный установщик не нужен — обычный сантехник и электрик справятся.</p>
+<h2 class="mt-8 mb-3">3 простых шага</h2>
+<ol class="space-y-3 list-decimal list-inside">
+<li><strong>Распаковать и установить</strong> — на ровной поверхности рядом с подводом воды и сливом.</li>
+<li><strong>Подключить воду и электричество</strong> — G 3/4" холодная вода, G 1½" слив, выделенная линия 380V/3N/50Гц (или 400V однофазная по местным нормам).</li>
+<li><strong>Следовать видеоинструкции</strong> — поставляется с машиной, также доступна через WhatsApp при заказе. Общее время: 1–2 часа.</li>
+</ol>
+<h2 class="mt-8 mb-3">В комплекте</h2>
+<ul class="space-y-1 list-disc list-inside">
+<li>Машина JD-3</li>
+<li>2 стандартных кассеты + кассета для чашек</li>
+<li>Шланг подачи воды и сливной шланг</li>
+<li>Карта быстрого старта со ссылкой на видеоинструкцию</li>
+<li>Руководство пользователя</li>
+<li>Сертификат CE</li>
+<li><strong>Электросхема</strong> приклеена внутри сервисной панели — оставьте её там для будущего обслуживания</li>
 </ul>
 </div></section>
 <CTASection locale={locale} />

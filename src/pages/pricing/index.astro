@@ -11,8 +11,7 @@ const locale = 'en' as const;
 const tiers = [
   { name: 'Standard JD-3 (Electric)', price: '$4,400', desc: 'Base configuration. 380V/3N/50Hz. Standard wash & rinse cycle. Includes 2 racks, peg cup rack, basic tools, operation manual, CE certificate.', features: ['SUS304 stainless construction', '650×550 mm rack', '180 trays/hour', 'LED digital display'] },
   { name: '+ Auto Detergent Dispenser', price: '$4,600', desc: 'Standard + automatic liquid detergent pump and rinse aid dispenser. Eliminates manual dosing.', features: ['All Standard features', 'Auto detergent metering', 'Auto rinse aid', 'Consistent results'], recommended: true },
-  { name: '+ Water Treatment Module', price: '$4,900', desc: 'Standard + auto detergent + inline water softener cartridge for hard water regions (>200 ppm).', features: ['All above', 'Limescale prevention', 'Extends heater life', 'For hard-water regions'] },
-  { name: '+ Heat Recovery Upgrade', price: '$4,800', desc: 'Standard + auto detergent + enhanced heat recovery module. Pre-warms inlet water, reduces energy consumption 15–25%.', features: ['All Standard features', 'Auto detergent', 'Heat recovery system', '15–25% energy savings'] },
+  { name: '+ Heat Recovery Upgrade', price: '$4,900', desc: 'Standard + enhanced heat recovery module. Hot water from the previous high-temp rinse flows into the main wash tank to maintain wash temperature and save energy.', features: ['All Standard features', 'Heat recovery system', '15–25% energy savings', 'Lower kitchen humidity'] },
 ];
 ---
 <BaseLayout
@@ -23,7 +22,7 @@ const tiers = [
   schemaType="Product"
   schemaData={{
     name: 'V-TAI JD-3 Bakingware Hood-type Washer',
-    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '4400', highPrice: '5500' }
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '4400', highPrice: '4900' }
   }}
 >
 <BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Pricing'}]} />
@@ -35,7 +34,7 @@ const tiers = [
       <p class="text-bakery-navy/70 text-lg">No hidden fees, no "request a quote" mind games. Here is exactly what the JD-3 costs.</p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div class="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
       {tiers.map((t) => (
         <div class={`card ${t.recommended ? 'border-2 border-bakery-orange' : ''}`}>
           {t.recommended && <p class="eyebrow text-bakery-orange mb-1">★ Most popular</p>}
@@ -119,7 +118,7 @@ const tiers = [
       <h2 class="mb-4">How JD-3 Pricing Compares</h2>
       <p class="text-bakery-navy/80 mb-4">Premium-tier commercial hood-type dishwasher brands (US and European) typically retail for several times the JD-3's FOB price. The JD-3 offers equivalent CE-certified safety and performance — without the premium-brand markup.</p>
       <ul class="space-y-2 text-bakery-navy/80">
-        <li class="flex gap-2 font-bold text-bakery-orange"><span>✓</span> V-TAI JD-3: <strong>$4,400–$5,500 FOB</strong></li>
+        <li class="flex gap-2 font-bold text-bakery-orange"><span>✓</span> V-TAI JD-3: <strong>$4,400–$4,900 FOB</strong></li>
         <li class="flex gap-2"><span>→</span> Equivalent CE-certified hood-type washers from premium US and European brands: significantly higher.</li>
       </ul>
       <p class="mt-4 text-sm text-bakery-navy/60">We respectfully decline to be the cheapest — we aim to be the highest-value option. Request a quote for an apples-to-apples comparison with quotes you've received elsewhere.</p>
