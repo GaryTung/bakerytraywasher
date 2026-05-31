@@ -1,0 +1,6 @@
+---
+import CountryPriceLayout from '../../../../layouts/CountryPriceLayout.astro';
+import { getCountry } from '../../../../data/countries';
+const country = getCountry('france')!;
+---
+<CountryPriceLayout locale="de" canonicalPath="/pricing/by-country/france/" country={country} />

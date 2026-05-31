@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'es' as const;
+---
+<BaseLayout title="Video Library | JD-3" description="Video Library" locale={locale} canonicalPath="/resources/video-library/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Home',href:'/es/'},{label:'Resources'},{label:'Video Library'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">Video Library</h1>
+<p class="text-lg mb-6">Practical resource for bakery operators considering the V-TAI JD-3.</p>
+<p>For the full English version, visit <a href="/resources/video-library/" class="underline">/resources/video-library/</a>.</p>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'ru' as const;
+---
+<BaseLayout title="Buyers Guide PDF | JD-3" description="Buyers Guide PDF" locale={locale} canonicalPath="/resources/buyers-guide-pdf/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Home',href:'/ru/'},{label:'Resources'},{label:'Buyers Guide PDF'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">Buyers Guide PDF</h1>
+<p class="text-lg mb-6">Practical resource for bakery operators considering the V-TAI JD-3.</p>
+<p>For the full English version, visit <a href="/resources/buyers-guide-pdf/" class="underline">/resources/buyers-guide-pdf/</a>.</p>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

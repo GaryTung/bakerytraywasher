@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'fr' as const;
+---
+<BaseLayout title="600×400 Tray Size — History and Standard | JD-3 Blog" description="600×400 Tray Size — History and Standard" locale={locale} canonicalPath="/blog/600x400-tray-size-history-and-standard/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Home',href:'/fr/'},{label:'Blog',href:'/fr/blog/'},{label:'600×400 Tray Size — History and Standard'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">600×400 Tray Size — History and Standard</h1>
+<p class="text-lg mb-6">Practical writing for bakery owners and small commercial kitchen operators.</p>
+<p>For the full English version, visit <a href="/blog/600x400-tray-size-history-and-standard/" class="underline">/blog/600x400-tray-size-history-and-standard/</a>.</p>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

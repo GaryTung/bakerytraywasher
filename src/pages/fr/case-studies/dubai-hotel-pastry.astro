@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'fr' as const;
+---
+<BaseLayout title="Dubai Hotel Pastry Kitchen — Hard Water Case | JD-3 Case Study" description="Dubai Hotel Pastry Kitchen — Hard Water Case — case study of a V-TAI JD-3 deployment." locale={locale} canonicalPath="/case-studies/dubai-hotel-pastry/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Home',href:'/fr/'},{label:'Case Studies',href:'/fr/case-studies/'},{label:'Dubai Hotel Pastry Kitchen — Hard Water Case'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">Dubai Hotel Pastry Kitchen — Hard Water Case</h1>
+<p class="text-lg mb-6">Real bakery deployment of the V-TAI JD-3 hood-type bakery tray washer.</p>
+<p class="text-bakery-navy/70 mb-4">For the full English version with detailed metrics, visit <a href="/case-studies/dubai-hotel-pastry/" class="underline">/case-studies/dubai-hotel-pastry/</a>.</p>
+<h2 class="mt-8 mb-3">Background</h2>
+<p>Anonymized customer deployment showing the JD-3 in real-world operation. Specific metrics, payback period, and operational outcomes are documented in the full English case study.</p>
+<h2 class="mt-8 mb-3">Why JD-3</h2>
+<ul class="list-disc list-inside space-y-2">
+<li>600×400 mm tray compatibility (when applicable)</li>
+<li>CE-certified safety for global compliance</li>
+<li>Significantly lower capex vs premium brands</li>
+<li>DDP shipping with local-currency landed price</li>
+</ul>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

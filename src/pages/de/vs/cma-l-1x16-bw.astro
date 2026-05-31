@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../../components/ComparisonTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'de' as const;
+const rows = [
+  { label: 'Rack size', jd3: '650×550 mm', competitor: '500×500 mm' },
+  { label: '600×400 trays', jd3: '✓', competitor: '✗', highlight: true },
+  { label: 'Throughput', jd3: '180 trays/hour', competitor: 'Varies' },
+  { label: 'Cycle time', jd3: '2 min', competitor: 'Varies' },
+  { label: 'Price', jd3: 'From $4,400 FOB', competitor: 'Significantly higher' },
+];
+---
+<BaseLayout title="JD-3 vs US/Italian Bakery Model" description="JD-3 vs US/Italian Bakery Model comparison." locale={locale} canonicalPath="/vs/cma-l-1x16-bw/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Home',href:'/de/'},{label:'Compare',href:'/de/vs/'},{label:'vs US/Italian Bakery Model'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">JD-3 vs US/Italian Bakery Model</h1>
+<p class="text-lg mb-6">Honest side-by-side. The JD-3 offers larger rack size (fits 600×400 mm bakery trays), CE-certified safety, and significantly lower capex.</p>
+</div><div class="container-page"><ComparisonTable competitorName="Competitor" rows={rows} /></div></section>
+<section class="section"><div class="container-prose">
+<h2 class="mb-3">Why JD-3 wins</h2>
+<ul class="list-disc list-inside space-y-2">
+<li>Fits 600×400 mm European Bakery Norm trays</li>
+<li>180 baking trays per hour throughput</li>
+<li>SUS304 stainless steel + CE-certified</li>
+<li>Significantly lower capex with equivalent compliance</li>
+<li>4-week production + DDP shipping to your door</li>
+</ul>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

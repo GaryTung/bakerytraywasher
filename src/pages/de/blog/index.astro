@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'de' as const;
+const posts = [
+  { slug: 'why-your-bakery-needs-a-tray-washer', title: 'Why Your Bakery Needs a Tray Washer', desc: 'The case for buying a commercial dishwasher.' },
+  { slug: '600x400-tray-size-history-and-standard', title: '600×400 Tray Size — History', desc: 'How a 1960s German standard became global default.' },
+  { slug: 'dishwasher-roi-for-small-bakery', title: 'Dishwasher ROI Math', desc: 'Concrete numbers for ~4-month payback.' },
+];
+---
+<BaseLayout title="Blog | JD-3" description="Articles on bakery operations and JD-3 deployments." locale={locale} canonicalPath="/blog/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Home',href:'/de/'},{label:'Blog'}]} />
+<section class="section"><div class="container-page">
+<h1 class="text-center mb-10">Blog</h1>
+<div class="grid md:grid-cols-3 gap-6">
+{posts.map((p) => (
+  <a href={`/de/blog/${p.slug}/`} class="card hover:scale-[1.02] transition">
+    <h3 class="mb-3">{p.title}</h3>
+    <p class="text-sm text-bakery-navy/70">{p.desc}</p>
+  </a>
+))}
+</div>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

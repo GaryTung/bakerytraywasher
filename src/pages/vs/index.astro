@@ -6,18 +6,18 @@ import CTASection from '../../components/CTASection.astro';
 const locale = 'en' as const;
 
 const comparisons = [
-  { slug: 'hobart-amx', name: 'vs Hobart AMX', desc: 'US category leader. Significantly lower capex, fits 600×400 bakery trays.' },
-  { slug: 'jackson-tempstar', name: 'vs Jackson TempStar', desc: 'US mid-tier. Lower capex, larger chamber.' },
-  { slug: 'cma-l-1x16-bw', name: 'vs CMA L-1X16-BW', desc: 'US/Italian bakery model. 600×400 compatibility, built-in heat recovery option.' },
-  { slug: 'winterhalter', name: 'vs Winterhalter UC-M/UC-L', desc: 'German premium. Significantly lower capex at equivalent CE certifications.' },
-  { slug: 'manual-washing-comparison', name: 'vs Manual Washing', desc: 'The single highest-ROI comparison. 8-month payback math.' },
+  { slug: 'hobart-amx', name: 'vs US Category Leader', desc: 'JD-3 vs the leading US hood-type bakery dishwasher brand. Significantly lower capex, fits 600×400 bakery trays.' },
+  { slug: 'jackson-tempstar', name: 'vs US Mid-Tier Workhorse', desc: 'JD-3 vs a popular mid-tier US hood-type model. Lower capex, larger chamber.' },
+  { slug: 'cma-l-1x16-bw', name: 'vs US/Italian Bakery-Spec Model', desc: 'JD-3 vs a US/Italian "bakery-wash" model that still uses a 500×500 rack. 600×400 compatibility, built-in heat recovery option.' },
+  { slug: 'winterhalter', name: 'vs German Premium', desc: 'JD-3 vs a leading German premium hood-type washer. Significantly lower capex at equivalent CE certifications.' },
+  { slug: 'manual-washing-comparison', name: 'vs Manual Washing', desc: 'The single highest-ROI comparison. 4-month payback math.' },
   { slug: 'undercounter-vs-hood-type', name: 'Undercounter vs Hood-Type', desc: 'Which architecture is right for your kitchen?' },
   { slug: 'used-bakery-equipment', name: 'vs Used Bakery Equipment', desc: 'Should you buy a used premium-brand washer instead?' },
 ];
 ---
 <BaseLayout
   title="Compare JD-3 — Hood Dishwasher Comparisons | bakerytraywasher.com"
-  description="Honest, side-by-side comparisons: JD-3 vs Hobart AMX, Jackson TempStar, CMA, Winterhalter, manual washing, undercounters, and used equipment."
+  description="Honest, side-by-side comparisons of the V-TAI JD-3 against US category-leader hood washers, mid-tier US models, US/Italian bakery-spec machines, German premium brands, manual washing, undercounters, and used equipment."
   locale={locale}
   canonicalPath="/vs/"
   schemaType="Article"
@@ -28,7 +28,7 @@ const comparisons = [
   <div class="container-page">
     <h1 class="mb-4 text-center">Compare the JD-3</h1>
     <p class="text-bakery-navy/70 text-lg max-w-2xl mx-auto text-center mb-10">
-      We respect the established brands. Here are honest side-by-side comparisons so you can make a confident decision.
+      Honest side-by-side comparisons so you can make a confident decision. We respect every established brand and use factual, publicly-documented specs in each comparison.
     </p>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {comparisons.map((c) => (

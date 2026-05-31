@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'es' as const;
+---
+<BaseLayout title="Free ROI Calculator | JD-3" description="Free ROI Calculator" locale={locale} canonicalPath="/resources/free-roi-calculator/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Home',href:'/es/'},{label:'Resources'},{label:'Free ROI Calculator'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">Free ROI Calculator</h1>
+<p class="text-lg mb-6">Practical resource for bakery operators considering the V-TAI JD-3.</p>
+<p>For the full English version, visit <a href="/resources/free-roi-calculator/" class="underline">/resources/free-roi-calculator/</a>.</p>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

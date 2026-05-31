@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'ar' as const;
+---
+<BaseLayout title="Why Your Bakery Needs a Tray Washer | JD-3 Blog" description="Why Your Bakery Needs a Tray Washer" locale={locale} canonicalPath="/blog/why-your-bakery-needs-a-tray-washer/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Home',href:'/ar/'},{label:'Blog',href:'/ar/blog/'},{label:'Why Your Bakery Needs a Tray Washer'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">Why Your Bakery Needs a Tray Washer</h1>
+<p class="text-lg mb-6">Practical writing for bakery owners and small commercial kitchen operators.</p>
+<p>For the full English version, visit <a href="/blog/why-your-bakery-needs-a-tray-washer/" class="underline">/blog/why-your-bakery-needs-a-tray-washer/</a>.</p>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

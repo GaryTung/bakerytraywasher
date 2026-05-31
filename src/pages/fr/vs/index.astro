@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'fr' as const;
+const comparisons = [
+  { slug: 'hobart-amx', name: 'vs US Category Leader', desc: 'JD-3 vs the leading US hood-type bakery dishwasher. Significantly lower capex, fits 600×400 trays.' },
+  { slug: 'jackson-tempstar', name: 'vs US Mid-Tier', desc: 'Lower capex, larger chamber.' },
+  { slug: 'cma-l-1x16-bw', name: 'vs US/Italian Bakery Model', desc: '600×400 compatibility, built-in heat recovery option.' },
+  { slug: 'winterhalter', name: 'vs German Premium', desc: 'Significantly lower capex at equivalent CE certifications.' },
+  { slug: 'manual-washing-comparison', name: 'vs Manual Washing', desc: 'Highest-ROI comparison. 4-month payback.' },
+  { slug: 'undercounter-vs-hood-type', name: 'Undercounter vs Hood-Type', desc: 'Which architecture is right for your kitchen?' },
+  { slug: 'used-bakery-equipment', name: 'vs Used Equipment', desc: 'Should you buy a used premium-brand washer instead?' },
+];
+---
+<BaseLayout title="Comparer JD-3" description="Honest side-by-side JD-3 comparisons." locale={locale} canonicalPath="/vs/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Accueil',href:'/fr/'},{label:'Comparer JD-3'}]} />
+<section class="section">
+  <div class="container-page">
+    <h1 class="mb-4 text-center">Comparer JD-3</h1>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
+      {comparisons.map((c) => (
+        <a href={`/fr/vs/${c.slug}/`} class="card hover:scale-[1.02] transition">
+          <h3 class="text-lg mb-2">{c.name}</h3>
+          <p class="text-sm text-bakery-navy/70">{c.desc}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+<CTASection locale={locale} />
+</BaseLayout>

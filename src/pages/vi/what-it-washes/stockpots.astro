@@ -1,0 +1,18 @@
+---
+import WhatItWashesLayout from '../../../layouts/WhatItWashesLayout.astro';
+const locale = 'vi' as const;
+---
+<WhatItWashesLayout
+  locale={locale}
+  canonicalPath="/what-it-washes/stockpots/"
+  itemName="Stockpots"
+  title="JD-3 Washes Stockpots | V-TAI Bakery Tray Washer"
+  description="The V-TAI JD-3 hood-type bakery tray washer cleans Stockpots effectively. 180 trays/hour throughput, CE-certified, from $4,400 FOB."
+  challenge="Stockpots present specific cleaning challenges in commercial bakery operations. Residue type, item geometry, and load density all matter."
+  howItHandles="The JD-3 uses dual rotating wash arms with tray-specific nozzle geometry, 60-65°C wash tank with >82°C final rinse, all in a 650×550 mm chamber that accepts oversized bakeware. See the English version for detailed loading patterns."
+  recommendedSettings="Standard 2-minute cycle, 65°C wash tank, 82°C final rinse, low-foam alkaline commercial detergent. Pre-rinse recommended (recirculation tank water quality)."
+  faqs={[
+    { q: 'Does pre-rinse matter?', a: 'Yes — the wash tank uses recirculated water for energy efficiency. Pre-rinsing prevents residue buildup in the recirculation tank.' },
+    { q: 'For full details', a: 'See the English version at /what-it-washes/stockpots/ for complete loading patterns and tips.' },
+  ]}
+/>

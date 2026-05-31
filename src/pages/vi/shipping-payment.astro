@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import CTASection from '../../components/CTASection.astro';
+const locale = 'vi' as const;
+---
+<BaseLayout title="Shipping & Payment | JD-3" description="Shipping and payment terms for V-TAI JD-3." locale={locale} canonicalPath="/shipping-payment/">
+<BreadcrumbNav items={[{label:'Home',href:'/vi/'},{label:'Shipping & Payment'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">Shipping &amp; Payment</h1>
+<h2 class="mt-6 mb-3">Payment</h2>
+<ul class="list-disc list-inside space-y-1">
+<li>30% deposit at order, 70% balance before shipping</li>
+<li>TT (wire transfer), L/C for orders &gt; $20,000</li>
+<li>USD primary; EUR/GBP/AED accepted</li>
+</ul>
+<h2 class="mt-6 mb-3">Lead Time</h2>
+<ul class="list-disc list-inside space-y-1">
+<li>Production: 4 weeks</li>
+<li>Sea freight: 20-35 days</li>
+<li>Air freight: 3-7 days</li>
+</ul>
+<h2 class="mt-6 mb-3">DDP for 18 Markets</h2>
+<p>For 18 major markets, we provide DDP landed pricing in local currency. See <a href="/vi/pricing/by-country/" class="underline">by-country pricing</a>.</p>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

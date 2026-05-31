@@ -7,71 +7,234 @@ import CTASection from '../components/CTASection.astro';
 const locale = 'en' as const;
 ---
 <BaseLayout
-  title="About V-TAI — The Bakery Tray Washer Company"
-  description="Shenzhen Vtai Electrical Appliance Co., Ltd. is a 10+ year manufacturer of commercial dishwashers, specializing in bakery and small commercial kitchen markets globally."
+  title="About V-TAI — The Commercial Dishwasher Company Behind the JD-3"
+  description="Shenzhen Vtai Electrical Appliance Co., Ltd. is a 10+ year manufacturer of commercial dishwashers — bakery hood-type washers, roll-in rack washers, undercounter washers — based in the Pearl River Delta, China. ISO 9001 certified, CE compliant, 8,000 m² smart manufacturing facility."
   locale={locale}
   canonicalPath="/about/"
   schemaType="Organization"
 >
 <BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'About'}]} />
 
-<section class="section">
+<!-- Hero -->
+<section class="section bg-gradient-to-br from-bakery-cream via-white to-bakery-cream/50">
   <div class="container-page grid lg:grid-cols-2 gap-10 items-center">
     <div>
       <p class="eyebrow mb-2">About V-TAI</p>
-      <h1 class="mb-4">The People Behind the JD-3</h1>
+      <h1 class="mb-4">A 10+ Year Commercial Dishwasher Manufacturer Built Around One Idea: Small Operators Deserve Good Equipment</h1>
       <p class="text-lg text-bakery-navy/80 mb-4">
-        Shenzhen Vtai Electrical Appliance Co., Ltd. — known globally as V-TAI — has been manufacturing commercial dishwashers from our facility in the Pearl River Delta for over a decade. We specialize in machines built for small-to-mid commercial kitchens worldwide.
+        Shenzhen Vtai Electrical Appliance Co., Ltd. — known globally as <strong>V-TAI</strong> — designs and manufactures commercial dishwashers from our 8,000 m² smart manufacturing base in the Pearl River Delta, Guangdong, China. We have been operating as a certified manufacturer for over a decade and now produce approximately 12,000 commercial units per year for customers in 60+ countries.
       </p>
       <p class="text-lg text-bakery-navy/80">
-        The JD-3 represents 6 years of iterative design specifically for bakery operations. We built it after realizing that no machine in the small-commercial price range fit the 600×400 mm tray size that virtually every modern bakery oven uses.
+        The <strong>JD-3 bakery tray washer</strong> featured on this site is one product in a broader commercial-dishwasher line. We also build roll-in rack washers (for industrial buyers), undercounter washers, conveyor systems, and custom OEM lines for European, North American, and Asian brand customers.
       </p>
     </div>
-    <ImagePlaceholder alt="V-TAI factory in Pearl River Delta, Guangdong, China" ratio="4/3" label="V-TAI factory exterior" />
+    <ImagePlaceholder alt="V-TAI 8,000 m² smart manufacturing facility, Pearl River Delta, Guangdong, China" ratio="4/3" label="V-TAI factory exterior" />
   </div>
 </section>
 
 <TrustBadgeStrip locale={locale} />
 
+<!-- Story -->
 <section class="section">
   <div class="container-prose">
-    <h2 class="mb-3">Our Story</h2>
-    <p>V-TAI started in 2013 as a contract manufacturer for European commercial-kitchen-equipment brands. By 2016, we had developed our own product lines and begun selling under the V-TAI brand to international customers. The JD-3 (model VT-AE-JD-3) was developed in 2019–2020 in response to repeated requests from European patisseries and Asian bakery chains for an affordable hood-type machine that could handle 600×400 trays.</p>
+    <h2 class="mb-4">Our Story</h2>
+    <p>V-TAI started in 2013 as a contract manufacturer for European commercial-kitchen-equipment brands. Our founders had spent the previous decade in OEM dishwasher production, watching Western brands import Chinese-made machines, rebrand them at 3–4× the cost, and sell them through dealer networks that extracted further markup before reaching the actual restaurant owner. The math seemed wrong.</p>
 
-    <p class="mt-4">Today, our 8,000 m² smart manufacturing base produces approximately 12,000 commercial dishwashers per year for customers in over 60 countries. We are ISO 9001 certified, our products are CE-certified for EU compliance, and our production methodology is built around what we call "Smart Localization" — combining French Schneider Electric components with localized supply-chain sourcing in the Pearl River Delta to deliver a 30–40% cost advantage versus comparable products from Hobart, Jackson, Winterhalter, or CMA.</p>
+    <p class="mt-4">By 2016, we had developed our own product lines and begun selling under the V-TAI brand to international customers. Our thesis was simple: small commercial operators — independent bakeries, single-shop cafés, hotel pastry chefs, school cafeteria managers — deserve access to professional-grade equipment without paying the brand-prestige tax. By selling factory-direct with full transparency, we could deliver the same CE-certified safety and performance for a fraction of the premium-tier retail price.</p>
 
-    <h2 class="mt-10 mb-3">What We Believe</h2>
-    <ul class="space-y-3 text-bakery-navy/80">
-      <li class="flex gap-3"><span class="text-bakery-orange font-bold">1.</span> <span><strong>Small bakeries deserve good equipment.</strong> The premium commercial-kitchen market has long ignored the small operator. We design for the bakery owner, not the corporate procurement team.</span></li>
-      <li class="flex gap-3"><span class="text-bakery-orange font-bold">2.</span> <span><strong>Honest pricing builds trust.</strong> We publish our prices. We respond to inquiries within 12 hours. We tell you what shipping will cost before you commit.</span></li>
-      <li class="flex gap-3"><span class="text-bakery-orange font-bold">3.</span> <span><strong>The tray dictates the machine.</strong> If your dishwasher doesn't fit your tray, every other feature is irrelevant. We sized the JD-3 chamber around the 600×400 tray standard from day one.</span></li>
-      <li class="flex gap-3"><span class="text-bakery-orange font-bold">4.</span> <span><strong>Service follows the sale, globally.</strong> We ship spare parts via DHL/FedEx within 5 business days to any country. No "your model is discontinued" surprises.</span></li>
+    <p class="mt-4">That thesis has worked. Today V-TAI machines are deployed in over 60 countries across every populated continent. We have customers running our equipment in luxury Dubai hotel kitchens, Korean café chains, Australian patisseries, German Bäckereien, Brazilian pastry shops, and family bakeries in Lima, Bangkok, Johannesburg, Manila, and Riyadh.</p>
+
+    <p class="mt-4">The <strong>JD-3 hood-type bakery tray washer</strong> was developed in 2019–2020 in response to repeated requests from European patisseries and Asian bakery chains for an affordable hood-type machine that could handle the 600×400 mm European Bakery Norm tray standard — a standard most Western brands at this price point still ignore. <a href="/product/" class="underline">See the full JD-3 product details</a>.</p>
+  </div>
+</section>
+
+<!-- Sister product line -->
+<section class="section bg-bakery-cream">
+  <div class="container-prose">
+    <h2 class="mb-4">Our Broader Product Line</h2>
+    <p>bakerytraywasher.com is one of V-TAI's specialist sites focused on the JD-3 model. Our broader product family includes:</p>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-6">
+      <div class="card">
+        <p class="eyebrow mb-1">Bakery hood-type</p>
+        <h3 class="mb-2">JD-3 — Featured here</h3>
+        <p class="text-sm text-bakery-navy/70 mb-3">180 baking trays/hour. 650×550 mm rack fits 600×400 EN-Norm trays. From $4,400 FOB. Built for small-to-mid commercial bakery operations.</p>
+        <a href="/product/" class="text-bakery-orange text-sm font-semibold hover:underline">JD-3 details →</a>
+      </div>
+
+      <div class="card">
+        <p class="eyebrow mb-1">Industrial rack-conveyor</p>
+        <h3 class="mb-2">Roll-in Rack Washer</h3>
+        <p class="text-sm text-bakery-navy/70 mb-3">For wholesale bakeries and central kitchens: full rack-roll-in chamber for tall baker's racks. Higher throughput, larger footprint. Sister specialist site: <a href="https://rollinrackwasher.com" class="underline">rollinrackwasher.com</a>.</p>
+        <a href="https://rollinrackwasher.com" class="text-bakery-orange text-sm font-semibold hover:underline">Roll-in Rack Washer site →</a>
+      </div>
+
+      <div class="card">
+        <p class="eyebrow mb-1">Compact restaurant</p>
+        <h3 class="mb-2">Undercounter Washers</h3>
+        <p class="text-sm text-bakery-navy/70 mb-3">Fit-under-counter dishwashers for small restaurants, cafés, and bars with limited floor space. Lower capex, lower throughput than the JD-3.</p>
+        <a href="https://v-tai.com" class="text-bakery-orange text-sm font-semibold hover:underline">v-tai.com — full line →</a>
+      </div>
+
+      <div class="card">
+        <p class="eyebrow mb-1">OEM &amp; Custom</p>
+        <h3 class="mb-2">Private-Label Manufacturing</h3>
+        <p class="text-sm text-bakery-navy/70 mb-3">We manufacture for several European and Asian kitchen-equipment brands under their own labels. Minimum order quantities apply. Contact for OEM inquiries.</p>
+        <a href="https://v-tai.com" class="text-bakery-orange text-sm font-semibold hover:underline">v-tai.com — OEM →</a>
+      </div>
+    </div>
+
+    <p class="mt-6 text-sm text-bakery-navy/60">For our full corporate product line, visit our brand site <a href="https://v-tai.com" class="underline">v-tai.com</a>.</p>
+  </div>
+</section>
+
+<!-- What we believe -->
+<section class="section">
+  <div class="container-prose">
+    <h2 class="mb-4">What We Believe</h2>
+    <ul class="space-y-4">
+      <li class="card">
+        <p class="font-bold text-bakery-orange">1. Small bakeries deserve good equipment.</p>
+        <p class="mt-2 text-bakery-navy/80">The premium commercial-kitchen market has long ignored the small operator. We design for the bakery owner, not the corporate procurement team. Our entry-level machine starts at $4,400 FOB and delivers the same CE-certified safety standards as units that retail for 2–3× the price.</p>
+      </li>
+      <li class="card">
+        <p class="font-bold text-bakery-orange">2. Honest pricing builds trust.</p>
+        <p class="mt-2 text-bakery-navy/80">We publish our prices. We respond to inquiries within 12 hours. We tell you what shipping will cost before you commit. For 18 major markets, we quote a <a href="/pricing/by-country/" class="underline">single DDP landed price in local currency</a> — no surprise freight forwarder invoices, no customs broker fees, no last-mile mystery.</p>
+      </li>
+      <li class="card">
+        <p class="font-bold text-bakery-orange">3. The tray dictates the machine.</p>
+        <p class="mt-2 text-bakery-navy/80">If your dishwasher doesn't fit your tray, every other feature is irrelevant. The JD-3 chamber was sized around the 600×400 mm European Bakery Norm from day one — that's the standard used by Convotherm, Rational, Unox, and every other modern combi-oven brand. Most competing washers in this price class still use 500×500 mm racks that cannot fit the standard.</p>
+      </li>
+      <li class="card">
+        <p class="font-bold text-bakery-orange">4. Service follows the sale, globally.</p>
+        <p class="mt-2 text-bakery-navy/80">We ship spare parts via DHL/FedEx within 5 business days to any country. The full circuit diagram travels inside each machine for any local electrician to use. We commit to parts availability for 7+ years from purchase date. No "your model is discontinued" surprises.</p>
+      </li>
+      <li class="card">
+        <p class="font-bold text-bakery-orange">5. Engineering &gt; marketing.</p>
+        <p class="mt-2 text-bakery-navy/80">We don't manufacture by license from a Western brand. The JD-3 was designed and engineered in Shenzhen using French Schneider Electric components, German DIN-standard fasteners, and Pearl-River-Delta supply-chain depth. Our cost advantage isn't from cutting corners — it's from cutting middlemen.</p>
+      </li>
     </ul>
+  </div>
+</section>
 
-    <h2 class="mt-10 mb-3">Manufacturing Facts</h2>
-    <ul class="space-y-2 text-bakery-navy/80 list-disc list-inside">
-      <li><strong>Facility size:</strong> 8,000 m² smart manufacturing base</li>
-      <li><strong>Annual production capacity:</strong> 12,000 commercial dishwasher units</li>
-      <li><strong>Defect rate:</strong> &lt;3% (industry-leading)</li>
-      <li><strong>Component sourcing:</strong> 92% vertically controlled supply chain</li>
-      <li><strong>Cost advantage:</strong> significantly lower than equivalent premium brands</li>
-      <li><strong>Waste reduction:</strong> 25% lower waste than industry average</li>
-      <li><strong>Turnaround speed:</strong> 30% faster than industry average</li>
-      <li><strong>Certifications:</strong> ISO 9001, GMP, CE, FDA-compliant production materials</li>
+<!-- Manufacturing facts -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="mb-6 text-center">Manufacturing Facts</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="card text-center">
+        <p class="text-3xl font-bold text-bakery-orange">8,000 m²</p>
+        <p class="text-sm text-bakery-navy/70 mt-2">Smart manufacturing base</p>
+      </div>
+      <div class="card text-center">
+        <p class="text-3xl font-bold text-bakery-orange">12,000</p>
+        <p class="text-sm text-bakery-navy/70 mt-2">Annual production capacity</p>
+      </div>
+      <div class="card text-center">
+        <p class="text-3xl font-bold text-bakery-orange">&lt;3%</p>
+        <p class="text-sm text-bakery-navy/70 mt-2">Defect rate (industry-leading)</p>
+      </div>
+      <div class="card text-center">
+        <p class="text-3xl font-bold text-bakery-orange">92%</p>
+        <p class="text-sm text-bakery-navy/70 mt-2">Vertically controlled supply chain</p>
+      </div>
+      <div class="card text-center">
+        <p class="text-3xl font-bold text-bakery-orange">60+</p>
+        <p class="text-sm text-bakery-navy/70 mt-2">Countries served</p>
+      </div>
+      <div class="card text-center">
+        <p class="text-3xl font-bold text-bakery-orange">10+</p>
+        <p class="text-sm text-bakery-navy/70 mt-2">Years as certified manufacturer</p>
+      </div>
+      <div class="card text-center">
+        <p class="text-3xl font-bold text-bakery-orange">25%</p>
+        <p class="text-sm text-bakery-navy/70 mt-2">Waste reduction (vs industry avg)</p>
+      </div>
+      <div class="card text-center">
+        <p class="text-3xl font-bold text-bakery-orange">30%</p>
+        <p class="text-sm text-bakery-navy/70 mt-2">Faster turnaround vs industry</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section class="section">
+  <div class="container-prose">
+    <h2 class="mb-4">Certifications &amp; Standards</h2>
+    <ul class="space-y-3">
+      <li class="flex gap-3"><span class="text-bakery-orange font-bold">✓</span> <span><strong>CE Safety</strong> — full EU compliance, accepted globally including most US states, GCC, APAC, LATAM, Africa</span></li>
+      <li class="flex gap-3"><span class="text-bakery-orange font-bold">✓</span> <span><strong>ISO 9001:2015</strong> — quality management system certified by an internationally accredited body</span></li>
+      <li class="flex gap-3"><span class="text-bakery-orange font-bold">✓</span> <span><strong>GMP</strong> production standards</span></li>
+      <li class="flex gap-3"><span class="text-bakery-orange font-bold">✓</span> <span><strong>FDA-compliant materials</strong> — all food-contact surfaces meet US FDA food-contact regulations</span></li>
+      <li class="flex gap-3"><span class="text-bakery-orange font-bold">✓</span> <span><strong>NSF temperature standard</strong> met — final rinse maintained at &gt;82°C automatically per NSF/ANSI 3</span></li>
+      <li class="flex gap-3"><span class="text-bakery-orange font-bold">✓</span> <span><strong>SUS304 stainless steel</strong> — food-grade alloy throughout the machine, the same alloy used in commercial counters and food processing equipment</span></li>
     </ul>
+  </div>
+</section>
 
-    <h2 class="mt-10 mb-3">Where We Ship</h2>
-    <p>We ship globally. Major markets we currently serve: European Union (all member states), United Kingdom, GCC (UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, Oman), broader Middle East (Egypt, Jordan, Morocco), Russia and CIS countries, Thailand, Vietnam, Singapore, Malaysia, Indonesia, Philippines, Japan, South Korea, Australia, New Zealand, Brazil, Argentina, Chile, Colombia, Peru, Mexico, South Africa, Kenya, Nigeria, and the United States.</p>
+<!-- Where we ship -->
+<section class="section bg-bakery-cream">
+  <div class="container-prose">
+    <h2 class="mb-4">Where We Ship</h2>
+    <p>We ship to every populated continent. Major markets we currently serve with regular dispatches:</p>
+    <div class="grid md:grid-cols-2 gap-4 mt-4">
+      <div>
+        <p class="font-semibold text-bakery-navy">North America</p>
+        <p class="text-sm text-bakery-navy/70">United States, Canada, Mexico</p>
+      </div>
+      <div>
+        <p class="font-semibold text-bakery-navy">Europe</p>
+        <p class="text-sm text-bakery-navy/70">UK, Germany, France, Spain, Italy, Netherlands, Russia, Ukraine, all EU member states</p>
+      </div>
+      <div>
+        <p class="font-semibold text-bakery-navy">GCC &amp; Middle East</p>
+        <p class="text-sm text-bakery-navy/70">UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, Oman, Egypt, Jordan, Morocco</p>
+      </div>
+      <div>
+        <p class="font-semibold text-bakery-navy">Asia-Pacific</p>
+        <p class="text-sm text-bakery-navy/70">Thailand, Vietnam, Singapore, Malaysia, Indonesia, Philippines, Japan, South Korea, Australia, New Zealand</p>
+      </div>
+      <div>
+        <p class="font-semibold text-bakery-navy">Latin America</p>
+        <p class="text-sm text-bakery-navy/70">Brazil, Argentina, Chile, Colombia, Peru</p>
+      </div>
+      <div>
+        <p class="font-semibold text-bakery-navy">Africa</p>
+        <p class="text-sm text-bakery-navy/70">South Africa, Kenya, Nigeria</p>
+      </div>
+    </div>
+    <p class="mt-6"><a href="/pricing/by-country/" class="underline text-bakery-orange font-semibold">See DDP landed pricing for 18 countries →</a></p>
+  </div>
+</section>
 
-    <h2 class="mt-10 mb-3">How to Reach Us</h2>
-    <ul class="space-y-2 text-bakery-navy/80">
-      <li><strong>Email:</strong> <a href="mailto:info@v-tai.com" class="underline">info@v-tai.com</a></li>
-      <li><strong>WhatsApp:</strong> <a href="https://wa.me/8613509623269" class="underline">+86 135 0962 3269</a></li>
-      <li><strong>Address:</strong> Room 2202, Global Logistics Services Centre, Longgang, Shenzhen, Guangdong, China</li>
-      <li><strong>Corporate website:</strong> <a href="https://v-tai.com" class="underline">v-tai.com</a></li>
-    </ul>
-
-    <p class="mt-6 text-sm text-bakery-navy/60">Office hours: Monday–Saturday, 9:00 AM–6:30 PM China time (GMT+8). We typically respond to WhatsApp inquiries outside hours within 2–3 hours.</p>
+<!-- Contact -->
+<section class="section">
+  <div class="container-prose">
+    <h2 class="mb-4">How to Reach Us</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card">
+        <h3 class="text-lg mb-2">Email</h3>
+        <p><a href="mailto:info@v-tai.com" class="text-bakery-orange underline">info@v-tai.com</a></p>
+        <p class="text-sm text-bakery-navy/60 mt-2">For technical questions, RFPs, and formal documentation requests.</p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg mb-2">WhatsApp</h3>
+        <p><a href="https://wa.me/8613509623269" class="text-bakery-orange underline">+86 135 0962 3269</a></p>
+        <p class="text-sm text-bakery-navy/60 mt-2">Fastest channel — English, Chinese, Spanish supported. Typically respond within 2–3 hours.</p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg mb-2">Office &amp; Factory</h3>
+        <p class="text-bakery-navy">Room 2202, Global Logistics Services Centre,<br />Longgang, Shenzhen, Guangdong, China</p>
+        <p class="text-sm text-bakery-navy/60 mt-2">Visits by appointment. We can also arrange factory tours of our 8,000 m² production facility.</p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg mb-2">Brand Site</h3>
+        <p><a href="https://v-tai.com" class="text-bakery-orange underline">v-tai.com</a></p>
+        <p class="text-sm text-bakery-navy/60 mt-2">Our broader corporate site with all V-TAI product lines including undercounter, conveyor, and OEM offerings.</p>
+      </div>
+    </div>
+    <p class="mt-6 text-sm text-bakery-navy/60">Office hours: Monday–Saturday, 9:00 AM–6:30 PM China Standard Time (GMT+8). WhatsApp messages outside hours typically receive a reply within 2–3 hours.</p>
   </div>
 </section>
 

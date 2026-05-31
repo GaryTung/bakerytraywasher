@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import PriceCalloutBox from '../../../components/PriceCalloutBox.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'fr' as const;
+---
+<BaseLayout title="JD-3 Pricing — From $4,400 FOB" description="Honest pricing for V-TAI JD-3." locale={locale} canonicalPath="/pricing/" schemaType="Product">
+<BreadcrumbNav items={[{label:'Home',href:'/fr/'},{label:'Pricing'}]} />
+<section class="section"><div class="container-page">
+<h1 class="text-center mb-4">Honest, Transparent Pricing</h1>
+<div class="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+<div class="card"><h3>Standard JD-3</h3><p class="text-3xl font-bold text-bakery-orange">$4,400</p><p class="text-xs text-bakery-navy/60">FOB Shenzhen</p></div>
+<div class="card border-2 border-bakery-orange"><h3>+ Auto Detergent</h3><p class="text-3xl font-bold text-bakery-orange">$4,600</p></div>
+<div class="card"><h3>+ Heat Recovery</h3><p class="text-3xl font-bold text-bakery-orange">$4,900</p></div>
+</div>
+<div class="mt-6 max-w-md mx-auto"><PriceCalloutBox locale={locale} /></div>
+<div class="mt-10 text-center"><a href="/fr/pricing/by-country/" class="btn-primary">See DDP Landed Prices by Country (18 markets)</a></div>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

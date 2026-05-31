@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'vi' as const;
+const cases = [
+  { slug: 'seoul-cafe-chain', name: 'Seoul Café Chain', loc: 'Seoul, South Korea', savings: '$120,000/yr' },
+  { slug: 'melbourne-patisserie', name: 'Melbourne Patisserie', loc: 'Melbourne, Australia', savings: '$5,200/yr' },
+  { slug: 'dubai-hotel-pastry', name: 'Dubai Hotel Pastry', loc: 'Dubai, UAE', savings: '$28,000/yr' },
+  { slug: 'lima-bakery-chain', name: 'Lima Bakery Chain', loc: 'Lima, Peru', savings: '$48,000/yr' },
+];
+---
+<BaseLayout title="Case Studies | JD-3" description="Real bakery deployments of the V-TAI JD-3." locale={locale} canonicalPath="/case-studies/" schemaType="Article">
+<BreadcrumbNav items={[{label:'Home',href:'/vi/'},{label:'Case Studies'}]} />
+<section class="section"><div class="container-page">
+<h1 class="mb-4 text-center">Case Studies</h1>
+<p class="text-center mb-10">Anonymized but concrete deployments — 4 operations, 4 geographies, same core economics.</p>
+<div class="grid sm:grid-cols-2 gap-6">
+{cases.map((c) => (
+  <a href={`/vi/case-studies/${c.slug}/`} class="card hover:scale-[1.02] transition">
+    <h3 class="mb-1">{c.name}</h3>
+    <p class="text-sm text-bakery-navy/60 mb-2">{c.loc}</p>
+    <p class="text-bakery-orange font-semibold">Annual savings: {c.savings}</p>
+  </a>
+))}
+</div>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>
