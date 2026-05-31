@@ -3,19 +3,22 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import PriceCalloutBox from '../../../components/PriceCalloutBox.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'ru' as const;
 ---
-<BaseLayout title="JD-3 Pricing — From $4,400 FOB" description="Honest pricing for V-TAI JD-3." locale={locale} canonicalPath="/pricing/" schemaType="Product">
-<BreadcrumbNav items={[{label:'Home',href:'/ru/'},{label:'Pricing'}]} />
+<BaseLayout title="Цены JD-3 — от $4 400 FOB" description="Прозрачные цены на V-TAI JD-3." locale={locale} canonicalPath="/pricing/" schemaType="Product">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/ru/'},{label: t(locale,'nav.pricing')}]} />
 <section class="section"><div class="container-page">
-<h1 class="text-center mb-4">Honest, Transparent Pricing</h1>
+<h1 class="text-center mb-4">Честные, прозрачные цены</h1>
+<p class="text-center text-bakery-navy/70 mb-10 max-w-2xl mx-auto">Без скрытых сборов. Вот точно, сколько стоит JD-3.</p>
 <div class="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
-<div class="card"><h3>Standard JD-3</h3><p class="text-3xl font-bold text-bakery-orange">$4,400</p><p class="text-xs text-bakery-navy/60">FOB Shenzhen</p></div>
-<div class="card border-2 border-bakery-orange"><h3>+ Auto Detergent</h3><p class="text-3xl font-bold text-bakery-orange">$4,600</p></div>
-<div class="card"><h3>+ Heat Recovery</h3><p class="text-3xl font-bold text-bakery-orange">$4,900</p></div>
+<div class="card"><h3>JD-3 Стандарт</h3><p class="text-3xl font-bold text-bakery-orange">$4 400</p><p class="text-xs text-bakery-navy/60 mb-3">FOB Шэньчжэнь</p><p class="text-sm">Базовая конфигурация. 380V/3N/50Hz. Включает 2 корзины, инструменты, инструкцию, сертификат CE.</p></div>
+<div class="card border-2 border-bakery-orange"><p class="eyebrow text-bakery-orange mb-1">★ Самый популярный</p><h3>+ Автодозатор</h3><p class="text-3xl font-bold text-bakery-orange">$4 600</p><p class="text-sm">Автоматический насос моющего средства и ополаскивателя. Устраняет ручное дозирование.</p></div>
+<div class="card"><h3>+ Рекуперация тепла</h3><p class="text-3xl font-bold text-bakery-orange">$4 900</p><p class="text-sm">Расширенный модуль: горячая вода из финального ополаскивания идёт в основной бак. Экономия энергии 15–25%.</p></div>
 </div>
-<div class="mt-6 max-w-md mx-auto"><PriceCalloutBox locale={locale} /></div>
-<div class="mt-10 text-center"><a href="/ru/pricing/by-country/" class="btn-primary">See DDP Landed Prices by Country (18 markets)</a></div>
+<p class="text-center mt-6 text-sm text-bakery-navy/60">Все цены в USD, FOB Шэньчжэнь. Стоимость доставки и пошлины зависят от страны.</p>
+<div class="mt-10 max-w-md mx-auto"><PriceCalloutBox locale={locale} /></div>
+<div class="mt-10 text-center"><a href="/ru/pricing/by-country/" class="btn-primary">Цены DDP по странам (18 рынков)</a></div>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

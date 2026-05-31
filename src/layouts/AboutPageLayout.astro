@@ -1,0 +1,163 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import TrustBadgeStrip from '../components/TrustBadgeStrip.astro';
+import CTASection from '../components/CTASection.astro';
+import { type Locale, t, localizePath } from '../i18n/utils';
+import { aboutContent } from '../i18n/about-content';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+}
+const { locale, title, description } = Astro.props;
+const a = aboutContent[locale];
+const lp = (p: string) => localizePath(p, locale);
+const linkPrefix = locale === 'en' ? '' : `/${locale}`;
+// Replace {LP} placeholders in localized HTML strings with the locale prefix
+const sub = (s: string) => s.replace(/\{LP\}/g, linkPrefix);
+
+// Manufacturing facts numbers (same across all locales — they're brand stats)
+const factNumbers = ['8,000 m²', '12,000', '<3%', '92%', '60+', '10+', '25%', '30%'];
+---
+<BaseLayout title={title} description={description} locale={locale} canonicalPath="/about/" schemaType="Organization">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href: lp('/')}, {label: t(locale,'nav.about')}]} />
+
+<!-- Hero -->
+<section class="section bg-gradient-to-br from-bakery-cream via-white to-bakery-cream/50">
+  <div class="container-page grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="eyebrow mb-2">{a.heroEyebrow}</p>
+      <h1 class="mb-4">{a.heroTitle}</h1>
+      <p class="text-lg text-bakery-navy/80 mb-4" set:html={sub(a.heroP1)} />
+      <p class="text-lg text-bakery-navy/80" set:html={sub(a.heroP2)} />
+    </div>
+    <ImagePlaceholder src="/images/jd-3-hero.webp" alt="V-TAI 8,000 m² smart manufacturing facility" ratio="4/3" label="V-TAI factory" />
+  </div>
+</section>
+
+<TrustBadgeStrip locale={locale} />
+
+<!-- Story -->
+<section class="section">
+  <div class="container-prose">
+    <h2 class="mb-4">{a.storyHeading}</h2>
+    <p>{a.storyP1}</p>
+    <p class="mt-4">{a.storyP2}</p>
+    <p class="mt-4">{a.storyP3}</p>
+    <p class="mt-4" set:html={sub(a.storyP4)} />
+  </div>
+</section>
+
+<!-- Sister product line -->
+<section class="section bg-bakery-cream">
+  <div class="container-prose">
+    <h2 class="mb-4">{a.sisterHeading}</h2>
+    <p>{a.sisterIntro}</p>
+    <div class="grid md:grid-cols-2 gap-6 mt-6">
+      {a.sisterCards.map((card) => (
+        <div class="card">
+          <p class="eyebrow mb-1">{card.eyebrow}</p>
+          <h3 class="mb-2">{card.title}</h3>
+          <p class="text-sm text-bakery-navy/70 mb-3" set:html={sub(card.body)} />
+          <a href={sub(card.ctaHref)} class="text-bakery-orange text-sm font-semibold hover:underline">{card.ctaLabel}</a>
+        </div>
+      ))}
+    </div>
+    <p class="mt-6 text-sm text-bakery-navy/60" set:html={sub(a.sisterFooter)} />
+  </div>
+</section>
+
+<!-- Beliefs -->
+<section class="section">
+  <div class="container-prose">
+    <h2 class="mb-4">{a.believeHeading}</h2>
+    <ul class="space-y-4">
+      {a.beliefs.map((b) => (
+        <li class="card">
+          <p class="font-bold text-bakery-orange">{b.heading}</p>
+          <p class="mt-2 text-bakery-navy/80" set:html={sub(b.body)} />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- Manufacturing facts -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="mb-6 text-center">{a.factsHeading}</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {a.factsLabels.map((label, i) => (
+        <div class="card text-center">
+          <p class="text-3xl font-bold text-bakery-orange" set:html={factNumbers[i]} />
+          <p class="text-sm text-bakery-navy/70 mt-2">{label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section class="section">
+  <div class="container-prose">
+    <h2 class="mb-4">{a.certHeading}</h2>
+    <ul class="space-y-3">
+      {a.certItems.map((item) => (
+        <li class="flex gap-3"><span class="text-bakery-orange font-bold">✓</span> <span set:html={item} /></li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- Where we ship -->
+<section class="section bg-bakery-cream">
+  <div class="container-prose">
+    <h2 class="mb-4">{a.shipHeading}</h2>
+    <p>{a.shipIntro}</p>
+    <div class="grid md:grid-cols-2 gap-4 mt-4">
+      {a.shipRegions.map((r) => (
+        <div>
+          <p class="font-semibold text-bakery-navy">{r.name}</p>
+          <p class="text-sm text-bakery-navy/70">{r.countries}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-6" set:html={sub(a.shipFooter)} />
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section">
+  <div class="container-prose">
+    <h2 class="mb-4">{a.contactHeading}</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card">
+        <h3 class="text-lg mb-2">{a.contactEmailTitle}</h3>
+        <p><a href="mailto:info@v-tai.com" class="text-bakery-orange underline">info@v-tai.com</a></p>
+        <p class="text-sm text-bakery-navy/60 mt-2">{a.contactEmailNote}</p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg mb-2">{a.contactWaTitle}</h3>
+        <p><a href="https://wa.me/8613509623269" class="text-bakery-orange underline">+86 135 0962 3269</a></p>
+        <p class="text-sm text-bakery-navy/60 mt-2">{a.contactWaNote}</p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg mb-2">{a.contactOfficeTitle}</h3>
+        <p class="text-bakery-navy">Room 2202, Global Logistics Services Centre,<br />Longgang, Shenzhen, Guangdong, China</p>
+        <p class="text-sm text-bakery-navy/60 mt-2">{a.contactOfficeNote}</p>
+      </div>
+      <div class="card">
+        <h3 class="text-lg mb-2">{a.contactBrandTitle}</h3>
+        <p><a href="https://v-tai.com" class="text-bakery-orange underline">v-tai.com</a></p>
+        <p class="text-sm text-bakery-navy/60 mt-2">{a.contactBrandNote}</p>
+      </div>
+    </div>
+    <p class="mt-6 text-sm text-bakery-navy/60">{a.contactHoursNote}</p>
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

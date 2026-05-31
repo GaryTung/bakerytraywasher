@@ -1,31 +1,8 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
-import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
-import CTASection from '../../components/CTASection.astro';
-const locale = 'de' as const;
+import AboutPageLayout from '../../layouts/AboutPageLayout.astro';
 ---
-<BaseLayout title="About V-TAI" description="V-TAI is a 10+ year manufacturer of commercial dishwashers." locale={locale} canonicalPath="/about/" schemaType="Organization">
-<BreadcrumbNav items={[{label:'Home',href:'/de/'},{label:'About'}]} />
-<section class="section"><div class="container-prose">
-<h1 class="mb-4">About V-TAI</h1>
-<p class="text-lg mb-4">Shenzhen Vtai Electrical Appliance Co., Ltd. (V-TAI) is a 10+ year manufacturer of commercial dishwashers, based in the Pearl River Delta, Guangdong, China. We produce ~12,000 commercial units annually for customers in 60+ countries.</p>
-<p class="mt-4">The JD-3 bakery tray washer is one product in our broader commercial line. We also build roll-in rack washers, undercounter washers, conveyor systems, and OEM custom lines.</p>
-<h2 class="mt-8 mb-3">Manufacturing</h2>
-<ul class="space-y-2 list-disc list-inside">
-<li>8,000 m² smart manufacturing base</li>
-<li>12,000 units/year production capacity</li>
-<li>&lt;3% defect rate</li>
-<li>92% vertically controlled supply chain</li>
-<li>ISO 9001, CE, GMP certifications</li>
-</ul>
-<h2 class="mt-8 mb-3">Contact</h2>
-<ul class="space-y-2">
-<li>Email: <a href="mailto:info@v-tai.com" class="underline">info@v-tai.com</a></li>
-<li>WhatsApp: <a href="https://wa.me/8613509623269" class="underline">+86 135 0962 3269</a></li>
-<li>Brand site: <a href="https://v-tai.com" class="underline">v-tai.com</a></li>
-</ul>
-</div></section>
-<TrustBadgeStrip locale={locale} />
-<CTASection locale={locale} />
-</BaseLayout>
+<AboutPageLayout
+  locale="de"
+  title="Über V-TAI — Der Hersteller gewerblicher Spülmaschinen hinter der JD-3"
+  description="Shenzhen Vtai Electrical Appliance Co., Ltd. ist seit über 10 Jahren Hersteller gewerblicher Spülmaschinen — Bäckerei-Haubenspülmaschinen, Roll-in-Rack, Untertheken — im Perlflussdelta, China. ISO 9001 zertifiziert, CE-konform, 8.000 m² Smart-Manufacturing-Anlage."
+/>

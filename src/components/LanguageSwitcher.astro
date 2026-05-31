@@ -13,14 +13,19 @@ const available = getTranslatedLocales(canonicalPath);
     <span>{languages[currentLocale]}</span>
     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
   </button>
-  <div class="absolute right-0 top-full mt-1 bg-white shadow-card-hover rounded-card py-2 min-w-[160px] hidden group-hover:block z-50">
-    {available.map((loc) => (
-      <a
-        href={loc === 'en' ? canonicalPath : `/${loc}${canonicalPath}`}
-        class={`block px-4 py-2 text-sm hover:bg-bakery-cream ${loc === currentLocale ? 'font-bold text-bakery-orange' : 'text-bakery-navy'}`}
-      >
-        {languages[loc]}
-      </a>
-    ))}
+  {/* No gap between button and dropdown: top-full sits flush with button bottom,
+      pt-2 inside the panel acts as the "bridge" so the hover state never drops
+      between the trigger and the menu items. */}
+  <div class="absolute right-0 top-full pt-2 hidden group-hover:block z-50">
+    <div class="bg-white shadow-card-hover rounded-card py-2 min-w-[160px]">
+      {available.map((loc) => (
+        <a
+          href={loc === 'en' ? canonicalPath : `/${loc}${canonicalPath}`}
+          class={`block px-4 py-2 text-sm hover:bg-bakery-cream ${loc === currentLocale ? 'font-bold text-bakery-orange' : 'text-bakery-navy'}`}
+        >
+          {languages[loc]}
+        </a>
+      ))}
+    </div>
   </div>
 </div>

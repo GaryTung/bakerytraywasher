@@ -1,0 +1,67 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import BreadcrumbNav from '../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import CTASection from '../components/CTASection.astro';
+import { type Locale, t, localizePath } from '../i18n/utils';
+import { caseStudiesContent, csLabels, type CaseStudySlug } from '../i18n/case-studies-content';
+
+interface Props {
+  locale: Locale;
+  slug: CaseStudySlug;
+  title: string;          // SEO title (locale-specific)
+  description: string;
+}
+const { locale, slug, title, description } = Astro.props;
+const lp = (p: string) => localizePath(p, locale);
+const data = caseStudiesContent[locale][slug];
+const labels = csLabels[locale];
+---
+<BaseLayout
+  title={`${title} | bakerytraywasher.com`}
+  description={description}
+  locale={locale}
+  canonicalPath={`/case-studies/${slug}/`}
+  schemaType="Article"
+>
+<BreadcrumbNav items={[
+  {label: t(locale,'nav.home'), href: lp('/')},
+  {label: labels.breadcrumbAll, href: lp('/case-studies/')},
+  {label: data.title}
+]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-3">{data.title}</h1>
+    <p class="text-sm text-bakery-navy/60 mb-6">{data.subheader}</p>
+    <ImagePlaceholder alt={data.imageAlt} ratio="16/9" label={data.imageLabel} />
+
+    {data.sections.map((s) => (
+      <>
+        <h2 class="mt-10 mb-3">{s.heading}</h2>
+        <p set:html={s.body} />
+      </>
+    ))}
+
+    <h2 class="mt-10 mb-3">{data.whyHeading}</h2>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      {data.whyBullets.map((b) => <li set:html={b} />)}
+    </ul>
+
+    <h2 class="mt-10 mb-3">{data.resultsHeading}</h2>
+    <ul class="list-disc list-inside space-y-2 mt-3">
+      {data.resultsBullets.map((b) => <li set:html={b} />)}
+    </ul>
+    {data.payback && <p class="mt-3"><strong>{labels.paybackPrefix}</strong> {data.payback}</p>}
+
+    <h2 class="mt-10 mb-3">{data.quoteHeading}</h2>
+    <TestimonialCard quote={data.quote} author={data.quoteAuthor} role={data.quoteRole} />
+
+    <h2 class="mt-10 mb-3">{data.closingHeading}</h2>
+    <p set:html={data.closingBody} />
+  </div>
+</section>
+
+<CTASection locale={locale} title={data.ctaTitle} subtitle={data.ctaSubtitle} />
+</BaseLayout>

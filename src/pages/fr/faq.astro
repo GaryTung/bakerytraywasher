@@ -3,23 +3,24 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import FAQSection from '../../components/FAQSection.astro';
 import CTASection from '../../components/CTASection.astro';
+import { t } from '../../i18n/utils';
 const locale = 'fr' as const;
 const faqs = [
-  { q: 'What is V-TAI JD-3?', a: 'Hood-type commercial bakery tray washer. Model VT-AE-JD-3.' },
-  { q: 'Price?', a: 'From $4,400 FOB Shenzhen. Up to $4,900 with optional upgrades.' },
-  { q: 'Difference vs other brands?', a: '650×550 mm rack fits 600×400 mm European Bakery Norm trays. Significantly lower cost than premium brands.' },
-  { q: 'Lead time?', a: '4 weeks production + sea/air freight.' },
-  { q: 'Warranty?', a: '12-month manufacturer warranty on parts. Spare parts ship globally within 5 days.' },
-  { q: 'What if it breaks?', a: 'Each machine ships with circuit diagram inside service panel. Regular electrician can repair most issues. Parts shipped globally in 5 days.' },
-  { q: 'Installation?', a: 'Receive machine, follow video tutorial, connect water + electricity. 1-2 hours typical.' },
-  { q: 'Ships to my country?', a: 'Yes. See DDP pricing page for 18 markets in local currency.' },
+  { q: "Qu'est-ce que le V-TAI JD-3 ?", a: "Lave-vaisselle commercial à capot pour plaques de boulangerie. Modèle VT-AE-JD-3." },
+  { q: 'Prix ?', a: "À partir de 4 400 $ FOB Shenzhen. Jusqu'à 4 900 $ avec options (doseur de produit automatique, récupération de chaleur)." },
+  { q: 'Différence avec les autres marques ?', a: 'Le rack 650×550 mm accepte les plaques 600×400 mm (norme EN 631 / DIN 18876) — le standard des fours Rational, Convotherm, Unox, MIWE. Prix nettement inférieur aux marques premium au même niveau de certification CE.' },
+  { q: 'Délai de livraison ?', a: '4 semaines de production à Shenzhen, plus fret maritime (20–35 jours selon destination) ou aérien (3–7 jours, plus cher).' },
+  { q: 'Garantie ?', a: 'Garantie fabricant de 12 mois sur les pièces. Pièces détachées expédiées mondialement sous 5 jours ouvrés.' },
+  { q: "Que se passe-t-il en cas de panne ?", a: "Chaque machine est livrée avec le schéma électrique à l'intérieur du panneau de service. Un électricien généraliste peut réparer la plupart des problèmes. Pièces expédiées mondialement sous 5 jours." },
+  { q: 'Installation ?', a: 'Recevez la machine, suivez le tutoriel vidéo, raccordez eau + électricité. 1–2 heures généralement. Aucun technicien spécialisé requis.' },
+  { q: 'Livraison dans mon pays ?', a: "Oui. Voir la page de tarification DDP pour 18 marchés en monnaie locale. Si votre pays n'est pas listé, demandez un devis personnalisé — nous répondons sous 12 heures." },
 ];
 ---
-<BaseLayout title="FAQ | JD-3" description="Common questions about V-TAI JD-3." locale={locale} canonicalPath="/faq/" schemaType="FAQPage">
-<BreadcrumbNav items={[{label:'Home',href:'/fr/'},{label:'FAQ'}]} />
+<BaseLayout title={`${t(locale,'nav.faq')} | JD-3`} description="Questions fréquentes sur V-TAI JD-3." locale={locale} canonicalPath="/faq/" schemaType="FAQPage">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/fr/'},{label: t(locale,'nav.faq')}]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4 text-center">Frequently Asked Questions</h1>
+<h1 class="mb-4 text-center">Questions Fréquentes</h1>
 </div></section>
-<FAQSection items={faqs} title="" />
+<FAQSection items={faqs} title="" locale={locale} />
 <CTASection locale={locale} />
 </BaseLayout>
