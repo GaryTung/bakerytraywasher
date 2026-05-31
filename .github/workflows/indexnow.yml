@@ -1,0 +1,47 @@
+name: IndexNow submission
+
+# Submits the production sitemap URLs to IndexNow so Bing, Yandex,
+# Seznam, Naver, and Yep are notified of changes.
+#
+# Triggers:
+#   - Automatically every push to main that touches src/ or public/
+#   - Manually via the "Run workflow" button in the Actions tab
+#
+# Why GitHub Actions: IndexNow endpoints (Bing, Yandex, api.indexnow.org)
+# are unreachable from networks behind the Great Firewall, so the
+# submission runs from GitHub's US/EU infrastructure instead of the
+# author's local machine.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'astro.config.*'
+  workflow_dispatch:
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Build site
+        run: npm run build
+
+      - name: Wait 90s for Cloudflare Pages deploy to propagate
+        run: sleep 90
+
+      - name: Submit URLs to IndexNow
+        run: npm run indexnow

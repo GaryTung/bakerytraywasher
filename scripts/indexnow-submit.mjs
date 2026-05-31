@@ -15,16 +15,23 @@
  *   node scripts/indexnow-submit.mjs https://bakerytraywasher.com/blog/foo/
  */
 import { readdir, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { join, dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const HOST = 'bakerytraywasher.com';
 const KEY = 'f3e7a2b8c9d14e6f5a8b3c2d7e9f4a1b';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
-const ENDPOINT = 'https://api.indexnow.org/IndexNow';
+// All these endpoints propagate to all participating search engines.
+// Try Bing first (most reliable globally), then Yandex as fallback.
+const ENDPOINTS = [
+  'https://www.bing.com/indexnow',
+  'https://yandex.com/indexnow',
+  'https://api.indexnow.org/IndexNow',
+];
 const BATCH_SIZE = 10000; // IndexNow allows up to 10,000 URLs per request
 
 async function collectFromSitemaps() {
-  const distDir = new URL('../dist/', import.meta.url).pathname.replace(/^\/([A-Z]:)/, '$1');
+  const distDir = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'dist');
   let files;
   try {
     files = await readdir(distDir);
@@ -46,12 +53,31 @@ async function collectFromSitemaps() {
   return [...urls];
 }
 
+async function submitToEndpoint(endpoint, body) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 30000);
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      body: JSON.stringify(body),
+      signal: controller.signal,
+    });
+    const text = await res.text();
+    return { ok: res.ok || res.status === 202, status: res.status, statusText: res.statusText, body: text };
+  } catch (e) {
+    return { ok: false, error: e.message || String(e) };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function submit(urls) {
   if (urls.length === 0) {
     console.log('No URLs to submit.');
     return;
   }
-  // Batch if necessary
+  let anySuccess = false;
   for (let i = 0; i < urls.length; i += BATCH_SIZE) {
     const batch = urls.slice(i, i + BATCH_SIZE);
     const body = {
@@ -60,28 +86,32 @@ async function submit(urls) {
       keyLocation: KEY_LOCATION,
       urlList: batch,
     };
-    console.log(`Submitting batch ${Math.floor(i / BATCH_SIZE) + 1}: ${batch.length} URLs ...`);
-    const res = await fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json; charset=utf-8' },
-      body: JSON.stringify(body),
-    });
-    const text = await res.text();
-    if (res.ok || res.status === 202) {
-      console.log(`  ✓ ${res.status} ${res.statusText}`);
-    } else {
-      console.error(`  ✗ ${res.status} ${res.statusText} — ${text}`);
-      console.error(`  IndexNow status codes:`);
-      console.error(`    200 / 202 = accepted`);
-      console.error(`    400 = bad request (check key/host)`);
-      console.error(`    403 = key not found at keyLocation`);
-      console.error(`    422 = URL doesn't match host`);
-      console.error(`    429 = rate limited`);
-      process.exit(1);
+    const batchNum = Math.floor(i / BATCH_SIZE) + 1;
+    console.log(`\nBatch ${batchNum}: ${batch.length} URLs`);
+    for (const endpoint of ENDPOINTS) {
+      console.log(`  → ${endpoint} ...`);
+      const r = await submitToEndpoint(endpoint, body);
+      if (r.ok) {
+        console.log(`    ✓ ${r.status} ${r.statusText}`);
+        anySuccess = true;
+      } else if (r.error) {
+        console.log(`    ✗ ${r.error}`);
+      } else {
+        console.log(`    ✗ ${r.status} ${r.statusText} — ${r.body || ''}`);
+      }
     }
   }
-  console.log(`\nDone. Submitted ${urls.length} URLs to IndexNow.`);
-  console.log(`Bing, Yandex, Seznam, Naver, and Yep will fetch the changes.`);
+  if (anySuccess) {
+    console.log(`\nDone. Submitted ${urls.length} URLs. Participating engines propagate to each other,`);
+    console.log(`so even one successful endpoint reaches Bing, Yandex, Seznam, Naver, Yep.`);
+  } else {
+    console.error(`\nAll endpoints failed. Check network access (api.indexnow.org / Bing / Yandex may be blocked).`);
+    console.error(`IndexNow status codes:`);
+    console.error(`  200 / 202 = accepted`);
+    console.error(`  400 = bad request    403 = key not found at keyLocation`);
+    console.error(`  422 = URL/host mismatch    429 = rate limited`);
+    process.exit(1);
+  }
 }
 
 const args = process.argv.slice(2);
