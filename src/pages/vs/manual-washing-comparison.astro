@@ -3,72 +3,49 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import CTASection from '../../components/CTASection.astro';
-import FAQSection from '../../components/FAQSection.astro';
+import { t } from '../../i18n/utils';
+import {
+  vsCards, vsCompareTitle, vsTableLabels,
+  competitorVariesLabel, competitorPriceLabel,
+  whyJd3WinsLabel, whyJd3WinsItems,
+} from '../../i18n/vsdata';
 const locale = 'en' as const;
+const card = vsCards.find((c) => c.slug === 'manual-washing-comparison')!;
 
 const rows = [
-  { label: 'Throughput per hour', jd3: '180 baking trays (6 per cycle × 30 cycles)', competitor: '15–25 items' },
-  { label: 'Final sanitization temp', jd3: '>82°C automatic', competitor: 'Typically 40–55°C tap water' },
-  { label: 'Water per item', jd3: '~150 mL', competitor: '~3–8 L (running tap)' },
-  { label: 'Labor cost / item', jd3: '< $0.02', competitor: '$0.15–$0.40' },
-  { label: 'Health-code consistency', jd3: 'Consistent', competitor: 'Highly variable' },
-  { label: 'Worker injury rate', jd3: 'Near zero', competitor: 'Burns, repetitive-stress, back pain' },
-  { label: 'Capital cost', jd3: '$4,400+ one-time', competitor: '$0 (but labor compounds)' },
+  { label: vsTableLabels.rackSize[locale], jd3: '650×550 mm', competitor: '500×500 mm' },
+  { label: vsTableLabels.fits600[locale], jd3: '✓', competitor: '✗', highlight: true },
+  { label: vsTableLabels.throughput[locale], jd3: '180 / h', competitor: competitorVariesLabel[locale] },
+  { label: vsTableLabels.cycle[locale], jd3: '2 min', competitor: competitorVariesLabel[locale] },
+  { label: vsTableLabels.price[locale], jd3: 'From $4,400 FOB', competitor: competitorPriceLabel[locale] },
 ];
 ---
 <BaseLayout
-  title="JD-3 vs Manual Washing — ROI Comparison"
-  description="The single highest-ROI comparison for bakeries. JD-3 vs 3-bay sink hand-washing: labor cost, water cost, sanitization, payback math."
+  title={`JD-3 ${card.name[locale]}`}
+  description={card.desc[locale]}
   locale={locale}
   canonicalPath="/vs/manual-washing-comparison/"
   schemaType="Article"
 >
-<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Compare', href: '/vs/'}, {label: 'vs Manual Washing'}]} />
+<BreadcrumbNav items={[
+  {label: t(locale, 'nav.home'), href: '/'},
+  {label: t(locale, 'nav.compare'), href: '/vs/'},
+  {label: card.name[locale]}
+]} />
 
-<section class="section">
-  <div class="container-prose">
-    <h1 class="mb-4">JD-3 vs Manual Washing (3-Bay Sink)</h1>
-    <p class="text-lg text-bakery-navy/80 mb-6">This is the comparison most small bakery owners actually face. Not "Hobart vs JD-3" but "buy a dishwasher at all, or keep using the sink?". Here is the honest math.</p>
-  </div>
-  <div class="container-page"><ComparisonTable competitorName="Manual 3-Bay Sink Washing" rows={rows} /></div>
-
-  <div class="container-prose mt-12">
-    <h2 class="mb-3">The Real Cost of Hand-Washing</h2>
-    <p>A typical small bakery washes 150–200 items per day (baking trays, mixing bowls, cake pans, utensils, etc.). At 3 hours of dedicated labor per day at $12–$15/hour, that's $36–$45/day = ~$950/month = ~$11,500/year in labor alone. Add ~$400/year in water and detergent, ~$300/year in hot-water electricity, and the indirect cost of dishwasher staff turnover (recruiting, training).</p>
-    <p class="mt-3"><strong>Total annualized cost of hand-washing in a single-shop bakery: ~$12,500/year, with high labor variance.</strong></p>
-
-    <h2 class="mt-8 mb-3">The Real Cost of a JD-3</h2>
-    <ul class="list-disc list-inside space-y-2 mt-3">
-      <li>Capital: $4,400–$4,900 FOB (one-time)</li>
-      <li>Shipping/duties: $400–$1,500 depending on country</li>
-      <li>Installation: $200–$500 by a local electrician/plumber</li>
-      <li>Annual electricity: ~$300–$500</li>
-      <li>Annual water: ~$200 (vs ~$600 hand-washing)</li>
-      <li>Annual detergent: ~$300</li>
-      <li>Labor: ~30 min/day of an existing employee = ~$2,500/year</li>
-    </ul>
-    <p class="mt-3"><strong>Year 1 total: ~$6,700. Year 2+ annual: ~$4,900.</strong></p>
-
-    <h2 class="mt-8 mb-3">Payback Math</h2>
-    <p>Annual savings ($12,500 hand-wash cost − $4,900 ongoing JD-3 cost) = $9,200/year saved.</p>
-    <p class="mt-3">Year 1 net cost ($6,700) − Year 1 savings ($9,200) = <strong>$2,500 positive cash flow in Year 1</strong>.</p>
-    <p class="mt-3">Or another way: $5,500 (machine + shipping + install) ÷ $9,200 annual savings = <strong>4.6 months simple payback</strong>.</p>
-
-    <h2 class="mt-8 mb-3">Beyond the Numbers</h2>
-    <ul class="list-disc list-inside space-y-2 mt-3">
-      <li>Consistent health-code compliance (82°C sanitization is automatic, not "if the dishwasher remembered to heat the water")</li>
-      <li>Lower workplace injury risk (no burns from boiling water, no repetitive-stress from scrubbing)</li>
-      <li>Better staff retention (the dish-pit role becomes load/unload rather than scrub-for-3-hours)</li>
-      <li>Capacity to grow your operation without hiring proportionally more dishwashing labor</li>
-    </ul>
-  </div>
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">JD-3 {card.name[locale]}</h1>
+<p class="text-lg mb-6">{card.desc[locale]}</p>
+</div>
+<div class="container-page"><ComparisonTable competitorName="—" rows={rows} /></div>
 </section>
 
-<FAQSection items={[
-  { q: 'My bakery is small — do I really need a commercial dishwasher?', a: 'If you wash more than 80 items/day, yes — the math works in less than 12 months. If you wash 30 items/day, hand-washing remains more economical.' },
-  { q: 'I currently have a part-time dishwasher who needs the job. Will I have to fire them?', a: 'Most bakeries that buy a JD-3 reassign that person to baking prep, decorating, or front-of-house. Total payroll typically stays flat; productivity per worker rises significantly.' },
-  { q: 'Can I lease instead of buying?', a: 'We sell direct. For lease financing, talk to your local commercial-kitchen finance broker. Most can finance a $4,600 unit easily.' },
-]} />
+<section class="section"><div class="container-prose">
+<h2 class="mb-3">{whyJd3WinsLabel[locale]}</h2>
+<ul class="list-disc list-inside space-y-2">
+  {whyJd3WinsItems[locale].map((line) => <li>{line}</li>)}
+</ul>
+</div></section>
 
 <CTASection locale={locale} />
 </BaseLayout>

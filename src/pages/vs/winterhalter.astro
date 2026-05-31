@@ -3,58 +3,49 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import CTASection from '../../components/CTASection.astro';
-import FAQSection from '../../components/FAQSection.astro';
+import { t } from '../../i18n/utils';
+import {
+  vsCards, vsCompareTitle, vsTableLabels,
+  competitorVariesLabel, competitorPriceLabel,
+  whyJd3WinsLabel, whyJd3WinsItems,
+} from '../../i18n/vsdata';
 const locale = 'en' as const;
+const card = vsCards.find((c) => c.slug === 'winterhalter')!;
 
 const rows = [
-  { label: 'Throughput', jd3: '180 trays/hr', competitor: '60 racks/hr (published)' },
-  { label: 'Rack size', jd3: '650 × 550 mm', competitor: '500 × 500 mm' },
-  { label: 'Fits 600×400 bakery trays', jd3: '✓ Yes', competitor: '✗ No', highlight: true },
-  { label: 'Water per cycle', jd3: '2.5 L', competitor: '2.4 L' },
-  { label: 'Construction', jd3: 'SUS304', competitor: 'SUS304' },
-  { label: 'Certifications', jd3: 'CE, ISO 9001', competitor: 'CE, German engineering' },
-  { label: 'Made in', jd3: 'China', competitor: 'Germany' },
-  { label: 'Price', jd3: '$4,400–$4,900 FOB', competitor: 'Significantly higher (retail)' },
+  { label: vsTableLabels.rackSize[locale], jd3: '650×550 mm', competitor: '500×500 mm' },
+  { label: vsTableLabels.fits600[locale], jd3: '✓', competitor: '✗', highlight: true },
+  { label: vsTableLabels.throughput[locale], jd3: '180 / h', competitor: competitorVariesLabel[locale] },
+  { label: vsTableLabels.cycle[locale], jd3: '2 min', competitor: competitorVariesLabel[locale] },
+  { label: vsTableLabels.price[locale], jd3: 'From $4,400 FOB', competitor: competitorPriceLabel[locale] },
 ];
 ---
 <BaseLayout
-  title="JD-3 vs Winterhalter UC-M/UC-L — Hood Dishwasher Comparison"
-  description="Winterhalter is the German premium standard. JD-3 delivers comparable CE-certified performance at significantly lower cost — and fits 600×400 mm bakery trays."
+  title={`JD-3 ${card.name[locale]}`}
+  description={card.desc[locale]}
   locale={locale}
   canonicalPath="/vs/winterhalter/"
   schemaType="Article"
 >
-<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Compare', href: '/vs/'}, {label: 'vs Winterhalter'}]} />
+<BreadcrumbNav items={[
+  {label: t(locale, 'nav.home'), href: '/'},
+  {label: t(locale, 'nav.compare'), href: '/vs/'},
+  {label: card.name[locale]}
+]} />
 
-<section class="section">
-  <div class="container-prose">
-    <h1 class="mb-4">JD-3 vs Winterhalter UC-M / UC-L</h1>
-    <p class="text-lg text-bakery-navy/80 mb-6">Winterhalter is German engineering at its premium. The JD-3 cannot match the Winterhalter service network or brand cachet — but it can match the certifications, beat the rack size, and deliver significant capex savings.</p>
-  </div>
-  <div class="container-page"><ComparisonTable competitorName="Winterhalter UC-M/UC-L" rows={rows} /></div>
-
-  <div class="container-prose mt-12">
-    <h2 class="mb-3">Where Winterhalter wins</h2>
-    <p>Brand prestige in European hospitality, dense European service network, exceptional German engineering refinement. If you operate a Michelin-starred restaurant in Munich, Winterhalter is the safe choice and the prestige matters.</p>
-
-    <h2 class="mt-8 mb-3">Where JD-3 wins</h2>
-    <ul class="list-disc list-inside space-y-2">
-      <li>Larger rack — fits 600×400 mm trays</li>
-      <li>Significantly lower capex at equivalent CE certifications</li>
-      <li>Lead time advantage (4–6 weeks vs Winterhalter's 8–12 weeks for non-EU markets)</li>
-      <li>For non-European deployments, JD-3's CE-certified compliance is more relevant than Winterhalter's home-market brand</li>
-    </ul>
-
-    <h2 class="mt-8 mb-3">Honest take</h2>
-    <p>Winterhalter is a better machine in absolute engineering terms. The JD-3 is a better value. The question is whether the additional premium-brand spend delivers proportional additional benefit to your specific operation. For most small commercial kitchens outside Germany, the answer is no.</p>
-  </div>
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">JD-3 {card.name[locale]}</h1>
+<p class="text-lg mb-6">{card.desc[locale]}</p>
+</div>
+<div class="container-page"><ComparisonTable competitorName="—" rows={rows} /></div>
 </section>
 
-<FAQSection items={[
-  { q: 'Is JD-3 a copy of Winterhalter?', a: 'No. The JD-3 was designed in Shenzhen with Schneider Electric components, not copied from any specific brand.' },
-  { q: 'Will my Winterhalter chemicals work in JD-3?', a: 'Yes — JD-3 uses standard commercial low-foam detergent and rinse aid. No proprietary chemistry.' },
-  { q: 'Resale value vs Winterhalter?', a: 'Winterhalter holds resale value significantly better. If you plan to resell within 5 years, this matters.' },
-]} />
+<section class="section"><div class="container-prose">
+<h2 class="mb-3">{whyJd3WinsLabel[locale]}</h2>
+<ul class="list-disc list-inside space-y-2">
+  {whyJd3WinsItems[locale].map((line) => <li>{line}</li>)}
+</ul>
+</div></section>
 
 <CTASection locale={locale} />
 </BaseLayout>

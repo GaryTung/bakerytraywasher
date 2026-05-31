@@ -2,40 +2,29 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import CTASection from '../../components/CTASection.astro';
-
+import { t } from '../../i18n/utils';
+import { vsCards, vsIntro, vsCompareTitle } from '../../i18n/vsdata';
 const locale = 'en' as const;
-
-const comparisons = [
-  { slug: 'hobart-amx', name: 'vs US Category Leader', desc: 'JD-3 vs the leading US hood-type bakery dishwasher brand. Significantly lower capex, fits 600×400 bakery trays.' },
-  { slug: 'jackson-tempstar', name: 'vs US Mid-Tier Workhorse', desc: 'JD-3 vs a popular mid-tier US hood-type model. Lower capex, larger chamber.' },
-  { slug: 'cma-l-1x16-bw', name: 'vs US/Italian Bakery-Spec Model', desc: 'JD-3 vs a US/Italian "bakery-wash" model that still uses a 500×500 rack. 600×400 compatibility, built-in heat recovery option.' },
-  { slug: 'winterhalter', name: 'vs German Premium', desc: 'JD-3 vs a leading German premium hood-type washer. Significantly lower capex at equivalent CE certifications.' },
-  { slug: 'manual-washing-comparison', name: 'vs Manual Washing', desc: 'The single highest-ROI comparison. 4-month payback math.' },
-  { slug: 'undercounter-vs-hood-type', name: 'Undercounter vs Hood-Type', desc: 'Which architecture is right for your kitchen?' },
-  { slug: 'used-bakery-equipment', name: 'vs Used Bakery Equipment', desc: 'Should you buy a used premium-brand washer instead?' },
-];
 ---
 <BaseLayout
-  title="Compare JD-3 — Hood Dishwasher Comparisons | bakerytraywasher.com"
-  description="Honest, side-by-side comparisons of the V-TAI JD-3 against US category-leader hood washers, mid-tier US models, US/Italian bakery-spec machines, German premium brands, manual washing, undercounters, and used equipment."
+  title={vsCompareTitle[locale] + ' | V-TAI JD-3'}
+  description={vsIntro[locale]}
   locale={locale}
   canonicalPath="/vs/"
   schemaType="Article"
 >
-<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Compare'}]} />
+<BreadcrumbNav items={[{label: t(locale, 'nav.home'), href: '/'}, {label: t(locale, 'nav.compare')}]} />
 
 <section class="section">
   <div class="container-page">
-    <h1 class="mb-4 text-center">Compare the JD-3</h1>
-    <p class="text-bakery-navy/70 text-lg max-w-2xl mx-auto text-center mb-10">
-      Honest side-by-side comparisons so you can make a confident decision. We respect every established brand and use factual, publicly-documented specs in each comparison.
-    </p>
+    <h1 class="mb-4 text-center">{vsCompareTitle[locale]}</h1>
+    <p class="text-bakery-navy/70 text-lg max-w-2xl mx-auto text-center mb-10">{vsIntro[locale]}</p>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      {comparisons.map((c) => (
+      {vsCards.map((c) => (
         <a href={`/vs/${c.slug}/`} class="card hover:scale-[1.02] transition">
-          <h3 class="text-lg mb-2">{c.name}</h3>
-          <p class="text-sm text-bakery-navy/70">{c.desc}</p>
-          <p class="text-bakery-orange text-sm font-semibold mt-3">See comparison →</p>
+          <h3 class="text-lg mb-2">{c.name[locale]}</h3>
+          <p class="text-sm text-bakery-navy/70">{c.desc[locale]}</p>
+          <p class="text-bakery-orange text-sm font-semibold mt-3">→</p>
         </a>
       ))}
     </div>

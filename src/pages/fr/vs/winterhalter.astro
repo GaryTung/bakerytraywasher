@@ -3,30 +3,49 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import ComparisonTable from '../../../components/ComparisonTable.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
+import {
+  vsCards, vsCompareTitle, vsTableLabels,
+  competitorVariesLabel, competitorPriceLabel,
+  whyJd3WinsLabel, whyJd3WinsItems,
+} from '../../../i18n/vsdata';
 const locale = 'fr' as const;
+const card = vsCards.find((c) => c.slug === 'winterhalter')!;
+
 const rows = [
-  { label: 'Rack size', jd3: '650×550 mm', competitor: '500×500 mm' },
-  { label: '600×400 trays', jd3: '✓', competitor: '✗', highlight: true },
-  { label: 'Throughput', jd3: '180 trays/hour', competitor: 'Varies' },
-  { label: 'Cycle time', jd3: '2 min', competitor: 'Varies' },
-  { label: 'Price', jd3: 'From $4,400 FOB', competitor: 'Significantly higher' },
+  { label: vsTableLabels.rackSize[locale], jd3: '650×550 mm', competitor: '500×500 mm' },
+  { label: vsTableLabels.fits600[locale], jd3: '✓', competitor: '✗', highlight: true },
+  { label: vsTableLabels.throughput[locale], jd3: '180 / h', competitor: competitorVariesLabel[locale] },
+  { label: vsTableLabels.cycle[locale], jd3: '2 min', competitor: competitorVariesLabel[locale] },
+  { label: vsTableLabels.price[locale], jd3: 'From $4,400 FOB', competitor: competitorPriceLabel[locale] },
 ];
 ---
-<BaseLayout title="JD-3 vs German Premium" description="JD-3 vs German Premium comparison." locale={locale} canonicalPath="/vs/winterhalter/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/fr/'},{label:'Compare',href:'/fr/vs/'},{label:'vs German Premium'}]} />
+<BaseLayout
+  title={`JD-3 ${card.name[locale]}`}
+  description={card.desc[locale]}
+  locale={locale}
+  canonicalPath="/vs/winterhalter/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[
+  {label: t(locale, 'nav.home'), href: '/fr/'},
+  {label: t(locale, 'nav.compare'), href: '/fr/vs/'},
+  {label: card.name[locale]}
+]} />
+
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">JD-3 vs German Premium</h1>
-<p class="text-lg mb-6">Honest side-by-side. The JD-3 offers larger rack size (fits 600×400 mm bakery trays), CE-certified safety, and significantly lower capex.</p>
-</div><div class="container-page"><ComparisonTable competitorName="Competitor" rows={rows} /></div></section>
+<h1 class="mb-4">JD-3 {card.name[locale]}</h1>
+<p class="text-lg mb-6">{card.desc[locale]}</p>
+</div>
+<div class="container-page"><ComparisonTable competitorName="—" rows={rows} /></div>
+</section>
+
 <section class="section"><div class="container-prose">
-<h2 class="mb-3">Why JD-3 wins</h2>
+<h2 class="mb-3">{whyJd3WinsLabel[locale]}</h2>
 <ul class="list-disc list-inside space-y-2">
-<li>Fits 600×400 mm European Bakery Norm trays</li>
-<li>180 baking trays per hour throughput</li>
-<li>SUS304 stainless steel + CE-certified</li>
-<li>Significantly lower capex with equivalent compliance</li>
-<li>4-week production + DDP shipping to your door</li>
+  {whyJd3WinsItems[locale].map((line) => <li>{line}</li>)}
 </ul>
 </div></section>
+
 <CTASection locale={locale} />
 </BaseLayout>

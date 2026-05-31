@@ -3,67 +3,49 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import CTASection from '../../components/CTASection.astro';
-import FAQSection from '../../components/FAQSection.astro';
+import { t } from '../../i18n/utils';
+import {
+  vsCards, vsCompareTitle, vsTableLabels,
+  competitorVariesLabel, competitorPriceLabel,
+  whyJd3WinsLabel, whyJd3WinsItems,
+} from '../../i18n/vsdata';
 const locale = 'en' as const;
+const card = vsCards.find((c) => c.slug === 'used-bakery-equipment')!;
 
 const rows = [
-  { label: 'Initial price', jd3: '$4,400–$4,900 new', competitor: 'Varies, used market' },
-  { label: 'Warranty', jd3: '12-month manufacturer', competitor: '0–90 days dealer' },
-  { label: 'Service history', jd3: 'Brand new', competitor: 'Unknown / partial' },
-  { label: 'Parts availability', jd3: 'Direct from factory, 5-day ship', competitor: 'Varies; older models may be discontinued' },
-  { label: 'Sanitization reliability', jd3: 'Verified at factory', competitor: 'Depends on prior maintenance' },
-  { label: 'Energy efficiency', jd3: 'Current-generation', competitor: 'Older units use more power and water' },
-  { label: 'Resale value (1 year)', jd3: '~60% of new', competitor: 'Limited — already used' },
+  { label: vsTableLabels.rackSize[locale], jd3: '650×550 mm', competitor: '500×500 mm' },
+  { label: vsTableLabels.fits600[locale], jd3: '✓', competitor: '✗', highlight: true },
+  { label: vsTableLabels.throughput[locale], jd3: '180 / h', competitor: competitorVariesLabel[locale] },
+  { label: vsTableLabels.cycle[locale], jd3: '2 min', competitor: competitorVariesLabel[locale] },
+  { label: vsTableLabels.price[locale], jd3: 'From $4,400 FOB', competitor: competitorPriceLabel[locale] },
 ];
 ---
 <BaseLayout
-  title="JD-3 vs Used Hobart / Used Bakery Equipment — Should You Buy Used?"
-  description="Is buying a used Hobart AMX or Jackson hood-type dishwasher a smart move? Comparison of total cost, risk, and longevity vs a new JD-3."
+  title={`JD-3 ${card.name[locale]}`}
+  description={card.desc[locale]}
   locale={locale}
   canonicalPath="/vs/used-bakery-equipment/"
   schemaType="Article"
 >
-<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Compare', href: '/vs/'}, {label: 'vs Used Equipment'}]} />
+<BreadcrumbNav items={[
+  {label: t(locale, 'nav.home'), href: '/'},
+  {label: t(locale, 'nav.compare'), href: '/vs/'},
+  {label: card.name[locale]}
+]} />
 
-<section class="section">
-  <div class="container-prose">
-    <h1 class="mb-4">JD-3 vs Used Bakery Equipment — Is "Used Hobart" a Smart Buy?</h1>
-    <p class="text-lg text-bakery-navy/80 mb-6">A used Hobart AMX at a similar price to a new JD-3 can look like a bargain. Sometimes it is. Often it isn't. Here is how to think about it.</p>
-  </div>
-  <div class="container-page"><ComparisonTable competitorName="Used (Hobart/Jackson/CMA)" rows={rows} /></div>
-
-  <div class="container-prose mt-12">
-    <h2 class="mb-3">When used wins</h2>
-    <ul class="list-disc list-inside space-y-2">
-      <li>You can inspect the unit in person and verify cycle output</li>
-      <li>The seller is a known reputable dealer with at least a 90-day warranty</li>
-      <li>Service history is documented</li>
-      <li>The model is current-generation (parts still available)</li>
-      <li>You have an on-site technician who can handle repairs</li>
-    </ul>
-
-    <h2 class="mt-8 mb-3">When new (JD-3) wins</h2>
-    <ul class="list-disc list-inside space-y-2">
-      <li>You need 600×400 mm tray compatibility (no used commercial dishwasher fits these — they all use 500×500 racks)</li>
-      <li>You need warranty protection</li>
-      <li>You don't have technical staff to evaluate used equipment condition</li>
-      <li>You want a known, single-known-source supply chain for the next 5+ years</li>
-      <li>Local used-equipment market is thin or markups are excessive</li>
-    </ul>
-
-    <h2 class="mt-8 mb-3">The Pricing Trap</h2>
-    <p>Used commercial dishwashers in good condition typically sell for 40–60% of new retail. A used Hobart AMX listed well below that range is likely either older generation (parts discontinued), heavily worn (will fail soon), or misrepresented.</p>
-
-    <h2 class="mt-8 mb-3">The Mismatch Trap</h2>
-    <p>The most common bad outcome we see: someone buys a used Hobart AMX, then realizes their 600×400 trays don't fit. Now they're stuck — either re-sell at a loss, or live with the limitation. A new JD-3 at a comparable price would have fit.</p>
-  </div>
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">JD-3 {card.name[locale]}</h1>
+<p class="text-lg mb-6">{card.desc[locale]}</p>
+</div>
+<div class="container-page"><ComparisonTable competitorName="—" rows={rows} /></div>
 </section>
 
-<FAQSection items={[
-  { q: 'Where do small bakeries find used Hobarts?', a: 'Auction sites (BidSpotter), used commercial-kitchen dealers, and direct from closing restaurants. Inspect in person before paying.' },
-  { q: 'Is a used Winterhalter a better buy than a new JD-3?', a: 'For European operations with proven service histories, possibly. For non-European deployments, no — service is harder than you expect.' },
-  { q: 'Refurbished/factory-reconditioned units?', a: 'Hobart sells factory-reconditioned at ~70% of new retail. Better than auction units, but still no 600×400 compatibility.' },
-]} />
+<section class="section"><div class="container-prose">
+<h2 class="mb-3">{whyJd3WinsLabel[locale]}</h2>
+<ul class="list-disc list-inside space-y-2">
+  {whyJd3WinsItems[locale].map((line) => <li>{line}</li>)}
+</ul>
+</div></section>
 
 <CTASection locale={locale} />
 </BaseLayout>

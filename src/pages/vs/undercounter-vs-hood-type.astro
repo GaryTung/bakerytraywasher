@@ -3,64 +3,49 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import CTASection from '../../components/CTASection.astro';
-import FAQSection from '../../components/FAQSection.astro';
+import { t } from '../../i18n/utils';
+import {
+  vsCards, vsCompareTitle, vsTableLabels,
+  competitorVariesLabel, competitorPriceLabel,
+  whyJd3WinsLabel, whyJd3WinsItems,
+} from '../../i18n/vsdata';
 const locale = 'en' as const;
+const card = vsCards.find((c) => c.slug === 'undercounter-vs-hood-type')!;
 
 const rows = [
-  { label: 'Throughput', jd3: '180 trays/hr (hood)', competitor: '30 racks/hr (undercounter)' },
-  { label: 'Chamber size', jd3: 'Extra-large 650×550', competitor: 'Standard 400×400' },
-  { label: 'Fits oversized bakeware', jd3: '✓ Yes', competitor: '✗ No', highlight: true },
-  { label: 'Footprint', jd3: '850 × 850 mm + clearance', competitor: 'Fits under counter (600×600)' },
-  { label: 'Front loading vs top', jd3: 'Top (hood lifts)', competitor: 'Front (door opens)' },
-  { label: 'Power', jd3: '13 kW (380V)', competitor: '~5–8 kW (220V)' },
-  { label: 'Price (hood type)', jd3: '$4,400–$4,900', competitor: '$1,500–$4,600 (undercounter)' },
+  { label: vsTableLabels.rackSize[locale], jd3: '650×550 mm', competitor: '500×500 mm' },
+  { label: vsTableLabels.fits600[locale], jd3: '✓', competitor: '✗', highlight: true },
+  { label: vsTableLabels.throughput[locale], jd3: '180 / h', competitor: competitorVariesLabel[locale] },
+  { label: vsTableLabels.cycle[locale], jd3: '2 min', competitor: competitorVariesLabel[locale] },
+  { label: vsTableLabels.price[locale], jd3: 'From $4,400 FOB', competitor: competitorPriceLabel[locale] },
 ];
 ---
 <BaseLayout
-  title="Undercounter vs Hood-Type Dishwasher — Which is Right for Your Bakery?"
-  description="Should you buy a hood-type dishwasher or an undercounter? Throughput, chamber size, kitchen layout — when each architecture wins."
+  title={`JD-3 ${card.name[locale]}`}
+  description={card.desc[locale]}
   locale={locale}
   canonicalPath="/vs/undercounter-vs-hood-type/"
   schemaType="Article"
 >
-<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Compare', href: '/vs/'}, {label: 'Undercounter vs Hood-Type'}]} />
+<BreadcrumbNav items={[
+  {label: t(locale, 'nav.home'), href: '/'},
+  {label: t(locale, 'nav.compare'), href: '/vs/'},
+  {label: card.name[locale]}
+]} />
 
-<section class="section">
-  <div class="container-prose">
-    <h1 class="mb-4">Undercounter vs Hood-Type — Which Dishwasher Architecture Fits Your Bakery?</h1>
-    <p class="text-lg text-bakery-navy/80 mb-6">A practical comparison of the two main commercial dishwasher categories. This is about kitchen architecture, not brand preference.</p>
-  </div>
-  <div class="container-page"><ComparisonTable competitorName="Undercounter (any brand)" rows={rows} /></div>
-
-  <div class="container-prose mt-12">
-    <h2 class="mb-3">When undercounter wins</h2>
-    <ul class="list-disc list-inside space-y-2">
-      <li>Floor space is severely limited (small bistro &lt; 30 m²)</li>
-      <li>You only wash plates, glasses, and small items (no oversized bakeware)</li>
-      <li>You wash &lt; 100 items per day</li>
-      <li>Your budget is under $2,000</li>
-      <li>You have 220V single-phase electrical only</li>
-    </ul>
-
-    <h2 class="mt-8 mb-3">When hood-type (like JD-3) wins</h2>
-    <ul class="list-disc list-inside space-y-2">
-      <li>You wash oversized bakeware: sheet pans, baking trays, stockpots, mixing bowls</li>
-      <li>You wash 150+ items per day</li>
-      <li>You operate during peak windows (lunch rush, breakfast wave)</li>
-      <li>You bake on 600×400 mm trays (no undercounter fits these)</li>
-      <li>You have access to 380V three-phase power</li>
-    </ul>
-
-    <h2 class="mt-8 mb-3">The deciding question</h2>
-    <p>What is the largest single item you regularly wash? Measure it. If any dimension exceeds 40 cm, you need a hood-type (the undercounter chamber max is typically 40 cm). If everything fits within 40×40 cm, an undercounter may serve you.</p>
-  </div>
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">JD-3 {card.name[locale]}</h1>
+<p class="text-lg mb-6">{card.desc[locale]}</p>
+</div>
+<div class="container-page"><ComparisonTable competitorName="—" rows={rows} /></div>
 </section>
 
-<FAQSection items={[
-  { q: 'Can I have both?', a: 'Larger bakeries do — an undercounter for plates and glasses near the dining area, a hood-type in the bakery prep area for trays and pans.' },
-  { q: 'Will an undercounter eventually fail under heavy load?', a: 'Yes — undercounters are designed for moderate, intermittent loads. Pushing them to 200+ items/day shortens lifespan considerably.' },
-  { q: 'Do you sell undercounters?', a: 'Yes — V-TAI manufactures undercounter dishwashers as well. The bakerytraywasher.com site focuses on the JD-3 hood-type model specifically; for our broader product line including undercounters, visit our brand site <a href="https://v-tai.com" class="underline">v-tai.com</a>.' },
-]} />
+<section class="section"><div class="container-prose">
+<h2 class="mb-3">{whyJd3WinsLabel[locale]}</h2>
+<ul class="list-disc list-inside space-y-2">
+  {whyJd3WinsItems[locale].map((line) => <li>{line}</li>)}
+</ul>
+</div></section>
 
 <CTASection locale={locale} />
 </BaseLayout>

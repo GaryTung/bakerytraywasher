@@ -3,53 +3,49 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import CTASection from '../../components/CTASection.astro';
-import FAQSection from '../../components/FAQSection.astro';
+import { t } from '../../i18n/utils';
+import {
+  vsCards, vsCompareTitle, vsTableLabels,
+  competitorVariesLabel, competitorPriceLabel,
+  whyJd3WinsLabel, whyJd3WinsItems,
+} from '../../i18n/vsdata';
 const locale = 'en' as const;
+const card = vsCards.find((c) => c.slug === 'cma-l-1x16-bw')!;
 
 const rows = [
-  { label: 'Throughput', jd3: '180 trays/hr', competitor: '50 racks/hr' },
-  { label: 'Rack size', jd3: '650 × 550 mm', competitor: '500 × 500 mm' },
-  { label: 'Fits 600×400 bakery trays', jd3: '✓ Yes', competitor: '✗ No', highlight: true },
-  { label: 'Heat recovery', jd3: 'Optional module', competitor: 'Extra-cost upgrade' },
-  { label: 'Water per cycle', jd3: '2.5 L', competitor: '4.0 L' },
-  { label: 'Price', jd3: '$4,400–$4,900 FOB', competitor: 'Significantly higher (retail)' },
+  { label: vsTableLabels.rackSize[locale], jd3: '650×550 mm', competitor: '500×500 mm' },
+  { label: vsTableLabels.fits600[locale], jd3: '✓', competitor: '✗', highlight: true },
+  { label: vsTableLabels.throughput[locale], jd3: '180 / h', competitor: competitorVariesLabel[locale] },
+  { label: vsTableLabels.cycle[locale], jd3: '2 min', competitor: competitorVariesLabel[locale] },
+  { label: vsTableLabels.price[locale], jd3: 'From $4,400 FOB', competitor: competitorPriceLabel[locale] },
 ];
 ---
 <BaseLayout
-  title="JD-3 vs CMA L-1X16-BW — Hood Dishwasher Comparison"
-  description="JD-3 delivers 600×400 mm compatibility, built-in heat recovery option, and notably lower cost than CMA's bakery hood-type washer."
+  title={`JD-3 ${card.name[locale]}`}
+  description={card.desc[locale]}
   locale={locale}
   canonicalPath="/vs/cma-l-1x16-bw/"
   schemaType="Article"
 >
-<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Compare', href: '/vs/'}, {label: 'vs CMA L-1X16-BW'}]} />
+<BreadcrumbNav items={[
+  {label: t(locale, 'nav.home'), href: '/'},
+  {label: t(locale, 'nav.compare'), href: '/vs/'},
+  {label: card.name[locale]}
+]} />
 
-<section class="section">
-  <div class="container-prose">
-    <h1 class="mb-4">JD-3 vs CMA L-1X16-BW</h1>
-    <p class="text-lg text-bakery-navy/80 mb-6">CMA's "BW" designation hints at bakery use, but the 500×500 rack tells a different story. Here is the honest comparison.</p>
-  </div>
-  <div class="container-page"><ComparisonTable competitorName="CMA L-1X16-BW" rows={rows} /></div>
-
-  <div class="container-prose mt-12">
-    <h2 class="mb-3">Where CMA wins</h2>
-    <p>US service density, NSF listing for institutional contracts, established dealer network.</p>
-
-    <h2 class="mt-8 mb-3">Where JD-3 wins</h2>
-    <ul class="list-disc list-inside space-y-2">
-      <li>Actually fits 600×400 mm bakery trays (CMA does not, despite the "BW" name)</li>
-      <li>Higher throughput per cycle (6 trays/cycle)</li>
-      <li>Lower water consumption per cycle (2.5 L vs CMA's 4.0 L per published specs)</li>
-      <li>Heat recovery module included as an option (CMA charges extra)</li>
-      <li>significantly lower total cost</li>
-    </ul>
-  </div>
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">JD-3 {card.name[locale]}</h1>
+<p class="text-lg mb-6">{card.desc[locale]}</p>
+</div>
+<div class="container-page"><ComparisonTable competitorName="—" rows={rows} /></div>
 </section>
 
-<FAQSection items={[
-  { q: 'Why is CMA called "BW" if it doesn\'t fit bakery trays?', a: 'CMA marketed the model to bakeries based on chamber size, not rack size. The 500×500 rack remains the limiting factor.' },
-  { q: 'CMA includes installation. Do you?', a: 'For US installations we partner with local installers; quote includes the partner referral. For most countries, we provide remote installation support.' },
-]} />
+<section class="section"><div class="container-prose">
+<h2 class="mb-3">{whyJd3WinsLabel[locale]}</h2>
+<ul class="list-disc list-inside space-y-2">
+  {whyJd3WinsItems[locale].map((line) => <li>{line}</li>)}
+</ul>
+</div></section>
 
 <CTASection locale={locale} />
 </BaseLayout>
