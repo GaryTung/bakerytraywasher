@@ -19,7 +19,7 @@ import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const HOST = 'bakerytraywasher.com';
-const KEY = 'f3e7a2b8c9d14e6f5a8b3c2d7e9f4a1b';
+const KEY = 'fdb42807adee489085d3fc09242e0a4a';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 // All these endpoints propagate to all participating search engines.
 // Try Bing first (most reliable globally), then Yandex as fallback.
