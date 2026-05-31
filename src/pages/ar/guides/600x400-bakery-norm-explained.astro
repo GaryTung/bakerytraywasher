@@ -2,22 +2,19 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'ar' as const;
 ---
-<BaseLayout title="600×400 mm Bakery Norm Explained | JD-3" description="600×400 mm Bakery Norm Explained — practical guidance for bakery operators using the V-TAI JD-3." locale={locale} canonicalPath="/guides/600x400-bakery-norm-explained/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/ar/'},{label:'Guides'},{label:'600×400 mm Bakery Norm Explained'}]} />
+<BaseLayout title="شرح معيار صواني المخابز 600×400 مم | JD-3" description="شرح معيار صواني المخابز 600×400 مم" locale={locale} canonicalPath="/guides/600x400-bakery-norm-explained/" schemaType="Article">
+<BreadcrumbNav items={[
+  { label: t(locale, 'nav.home'), href: '/ar/' },
+  { label: t(locale, 'nav.guides') },
+  { label: "شرح معيار صواني المخابز 600×400 مم" }
+]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">600×400 mm Bakery Norm Explained</h1>
-<p class="text-lg mb-6">A practical guide for bakery operators using the V-TAI JD-3 hood-type bakery tray washer.</p>
-<p class="text-bakery-navy/70 mb-4">For the full English version with detailed depth, visit <a href="/guides/600x400-bakery-norm-explained/" class="underline">/guides/600x400-bakery-norm-explained/</a>.</p>
-<p>Key points covered in this guide:</p>
-<ul class="list-disc list-inside space-y-2 mt-3">
-<li>Practical recommendations for daily bakery operations</li>
-<li>Settings &amp; configurations for V-TAI JD-3 owners</li>
-<li>Common pitfalls &amp; how to avoid them</li>
-<li>References to industry standards (CE, NSF, EN 631)</li>
-</ul>
-<p class="mt-6 text-sm text-bakery-navy/60">This guide is being expanded in your language. For full English-language depth, see the link above. WhatsApp +86 135 0962 3269 for direct support in your language.</p>
+<h1 class="mb-4">شرح معيار صواني المخابز 600×400 مم</h1>
+<p class="text-lg mb-6">دليل عملي لمشغلي المخابز الذين يستخدمون V-TAI JD-3.</p>
+<p class="text-bakery-navy/70"><a href="/guides/600x400-bakery-norm-explained/" class="underline">اطلع على النسخة الإنجليزية الكاملة</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

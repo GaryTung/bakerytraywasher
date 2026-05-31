@@ -26,15 +26,15 @@ const lp = (p: string) => localizePath(p, locale);
       <!-- Resources dropdown -->
       <div class="relative group">
         <button class="px-3 py-2 hover:text-bakery-orange flex items-center gap-1" aria-haspopup="true">
-          <span>Resources</span>
+          <span>{t(locale, 'nav.resources')}</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
         <div class="absolute right-0 top-full mt-0 bg-white shadow-card-hover rounded-card py-2 min-w-[220px] hidden group-hover:block z-50 border border-bakery-navy/5">
-          <a href={lp('/pricing/by-country/')} class="block px-4 py-2 hover:bg-bakery-cream text-bakery-navy">DDP by Country</a>
+          <a href={lp('/pricing/by-country/')} class="block px-4 py-2 hover:bg-bakery-cream text-bakery-navy">{t(locale, 'nav.ddpByCountry')}</a>
           <a href={lp('/guides/bakery-tray-cleaning-best-practices/')} class="block px-4 py-2 hover:bg-bakery-cream text-bakery-navy">{t(locale, 'nav.guides')}</a>
           <a href={lp('/case-studies/')} class="block px-4 py-2 hover:bg-bakery-cream text-bakery-navy">{t(locale, 'nav.cases')}</a>
-          <a href={lp('/blog/')} class="block px-4 py-2 hover:bg-bakery-cream text-bakery-navy">Blog</a>
-          <a href={lp('/faq/')} class="block px-4 py-2 hover:bg-bakery-cream text-bakery-navy">FAQ</a>
+          <a href={lp('/blog/')} class="block px-4 py-2 hover:bg-bakery-cream text-bakery-navy">{t(locale, 'nav.blog')}</a>
+          <a href={lp('/faq/')} class="block px-4 py-2 hover:bg-bakery-cream text-bakery-navy">{t(locale, 'nav.faq')}</a>
           <div class="border-t border-bakery-navy/5 my-1"></div>
           <a href={lp('/about/')} class="block px-4 py-2 hover:bg-bakery-cream text-bakery-navy">{t(locale, 'nav.about')}</a>
           <a href={lp('/contact/')} class="block px-4 py-2 hover:bg-bakery-cream text-bakery-navy">{t(locale, 'nav.contact')}</a>
@@ -59,12 +59,12 @@ const lp = (p: string) => localizePath(p, locale);
       <a href={lp('/vs/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.compare')}</a>
       <a href={lp('/pricing/')} class="px-3 py-3 hover:bg-bakery-cream rounded">{t(locale, 'nav.pricing')}</a>
       <div class="border-t border-bakery-navy/5 my-1"></div>
-      <p class="px-3 pt-2 pb-1 text-xs uppercase tracking-wider text-bakery-navy/50 font-semibold">Resources</p>
-      <a href={lp('/pricing/by-country/')} class="px-3 py-2 hover:bg-bakery-cream rounded text-bakery-navy/70">DDP by Country</a>
+      <p class="px-3 pt-2 pb-1 text-xs uppercase tracking-wider text-bakery-navy/50 font-semibold">{t(locale, 'nav.resources')}</p>
+      <a href={lp('/pricing/by-country/')} class="px-3 py-2 hover:bg-bakery-cream rounded text-bakery-navy/70">{t(locale, 'nav.ddpByCountry')}</a>
       <a href={lp('/guides/bakery-tray-cleaning-best-practices/')} class="px-3 py-2 hover:bg-bakery-cream rounded text-bakery-navy/70">{t(locale, 'nav.guides')}</a>
       <a href={lp('/case-studies/')} class="px-3 py-2 hover:bg-bakery-cream rounded text-bakery-navy/70">{t(locale, 'nav.cases')}</a>
-      <a href={lp('/blog/')} class="px-3 py-2 hover:bg-bakery-cream rounded text-bakery-navy/70">Blog</a>
-      <a href={lp('/faq/')} class="px-3 py-2 hover:bg-bakery-cream rounded text-bakery-navy/70">FAQ</a>
+      <a href={lp('/blog/')} class="px-3 py-2 hover:bg-bakery-cream rounded text-bakery-navy/70">{t(locale, 'nav.blog')}</a>
+      <a href={lp('/faq/')} class="px-3 py-2 hover:bg-bakery-cream rounded text-bakery-navy/70">{t(locale, 'nav.faq')}</a>
       <a href={lp('/about/')} class="px-3 py-2 hover:bg-bakery-cream rounded text-bakery-navy/70">{t(locale, 'nav.about')}</a>
       <a href={lp('/contact/')} class="px-3 py-2 hover:bg-bakery-cream rounded text-bakery-navy/70">{t(locale, 'nav.contact')}</a>
     </div>

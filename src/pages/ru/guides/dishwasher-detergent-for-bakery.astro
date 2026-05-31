@@ -2,22 +2,19 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'ru' as const;
 ---
-<BaseLayout title="Dishwasher Detergent for Bakeries | JD-3" description="Dishwasher Detergent for Bakeries — practical guidance for bakery operators using the V-TAI JD-3." locale={locale} canonicalPath="/guides/dishwasher-detergent-for-bakery/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/ru/'},{label:'Guides'},{label:'Dishwasher Detergent for Bakeries'}]} />
+<BaseLayout title="Моющее средство для пекарни | JD-3" description="Моющее средство для пекарни" locale={locale} canonicalPath="/guides/dishwasher-detergent-for-bakery/" schemaType="Article">
+<BreadcrumbNav items={[
+  { label: t(locale, 'nav.home'), href: '/ru/' },
+  { label: t(locale, 'nav.guides') },
+  { label: "Моющее средство для пекарни" }
+]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">Dishwasher Detergent for Bakeries</h1>
-<p class="text-lg mb-6">A practical guide for bakery operators using the V-TAI JD-3 hood-type bakery tray washer.</p>
-<p class="text-bakery-navy/70 mb-4">For the full English version with detailed depth, visit <a href="/guides/dishwasher-detergent-for-bakery/" class="underline">/guides/dishwasher-detergent-for-bakery/</a>.</p>
-<p>Key points covered in this guide:</p>
-<ul class="list-disc list-inside space-y-2 mt-3">
-<li>Practical recommendations for daily bakery operations</li>
-<li>Settings &amp; configurations for V-TAI JD-3 owners</li>
-<li>Common pitfalls &amp; how to avoid them</li>
-<li>References to industry standards (CE, NSF, EN 631)</li>
-</ul>
-<p class="mt-6 text-sm text-bakery-navy/60">This guide is being expanded in your language. For full English-language depth, see the link above. WhatsApp +86 135 0962 3269 for direct support in your language.</p>
+<h1 class="mb-4">Моющее средство для пекарни</h1>
+<p class="text-lg mb-6">Практическое руководство для пекарен, использующих V-TAI JD-3.</p>
+<p class="text-bakery-navy/70"><a href="/guides/dishwasher-detergent-for-bakery/" class="underline">Посмотреть полную английскую версию</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

@@ -2,22 +2,19 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'th' as const;
 ---
-<BaseLayout title="Bakery Tray Cleaning Best Practices | JD-3" description="Bakery Tray Cleaning Best Practices — practical guidance for bakery operators using the V-TAI JD-3." locale={locale} canonicalPath="/guides/bakery-tray-cleaning-best-practices/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/th/'},{label:'Guides'},{label:'Bakery Tray Cleaning Best Practices'}]} />
+<BaseLayout title="แนวปฏิบัติที่ดีในการล้างถาดเบเกอรี่ | JD-3" description="แนวปฏิบัติที่ดีในการล้างถาดเบเกอรี่" locale={locale} canonicalPath="/guides/bakery-tray-cleaning-best-practices/" schemaType="Article">
+<BreadcrumbNav items={[
+  { label: t(locale, 'nav.home'), href: '/th/' },
+  { label: t(locale, 'nav.guides') },
+  { label: "แนวปฏิบัติที่ดีในการล้างถาดเบเกอรี่" }
+]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">Bakery Tray Cleaning Best Practices</h1>
-<p class="text-lg mb-6">A practical guide for bakery operators using the V-TAI JD-3 hood-type bakery tray washer.</p>
-<p class="text-bakery-navy/70 mb-4">For the full English version with detailed depth, visit <a href="/guides/bakery-tray-cleaning-best-practices/" class="underline">/guides/bakery-tray-cleaning-best-practices/</a>.</p>
-<p>Key points covered in this guide:</p>
-<ul class="list-disc list-inside space-y-2 mt-3">
-<li>Practical recommendations for daily bakery operations</li>
-<li>Settings &amp; configurations for V-TAI JD-3 owners</li>
-<li>Common pitfalls &amp; how to avoid them</li>
-<li>References to industry standards (CE, NSF, EN 631)</li>
-</ul>
-<p class="mt-6 text-sm text-bakery-navy/60">This guide is being expanded in your language. For full English-language depth, see the link above. WhatsApp +86 135 0962 3269 for direct support in your language.</p>
+<h1 class="mb-4">แนวปฏิบัติที่ดีในการล้างถาดเบเกอรี่</h1>
+<p class="text-lg mb-6">คู่มือปฏิบัติสำหรับผู้ประกอบการเบเกอรี่ที่ใช้ V-TAI JD-3</p>
+<p class="text-bakery-navy/70"><a href="/guides/bakery-tray-cleaning-best-practices/" class="underline">ดูฉบับเต็มภาษาอังกฤษ</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

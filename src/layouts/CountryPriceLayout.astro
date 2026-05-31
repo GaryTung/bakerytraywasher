@@ -4,7 +4,7 @@ import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import InlineInquiryForm from '../components/InlineInquiryForm.astro';
 import CTASection from '../components/CTASection.astro';
 import type { CountryPrice } from '../data/countries';
-import { type Locale, localizePath } from '../i18n/utils';
+import { type Locale, localizePath, t } from '../i18n/utils';
 
 interface Props {
   locale: Locale;
@@ -15,10 +15,455 @@ const { locale, country, canonicalPath } = Astro.props;
 const lp = (p: string) => localizePath(p, locale);
 
 const surcharge = country.usdApprox - 4400;
+
+// Inline translation dictionary for the country detail page
+type S = {
+  landedPrice: string;
+  deliveredTo: string;
+  intro: string;
+  ddp: string;
+  fxFluctuation: string;
+  getQuoteCta: string;
+  breakdownHeading: string;
+  rowFob: string;
+  rowFreight: string;
+  rowCustoms: string;
+  rowVat: string;
+  rowLastMile: string;
+  total: string;
+  surcharge: string;
+  included: string;
+  notIncluded: string;
+  seeNote: string;
+  whatsIncluded: string;
+  whatsNotIncluded: string;
+  includesItems: string[];
+  excludesItems: string[];
+  leadTimeHeading: string;
+  leadTimeSteps: string[];
+  totalLeadTime: string;
+  refCityHeading: string;
+  whyDdp: string;
+  whyDdpP1: string;
+  whyDdpP2: string;
+  sidebarTitle: string;
+  sidebarSee18: string;
+  sidebarFob: string;
+  sidebarSpec: string;
+  sidebarContact: string;
+  ctaTitle: string;
+  ctaSubtitle: string;
+  region: string;
+};
+
+const STRINGS: Record<Locale, S> = {
+  en: {
+    landedPrice: 'Landed price', deliveredTo: 'JD-3 Delivered to',
+    intro: 'We handle ocean freight, customs clearance, import duty, and last-mile delivery to your address. You receive one transparent price — no surprise charges at the port, no customs-broker invoice, no last-mile mystery.',
+    ddp: 'DDP', fxFluctuation: 'USD equivalent · subject to FX fluctuation',
+    getQuoteCta: 'Get a DDP Quote for Your Address',
+    breakdownHeading: 'How the Price Breaks Down',
+    rowFob: 'FOB Shenzhen (Standard JD-3)', rowFreight: 'Ocean freight',
+    rowCustoms: 'Customs clearance & import duty', rowVat: 'Local VAT/GST (where included)',
+    rowLastMile: 'Last-mile delivery to your address',
+    total: 'DDP Total', surcharge: 'USD-equivalent surcharge over FOB',
+    included: 'included', notIncluded: 'not included', seeNote: 'see note below',
+    whatsIncluded: "What's Included", whatsNotIncluded: "What's NOT Included",
+    includesItems: [
+      'V-TAI JD-3 Bakingware Hood-type Washer (Standard configuration, 380V/3N/50Hz)',
+      '2 standard wash racks, peg cup rack, basic tools, English operation manual',
+      'CE certificate & commercial invoice',
+      'Sea freight from Shenzhen',
+      'Customs clearance & import duty',
+      'Local VAT/GST (where indicated)',
+      'Last-mile delivery to your address',
+      '12-month manufacturer warranty (parts) — replacement parts ship globally via DHL/FedEx',
+    ],
+    excludesItems: [
+      'Local installation labor (licensed electrician + plumber, typically $200–$500)',
+      'Optional accessories (auto-detergent dispenser +$200, heat recovery module +$500)',
+      'Operator training is provided via WhatsApp video call (30 min, included free)',
+    ],
+    leadTimeHeading: 'Lead Time — Order to Your Door',
+    leadTimeSteps: [
+      'Order confirmation & 30% deposit received (Day 0)',
+      'Production at our Shenzhen facility: 4 weeks',
+      '70% balance payment + booking ocean freight',
+      'Ocean freight Shenzhen → destination port',
+      'Customs clearance: 2–5 business days',
+      'Last-mile trucking to your address: 3–7 days',
+    ],
+    totalLeadTime: 'Total: typically',
+    refCityHeading: 'Reference City Note',
+    whyDdp: 'Why DDP Pricing Matters',
+    whyDdpP1: 'Most overseas exporters quote FOB and leave freight forwarding, customs broker, and last-mile to the buyer — three separate vendors, three invoices, surprise costs at every step. We bundle all of that into a single quoted price so you know exactly what you will pay before placing the order.',
+    whyDdpP2: 'The price above is what you actually pay to receive the machine at your door. The local-currency figure is authoritative; the USD equivalent is shown for reference and may shift with exchange-rate movement.',
+    sidebarTitle: 'Other markets',
+    sidebarSee18: 'See all 18 countries',
+    sidebarFob: 'FOB pricing & tiers',
+    sidebarSpec: 'Full product spec',
+    sidebarContact: 'Contact us directly',
+    ctaTitle: 'Need DDP delivery to your country?',
+    ctaSubtitle: 'Request a quote with your specific city. We respond within 12 hours with a final all-in figure.',
+    region: country.region,
+  },
+  es: {
+    landedPrice: 'Precio en destino', deliveredTo: 'JD-3 Entregado en',
+    intro: 'Gestionamos el flete marítimo, la aduana, los impuestos de importación y la entrega final a su dirección. Recibe un precio transparente — sin cargos sorpresa en el puerto, sin factura del agente aduanal, sin misterio de última milla.',
+    ddp: 'DDP', fxFluctuation: 'equivalente en USD · sujeto a fluctuación cambiaria',
+    getQuoteCta: 'Cotización DDP para Su Dirección',
+    breakdownHeading: 'Desglose del Precio',
+    rowFob: 'FOB Shenzhen (JD-3 Estándar)', rowFreight: 'Flete marítimo',
+    rowCustoms: 'Aduana e impuestos de importación', rowVat: 'IVA local (donde incluido)',
+    rowLastMile: 'Entrega final a su dirección',
+    total: 'Total DDP', surcharge: 'Sobrecargo USD sobre FOB',
+    included: 'incluido', notIncluded: 'no incluido', seeNote: 'ver nota',
+    whatsIncluded: 'Qué Incluye', whatsNotIncluded: 'Qué NO Incluye',
+    includesItems: [
+      'Lavadora V-TAI JD-3 (configuración estándar, 380V/3N/50Hz)',
+      '2 racks estándar, rack para tazas, herramientas básicas, manual',
+      'Certificado CE y factura comercial',
+      'Flete marítimo desde Shenzhen',
+      'Aduana e impuestos de importación',
+      'IVA local (donde indicado)',
+      'Entrega final a su dirección',
+      'Garantía 12 meses (piezas) — envío global vía DHL/FedEx',
+    ],
+    excludesItems: [
+      'Instalación local (electricista + plomero, típicamente $200–$500)',
+      'Accesorios opcionales (dispensador automático +$200, recuperación de calor +$500)',
+      'Capacitación incluida (videollamada WhatsApp, 30 min, gratis)',
+    ],
+    leadTimeHeading: 'Plazo — Pedido hasta Su Puerta',
+    leadTimeSteps: [
+      'Confirmación + 30% depósito (Día 0)',
+      'Producción en Shenzhen: 4 semanas',
+      '70% saldo + reserva flete marítimo',
+      'Flete marítimo Shenzhen → puerto destino',
+      'Aduana: 2–5 días hábiles',
+      'Entrega final: 3–7 días',
+    ],
+    totalLeadTime: 'Total: típicamente',
+    refCityHeading: 'Ciudad de Referencia',
+    whyDdp: 'Por Qué Importa el Precio DDP',
+    whyDdpP1: 'La mayoría de exportadores cotizan FOB y dejan el flete, agente aduanal y última milla al comprador — tres proveedores, tres facturas, costos sorpresa. Nosotros agrupamos todo en un solo precio cotizado.',
+    whyDdpP2: 'El precio mostrado es lo que realmente paga para recibir la máquina en su puerta. La cifra en moneda local es autoritativa; el equivalente USD es referencia y puede variar con el tipo de cambio.',
+    sidebarTitle: 'Otros mercados',
+    sidebarSee18: 'Ver los 18 países',
+    sidebarFob: 'Precios FOB y opciones',
+    sidebarSpec: 'Especificaciones completas',
+    sidebarContact: 'Contactarnos directamente',
+    ctaTitle: '¿Necesita entrega DDP?',
+    ctaSubtitle: 'Solicite una cotización con su ciudad específica. Respondemos en 12 horas.',
+    region: country.region,
+  },
+  fr: {
+    landedPrice: 'Prix rendu', deliveredTo: 'JD-3 Livré à',
+    intro: 'Nous gérons le fret maritime, le dédouanement, les droits de douane et la livraison finale à votre adresse. Un prix transparent — pas de frais surprise au port, pas de facture du courtier en douane.',
+    ddp: 'DDP', fxFluctuation: 'équivalent USD · sujet aux fluctuations',
+    getQuoteCta: 'Devis DDP pour Votre Adresse',
+    breakdownHeading: 'Décomposition du Prix',
+    rowFob: 'FOB Shenzhen (JD-3 Standard)', rowFreight: 'Fret maritime',
+    rowCustoms: 'Douane et droits d\'importation', rowVat: 'TVA locale (le cas échéant)',
+    rowLastMile: 'Livraison finale à votre adresse',
+    total: 'Total DDP', surcharge: 'Surcharge USD sur le FOB',
+    included: 'inclus', notIncluded: 'non inclus', seeNote: 'voir note',
+    whatsIncluded: 'Ce qui est Inclus', whatsNotIncluded: "Ce qui n'est PAS Inclus",
+    includesItems: [
+      'Lave-plaques V-TAI JD-3 (configuration standard, 380V/3N/50Hz)',
+      '2 paniers standard, panier à tasses, outils de base, manuel',
+      'Certificat CE et facture commerciale',
+      'Fret maritime depuis Shenzhen',
+      'Douane et droits d\'importation',
+      'TVA locale (le cas échéant)',
+      'Livraison finale à votre adresse',
+      'Garantie 12 mois (pièces) — envoi global DHL/FedEx',
+    ],
+    excludesItems: [
+      'Installation locale (électricien + plombier, typiquement 200–500 $)',
+      'Accessoires optionnels (dispenseur de détergent +200 $, récupération de chaleur +500 $)',
+      'Formation incluse (appel WhatsApp vidéo, 30 min, gratuit)',
+    ],
+    leadTimeHeading: 'Délai — Commande à Votre Porte',
+    leadTimeSteps: [
+      'Confirmation + 30% acompte (Jour 0)',
+      'Production à Shenzhen : 4 semaines',
+      'Solde 70% + réservation fret',
+      'Fret maritime Shenzhen → port de destination',
+      'Douane : 2–5 jours ouvrés',
+      'Livraison finale : 3–7 jours',
+    ],
+    totalLeadTime: 'Total : typiquement',
+    refCityHeading: 'Ville de Référence',
+    whyDdp: 'Pourquoi la Tarification DDP',
+    whyDdpP1: 'La plupart des exportateurs cotent en FOB et laissent le fret, le courtier en douane et la livraison finale à l\'acheteur — trois fournisseurs, trois factures, coûts surprise. Nous groupons tout en un seul prix coté.',
+    whyDdpP2: 'Le prix ci-dessus est ce que vous payez réellement pour recevoir la machine. Le chiffre en devise locale fait foi ; l\'équivalent USD est indicatif.',
+    sidebarTitle: 'Autres marchés',
+    sidebarSee18: 'Voir les 18 pays',
+    sidebarFob: 'Prix FOB et options',
+    sidebarSpec: 'Spécifications complètes',
+    sidebarContact: 'Nous contacter directement',
+    ctaTitle: 'Besoin de livraison DDP ?',
+    ctaSubtitle: 'Demandez un devis avec votre ville spécifique. Réponse sous 12 heures.',
+    region: country.region,
+  },
+  de: {
+    landedPrice: 'Landungspreis', deliveredTo: 'JD-3 geliefert nach',
+    intro: 'Wir kümmern uns um Seefracht, Zollabwicklung, Einfuhrzölle und Lieferung an Ihre Adresse. Ein transparenter Preis — keine Überraschungen am Hafen, keine Zollagent-Rechnung.',
+    ddp: 'DDP', fxFluctuation: 'USD-Äquivalent · Wechselkursschwankungen',
+    getQuoteCta: 'DDP-Angebot für Ihre Adresse',
+    breakdownHeading: 'Preisaufschlüsselung',
+    rowFob: 'FOB Shenzhen (Standard JD-3)', rowFreight: 'Seefracht',
+    rowCustoms: 'Zollabwicklung & Einfuhrzoll', rowVat: 'Lokale MwSt. (wenn enthalten)',
+    rowLastMile: 'Lieferung an Ihre Adresse',
+    total: 'DDP-Summe', surcharge: 'USD-Aufschlag gegenüber FOB',
+    included: 'enthalten', notIncluded: 'nicht enthalten', seeNote: 'siehe Hinweis',
+    whatsIncluded: 'Was enthalten ist', whatsNotIncluded: 'Was NICHT enthalten ist',
+    includesItems: [
+      'V-TAI JD-3 Maschine (Standard, 380V/3N/50Hz)',
+      '2 Standardkörbe, Tassenkorb, Werkzeug, Bedienungsanleitung',
+      'CE-Zertifikat & Handelsrechnung',
+      'Seefracht ab Shenzhen',
+      'Zollabwicklung & Einfuhrzoll',
+      'Lokale MwSt. (wenn angegeben)',
+      'Lieferung an Ihre Adresse',
+      '12-Monats-Garantie (Teile) — globaler Versand DHL/FedEx',
+    ],
+    excludesItems: [
+      'Lokale Installation (Elektriker + Klempner, üblich $200–$500)',
+      'Optionales Zubehör (Reinigungsmittel-Dispenser +$200, Wärmerückgewinnung +$500)',
+      'Schulung inklusive (WhatsApp-Video, 30 min, kostenlos)',
+    ],
+    leadTimeHeading: 'Lieferzeit — Bestellung bis zu Ihrer Tür',
+    leadTimeSteps: [
+      'Bestellbestätigung + 30% Anzahlung (Tag 0)',
+      'Produktion in Shenzhen: 4 Wochen',
+      '70% Restzahlung + Frachtbuchung',
+      'Seefracht Shenzhen → Zielhafen',
+      'Zoll: 2–5 Werktage',
+      'Lieferung: 3–7 Tage',
+    ],
+    totalLeadTime: 'Gesamt: typischerweise',
+    refCityHeading: 'Referenzstadt',
+    whyDdp: 'Warum DDP-Preise wichtig sind',
+    whyDdpP1: 'Die meisten Exporteure quotieren FOB und überlassen Spedition, Zollagent und Lieferung dem Käufer — drei Anbieter, drei Rechnungen, Überraschungskosten. Wir bündeln alles in einem Preis.',
+    whyDdpP2: 'Der gezeigte Preis ist das, was Sie tatsächlich für die Lieferung zahlen. Der Lokalwährungspreis ist maßgeblich; der USD-Wert ist Referenz.',
+    sidebarTitle: 'Andere Märkte',
+    sidebarSee18: 'Alle 18 Länder',
+    sidebarFob: 'FOB-Preise und Optionen',
+    sidebarSpec: 'Vollständige Spezifikationen',
+    sidebarContact: 'Direkt kontaktieren',
+    ctaTitle: 'DDP-Lieferung benötigt?',
+    ctaSubtitle: 'Angebot mit Ihrer spezifischen Stadt. Antwort innerhalb 12 Stunden.',
+    region: country.region,
+  },
+  ru: {
+    landedPrice: 'Цена с доставкой', deliveredTo: 'JD-3 доставлен в',
+    intro: 'Мы берём на себя морской фрахт, таможенное оформление, импортные пошлины и доставку до вашего адреса. Прозрачная цена — без сюрпризов в порту, без счёта от брокера.',
+    ddp: 'DDP', fxFluctuation: 'эквивалент USD · подвержен колебаниям курса',
+    getQuoteCta: 'DDP-расчёт для Вашего адреса',
+    breakdownHeading: 'Разбивка цены',
+    rowFob: 'FOB Шэньчжэнь (Стандарт JD-3)', rowFreight: 'Морской фрахт',
+    rowCustoms: 'Таможня и импортные пошлины', rowVat: 'Местный НДС (где включён)',
+    rowLastMile: 'Доставка до вашего адреса',
+    total: 'Итого DDP', surcharge: 'Надбавка USD сверх FOB',
+    included: 'включено', notIncluded: 'не включено', seeNote: 'см. примечание',
+    whatsIncluded: 'Что включено', whatsNotIncluded: 'Что НЕ включено',
+    includesItems: [
+      'Машина V-TAI JD-3 (стандарт, 380V/3N/50Гц)',
+      '2 стандартные кассеты, кассета для чашек, инструменты, руководство',
+      'Сертификат CE и коммерческий инвойс',
+      'Морской фрахт из Шэньчжэня',
+      'Таможня и импортные пошлины',
+      'Местный НДС (где указано)',
+      'Доставка до вашего адреса',
+      'Гарантия 12 месяцев (запчасти) — глобальная доставка DHL/FedEx',
+    ],
+    excludesItems: [
+      'Местная установка (электрик + сантехник, обычно $200–$500)',
+      'Опционал (авто-дозатор +$200, рекуперация тепла +$500)',
+      'Обучение включено (WhatsApp видеозвонок, 30 мин, бесплатно)',
+    ],
+    leadTimeHeading: 'Срок — заказ до Вашей двери',
+    leadTimeSteps: [
+      'Подтверждение + 30% депозит (День 0)',
+      'Производство в Шэньчжэне: 4 недели',
+      '70% остаток + бронь фрахта',
+      'Морской фрахт Шэньчжэнь → порт назначения',
+      'Таможня: 2–5 рабочих дней',
+      'Доставка: 3–7 дней',
+    ],
+    totalLeadTime: 'Итого: обычно',
+    refCityHeading: 'Город отгрузки',
+    whyDdp: 'Почему важна DDP-цена',
+    whyDdpP1: 'Большинство экспортёров котируют FOB, оставляя фрахт, брокера и доставку покупателю — три поставщика, три счёта, сюрприз-расходы. Мы объединяем всё в одну цену.',
+    whyDdpP2: 'Указанная цена — то, что вы реально платите за доставку. Цена в местной валюте является авторитетной; эквивалент USD — для справки.',
+    sidebarTitle: 'Другие рынки',
+    sidebarSee18: 'Все 18 стран',
+    sidebarFob: 'FOB-цены и опции',
+    sidebarSpec: 'Полные характеристики',
+    sidebarContact: 'Связаться напрямую',
+    ctaTitle: 'Нужна DDP-доставка?',
+    ctaSubtitle: 'Запрос с указанием конкретного города. Ответ в течение 12 часов.',
+    region: country.region,
+  },
+  th: {
+    landedPrice: 'ราคารวมถึงปลายทาง', deliveredTo: 'JD-3 ส่งถึง',
+    intro: 'เราจัดการการขนส่งทางทะเล การพิธีศุลกากร อากรนำเข้า และการจัดส่งถึงประตูบ้านคุณ ราคาโปร่งใส — ไม่มีค่าใช้จ่ายแฝงที่ท่าเรือ ไม่มีใบแจ้งจากตัวแทน',
+    ddp: 'DDP', fxFluctuation: 'เทียบเท่า USD · ขึ้นอยู่กับอัตราแลกเปลี่ยน',
+    getQuoteCta: 'ใบเสนอราคา DDP สำหรับที่อยู่ของคุณ',
+    breakdownHeading: 'การแยกราคา',
+    rowFob: 'FOB เซินเจิ้น (JD-3 มาตรฐาน)', rowFreight: 'ค่าขนส่งทางทะเล',
+    rowCustoms: 'พิธีศุลกากรและอากรนำเข้า', rowVat: 'VAT ท้องถิ่น (ถ้ารวม)',
+    rowLastMile: 'ส่งถึงที่อยู่ของคุณ',
+    total: 'รวม DDP', surcharge: 'ส่วนเพิ่ม USD เหนือ FOB',
+    included: 'รวม', notIncluded: 'ไม่รวม', seeNote: 'ดูหมายเหตุ',
+    whatsIncluded: 'สิ่งที่รวม', whatsNotIncluded: 'สิ่งที่ไม่รวม',
+    includesItems: [
+      'เครื่อง V-TAI JD-3 (มาตรฐาน 380V/3N/50Hz)',
+      'แร็คมาตรฐาน 2 ชิ้น แร็คถ้วย เครื่องมือพื้นฐาน คู่มือ',
+      'ใบรับรอง CE และใบกำกับสินค้า',
+      'ขนส่งทางทะเลจากเซินเจิ้น',
+      'พิธีศุลกากรและอากรนำเข้า',
+      'VAT ท้องถิ่น (ตามที่ระบุ)',
+      'ส่งถึงที่อยู่ของคุณ',
+      'รับประกัน 12 เดือน (อะไหล่) — ส่งทั่วโลก DHL/FedEx',
+    ],
+    excludesItems: [
+      'การติดตั้งในพื้นที่ (ช่างไฟ + ช่างประปา ประมาณ $200–$500)',
+      'อุปกรณ์เสริม (เครื่องจ่ายสารทำความสะอาด +$200, การกู้คืนความร้อน +$500)',
+      'การฝึกอบรมรวม (วิดีโอคอล WhatsApp 30 นาที ฟรี)',
+    ],
+    leadTimeHeading: 'ระยะเวลา — สั่งซื้อถึงประตูบ้าน',
+    leadTimeSteps: [
+      'ยืนยันการสั่งซื้อ + มัดจำ 30% (วันที่ 0)',
+      'การผลิตที่เซินเจิ้น: 4 สัปดาห์',
+      'ชำระยอดคงเหลือ 70% + จองขนส่ง',
+      'ขนส่งทางทะเลเซินเจิ้น → ท่าเรือปลายทาง',
+      'ศุลกากร: 2–5 วันทำการ',
+      'ขนส่งภายในประเทศ: 3–7 วัน',
+    ],
+    totalLeadTime: 'รวม: โดยทั่วไป',
+    refCityHeading: 'เมืองอ้างอิง',
+    whyDdp: 'ทำไมต้องราคา DDP',
+    whyDdpP1: 'ผู้ส่งออกส่วนใหญ่เสนอราคา FOB และทิ้งภาระค่าขนส่ง ตัวแทนศุลกากร และการจัดส่งให้ผู้ซื้อ — ผู้ขายสามราย ใบแจ้งสามใบ ค่าใช้จ่ายเซอร์ไพรส์ เรารวมทุกอย่างไว้ในราคาเดียว',
+    whyDdpP2: 'ราคาที่แสดงคือสิ่งที่คุณจ่ายจริงเพื่อรับเครื่องที่ประตูบ้าน ราคาในสกุลเงินท้องถิ่นเป็นทางการ ส่วน USD เป็นข้อมูลอ้างอิง',
+    sidebarTitle: 'ตลาดอื่นๆ',
+    sidebarSee18: 'ดูทั้ง 18 ประเทศ',
+    sidebarFob: 'ราคา FOB และตัวเลือก',
+    sidebarSpec: 'สเปคเต็ม',
+    sidebarContact: 'ติดต่อโดยตรง',
+    ctaTitle: 'ต้องการการจัดส่ง DDP?',
+    ctaSubtitle: 'ขอใบเสนอราคาพร้อมเมืองที่ระบุ ตอบกลับใน 12 ชั่วโมง',
+    region: country.region,
+  },
+  vi: {
+    landedPrice: 'Giá tận nhà', deliveredTo: 'JD-3 giao đến',
+    intro: 'Chúng tôi xử lý vận chuyển đường biển, thông quan, thuế nhập khẩu và giao hàng cuối cùng đến địa chỉ của bạn. Một mức giá minh bạch — không phí bất ngờ tại cảng, không hóa đơn từ môi giới.',
+    ddp: 'DDP', fxFluctuation: 'tương đương USD · phụ thuộc tỷ giá',
+    getQuoteCta: 'Báo giá DDP cho địa chỉ của bạn',
+    breakdownHeading: 'Phân tích giá',
+    rowFob: 'FOB Thâm Quyến (JD-3 Tiêu chuẩn)', rowFreight: 'Phí vận chuyển đường biển',
+    rowCustoms: 'Thông quan và thuế nhập khẩu', rowVat: 'VAT địa phương (nếu bao gồm)',
+    rowLastMile: 'Giao hàng đến địa chỉ của bạn',
+    total: 'Tổng DDP', surcharge: 'Phụ phí USD so với FOB',
+    included: 'bao gồm', notIncluded: 'không bao gồm', seeNote: 'xem ghi chú',
+    whatsIncluded: 'Bao gồm những gì', whatsNotIncluded: 'Không bao gồm',
+    includesItems: [
+      'Máy V-TAI JD-3 (tiêu chuẩn 380V/3N/50Hz)',
+      '2 khay tiêu chuẩn, khay cốc, công cụ cơ bản, sổ tay',
+      'Chứng nhận CE và hóa đơn thương mại',
+      'Vận chuyển đường biển từ Thâm Quyến',
+      'Thông quan và thuế nhập khẩu',
+      'VAT địa phương (như đã chỉ định)',
+      'Giao hàng đến địa chỉ của bạn',
+      'Bảo hành 12 tháng (linh kiện) — vận chuyển toàn cầu DHL/FedEx',
+    ],
+    excludesItems: [
+      'Lắp đặt tại chỗ (thợ điện + thợ ống nước, thường $200–$500)',
+      'Phụ kiện tùy chọn (bộ phân phối chất tẩy +$200, thu hồi nhiệt +$500)',
+      'Đào tạo bao gồm (gọi video WhatsApp 30 phút, miễn phí)',
+    ],
+    leadTimeHeading: 'Thời gian — đặt hàng đến tận nhà',
+    leadTimeSteps: [
+      'Xác nhận đặt hàng + đặt cọc 30% (Ngày 0)',
+      'Sản xuất tại Thâm Quyến: 4 tuần',
+      'Số dư 70% + đặt chỗ vận chuyển',
+      'Vận chuyển biển Thâm Quyến → cảng đích',
+      'Thông quan: 2–5 ngày làm việc',
+      'Giao hàng cuối cùng: 3–7 ngày',
+    ],
+    totalLeadTime: 'Tổng cộng: thường',
+    refCityHeading: 'Thành phố tham chiếu',
+    whyDdp: 'Tại sao giá DDP quan trọng',
+    whyDdpP1: 'Hầu hết các nhà xuất khẩu báo giá FOB và để vận chuyển, môi giới hải quan và giao hàng cuối cùng cho người mua — ba nhà cung cấp, ba hóa đơn, chi phí bất ngờ. Chúng tôi gộp tất cả thành một giá.',
+    whyDdpP2: 'Giá hiển thị là số tiền bạn thực sự trả để nhận máy tại nhà. Số tiền tệ địa phương có thẩm quyền; tương đương USD chỉ là tham chiếu.',
+    sidebarTitle: 'Thị trường khác',
+    sidebarSee18: 'Xem cả 18 quốc gia',
+    sidebarFob: 'Giá FOB và tùy chọn',
+    sidebarSpec: 'Thông số đầy đủ',
+    sidebarContact: 'Liên hệ trực tiếp',
+    ctaTitle: 'Cần giao hàng DDP?',
+    ctaSubtitle: 'Yêu cầu báo giá với thành phố cụ thể. Phản hồi trong 12 giờ.',
+    region: country.region,
+  },
+  ar: {
+    landedPrice: 'السعر النهائي', deliveredTo: 'JD-3 يتم تسليمه إلى',
+    intro: 'نتولى الشحن البحري والتخليص الجمركي ورسوم الاستيراد والتوصيل إلى عنوانك. سعر واحد شفاف — لا رسوم مفاجئة في الميناء، لا فاتورة من وكيل الجمارك.',
+    ddp: 'DDP', fxFluctuation: 'ما يعادل بالدولار · يخضع لتقلبات الصرف',
+    getQuoteCta: 'احصل على عرض DDP لعنوانك',
+    breakdownHeading: 'تفصيل السعر',
+    rowFob: 'FOB شنتشن (JD-3 قياسي)', rowFreight: 'الشحن البحري',
+    rowCustoms: 'التخليص الجمركي ورسوم الاستيراد', rowVat: 'ضريبة محلية (حيث مشمولة)',
+    rowLastMile: 'التوصيل إلى عنوانك',
+    total: 'إجمالي DDP', surcharge: 'الزيادة بالدولار فوق FOB',
+    included: 'مشمول', notIncluded: 'غير مشمول', seeNote: 'انظر الملاحظة',
+    whatsIncluded: 'ما يشمله السعر', whatsNotIncluded: 'ما لا يشمله السعر',
+    includesItems: [
+      'آلة V-TAI JD-3 (قياسية، 380 فولت/3N/50Hz)',
+      'رفان قياسيان، رف فناجين، أدوات أساسية، دليل',
+      'شهادة CE وفاتورة تجارية',
+      'الشحن البحري من شنتشن',
+      'التخليص الجمركي ورسوم الاستيراد',
+      'الضريبة المحلية (حيث مذكور)',
+      'التوصيل إلى عنوانك',
+      'ضمان 12 شهراً (قطع غيار) — شحن عالمي عبر DHL/FedEx',
+    ],
+    excludesItems: [
+      'التركيب المحلي (كهربائي + سباك، عادة 200–500$)',
+      'الملحقات الاختيارية (موزع تنظيف +200$، استرداد حرارة +500$)',
+      'التدريب مشمول (مكالمة واتساب فيديو 30 دقيقة، مجاناً)',
+    ],
+    leadTimeHeading: 'المدة — من الطلب إلى بابك',
+    leadTimeSteps: [
+      'تأكيد الطلب + دفعة 30% (يوم 0)',
+      'الإنتاج في شنتشن: 4 أسابيع',
+      'دفع 70% المتبقية + حجز الشحن',
+      'الشحن البحري شنتشن → ميناء الوجهة',
+      'التخليص الجمركي: 2–5 أيام عمل',
+      'التوصيل المحلي: 3–7 أيام',
+    ],
+    totalLeadTime: 'الإجمالي: عادة',
+    refCityHeading: 'المدينة المرجعية',
+    whyDdp: 'لماذا تسعير DDP مهم',
+    whyDdpP1: 'معظم المصدرين يعرضون FOB ويتركون الشحن والتخليص والتوصيل للمشتري — ثلاثة موردين، ثلاث فواتير، تكاليف مفاجئة. نحن نجمع كل ذلك في سعر واحد.',
+    whyDdpP2: 'السعر المعروض هو ما تدفعه فعلياً لاستلام الآلة عند بابك. الرقم بالعملة المحلية هو المرجع؛ ما يعادله بالدولار للإشارة فقط.',
+    sidebarTitle: 'أسواق أخرى',
+    sidebarSee18: 'انظر جميع الـ 18 دولة',
+    sidebarFob: 'أسعار FOB والخيارات',
+    sidebarSpec: 'المواصفات الكاملة',
+    sidebarContact: 'تواصل معنا مباشرة',
+    ctaTitle: 'تحتاج توصيل DDP؟',
+    ctaSubtitle: 'اطلب عرض سعر مع مدينتك المحددة. نرد خلال 12 ساعة.',
+    region: country.region,
+  },
+};
+
+const s = STRINGS[locale];
 ---
 <BaseLayout
-  title={`JD-3 Delivered to ${country.name} — ${country.priceLocal} DDP ${country.city}`}
-  description={`Transparent landed price for the V-TAI JD-3 bakery tray washer delivered to ${country.name}: ${country.priceLocal} DDP via ${country.port}. FOB Shenzhen $4,400 USD + freight + duties + last-mile = single all-in price.`}
+  title={`${s.deliveredTo} ${country.name} — ${country.priceLocal} DDP ${country.city}`}
+  description={`${s.deliveredTo} ${country.name}: ${country.priceLocal} DDP via ${country.port}. FOB Shenzhen $4,400 USD.`}
   locale={locale}
   canonicalPath={canonicalPath}
   schemaType="Product"
@@ -34,106 +479,85 @@ const surcharge = country.usdApprox - 4400;
   }}
 >
 <BreadcrumbNav items={[
-  { label: 'Home', href: lp('/') },
-  { label: 'Pricing', href: lp('/pricing/') },
-  { label: 'By Country', href: lp('/pricing/by-country/') },
+  { label: t(locale, 'nav.home'), href: lp('/') },
+  { label: t(locale, 'nav.pricing'), href: lp('/pricing/') },
+  { label: t(locale, 'nav.ddpByCountry'), href: lp('/pricing/by-country/') },
   { label: country.name }
 ]} />
 
 <section class="section">
   <div class="container-page grid lg:grid-cols-3 gap-10">
     <article class="lg:col-span-2 prose-section">
-      <p class="eyebrow mb-2">Landed price · {country.region}</p>
-      <h1 class="mb-4">JD-3 Delivered to {country.name}: <span class="text-bakery-orange">{country.priceLocal}</span> DDP {country.city}</h1>
-      <p class="text-lg text-bakery-navy/80 mb-6">
-        We handle ocean freight, customs clearance, import duty, and last-mile delivery to your address.
-        You receive one transparent price — no surprise charges at the port, no customs-broker invoice, no last-mile mystery.
-      </p>
+      <p class="eyebrow mb-2">{s.landedPrice} · {s.region}</p>
+      <h1 class="mb-4">{s.deliveredTo} {country.name}: <span class="text-bakery-orange">{country.priceLocal}</span> {s.ddp} {country.city}</h1>
+      <p class="text-lg text-bakery-navy/80 mb-6">{s.intro}</p>
 
       <!-- Big price callout -->
       <div class="card bg-gradient-to-br from-bakery-cream to-white border-2 border-bakery-orange/30 mb-8">
-        <p class="eyebrow mb-1">DDP {country.city}</p>
-        <p class="text-4xl md:text-5xl font-bold text-bakery-navy">
-          {country.priceLocal}
-        </p>
+        <p class="eyebrow mb-1">{s.ddp} {country.city}</p>
+        <p class="text-4xl md:text-5xl font-bold text-bakery-navy">{country.priceLocal}</p>
         <p class="text-sm text-bakery-navy/60 mt-2">
-          (~${country.usdApprox.toLocaleString('en-US')} USD equivalent · subject to FX fluctuation)
+          (~${country.usdApprox.toLocaleString('en-US')} {s.fxFluctuation})
         </p>
-        <a href={lp('/get-quote/')} class="btn-primary mt-4 w-full md:w-auto">
-          Get a DDP Quote for Your {country.name} Address
-        </a>
+        <a href={lp('/get-quote/')} class="btn-primary mt-4 w-full md:w-auto">{s.getQuoteCta}</a>
       </div>
 
-      <h2 class="mt-10 mb-3">How the Price Breaks Down</h2>
+      <h2 class="mt-10 mb-3">{s.breakdownHeading}</h2>
       <div class="card !p-0 overflow-hidden">
         <table class="w-full text-sm">
           <tbody>
-            <tr><td class="p-3 border-b border-bakery-navy/5">FOB Shenzhen (Standard JD-3)</td><td class="p-3 border-b border-bakery-navy/5 text-right font-semibold">$4,400 USD</td></tr>
-            <tr><td class="p-3 border-b border-bakery-navy/5">+ Ocean freight ({country.port})</td><td class="p-3 border-b border-bakery-navy/5 text-right text-bakery-navy/70">included</td></tr>
-            <tr><td class="p-3 border-b border-bakery-navy/5">+ Customs clearance &amp; import duty</td><td class="p-3 border-b border-bakery-navy/5 text-right text-bakery-navy/70">included</td></tr>
-            <tr><td class="p-3 border-b border-bakery-navy/5">+ Local VAT/GST (where included)</td><td class="p-3 border-b border-bakery-navy/5 text-right text-bakery-navy/70">see note below</td></tr>
-            <tr><td class="p-3 border-b border-bakery-navy/5">+ Last-mile delivery to your {country.name} address</td><td class="p-3 border-b border-bakery-navy/5 text-right text-bakery-navy/70">included</td></tr>
+            <tr><td class="p-3 border-b border-bakery-navy/5">{s.rowFob}</td><td class="p-3 border-b border-bakery-navy/5 text-right font-semibold">$4,400 USD</td></tr>
+            <tr><td class="p-3 border-b border-bakery-navy/5">+ {s.rowFreight} ({country.port})</td><td class="p-3 border-b border-bakery-navy/5 text-right text-bakery-navy/70">{s.included}</td></tr>
+            <tr><td class="p-3 border-b border-bakery-navy/5">+ {s.rowCustoms}</td><td class="p-3 border-b border-bakery-navy/5 text-right text-bakery-navy/70">{s.included}</td></tr>
+            <tr><td class="p-3 border-b border-bakery-navy/5">+ {s.rowVat}</td><td class="p-3 border-b border-bakery-navy/5 text-right text-bakery-navy/70">{s.seeNote}</td></tr>
+            <tr><td class="p-3 border-b border-bakery-navy/5">+ {s.rowLastMile}</td><td class="p-3 border-b border-bakery-navy/5 text-right text-bakery-navy/70">{s.included}</td></tr>
             <tr class="bg-bakery-cream font-bold">
-              <td class="p-3">DDP {country.city} total</td>
+              <td class="p-3">{s.total} ({country.city})</td>
               <td class="p-3 text-right text-bakery-orange text-lg">{country.priceLocal}</td>
             </tr>
-            <tr><td class="p-3 text-bakery-navy/60 text-xs">USD-equivalent surcharge over FOB</td><td class="p-3 text-right text-bakery-navy/60 text-xs">~${surcharge.toLocaleString('en-US')}</td></tr>
+            <tr><td class="p-3 text-bakery-navy/60 text-xs">{s.surcharge}</td><td class="p-3 text-right text-bakery-navy/60 text-xs">~${surcharge.toLocaleString('en-US')}</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2 class="mt-10 mb-3">What&rsquo;s Included</h2>
+      <h2 class="mt-10 mb-3">{s.whatsIncluded}</h2>
       <ul class="list-disc list-inside space-y-2">
-        <li>V-TAI JD-3 Bakingware Hood-type Washer (Standard configuration, 380V/3N/50Hz)</li>
-        <li>2 standard wash racks, peg cup rack, basic tools, English operation manual</li>
-        <li>CE certificate &amp; commercial invoice</li>
-        <li>Sea freight Shenzhen → {country.port}</li>
-        <li>Customs clearance &amp; import duty: {country.importDutyNote}</li>
-        <li>Local tax: {country.vatGstNote}</li>
-        <li>Last-mile delivery to your address in {country.name}</li>
-        <li>12-month manufacturer warranty (parts) — replacement parts ship globally via DHL/FedEx</li>
+        {s.includesItems.map((item) => <li>{item}</li>)}
       </ul>
 
-      <h2 class="mt-10 mb-3">What&rsquo;s NOT Included</h2>
+      <h2 class="mt-10 mb-3">{s.whatsNotIncluded}</h2>
       <ul class="list-disc list-inside space-y-2">
-        <li>Local installation labor (licensed electrician + plumber, typically $200–$500 in {country.name})</li>
-        <li>Optional accessories (auto-detergent dispenser +$200, heat recovery module +$400, water treatment +$500)</li>
-        <li>Operator training is provided via WhatsApp video call (30 min, included free)</li>
+        {s.excludesItems.map((item) => <li>{item}</li>)}
       </ul>
 
-      <h2 class="mt-10 mb-3">Lead Time — Order to Your Door</h2>
+      <h2 class="mt-10 mb-3">{s.leadTimeHeading}</h2>
       <ol class="list-decimal list-inside space-y-2">
-        <li>Order confirmation &amp; 30% deposit received (Day 0)</li>
-        <li>Production at our Shenzhen facility: 4 weeks</li>
-        <li>70% balance payment + booking ocean freight</li>
-        <li>Ocean freight Shenzhen → {country.port}: <strong>{country.seaFreightDays} days</strong></li>
-        <li>Customs clearance: 2–5 business days</li>
-        <li>Last-mile trucking to your address: 3–7 days</li>
-        <li><strong>Total: typically {country.leadTimeWeeks} weeks from order to your door</strong></li>
+        {s.leadTimeSteps.map((step) => <li>{step}</li>)}
+        <li><strong>{s.totalLeadTime} {country.leadTimeWeeks} {t(locale, 'country.weekShort')}</strong></li>
       </ol>
 
-      <h2 class="mt-10 mb-3">Reference City Note</h2>
+      <h2 class="mt-10 mb-3">{s.refCityHeading}</h2>
       <p class="text-bakery-navy/80">{country.refCityNote}</p>
 
-      <h2 class="mt-10 mb-3">Why DDP Pricing Matters</h2>
-      <p class="text-bakery-navy/80">Most overseas exporters quote FOB and leave the freight forwarding, customs broker, and last-mile to the buyer — three separate vendors, three invoices, and surprise costs at every step. We bundle all of that into a single quoted price so you know exactly what you&rsquo;ll pay before placing the order.</p>
-      <p class="text-bakery-navy/80 mt-3">The price above is what you actually pay to receive the machine at your door in {country.name}. The local-currency figure is the authoritative number; the USD equivalent is shown for reference and may shift with exchange-rate movement.</p>
+      <h2 class="mt-10 mb-3">{s.whyDdp}</h2>
+      <p class="text-bakery-navy/80">{s.whyDdpP1}</p>
+      <p class="text-bakery-navy/80 mt-3">{s.whyDdpP2}</p>
     </article>
 
     <aside class="lg:sticky lg:top-24 self-start">
-      <InlineInquiryForm locale={locale} title={`Quote for ${country.name}`} />
+      <InlineInquiryForm locale={locale} title={`${s.getQuoteCta} — ${country.name}`} />
       <div class="mt-6 card">
-        <h3 class="text-base mb-3">Other markets</h3>
+        <h3 class="text-base mb-3">{s.sidebarTitle}</h3>
         <ul class="space-y-2 text-sm">
-          <li><a href={lp('/pricing/by-country/')} class="hover:underline">See all 18 countries</a></li>
-          <li><a href={lp('/pricing/')} class="hover:underline">FOB pricing &amp; tiers</a></li>
-          <li><a href={lp('/product/')} class="hover:underline">Full product spec</a></li>
-          <li><a href={lp('/contact/')} class="hover:underline">Contact us directly</a></li>
+          <li><a href={lp('/pricing/by-country/')} class="hover:underline">{s.sidebarSee18}</a></li>
+          <li><a href={lp('/pricing/')} class="hover:underline">{s.sidebarFob}</a></li>
+          <li><a href={lp('/product/')} class="hover:underline">{s.sidebarSpec}</a></li>
+          <li><a href={lp('/contact/')} class="hover:underline">{s.sidebarContact}</a></li>
         </ul>
       </div>
     </aside>
   </div>
 </section>
 
-<CTASection locale={locale} title={`Need DDP delivery to ${country.name}?`} subtitle={`Request a quote with your specific city. We respond within 12 hours with a final all-in figure.`} />
+<CTASection locale={locale} title={s.ctaTitle} subtitle={s.ctaSubtitle} />
 </BaseLayout>

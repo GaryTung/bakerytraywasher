@@ -2,22 +2,19 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'ar' as const;
 ---
-<BaseLayout title="Electrical Requirements for Bakery Dishwashers | JD-3" description="Electrical Requirements for Bakery Dishwashers — practical guidance for bakery operators using the V-TAI JD-3." locale={locale} canonicalPath="/guides/electrical-requirements-bakery-dishwasher/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/ar/'},{label:'Guides'},{label:'Electrical Requirements for Bakery Dishwashers'}]} />
+<BaseLayout title="المتطلبات الكهربائية | JD-3" description="المتطلبات الكهربائية" locale={locale} canonicalPath="/guides/electrical-requirements-bakery-dishwasher/" schemaType="Article">
+<BreadcrumbNav items={[
+  { label: t(locale, 'nav.home'), href: '/ar/' },
+  { label: t(locale, 'nav.guides') },
+  { label: "المتطلبات الكهربائية" }
+]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">Electrical Requirements for Bakery Dishwashers</h1>
-<p class="text-lg mb-6">A practical guide for bakery operators using the V-TAI JD-3 hood-type bakery tray washer.</p>
-<p class="text-bakery-navy/70 mb-4">For the full English version with detailed depth, visit <a href="/guides/electrical-requirements-bakery-dishwasher/" class="underline">/guides/electrical-requirements-bakery-dishwasher/</a>.</p>
-<p>Key points covered in this guide:</p>
-<ul class="list-disc list-inside space-y-2 mt-3">
-<li>Practical recommendations for daily bakery operations</li>
-<li>Settings &amp; configurations for V-TAI JD-3 owners</li>
-<li>Common pitfalls &amp; how to avoid them</li>
-<li>References to industry standards (CE, NSF, EN 631)</li>
-</ul>
-<p class="mt-6 text-sm text-bakery-navy/60">This guide is being expanded in your language. For full English-language depth, see the link above. WhatsApp +86 135 0962 3269 for direct support in your language.</p>
+<h1 class="mb-4">المتطلبات الكهربائية</h1>
+<p class="text-lg mb-6">دليل عملي لمشغلي المخابز الذين يستخدمون V-TAI JD-3.</p>
+<p class="text-bakery-navy/70"><a href="/guides/electrical-requirements-bakery-dishwasher/" class="underline">اطلع على النسخة الإنجليزية الكاملة</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

@@ -2,22 +2,19 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'vi' as const;
 ---
-<BaseLayout title="The Real Cost of Manual Tray Cleaning | JD-3" description="The Real Cost of Manual Tray Cleaning — practical guidance for bakery operators using the V-TAI JD-3." locale={locale} canonicalPath="/guides/cost-of-manual-tray-cleaning/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/vi/'},{label:'Guides'},{label:'The Real Cost of Manual Tray Cleaning'}]} />
+<BaseLayout title="Chi phí thực sự của việc rửa tay | JD-3" description="Chi phí thực sự của việc rửa tay" locale={locale} canonicalPath="/guides/cost-of-manual-tray-cleaning/" schemaType="Article">
+<BreadcrumbNav items={[
+  { label: t(locale, 'nav.home'), href: '/vi/' },
+  { label: t(locale, 'nav.guides') },
+  { label: "Chi phí thực sự của việc rửa tay" }
+]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">The Real Cost of Manual Tray Cleaning</h1>
-<p class="text-lg mb-6">A practical guide for bakery operators using the V-TAI JD-3 hood-type bakery tray washer.</p>
-<p class="text-bakery-navy/70 mb-4">For the full English version with detailed depth, visit <a href="/guides/cost-of-manual-tray-cleaning/" class="underline">/guides/cost-of-manual-tray-cleaning/</a>.</p>
-<p>Key points covered in this guide:</p>
-<ul class="list-disc list-inside space-y-2 mt-3">
-<li>Practical recommendations for daily bakery operations</li>
-<li>Settings &amp; configurations for V-TAI JD-3 owners</li>
-<li>Common pitfalls &amp; how to avoid them</li>
-<li>References to industry standards (CE, NSF, EN 631)</li>
-</ul>
-<p class="mt-6 text-sm text-bakery-navy/60">This guide is being expanded in your language. For full English-language depth, see the link above. WhatsApp +86 135 0962 3269 for direct support in your language.</p>
+<h1 class="mb-4">Chi phí thực sự của việc rửa tay</h1>
+<p class="text-lg mb-6">Hướng dẫn thực tế cho người vận hành tiệm bánh sử dụng V-TAI JD-3.</p>
+<p class="text-bakery-navy/70"><a href="/guides/cost-of-manual-tray-cleaning/" class="underline">Xem phiên bản tiếng Anh đầy đủ</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

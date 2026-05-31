@@ -5,7 +5,18 @@ import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 import InlineInquiryForm from '../components/InlineInquiryForm.astro';
 import FAQSection from '../components/FAQSection.astro';
 import CTASection from '../components/CTASection.astro';
-import { type Locale } from '../i18n/utils';
+import { type Locale, localizePath, t } from '../i18n/utils';
+
+const headings: Record<Locale, { challenge: string; howItHandles: string; recommendedSettings: string; moreItems: string }> = {
+  en: { challenge: 'The Cleaning Challenge', howItHandles: 'How the JD-3 Handles It', recommendedSettings: 'Recommended Settings', moreItems: 'More items the JD-3 washes' },
+  es: { challenge: 'El Desafío de Limpieza', howItHandles: 'Cómo lo Maneja la JD-3', recommendedSettings: 'Configuración Recomendada', moreItems: 'Más artículos que lava la JD-3' },
+  fr: { challenge: 'Le Défi de Nettoyage', howItHandles: 'Comment le JD-3 le Gère', recommendedSettings: 'Réglages Recommandés', moreItems: 'Autres articles lavés par le JD-3' },
+  de: { challenge: 'Die Reinigungsherausforderung', howItHandles: 'Wie der JD-3 es bewältigt', recommendedSettings: 'Empfohlene Einstellungen', moreItems: 'Weitere Artikel, die der JD-3 spült' },
+  ru: { challenge: 'Задача очистки', howItHandles: 'Как JD-3 справляется', recommendedSettings: 'Рекомендованные настройки', moreItems: 'Что ещё моет JD-3' },
+  th: { challenge: 'ความท้าทายในการทำความสะอาด', howItHandles: 'JD-3 จัดการอย่างไร', recommendedSettings: 'การตั้งค่าที่แนะนำ', moreItems: 'รายการอื่นๆ ที่ JD-3 ล้าง' },
+  vi: { challenge: 'Thách thức làm sạch', howItHandles: 'JD-3 xử lý như thế nào', recommendedSettings: 'Cài đặt được khuyến nghị', moreItems: 'Các vật khác JD-3 rửa được' },
+  ar: { challenge: 'تحدي التنظيف', howItHandles: 'كيف يتعامل JD-3 معه', recommendedSettings: 'الإعدادات الموصى بها', moreItems: 'المزيد من المواد التي يغسلها JD-3' },
+};
 
 interface QA { q: string; a: string }
 interface Props {
@@ -20,9 +31,11 @@ interface Props {
   faqs: QA[];
 }
 const { locale, canonicalPath, itemName, title, description, challenge, howItHandles, recommendedSettings, faqs } = Astro.props;
+const h = headings[locale];
+const lp = (p: string) => localizePath(p, locale);
 ---
 <BaseLayout title={title} description={description} locale={locale} canonicalPath={canonicalPath} schemaType="Article">
-<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'What It Washes', href: '/what-it-washes/'}, {label: itemName}]} />
+<BreadcrumbNav items={[{label: t(locale, 'nav.home'), href: lp('/')}, {label: t(locale, 'nav.washes'), href: lp('/what-it-washes/')}, {label: itemName}]} />
 
 <section class="section">
   <div class="container-page grid lg:grid-cols-3 gap-10">
@@ -30,29 +43,29 @@ const { locale, canonicalPath, itemName, title, description, challenge, howItHan
       <h1 class="mb-4">{title}</h1>
       <p class="text-lg text-bakery-navy/80 mb-6">{description}</p>
 
-      <ImagePlaceholder alt={`${itemName} being washed in JD-3`} ratio="16/9" label={`${itemName} in JD-3 chamber`} />
+      <ImagePlaceholder alt={itemName} ratio="16/9" label={itemName} />
 
-      <h2 class="mt-10 mb-3">The Cleaning Challenge</h2>
+      <h2 class="mt-10 mb-3">{h.challenge}</h2>
       <p class="text-bakery-navy/80 leading-relaxed whitespace-pre-line">{challenge}</p>
 
-      <h2 class="mt-10 mb-3">How the JD-3 Handles It</h2>
+      <h2 class="mt-10 mb-3">{h.howItHandles}</h2>
       <p class="text-bakery-navy/80 leading-relaxed whitespace-pre-line">{howItHandles}</p>
 
-      <h2 class="mt-10 mb-3">Recommended Settings</h2>
+      <h2 class="mt-10 mb-3">{h.recommendedSettings}</h2>
       <p class="text-bakery-navy/80 leading-relaxed whitespace-pre-line">{recommendedSettings}</p>
     </article>
 
     <aside class="lg:sticky lg:top-24 self-start">
-      <InlineInquiryForm locale={locale} title="Get a Quote" />
+      <InlineInquiryForm locale={locale} title={t(locale, 'cta.quote')} />
       <div class="mt-6 card">
-        <h3 class="text-base mb-3">More items the JD-3 washes</h3>
+        <h3 class="text-base mb-3">{h.moreItems}</h3>
         <ul class="space-y-2 text-sm">
-          <li><a href="/what-it-washes/baking-trays-600x400/" class="hover:underline">600×400 mm bakery trays</a></li>
-          <li><a href="/what-it-washes/sheet-pans/" class="hover:underline">American sheet pans</a></li>
-          <li><a href="/what-it-washes/mixing-bowls/" class="hover:underline">Mixing bowls</a></li>
-          <li><a href="/what-it-washes/cake-pans/" class="hover:underline">Cake pans</a></li>
-          <li><a href="/what-it-washes/pizza-pans/" class="hover:underline">Pizza pans</a></li>
-          <li><a href="/what-it-washes/stockpots/" class="hover:underline">Stockpots</a></li>
+          <li><a href={lp('/what-it-washes/baking-trays-600x400/')} class="hover:underline">600×400 mm</a></li>
+          <li><a href={lp('/what-it-washes/sheet-pans/')} class="hover:underline">Sheet pans</a></li>
+          <li><a href={lp('/what-it-washes/mixing-bowls/')} class="hover:underline">Mixing bowls</a></li>
+          <li><a href={lp('/what-it-washes/cake-pans/')} class="hover:underline">Cake pans</a></li>
+          <li><a href={lp('/what-it-washes/pizza-pans/')} class="hover:underline">Pizza pans</a></li>
+          <li><a href={lp('/what-it-washes/stockpots/')} class="hover:underline">Stockpots</a></li>
         </ul>
       </div>
     </aside>

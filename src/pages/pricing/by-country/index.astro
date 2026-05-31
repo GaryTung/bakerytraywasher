@@ -3,10 +3,19 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { countries, getCountriesByRegion } from '../../../data/countries';
+import { t } from '../../../i18n/utils';
 
 const locale = 'en' as const;
 const grouped = getCountriesByRegion();
 const regionOrder = ['North America', 'Latin America', 'Europe', 'GCC / Middle East', 'Asia-Pacific', 'Africa'];
+const regionKeyMap: Record<string, string> = {
+  'North America': 'country.region.northAmerica',
+  'Latin America': 'country.region.latinAmerica',
+  'Europe': 'country.region.europe',
+  'GCC / Middle East': 'country.region.gcc',
+  'Asia-Pacific': 'country.region.asiaPacific',
+  'Africa': 'country.region.africa',
+};
 ---
 <BaseLayout
   title="JD-3 Landed Price by Country — DDP to Your Door | bakerytraywasher.com"
@@ -15,50 +24,41 @@ const regionOrder = ['North America', 'Latin America', 'Europe', 'GCC / Middle E
   canonicalPath="/pricing/by-country/"
   schemaType="Product"
 >
-<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Pricing', href: '/pricing/'}, {label: 'By Country'}]} />
+<BreadcrumbNav items={[
+  { label: t(locale, 'nav.home'), href: '/' },
+  { label: t(locale, 'nav.pricing'), href: '/pricing/' },
+  { label: t(locale, 'nav.ddpByCountry') }
+]} />
 
 <section class="section">
   <div class="container-page">
     <div class="text-center max-w-3xl mx-auto mb-10">
       <p class="eyebrow mb-2">DDP landed pricing · 18 countries</p>
-      <h1 class="mb-4">JD-3 Delivered to Your Door — Transparent DDP Pricing</h1>
+      <h1 class="mb-4">{t(locale, 'country.title')}</h1>
       <p class="text-bakery-navy/70 text-lg">
         For these 18 markets we quote a single all-in price including ocean freight, customs clearance, import duty, local VAT/GST (where included), and last-mile delivery. No surprise invoices.
       </p>
     </div>
 
-    <!-- Quick stats -->
     <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-      <div class="card text-center">
-        <p class="text-3xl font-bold text-bakery-orange">18</p>
-        <p class="text-sm text-bakery-navy/70 mt-1">countries with firm DDP quotes</p>
-      </div>
-      <div class="card text-center">
-        <p class="text-3xl font-bold text-bakery-orange">$4,400</p>
-        <p class="text-sm text-bakery-navy/70 mt-1">FOB Shenzhen base price</p>
-      </div>
-      <div class="card text-center">
-        <p class="text-3xl font-bold text-bakery-orange">6–14</p>
-        <p class="text-sm text-bakery-navy/70 mt-1">weeks order → your door</p>
-      </div>
-      <div class="card text-center">
-        <p class="text-3xl font-bold text-bakery-orange">0</p>
-        <p class="text-sm text-bakery-navy/70 mt-1">surprise charges at the port</p>
-      </div>
+      <div class="card text-center"><p class="text-3xl font-bold text-bakery-orange">18</p><p class="text-sm text-bakery-navy/70 mt-1">countries with firm DDP quotes</p></div>
+      <div class="card text-center"><p class="text-3xl font-bold text-bakery-orange">$4,400</p><p class="text-sm text-bakery-navy/70 mt-1">FOB Shenzhen base price</p></div>
+      <div class="card text-center"><p class="text-3xl font-bold text-bakery-orange">6–14</p><p class="text-sm text-bakery-navy/70 mt-1">weeks order → your door</p></div>
+      <div class="card text-center"><p class="text-3xl font-bold text-bakery-orange">0</p><p class="text-sm text-bakery-navy/70 mt-1">surprise charges at the port</p></div>
     </div>
 
     {regionOrder.map((region) => grouped[region] && (
       <div class="mb-10">
-        <h2 class="mb-4 text-bakery-navy">{region}</h2>
+        <h2 class="mb-4 text-bakery-navy">{t(locale, regionKeyMap[region])}</h2>
         <div class="overflow-x-auto card !p-0">
           <table class="w-full text-sm">
             <thead class="bg-bakery-navy text-white">
               <tr>
-                <th class="text-left p-3">Country</th>
-                <th class="text-left p-3">Reference City</th>
-                <th class="text-left p-3">DDP Price (local)</th>
-                <th class="text-left p-3 hidden md:table-cell">~USD</th>
-                <th class="text-left p-3 hidden md:table-cell">Lead time</th>
+                <th class="text-left p-3">{t(locale, 'country.tableCountry')}</th>
+                <th class="text-left p-3">{t(locale, 'country.tableCity')}</th>
+                <th class="text-left p-3">{t(locale, 'country.tablePrice')}</th>
+                <th class="text-left p-3 hidden md:table-cell">{t(locale, 'country.tableUsd')}</th>
+                <th class="text-left p-3 hidden md:table-cell">{t(locale, 'country.tableLeadTime')}</th>
                 <th class="text-left p-3"></th>
               </tr>
             </thead>
@@ -69,8 +69,8 @@ const regionOrder = ['North America', 'Latin America', 'Europe', 'GCC / Middle E
                   <td class="p-3 text-bakery-navy/70">{c.city}</td>
                   <td class="p-3 text-bakery-orange font-semibold">{c.priceLocal}</td>
                   <td class="p-3 text-bakery-navy/70 hidden md:table-cell">${c.usdApprox.toLocaleString('en-US')}</td>
-                  <td class="p-3 text-bakery-navy/70 hidden md:table-cell">{c.leadTimeWeeks} wk</td>
-                  <td class="p-3 text-right"><a href={`/pricing/by-country/${c.slug}/`} class="text-bakery-orange font-semibold hover:underline">Details →</a></td>
+                  <td class="p-3 text-bakery-navy/70 hidden md:table-cell">{c.leadTimeWeeks} {t(locale, 'country.weekShort')}</td>
+                  <td class="p-3 text-right"><a href={`/pricing/by-country/${c.slug}/`} class="text-bakery-orange font-semibold hover:underline">{t(locale, 'country.details')} →</a></td>
                 </tr>
               ))}
             </tbody>
@@ -81,35 +81,5 @@ const regionOrder = ['North America', 'Latin America', 'Europe', 'GCC / Middle E
   </div>
 </section>
 
-<!-- How it works -->
-<section class="section bg-bakery-cream">
-  <div class="container-prose">
-    <h2 class="mb-4">How DDP Pricing Works</h2>
-    <p class="text-bakery-navy/80 mb-4">DDP stands for "Delivered Duty Paid" — an Incoterms designation meaning the seller is responsible for the goods until they arrive at the buyer's delivery address, including all freight, customs duties, and (where applicable) local VAT/GST. The buyer pays one number and the machine arrives.</p>
-
-    <h3 class="mt-6 mb-3">What's bundled into the DDP price</h3>
-    <ul class="list-disc list-inside space-y-1">
-      <li>Machine itself — V-TAI JD-3 Standard configuration</li>
-      <li>Sea freight from Shenzhen to your country's port of entry</li>
-      <li>Customs clearance fees (paid to your country's customs authority through our local agent)</li>
-      <li>Import duty (per your country's tariff schedule for HS code 8422.11)</li>
-      <li>Local VAT/GST — included for most markets (see country detail page for specifics)</li>
-      <li>Last-mile trucking from port to your delivery address</li>
-      <li>12-month manufacturer warranty on parts</li>
-    </ul>
-
-    <h3 class="mt-6 mb-3">What's NOT in the DDP price</h3>
-    <ul class="list-disc list-inside space-y-1">
-      <li>Local installation (plumber + electrician; typically $200–$500 depending on country)</li>
-      <li>Optional accessory upgrades (auto detergent +$200, heat recovery +$400, water treatment +$500)</li>
-      <li>Some markets exclude local VAT/GST when the customer wishes to claim it back as a VAT-registered business — confirm in your quote</li>
-    </ul>
-
-    <h3 class="mt-6 mb-3">Why we publish prices this way</h3>
-    <p>Most overseas equipment exporters quote FOB and leave the buyer to coordinate three separate vendors (freight forwarder, customs broker, last-mile trucker). The result is a confusing matrix of estimates that often add 30–50% to the FOB number — with surprises at every step.</p>
-    <p class="mt-3">We bundle all of that into a single quoted figure. The local-currency price is authoritative; the USD equivalent is shown for reference and may shift with exchange-rate movement. We refresh DDP rates quarterly to reflect current freight rates and duties.</p>
-  </div>
-</section>
-
-<CTASection locale={locale} title="Don't see your country?" subtitle="We ship globally. Request a custom DDP quote for any destination — response in 12 business hours." />
+<CTASection locale={locale} />
 </BaseLayout>
