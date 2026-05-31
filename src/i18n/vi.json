@@ -78,5 +78,10 @@
   "country.refCity": "Thành phố tham chiếu",
   "country.whyDdp": "Tại sao giá DDP quan trọng",
   "country.breakdown": "Phân tích giá",
-  "vs.competitorHigher": "Cao hơn đáng kể"
+  "vs.competitorHigher": "Cao hơn đáng kể",
+  "priceCallout.eyebrow": "Giá khởi điểm",
+  "priceCallout.tagline": "Hiệu năng được chứng nhận CE tương đương với giá chỉ bằng một phần các thương hiệu cao cấp.",
+  "inquiry.replyTime": "Chúng tôi phản hồi trong vòng 12 giờ làm việc qua WhatsApp hoặc email.",
+  "inquiry.defaultTitle": "Yêu cầu báo giá",
+  "faq.defaultTitle": "Câu hỏi thường gặp"
 }

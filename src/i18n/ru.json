@@ -78,5 +78,10 @@
   "country.refCity": "Город отгрузки",
   "country.whyDdp": "Почему важна DDP-цена",
   "country.breakdown": "Разбивка цены",
-  "vs.competitorHigher": "Значительно выше"
+  "vs.competitorHigher": "Значительно выше",
+  "priceCallout.eyebrow": "Начальная цена",
+  "priceCallout.tagline": "Эквивалентная CE-сертифицированная производительность за долю цены премиум-брендов.",
+  "inquiry.replyTime": "Мы отвечаем в течение 12 рабочих часов через WhatsApp или почту.",
+  "inquiry.defaultTitle": "Запросить расчёт",
+  "faq.defaultTitle": "Часто задаваемые вопросы"
 }

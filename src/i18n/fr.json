@@ -78,5 +78,10 @@
   "country.refCity": "Ville de Référence",
   "country.whyDdp": "Pourquoi la Tarification DDP",
   "country.breakdown": "Décomposition du Prix",
-  "vs.competitorHigher": "Nettement plus élevé"
+  "vs.competitorHigher": "Nettement plus élevé",
+  "priceCallout.eyebrow": "Prix de départ",
+  "priceCallout.tagline": "Performance équivalente certifiée CE à une fraction du prix des marques premium.",
+  "inquiry.replyTime": "Nous répondons sous 12 heures ouvrées via WhatsApp ou e-mail.",
+  "inquiry.defaultTitle": "Demander un Devis",
+  "faq.defaultTitle": "Questions Fréquemment Posées"
 }

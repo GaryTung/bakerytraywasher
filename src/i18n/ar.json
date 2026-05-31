@@ -78,5 +78,10 @@
   "country.refCity": "المدينة المرجعية",
   "country.whyDdp": "لماذا تسعير DDP",
   "country.breakdown": "تفصيل السعر",
-  "vs.competitorHigher": "أعلى بكثير"
+  "vs.competitorHigher": "أعلى بكثير",
+  "priceCallout.eyebrow": "السعر الابتدائي",
+  "priceCallout.tagline": "أداء معتمد CE معادل بجزء بسيط من أسعار العلامات التجارية الفاخرة.",
+  "inquiry.replyTime": "نرد خلال 12 ساعة عمل عبر واتساب أو البريد الإلكتروني.",
+  "inquiry.defaultTitle": "اطلب عرض سعر",
+  "faq.defaultTitle": "الأسئلة الشائعة"
 }

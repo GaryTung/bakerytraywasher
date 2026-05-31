@@ -2,29 +2,30 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
+import { businessTypeNames, businessTypeIcons } from '../../../i18n/categories';
 const locale = 'fr' as const;
 
-const types = [
-  { slug: 'bakery-shop', name: 'Bakery Shop', icon: '🥐' },
-  { slug: 'coffee-chain', name: 'Coffee Chain', icon: '☕' },
-  { slug: 'patisserie', name: 'Patisserie', icon: '🧁' },
-  { slug: 'cake-shop', name: 'Cake Shop', icon: '🎂' },
-  { slug: 'small-restaurant', name: 'Small Restaurant', icon: '🍽️' },
-  { slug: 'cafeteria', name: 'Cafeteria', icon: '🥪' },
-  { slug: 'hotel-pastry-kitchen', name: 'Hotel Pastry Kitchen', icon: '🏨' },
-  { slug: 'cloud-kitchen', name: 'Cloud Kitchen', icon: '👨‍🍳' },
-];
+const slugs = ['bakery-shop','coffee-chain','patisserie','cake-shop','small-restaurant','cafeteria','hotel-pastry-kitchen','cloud-kitchen'];
+const intro = "Choisissez votre type d'activité pour voir comment le JD-3 s'adapte spécifiquement à votre exploitation.";
 ---
-<BaseLayout title="Pour Votre Activité | V-TAI JD-3" description="Pour Votre Activité — V-TAI JD-3" locale={locale} canonicalPath="/by-business-type/" schemaType="Article">
-<BreadcrumbNav items={[{label: 'Accueil', href: '/fr/'}, {label: 'Pour Votre Activité'}]} />
+<BaseLayout
+  title={t(locale, 'nav.business') + ' | V-TAI JD-3'}
+  description={intro}
+  locale={locale}
+  canonicalPath="/by-business-type/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: t(locale, 'nav.home'), href: '/fr/'}, {label: t(locale, 'nav.business')}]} />
 <section class="section">
   <div class="container-page">
-    <h1 class="mb-4 text-center">Pour Votre Activité</h1>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-8">
-      {types.map((t) => (
-        <a href={`/fr/by-business-type/${t.slug}/`} class="card text-center hover:scale-[1.02] transition">
-          <div class="text-4xl mb-3">{t.icon}</div>
-          <h3 class="text-lg">{t.name}</h3>
+    <h1 class="mb-4 text-center">{t(locale, 'nav.business')}</h1>
+    <p class="text-center text-bakery-navy/70 max-w-2xl mx-auto mb-10">{intro}</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {slugs.map((slug) => (
+        <a href={`/fr/by-business-type/${slug}/`} class="card text-center hover:scale-[1.02] transition">
+          <div class="text-4xl mb-2">{businessTypeIcons[slug]}</div>
+          <p class="font-semibold text-bakery-navy">{businessTypeNames[slug][locale]}</p>
         </a>
       ))}
     </div>

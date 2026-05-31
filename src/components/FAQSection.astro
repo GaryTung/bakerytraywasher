@@ -1,7 +1,9 @@
 ---
+import { t, type Locale } from '../i18n/utils';
 interface QA { q: string; a: string }
-interface Props { items: QA[]; title?: string }
-const { items, title = 'Frequently Asked Questions' } = Astro.props;
+interface Props { items: QA[]; title?: string; locale?: Locale }
+const { items, title, locale = 'en' } = Astro.props;
+const finalTitle = title ?? t(locale, 'faq.defaultTitle');
 
 const ld = {
   '@context': 'https://schema.org',
@@ -15,7 +17,7 @@ const ld = {
 ---
 <section class="section">
   <div class="container-prose">
-    <h2 class="mb-6">{title}</h2>
+    {finalTitle && <h2 class="mb-6">{finalTitle}</h2>}
     <div class="space-y-3">
       {items.map((it) => (
         <details class="card !p-5 group">

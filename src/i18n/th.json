@@ -78,5 +78,10 @@
   "country.refCity": "เมืองอ้างอิง",
   "country.whyDdp": "ทำไมต้องใช้ราคา DDP",
   "country.breakdown": "การแยกราคา",
-  "vs.competitorHigher": "สูงกว่าอย่างมาก"
+  "vs.competitorHigher": "สูงกว่าอย่างมาก",
+  "priceCallout.eyebrow": "ราคาเริ่มต้น",
+  "priceCallout.tagline": "ประสิทธิภาพรับรอง CE เทียบเท่าแบรนด์พรีเมียมในราคาเศษเสี้ยว",
+  "inquiry.replyTime": "เราจะตอบกลับภายใน 12 ชั่วโมงทำการผ่าน WhatsApp หรืออีเมล",
+  "inquiry.defaultTitle": "ขอใบเสนอราคา",
+  "faq.defaultTitle": "คำถามที่พบบ่อย"
 }

@@ -2,32 +2,45 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
+import { washesNames, flagshipLabel } from '../../../i18n/categories';
 const locale = 'vi' as const;
+
 const items = [
-  { slug: 'baking-trays-600x400', name: '600×400 mm Bakery Trays', flagship: true },
-  { slug: 'sheet-pans', name: 'American Sheet Pans' },
-  { slug: 'mixing-bowls', name: 'Mixing Bowls' },
-  { slug: 'cake-pans', name: 'Cake Pans' },
-  { slug: 'pizza-pans', name: 'Pizza Pans' },
-  { slug: 'frying-baskets', name: 'Frying Baskets' },
-  { slug: 'stockpots', name: 'Stockpots' },
-  { slug: 'dishes-plates', name: 'Dishes & Plates' },
-  { slug: 'utensils-mixers', name: 'Utensils & Mixer Attachments' },
-  { slug: 'large-bakeware', name: 'Large Bakeware' },
+  { slug: 'baking-trays-600x400', flagship: true },
+  { slug: 'sheet-pans' },
+  { slug: 'mixing-bowls' },
+  { slug: 'cake-pans' },
+  { slug: 'pizza-pans' },
+  { slug: 'frying-baskets' },
+  { slug: 'stockpots' },
+  { slug: 'dishes-plates' },
+  { slug: 'utensils-mixers' },
+  { slug: 'large-bakeware' },
 ];
+const intro = "Mọi loại dụng cụ JD-3 có thể rửa — khay, khuôn, bát và nhiều hơn nữa.";
 ---
-<BaseLayout title="What the JD-3 Washes" description="Items the V-TAI JD-3 cleans" locale={locale} canonicalPath="/what-it-washes/" schemaType="Article">
-<BreadcrumbNav items={[{label:'Home',href:'/vi/'},{label:'What It Washes'}]} />
-<section class="section"><div class="container-page">
-<h1 class="text-center mb-4">What the JD-3 Washes</h1>
-<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
-{items.map((it) => (
-  <a href={`/vi/what-it-washes/${it.slug}/`} class={`card hover:scale-[1.02] transition ${it.flagship ? 'border-2 border-bakery-orange' : ''}`}>
-    {it.flagship && <p class="eyebrow text-bakery-orange">⭐ Flagship</p>}
-    <h3 class="text-lg mt-1">{it.name}</h3>
-  </a>
-))}
-</div>
-</div></section>
+<BaseLayout
+  title={t(locale, 'nav.washes') + ' | V-TAI JD-3'}
+  description={intro}
+  locale={locale}
+  canonicalPath="/what-it-washes/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: t(locale, 'nav.home'), href: '/vi/'}, {label: t(locale, 'nav.washes')}]} />
+<section class="section">
+  <div class="container-page">
+    <h1 class="mb-4 text-center">{t(locale, 'nav.washes')}</h1>
+    <p class="text-center text-bakery-navy/70 max-w-2xl mx-auto mb-10">{intro}</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {items.map((it) => (
+        <a href={`/vi/what-it-washes/${it.slug}/`} class={`card hover:scale-[1.02] transition ${it.flagship ? 'border-2 border-bakery-orange' : ''}`}>
+          {it.flagship && <p class="eyebrow text-bakery-orange">⭐ {flagshipLabel[locale]}</p>}
+          <h3 class="text-lg mb-2 mt-1">{washesNames[it.slug][locale]}</h3>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
 <CTASection locale={locale} />
 </BaseLayout>

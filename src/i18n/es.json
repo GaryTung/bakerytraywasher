@@ -78,5 +78,10 @@
   "country.refCity": "Ciudad de Referencia",
   "country.whyDdp": "Por Qué Importa el Precio DDP",
   "country.breakdown": "Desglose del Precio",
-  "vs.competitorHigher": "Significativamente más alto"
+  "vs.competitorHigher": "Significativamente más alto",
+  "priceCallout.eyebrow": "Precio inicial",
+  "priceCallout.tagline": "Rendimiento equivalente certificado CE a una fracción del precio de marcas premium.",
+  "inquiry.replyTime": "Respondemos en 12 horas hábiles por WhatsApp o correo.",
+  "inquiry.defaultTitle": "Solicitar una Cotización",
+  "faq.defaultTitle": "Preguntas Frecuentes"
 }

@@ -78,5 +78,10 @@
   "country.refCity": "Reference City",
   "country.whyDdp": "Why DDP Pricing Matters",
   "country.breakdown": "How the Price Breaks Down",
-  "vs.competitorHigher": "Significantly higher (retail)"
+  "vs.competitorHigher": "Significantly higher (retail)",
+  "priceCallout.eyebrow": "Starting price",
+  "priceCallout.tagline": "Equivalent CE-certified performance for a fraction of premium-brand pricing.",
+  "inquiry.replyTime": "We reply within 12 business hours via WhatsApp or email.",
+  "inquiry.defaultTitle": "Request a Quote",
+  "faq.defaultTitle": "Frequently Asked Questions"
 }
