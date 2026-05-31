@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { countries, getCountriesByRegion } from '../../../../data/countries';
+const locale = 'fr' as const;
+const grouped = getCountriesByRegion();
+const regionOrder = ['North America', 'Latin America', 'Europe', 'GCC / Middle East', 'Asia-Pacific', 'Africa'];
+---
+<BaseLayout
+  title="JD-3 Landed Price by Country — DDP"
+  description="Transparent DDP landed pricing for the V-TAI JD-3 across 18 countries — local currency, all-in."
+  locale={locale}
+  canonicalPath="/pricing/by-country/"
+  schemaType="Product"
+>
+<BreadcrumbNav items={[{label: 'Home', href: '/fr/'}, {label: 'Pricing', href: '/fr/pricing/'}, {label: 'Par Pays'}]} />
+<section class="section">
+  <div class="container-page">
+    <h1 class="mb-4 text-center">JD-3 — DDP Pricing by Country (18 markets)</h1>
+    <p class="text-center text-bakery-navy/70 mb-10">All-in landed price in local currency. We handle freight, customs, duties, and last-mile delivery.</p>
+    {regionOrder.map((region) => grouped[region] && (
+      <div class="mb-8">
+        <h2 class="mb-3">{region}</h2>
+        <div class="overflow-x-auto card !p-0">
+          <table class="w-full text-sm">
+            <thead class="bg-bakery-navy text-white"><tr><th class="text-left p-3">Country</th><th class="text-left p-3">City</th><th class="text-left p-3">DDP</th><th class="text-left p-3 hidden md:table-cell">~USD</th><th class="text-left p-3"></th></tr></thead>
+            <tbody>
+              {grouped[region].map((c) => (
+                <tr class="border-t border-bakery-navy/5">
+                  <td class="p-3 font-semibold">{c.name}</td>
+                  <td class="p-3 text-bakery-navy/70">{c.city}</td>
+                  <td class="p-3 text-bakery-orange font-semibold">{c.priceLocal}</td>
+                  <td class="p-3 text-bakery-navy/70 hidden md:table-cell">${c.usdApprox.toLocaleString('en-US')}</td>
+                  <td class="p-3 text-right">{c.locale === locale ? <a href={`/fr/pricing/by-country/${c.slug}/`} class="text-bakery-orange font-semibold hover:underline">→</a> : <a href={`/pricing/by-country/${c.slug}/`} class="text-bakery-orange/70 hover:underline">EN →</a>}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+<CTASection locale={locale} />
+</BaseLayout>

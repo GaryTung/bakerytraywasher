@@ -2,29 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import CTASection from '../../components/CTASection.astro';
-const locale = 'en' as const;
+import { countries } from '../../data/countries';
 
-const rows = [
-  { country: 'United States', sea: '$450', air: '$1,400', duty: '0–3%' },
-  { country: 'United Kingdom', sea: '$500', air: '$1,500', duty: '5–8%' },
-  { country: 'Germany', sea: '$480', air: '$1,450', duty: '5–8% + 19% VAT' },
-  { country: 'France', sea: '$480', air: '$1,450', duty: '5–8% + 20% VAT' },
-  { country: 'Australia', sea: '$420', air: '$1,300', duty: '5% + 10% GST' },
-  { country: 'United Arab Emirates', sea: '$380', air: '$1,200', duty: '5% + 5% VAT' },
-  { country: 'Saudi Arabia', sea: '$400', air: '$1,250', duty: '5% + 15% VAT' },
-  { country: 'Thailand', sea: '$300', air: '$900', duty: '5%' },
-  { country: 'Vietnam', sea: '$280', air: '$900', duty: '5–10%' },
-  { country: 'Singapore', sea: '$320', air: '$950', duty: '0% + 9% GST' },
-  { country: 'Indonesia', sea: '$350', air: '$1,000', duty: '10%' },
-  { country: 'Mexico', sea: '$550', air: '$1,500', duty: '5%' },
-  { country: 'Brazil', sea: '$650', air: '$1,800', duty: '14% + ~25% ICMS' },
-  { country: 'Russia', sea: '$550', air: '$1,500', duty: '5–10%' },
-  { country: 'South Africa', sea: '$500', air: '$1,400', duty: '5–15% + 15% VAT' },
-];
+const locale = 'en' as const;
 ---
 <BaseLayout
   title="Shipping & Import Cost by Country — JD-3 Bakery Tray Washer"
-  description="Estimated shipping costs (sea and air freight) plus import duties for the JD-3 to 15+ countries. Plan your total landed cost."
+  description="Authoritative DDP landed pricing for the V-TAI JD-3 across 18 countries. Local currency, all-in (freight + duty + VAT + last-mile)."
   locale={locale}
   canonicalPath="/pricing/shipping-and-import-cost-by-country/"
   schemaType="Article"
@@ -33,34 +17,40 @@ const rows = [
 
 <section class="section">
   <div class="container-page">
-    <h1 class="mb-4">Shipping &amp; Import Costs by Country</h1>
-    <p class="text-bakery-navy/70 text-lg max-w-3xl mb-8">
-      Estimated freight and duty costs for shipping a single JD-3 unit to common destinations. These are rough guides — exact pricing depends on your nearest port, your local customs broker, and current freight rates. Request a quote for an exact landed cost.
+    <h1 class="mb-4">Shipping &amp; Landed Cost by Country</h1>
+    <p class="text-bakery-navy/70 text-lg max-w-3xl mb-6">
+      We publish firm <strong>DDP (Delivered Duty Paid) landed prices</strong> in local currency for 18 markets — meaning the price you see is what you actually pay to receive the machine at your address, including ocean freight, customs clearance, import duty, local VAT/GST (where applicable), and last-mile delivery.
     </p>
-    <div class="overflow-x-auto card !p-0">
+    <a href="/pricing/by-country/" class="btn-primary mb-8 inline-block">See the Full Country-by-Country Hub →</a>
+
+    <div class="overflow-x-auto card !p-0 mt-6">
       <table class="w-full text-sm">
         <thead class="bg-bakery-navy text-white">
           <tr>
             <th class="text-left p-3">Country</th>
-            <th class="text-left p-3">Sea freight (estimate)</th>
-            <th class="text-left p-3">Air freight (estimate)</th>
-            <th class="text-left p-3">Import duty + VAT/GST</th>
+            <th class="text-left p-3">Reference City</th>
+            <th class="text-left p-3">DDP Price (local)</th>
+            <th class="text-left p-3 hidden md:table-cell">~USD</th>
+            <th class="text-left p-3 hidden md:table-cell">Lead time</th>
+            <th class="text-left p-3"></th>
           </tr>
         </thead>
         <tbody>
-          {rows.map((r) => (
+          {countries.map((c) => (
             <tr class="border-t border-bakery-navy/5">
-              <td class="p-3 font-medium">{r.country}</td>
-              <td class="p-3">{r.sea}</td>
-              <td class="p-3">{r.air}</td>
-              <td class="p-3">{r.duty}</td>
+              <td class="p-3 font-medium">{c.name}</td>
+              <td class="p-3">{c.city}</td>
+              <td class="p-3 text-bakery-orange font-semibold">{c.priceLocal}</td>
+              <td class="p-3 hidden md:table-cell">${c.usdApprox.toLocaleString('en-US')}</td>
+              <td class="p-3 hidden md:table-cell">{c.leadTimeWeeks} wk</td>
+              <td class="p-3"><a href={`/pricing/by-country/${c.slug}/`} class="text-bakery-orange hover:underline">Detail →</a></td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
     <p class="text-xs text-bakery-navy/60 mt-4">
-      Sea freight rates assume LCL (less-than-container-load) shipping. For full-container (FCL) orders of 3+ units, sea freight per unit drops 40–60%. Air freight rates are for the JD-3's ~170 kg shipping weight. Duty rates are indicative — your local customs broker provides the exact figure based on HS code 8422.11.
+      Local-currency price is authoritative; USD equivalent shown for reference (subject to FX fluctuation). DDP includes freight + customs clearance + import duty + local VAT/GST where indicated. Excludes local installation labor.
     </p>
   </div>
 </section>
@@ -77,10 +67,10 @@ const rows = [
       <li class="flex gap-2"><span class="text-bakery-orange">✓</span> ISO 9001 production attestation</li>
       <li class="flex gap-2"><span class="text-bakery-orange">✓</span> HS code declaration (8422.11)</li>
     </ul>
-    <h3 class="mt-8 mb-3">What Your Customs Broker Needs</h3>
-    <p class="text-bakery-navy/80">Your local customs broker handles the import process. They need the documents above plus your business import licence (if your country requires one). Typical clearance time: 2–5 business days after port arrival.</p>
+    <h3 class="mt-8 mb-3">For Countries Not Listed</h3>
+    <p class="text-bakery-navy/80">We ship globally. If your country isn't in the 18-market DDP hub above, request a custom DDP quote — we typically respond within 12 business hours with an all-in figure to your specific city.</p>
   </div>
 </section>
 
-<CTASection locale={locale} title="Need an exact landed-cost quote?" subtitle="Tell us your destination port and we'll provide all-in pricing within 12 hours." />
+<CTASection locale={locale} title="Need a DDP quote for your country?" subtitle="Tell us your destination city and we'll provide all-in pricing within 12 hours." />
 </BaseLayout>
