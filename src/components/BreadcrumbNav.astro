@@ -3,15 +3,41 @@ interface Crumb { label: string; href?: string }
 interface Props { items: Crumb[] }
 const { items } = Astro.props;
 
-// Google Search Console requires `item` on every BreadcrumbList entry.
-// For the current page (the last crumb, which has no href in the visible
-// nav), fall back to the page's canonical URL so the JSON-LD stays valid.
+// Google Search Console requires a non-empty `item` (URL) on every
+// BreadcrumbList ListItem, and the URLs should make sense semantically
+// (Home → site root; intermediate hub → hub URL; current → current URL).
+//
+// When a crumb provides no href (common for hub crumbs and the current
+// page), derive a URL from the page's pathname. The relationship between
+// crumb index and how many path segments it represents is:
+//
+//   segments_for_crumb(i) = segments.length - (items.length - i - 1)
+//
+// This works whether or not the URL has a locale prefix:
+//   EN /blog/article/         → segs=['blog','article'],            crumbs=[Home,Blog,Article]
+//   DE /de/guides/article/    → segs=['de','guides','article'],     crumbs=[Home,Guides,Article]
+// In both cases, position 0 → site (or locale) root, last → current page.
 const site = 'https://bakerytraywasher.com';
-const currentUrl = new URL(Astro.url.pathname, site).toString();
-const toAbs = (href?: string) => {
-  if (!href) return currentUrl;
-  if (/^https?:\/\//i.test(href)) return href;
-  return `${site}${href.startsWith('/') ? '' : '/'}${href}`;
+const currentPath = Astro.url.pathname.endsWith('/')
+  ? Astro.url.pathname
+  : Astro.url.pathname + '/';
+
+// Split current path into non-empty segments.
+const segments = currentPath.split('/').filter(Boolean);
+
+const deriveUrl = (idx: number, total: number) => {
+  const trailingAfter = total - idx - 1;
+  const segCount = Math.max(0, segments.length - trailingAfter);
+  if (segCount === 0) return `${site}/`;
+  return `${site}/${segments.slice(0, segCount).join('/')}/`;
+};
+
+const toAbs = (href: string | undefined, idx: number, total: number) => {
+  if (href) {
+    if (/^https?:\/\//i.test(href)) return href;
+    return `${site}${href.startsWith('/') ? '' : '/'}${href}`;
+  }
+  return deriveUrl(idx, total);
 };
 
 const ld = {
@@ -21,7 +47,7 @@ const ld = {
     '@type': 'ListItem',
     position: i + 1,
     name: c.label,
-    item: toAbs(c.href),
+    item: toAbs(c.href, i, items.length),
   })),
 };
 ---
