@@ -2,4 +2,18 @@
 import WhatItWashesLayout from '../../../layouts/WhatItWashesLayout.astro';
 const locale = 'fr' as const;
 ---
-<WhatItWashesLayout locale={locale} canonicalPath="/what-it-washes/mixing-bowls/" itemName="Bols Mélangeurs" title="Lave-Bols Mélangeurs | KitchenAid, Hobart, Stand-Mixer" description="JD-3 accepte bols KitchenAid 5 et 6 quarts debout, plus 12, 20, 30 quarts avec accessoire." challenge="Bols accumulent pâte, ganache, buttercream. La plupart des lave-vaisselle ne les acceptent pas debout." howItHandles="Chambre accepte bols 5-6 quarts debout dans le panier standard. Pour 12-20 quarts : accessoire tall-item." recommendedSettings="Cycle 2 min standard. Pré-grattage important. Orientation inversée plus efficace." faqs={[{q:'Mon bol Hobart 20 quarts ?',a:'Oui avec accessoire tall-item.'}]} />
+<WhatItWashesLayout
+  locale={locale}
+  canonicalPath="/what-it-washes/mixing-bowls/"
+  itemName={"Bols Mélangeurs"}
+  title={"Le JD-3 lave les Bols Mélangeurs | Lave-Vaisselle V-TAI pour Boulangerie"}
+  description={"Le V-TAI JD-3 nettoie efficacement les Bols Mélangeurs. 180 plaques/heure, certification CE, à partir de 4 400 $ FOB Shenzhen."}
+  challenge={"Le lavage des Bols Mélangeurs en boulangerie professionnelle présente des défis concrets : type de résidu (sucre caramélisé, pâte collante, graisse), géométrie de l'objet, et densité de chargement. Le lavage manuel consomme du temps et atteint rarement la sanitisation thermique requise par la réglementation alimentaire."}
+  howItHandles={"Le JD-3 utilise deux bras de pulvérisation rotatifs avec une géométrie de buse optimisée, un bac de lavage à 60–65 °C et un rinçage final à plus de 82 °C — le tout dans une chambre de 650×550 mm qui accepte les ustensiles surdimensionnés. Le cycle standard de 2 minutes traite des charges complètes sans blocage."}
+  recommendedSettings={"Cycle standard de 2 minutes, bac de lavage à 65 °C, rinçage final à 82 °C, détergent alcalin à faible mousse pour usage commercial. Un pré-rinçage rapide est recommandé pour préserver la qualité de l'eau recirculée."}
+  faqs={[
+    { q: "Le pré-rinçage est-il nécessaire ?", a: "Oui — le bac de lavage recircule l'eau pour l'efficacité énergétique. Un pré-rinçage rapide évite l'accumulation de résidus dans le bac et prolonge la durée de vie du détergent." },
+    { q: "Quel détergent recommandez-vous ?", a: "Détergent alcalin commercial à faible mousse (pH 12–13). Pour les résidus sucrés (pâtisserie) utiliser un détergent avec des tensioactifs spécifiques à la confiserie." },
+    { q: "Quelle est la durée d'un cycle ?", a: "2 minutes par cycle standard. Aux heures de pointe avec résidu léger, on peut utiliser le cycle rapide de 90 secondes." },
+  ]}
+/>

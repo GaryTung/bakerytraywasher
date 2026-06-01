@@ -2,4 +2,18 @@
 import WhatItWashesLayout from '../../../layouts/WhatItWashesLayout.astro';
 const locale = 'de' as const;
 ---
-<WhatItWashesLayout locale={locale} canonicalPath="/what-it-washes/cake-pans/" itemName="Kuchenformen" title="Spülmaschine für Kuchenformen" description="JD-3 reinigt runde, eckige, Bundt und Springformen bis 30 cm" challenge="Eingetrocknetes Buttercreme, karamelisierter Zucker" howItHandles="Heißes Wasser (65°C) emulgiert Fette" recommendedSettings="90-Sekunden-Zyklus für hartnäckiges Buttercreme" faqs={[{q:'Entfernt ALLES eingetrocknete Buttercreme?',a:'Ja nach Vorabkratzen'}]} />
+<WhatItWashesLayout
+  locale={locale}
+  canonicalPath="/what-it-washes/cake-pans/"
+  itemName={"Kuchenformen"}
+  title={"JD-3 spült Kuchenformen | V-TAI Bäckerei-Spülmaschine"}
+  description={"Die V-TAI JD-3 spült Kuchenformen effizient. 180 Bleche/Stunde, CE-zertifiziert, ab 4.400 $ FOB Shenzhen."}
+  challenge={"Das Spülen von Kuchenformen in einer professionellen Bäckerei stellt konkrete Herausforderungen: Rückstandstyp (karamellisierter Zucker, klebriger Teig, Fett), Geometrie und Beladungsdichte. Manuelle Reinigung ist zeitintensiv und erreicht selten die thermische Desinfektion, die die Lebensmittelhygieneverordnung verlangt."}
+  howItHandles={"Die JD-3 verwendet zwei rotierende Sprüharme mit optimierter Düsengeometrie, einen Spültank bei 60–65 °C und eine Endspülung bei über 82 °C — alles in einer 650×550 mm großen Kammer, die auch übergroße Geräte aufnimmt. Der Standardzyklus von 2 Minuten verarbeitet komplette Beladungen ohne Stau."}
+  recommendedSettings={"Standardzyklus 2 Minuten, Spültank 65 °C, Endspülung 82 °C, schaumarmes alkalisches Spülmittel für gewerblichen Einsatz. Eine kurze Vorspülung wird empfohlen, um die Qualität des umgewälzten Wassers zu erhalten."}
+  faqs={[
+    { q: "Ist eine Vorspülung notwendig?", a: "Ja — der Spültank wälzt Wasser zur Energieeffizienz um. Eine kurze Vorspülung verhindert Rückstandsaufbau im Tank und verlängert die Standzeit des Reinigers." },
+    { q: "Welches Reinigungsmittel empfehlen Sie?", a: "Schaumarmes alkalisches Industriereiniger (pH 12–13). Für zuckerhaltige Rückstände (Konditorei) ein Mittel mit speziellen Tensiden für Süßwaren verwenden." },
+    { q: "Wie lange dauert ein Zyklus?", a: "2 Minuten pro Standardzyklus. In Stoßzeiten mit leichten Rückständen kann ein 90-Sekunden-Schnellzyklus verwendet werden." },
+  ]}
+/>

@@ -6,6 +6,7 @@ import InlineInquiryForm from '../components/InlineInquiryForm.astro';
 import FAQSection from '../components/FAQSection.astro';
 import CTASection from '../components/CTASection.astro';
 import { type Locale, localizePath, t } from '../i18n/utils';
+import { washesNames } from '../i18n/categories';
 
 const headings: Record<Locale, { challenge: string; howItHandles: string; recommendedSettings: string; moreItems: string }> = {
   en: { challenge: 'The Cleaning Challenge', howItHandles: 'How the JD-3 Handles It', recommendedSettings: 'Recommended Settings', moreItems: 'More items the JD-3 washes' },
@@ -60,12 +61,9 @@ const lp = (p: string) => localizePath(p, locale);
       <div class="mt-6 card">
         <h3 class="text-base mb-3">{h.moreItems}</h3>
         <ul class="space-y-2 text-sm">
-          <li><a href={lp('/what-it-washes/baking-trays-600x400/')} class="hover:underline">600×400 mm</a></li>
-          <li><a href={lp('/what-it-washes/sheet-pans/')} class="hover:underline">Sheet pans</a></li>
-          <li><a href={lp('/what-it-washes/mixing-bowls/')} class="hover:underline">Mixing bowls</a></li>
-          <li><a href={lp('/what-it-washes/cake-pans/')} class="hover:underline">Cake pans</a></li>
-          <li><a href={lp('/what-it-washes/pizza-pans/')} class="hover:underline">Pizza pans</a></li>
-          <li><a href={lp('/what-it-washes/stockpots/')} class="hover:underline">Stockpots</a></li>
+          {(['baking-trays-600x400','sheet-pans','mixing-bowls','cake-pans','pizza-pans','stockpots'] as const).map((slug) => (
+            <li><a href={lp(`/what-it-washes/${slug}/`)} class="hover:underline">{washesNames[slug][locale]}</a></li>
+          ))}
         </ul>
       </div>
     </aside>
