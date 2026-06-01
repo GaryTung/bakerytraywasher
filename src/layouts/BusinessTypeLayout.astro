@@ -40,12 +40,14 @@ const lp = (p: string) => localizePath(p, locale);
 // Map slug → real image path (uploaded under public/images/business-types/).
 // Slugs without an uploaded image fall back to the gradient placeholder.
 const businessImages: Record<string, string> = {
-  'bakery-shop': '/images/business-types/bakery-shop.webp',
-  'coffee-chain': '/images/business-types/coffee-chain.jpeg',
-  'patisserie': '/images/business-types/patisserie.webp',
-  'cake-shop': '/images/business-types/cake-shop.webp',
-  'small-restaurant': '/images/business-types/small-restaurant.jpeg',
-  'cafeteria': '/images/business-types/cafeteria.webp',
+  'bakery-shop':          '/images/business-types/bakery-shop.webp',
+  'coffee-chain':         '/images/business-types/coffee-chain.jpeg',
+  'patisserie':           '/images/business-types/patisserie.webp',
+  'cake-shop':            '/images/business-types/cake-shop.webp',
+  'small-restaurant':     '/images/business-types/small-restaurant.jpeg',
+  'cafeteria':            '/images/business-types/cafeteria.webp',
+  'hotel-pastry-kitchen': '/images/business-types/hotel-pastry-kitchen.webp',
+  'cloud-kitchen':        '/images/business-types/cloud-kitchen.webp',
 };
 const heroImage = businessImages[slug];
 ---

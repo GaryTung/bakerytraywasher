@@ -34,6 +34,15 @@ interface Props {
 const { locale, canonicalPath, itemName, title, description, challenge, howItHandles, recommendedSettings, faqs } = Astro.props;
 const h = headings[locale];
 const lp = (p: string) => localizePath(p, locale);
+
+// canonicalPath is /what-it-washes/{slug}/ — derive slug for the hero image.
+// All 10 slugs have a matching webp in /public/images/what-it-washes/ — except
+// baking-trays-600x400, which uses a wider comparison infographic instead.
+const slugMatch = canonicalPath.match(/\/what-it-washes\/([^/]+)\//);
+const slug = slugMatch ? slugMatch[1] : '';
+const heroImage = slug === 'baking-trays-600x400'
+  ? '/images/600x400-tray-comparison.webp'
+  : (slug ? `/images/what-it-washes/${slug}.webp` : undefined);
 ---
 <BaseLayout title={title} description={description} locale={locale} canonicalPath={canonicalPath} schemaType="Article">
 <BreadcrumbNav items={[{label: t(locale, 'nav.home'), href: lp('/')}, {label: t(locale, 'nav.washes'), href: lp('/what-it-washes/')}, {label: itemName}]} />
@@ -44,7 +53,7 @@ const lp = (p: string) => localizePath(p, locale);
       <h1 class="mb-4">{title}</h1>
       <p class="text-lg text-bakery-navy/80 mb-6">{description}</p>
 
-      <ImagePlaceholder alt={itemName} ratio="16/9" label={itemName} />
+      <ImagePlaceholder src={heroImage} alt={itemName} ratio="16/9" label={itemName} />
 
       <h2 class="mt-10 mb-3">{h.challenge}</h2>
       <p class="text-bakery-navy/80 leading-relaxed whitespace-pre-line">{challenge}</p>
