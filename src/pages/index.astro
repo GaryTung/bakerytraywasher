@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../components/TrustBadgeStrip.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import YouTubeShort from '../components/YouTubeShort.astro';
 import PriceCalloutBox from '../components/PriceCalloutBox.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import CTASection from '../components/CTASection.astro';
@@ -95,14 +96,15 @@ const compareRows = [
   </div>
 </section>
 
-<!-- Video demo placeholder -->
+<!-- Video demo -->
 <section class="section bg-bakery-cream">
   <div class="container-page text-center">
     <h2 class="mb-6">See It In Action — 30 Second Demo</h2>
-    <div class="max-w-3xl mx-auto">
-      <ImagePlaceholder alt="JD-3 in action — bakery tray washer demo video" ratio="16/9" label="Demo video thumbnail (placeholder)" />
-      <p class="text-sm text-bakery-navy/60 mt-3">Video will be added during production.</p>
-    </div>
+    <p class="text-bakery-navy/70 max-w-2xl mx-auto mb-2">Receive the machine, connect water and power, run the first cycle — the JD-3 is built for self-install in any commercial kitchen.</p>
+    <YouTubeShort
+      videoId="bjxEYRiRTnI"
+      title="JD-3 Commercial Dishwasher Installation Guide"
+    />
   </div>
 </section>
 

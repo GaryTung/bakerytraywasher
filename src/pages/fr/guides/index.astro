@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { guides, guidesHub } from '../../../i18n/guides';
+import { t } from '../../../i18n/utils';
+
+const locale = 'fr' as const;
+const hub = guidesHub[locale];
+const readLabel = "Lire le guide";
+---
+<BaseLayout
+  title={"Guides JD-3 — Lave-plaques de boulangerie"}
+  description={"9 guides pratiques pour choisir, installer et exploiter un lave-plaques commercial."}
+  locale={locale}
+  canonicalPath="/guides/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: t(locale, 'nav.home'), href: '/fr/'}, {label: hub.h1}]} />
+
+<section class="section">
+  <div class="container-page">
+    <h1 class="text-center mb-4">{hub.h1}</h1>
+    <p class="text-bakery-navy/70 text-lg max-w-2xl mx-auto text-center mb-10">{hub.intro}</p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {guides.map((g) => (
+        <a href={`/fr/guides/${g.slug}/`} class="card hover:scale-[1.02] transition flex flex-col">
+          <h3 class="mb-3 text-lg">{g.title[locale]}</h3>
+          <p class="text-sm text-bakery-navy/70 flex-1">{g.desc[locale]}</p>
+          <p class="text-bakery-orange text-sm mt-3 font-semibold">{readLabel} →</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

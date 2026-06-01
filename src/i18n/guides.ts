@@ -1,0 +1,233 @@
+// Single source of truth for guide listings used by every /guides/ hub
+// page (EN + 7 locale variants). Slugs match the .astro filenames in
+// src/pages/guides/. Descriptions are short (< 120 chars) so they fit
+// the card grid cleanly.
+import type { Locale } from './utils';
+
+interface GuideEntry {
+  slug: string;
+  title: Record<Locale, string>;
+  desc: Record<Locale, string>;
+}
+
+export const guides: GuideEntry[] = [
+  {
+    slug: 'bakery-tray-cleaning-best-practices',
+    title: {
+      en: 'Bakery Tray Cleaning — Best Practices',
+      es: 'Mejores prácticas para lavar bandejas de panadería',
+      fr: 'Meilleures pratiques de lavage des plaques de boulangerie',
+      de: 'Best Practices zur Bäckereibleche-Reinigung',
+      ru: 'Лучшие практики мойки противней',
+      th: 'แนวทางที่ดีที่สุดในการล้างถาดเบเกอรี่',
+      vi: 'Thực hành tốt nhất khi rửa khay bánh',
+      ar: 'أفضل الممارسات لتنظيف صواني المخابز',
+    },
+    desc: {
+      en: 'Daily routine, weekly maintenance, what to use, and what to avoid for the JD-3 in a bakery setting.',
+      es: 'Rutina diaria, mantenimiento semanal, qué usar y qué evitar con el JD-3 en una panadería.',
+      fr: 'Routine quotidienne, entretien hebdomadaire, ce qu\'il faut utiliser et éviter avec le JD-3.',
+      de: 'Tagesroutine, wöchentliche Wartung, was zu verwenden und was zu vermeiden ist.',
+      ru: 'Ежедневная рутина, еженедельное обслуживание, что использовать и чего избегать.',
+      th: 'กิจวัตรประจำวัน การบำรุงรักษารายสัปดาห์ สิ่งที่ควรใช้และควรหลีกเลี่ยง',
+      vi: 'Quy trình hằng ngày, bảo dưỡng hằng tuần, dùng gì và tránh gì với JD-3.',
+      ar: 'الروتين اليومي، الصيانة الأسبوعية، ما يستخدم وما يتجنب مع JD-3.',
+    },
+  },
+  {
+    slug: 'how-to-choose-bakery-tray-washer',
+    title: {
+      en: 'How to Choose a Bakery Tray Washer',
+      es: 'Cómo elegir un lavavajillas para panadería',
+      fr: 'Comment choisir un lave-plaques de boulangerie',
+      de: 'Wie wählt man eine Bäckerei-Spülmaschine?',
+      ru: 'Как выбрать машину для мойки противней',
+      th: 'วิธีเลือกเครื่องล้างถาดเบเกอรี่',
+      vi: 'Cách chọn máy rửa khay bánh',
+      ar: 'كيف تختار غسالة صواني المخابز',
+    },
+    desc: {
+      en: 'The 8 specs that actually matter. Capacity, rack size, temperature, water use, footprint, power, certifications, support.',
+      es: 'Las 8 especificaciones que realmente importan: capacidad, tamaño del rack, temperatura, consumo, huella, energía, certificados, soporte.',
+      fr: 'Les 8 critères qui comptent vraiment : capacité, taille du panier, température, consommation, encombrement, énergie, certifications, support.',
+      de: 'Die 8 Spezifikationen, die wirklich zählen: Kapazität, Korbgröße, Temperatur, Verbrauch, Stellfläche, Leistung, Zertifikate, Support.',
+      ru: '8 характеристик, которые действительно важны: производительность, размер корзины, температура, потребление, габариты, мощность, сертификаты, поддержка.',
+      th: '8 สเปคที่สำคัญจริง: ความจุ ขนาดแร็ค อุณหภูมิ การใช้น้ำ พื้นที่ พลังงาน ใบรับรอง การสนับสนุน',
+      vi: '8 thông số thực sự quan trọng: công suất, kích thước rack, nhiệt độ, nước, diện tích, điện, chứng nhận, hỗ trợ.',
+      ar: '8 مواصفات تهم فعلاً: السعة، حجم الرف، الحرارة، استهلاك الماء، المساحة، الطاقة، الشهادات، الدعم.',
+    },
+  },
+  {
+    slug: '600x400-bakery-norm-explained',
+    title: {
+      en: 'The 600×400 mm Bakery Norm Explained',
+      es: 'La norma 600×400 mm de panadería explicada',
+      fr: 'La norme 600×400 mm de boulangerie expliquée',
+      de: 'Die 600×400-mm-Bäckerei-Norm erklärt',
+      ru: 'Стандарт 600×400 мм для пекарен',
+      th: 'มาตรฐานถาดเบเกอรี่ 600×400 มม. อธิบาย',
+      vi: 'Tiêu chuẩn khay bánh 600×400 mm — giải thích',
+      ar: 'معيار صواني المخابز 600×400 مم مشروح',
+    },
+    desc: {
+      en: 'DIN 18876 / EN 631. Why every modern combi oven uses it and why most dishwashers under 8K cannot fit it.',
+      es: 'DIN 18876 / EN 631. Por qué todos los hornos combi modernos lo usan y por qué pocas lavadoras lo aceptan.',
+      fr: 'DIN 18876 / EN 631. Pourquoi tous les fours combi modernes l\'utilisent et pourquoi peu de lave-vaisselle l\'acceptent.',
+      de: 'DIN 18876 / EN 631. Warum jeder moderne Kombiofen sie verwendet und warum die meisten Spüler sie nicht aufnehmen können.',
+      ru: 'DIN 18876 / EN 631. Почему все современные пароконвектоматы используют его, а большинство посудомоек — нет.',
+      th: 'DIN 18876 / EN 631 ทำไมเตาคอมบิทุกรุ่นถึงใช้ และทำไมเครื่องล้างราคาประหยัดส่วนใหญ่จึงไม่รองรับ',
+      vi: 'DIN 18876 / EN 631. Tại sao mọi lò Combi hiện đại đều dùng nhưng hầu hết máy rửa giá rẻ không vừa.',
+      ar: 'DIN 18876 / EN 631. لماذا تستخدم كل أفران الكومبي الحديثة هذا المعيار وغسالات الصحون الرخيصة لا تستوعبه.',
+    },
+  },
+  {
+    slug: 'cost-of-manual-tray-cleaning',
+    title: {
+      en: 'The Hidden Cost of Manual Tray Cleaning',
+      es: 'El costo oculto del lavado manual de bandejas',
+      fr: 'Le coût caché du lavage manuel des plaques',
+      de: 'Die versteckten Kosten der manuellen Bleche-Reinigung',
+      ru: 'Скрытая стоимость ручной мойки противней',
+      th: 'ต้นทุนแฝงของการล้างถาดด้วยมือ',
+      vi: 'Chi phí ẩn của việc rửa khay bằng tay',
+      ar: 'التكلفة الخفية للغسيل اليدوي للصواني',
+    },
+    desc: {
+      en: 'Labor hours, water, hot water energy, tray damage, lost capacity — what hand-washing really costs per year.',
+      es: 'Horas de mano de obra, agua, energía, daño en bandejas, capacidad perdida — costo real anual.',
+      fr: 'Heures de travail, eau, énergie de chauffe, dégâts aux plaques, capacité perdue — le vrai coût annuel.',
+      de: 'Arbeitsstunden, Wasser, Heißwasser, Blechschäden, verlorene Kapazität — was Handwäsche jährlich wirklich kostet.',
+      ru: 'Часы труда, вода, нагрев воды, повреждение противней, потеря мощности — реальная годовая стоимость.',
+      th: 'ชั่วโมงแรงงาน น้ำ พลังงานทำน้ำร้อน ความเสียหายของถาด กำลังการผลิตที่หายไป — ต้นทุนจริงต่อปี',
+      vi: 'Giờ lao động, nước, năng lượng nước nóng, hư hỏng khay, năng suất mất — chi phí thực hằng năm.',
+      ar: 'ساعات العمل، الماء، طاقة تسخين الماء، تلف الصواني، فقدان السعة — التكلفة الحقيقية السنوية.',
+    },
+  },
+  {
+    slug: 'water-consumption-comparison',
+    title: {
+      en: 'Water Consumption — JD-3 vs Competitors',
+      es: 'Consumo de agua — JD-3 vs competencia',
+      fr: 'Consommation d\'eau — JD-3 vs concurrence',
+      de: 'Wasserverbrauch — JD-3 vs Wettbewerb',
+      ru: 'Расход воды — JD-3 против конкурентов',
+      th: 'การใช้น้ำ — JD-3 เทียบกับคู่แข่ง',
+      vi: 'Tiêu thụ nước — JD-3 so với đối thủ',
+      ar: 'استهلاك الماء — JD-3 مقارنة بالمنافسين',
+    },
+    desc: {
+      en: '2.0–2.5 L per cycle vs the 5–10 L most competitors consume. The math over 5 years.',
+      es: '2.0–2.5 L por ciclo vs 5–10 L de la mayoría de competidores. Cálculo en 5 años.',
+      fr: '2,0–2,5 L par cycle contre 5–10 L pour la plupart des concurrents. Calcul sur 5 ans.',
+      de: '2,0–2,5 L pro Zyklus gegenüber 5–10 L bei den meisten Wettbewerbern. Rechnung über 5 Jahre.',
+      ru: '2,0–2,5 л за цикл против 5–10 л у конкурентов. Расчёт на 5 лет.',
+      th: '2.0–2.5 ลิตรต่อรอบ เทียบกับ 5–10 ลิตรของคู่แข่งส่วนใหญ่ คำนวณ 5 ปี',
+      vi: '2,0–2,5 L mỗi chu kỳ so với 5–10 L của hầu hết đối thủ. Tính toán 5 năm.',
+      ar: '2.0–2.5 لتر لكل دورة مقابل 5–10 لتر لمعظم المنافسين. الحساب على 5 سنوات.',
+    },
+  },
+  {
+    slug: 'sanitization-temperature-standards',
+    title: {
+      en: 'Sanitization Temperature Standards',
+      es: 'Estándares de temperatura de sanitización',
+      fr: 'Normes de température de désinfection',
+      de: 'Temperatur-Standards für die Sanitisierung',
+      ru: 'Стандарты температуры дезинфекции',
+      th: 'มาตรฐานอุณหภูมิการฆ่าเชื้อ',
+      vi: 'Tiêu chuẩn nhiệt độ tiệt trùng',
+      ar: 'معايير حرارة التعقيم',
+    },
+    desc: {
+      en: 'Why 82°C? NSF/ANSI 3, EN 12875-2, DIN 10516, FDA Food Code 4-501.112 — all converge on the same number.',
+      es: '¿Por qué 82°C? NSF/ANSI 3, EN 12875-2, DIN 10516, FDA Food Code 4-501.112 — todos coinciden.',
+      fr: 'Pourquoi 82°C ? NSF/ANSI 3, EN 12875-2, DIN 10516, FDA Food Code 4-501.112 — tous convergent.',
+      de: 'Warum 82°C? NSF/ANSI 3, EN 12875-2, DIN 10516, FDA Food Code 4-501.112 — alle Standards stimmen überein.',
+      ru: 'Почему 82°C? NSF/ANSI 3, EN 12875-2, DIN 10516, FDA Food Code 4-501.112 — все сходятся.',
+      th: 'ทำไมต้อง 82°C? NSF/ANSI 3, EN 12875-2, DIN 10516, FDA Food Code 4-501.112 — มาตรฐานทั้งหมดสอดคล้องกัน',
+      vi: 'Tại sao 82°C? NSF/ANSI 3, EN 12875-2, DIN 10516, FDA Food Code 4-501.112 — tất cả đều hội tụ.',
+      ar: 'لماذا 82°م؟ NSF/ANSI 3 و EN 12875-2 و DIN 10516 و FDA Food Code 4-501.112 — كلها تتفق على نفس الرقم.',
+    },
+  },
+  {
+    slug: 'dishwasher-detergent-for-bakery',
+    title: {
+      en: 'Dishwasher Detergent for Bakeries',
+      es: 'Detergente de lavavajillas para panaderías',
+      fr: 'Détergent lave-vaisselle pour boulangeries',
+      de: 'Spülmaschinen-Reiniger für Bäckereien',
+      ru: 'Моющее средство для пекарен',
+      th: 'น้ำยาล้างจานสำหรับเบเกอรี่',
+      vi: 'Chất tẩy rửa máy rửa bát cho tiệm bánh',
+      ar: 'منظف غسالات الصحون للمخابز',
+    },
+    desc: {
+      en: 'Alkaline vs enzyme, pH ranges, rinse-aid selection, and how to adjust the built-in dispenser.',
+      es: 'Alcalino vs enzimático, rangos de pH, selección de abrillantador, ajuste del dispensador.',
+      fr: 'Alcalin vs enzymatique, pH, sélection du liquide de rinçage, réglage du distributeur.',
+      de: 'Alkalisch vs Enzyme, pH-Werte, Klarspüler-Wahl, Einstellung des Dispensers.',
+      ru: 'Щелочные vs ферментные, диапазон pH, выбор ополаскивателя, настройка дозатора.',
+      th: 'น้ำยาด่างหรือเอนไซม์ ระดับ pH การเลือกน้ำยาเคลือบ และการปรับเครื่องจ่าย',
+      vi: 'Kiềm hay enzyme, dải pH, chọn chất trợ xả, cách điều chỉnh bộ phân phối.',
+      ar: 'قلوي مقابل إنزيمي، نطاقات الـ pH، اختيار مساعد الشطف، وكيفية ضبط الموزع.',
+    },
+  },
+  {
+    slug: 'electrical-requirements-bakery-dishwasher',
+    title: {
+      en: 'Electrical Requirements for a Bakery Dishwasher',
+      es: 'Requisitos eléctricos del lavavajillas',
+      fr: 'Exigences électriques du lave-vaisselle',
+      de: 'Elektrische Anforderungen der Spülmaschine',
+      ru: 'Электрические требования к посудомоечной машине',
+      th: 'ข้อกำหนดทางไฟฟ้าสำหรับเครื่องล้างจาน',
+      vi: 'Yêu cầu điện cho máy rửa bát tiệm bánh',
+      ar: 'المتطلبات الكهربائية لغسالة المخبز',
+    },
+    desc: {
+      en: '380V three-phase vs 400V single-phase, breaker sizing, dedicated circuit, US/EU/GCC differences.',
+      es: '380V trifásico vs 400V monofásico, dimensionamiento del breaker, circuito dedicado, diferencias regionales.',
+      fr: '380 V triphasé vs 400 V monophasé, calibrage du disjoncteur, circuit dédié, différences régionales.',
+      de: '380 V Drehstrom vs 400 V einphasig, Sicherungsdimensionierung, dedizierter Stromkreis.',
+      ru: '380 В трёхфазное vs 400 В однофазное, выбор автомата, отдельная цепь, региональные различия.',
+      th: '380V สามเฟส vs 400V เฟสเดียว ขนาดเบรกเกอร์ วงจรเฉพาะ ความแตกต่างของภูมิภาค',
+      vi: '380V ba pha vs 400V một pha, công suất CB, mạch riêng, khác biệt theo khu vực.',
+      ar: '380 فولت ثلاثي الطور مقابل 400 فولت أحادي، حجم القاطع، دائرة مخصصة، الاختلافات الإقليمية.',
+    },
+  },
+  {
+    slug: 'space-requirements-small-bakery',
+    title: {
+      en: 'Space Requirements — Small Bakery Layouts',
+      es: 'Requisitos de espacio — layouts de panaderías pequeñas',
+      fr: 'Exigences d\'espace — implantations de petites boulangeries',
+      de: 'Platzbedarf — Grundrisse kleiner Bäckereien',
+      ru: 'Требования к пространству для малых пекарен',
+      th: 'ข้อกำหนดด้านพื้นที่สำหรับเบเกอรี่ขนาดเล็ก',
+      vi: 'Yêu cầu không gian cho tiệm bánh nhỏ',
+      ar: 'متطلبات المساحة لمخابز صغيرة',
+    },
+    desc: {
+      en: 'JD-3 footprint, door clearance, ventilation, where to put the dish-pit relative to the oven.',
+      es: 'Huella del JD-3, espacio para la puerta, ventilación, dónde ubicar el área de lavado.',
+      fr: 'Encombrement du JD-3, dégagement porte, ventilation, position du poste de lavage.',
+      de: 'Stellfläche, Türfreiraum, Lüftung, Position der Spülstation relativ zum Ofen.',
+      ru: 'Габариты JD-3, пространство для двери, вентиляция, где разместить мойку.',
+      th: 'พื้นที่ JD-3, ระยะเปิดประตู, การระบายอากาศ, จุดวางพื้นที่ล้าง',
+      vi: 'Diện tích JD-3, khoảng mở cửa, thông gió, vị trí khu rửa so với lò.',
+      ar: 'بصمة JD-3 ومساحة فتح الباب والتهوية ومكان منطقة الغسيل.',
+    },
+  },
+];
+
+// Localized labels for the /guides/ hub itself.
+export const guidesHub: Record<Locale, { h1: string; intro: string }> = {
+  en: { h1: 'Guides', intro: 'Practical guides for bakery owners and small commercial kitchen operators considering the V-TAI JD-3.' },
+  es: { h1: 'Guías', intro: 'Guías prácticas para dueños de panaderías y operadores de cocinas comerciales pequeñas que consideran el V-TAI JD-3.' },
+  fr: { h1: 'Guides', intro: 'Guides pratiques pour les boulangers et les opérateurs de petites cuisines commerciales qui envisagent le V-TAI JD-3.' },
+  de: { h1: 'Ratgeber', intro: 'Praktische Anleitungen für Bäckereiinhaber und Betreiber kleiner gewerblicher Küchen, die den V-TAI JD-3 in Erwägung ziehen.' },
+  ru: { h1: 'Руководства', intro: 'Практические руководства для владельцев пекарен и операторов малых коммерческих кухонь, рассматривающих V-TAI JD-3.' },
+  th: { h1: 'คู่มือ', intro: 'คู่มือที่นำไปใช้ได้จริงสำหรับเจ้าของเบเกอรี่และผู้ดำเนินงานครัวเชิงพาณิชย์ขนาดเล็กที่กำลังพิจารณา V-TAI JD-3' },
+  vi: { h1: 'Hướng dẫn', intro: 'Hướng dẫn thực tế cho chủ tiệm bánh và người vận hành bếp thương mại nhỏ đang cân nhắc V-TAI JD-3.' },
+  ar: { h1: 'الأدلة', intro: 'أدلة عملية لأصحاب المخابز ومشغلي المطابخ التجارية الصغيرة الذين يفكرون في V-TAI JD-3.' },
+};

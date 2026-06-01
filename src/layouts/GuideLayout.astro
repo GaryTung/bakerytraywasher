@@ -3,7 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import InlineInquiryForm from '../components/InlineInquiryForm.astro';
 import CTASection from '../components/CTASection.astro';
-import { type Locale } from '../i18n/utils';
+import { type Locale, t, localizePath } from '../i18n/utils';
 
 interface Props {
   locale: Locale;
@@ -13,9 +13,10 @@ interface Props {
   guideTitle: string;
 }
 const { locale, canonicalPath, title, description, guideTitle } = Astro.props;
+const lp = (p: string) => localizePath(p, locale);
 ---
 <BaseLayout title={title} description={description} locale={locale} canonicalPath={canonicalPath} schemaType="Article">
-<BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'Guides', href: '/guides/bakery-tray-cleaning-best-practices/'}, {label: guideTitle}]} />
+<BreadcrumbNav items={[{label: t(locale, 'nav.home'), href: lp('/')}, {label: t(locale, 'nav.guides'), href: lp('/guides/')}, {label: guideTitle}]} />
 
 <section class="section">
   <div class="container-page grid lg:grid-cols-3 gap-10">

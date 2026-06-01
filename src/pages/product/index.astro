@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import YouTubeShort from '../../components/YouTubeShort.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import CTASection from '../../components/CTASection.astro';
@@ -90,6 +91,28 @@ const features = [
           <p class="text-sm text-bakery-navy/70">{s.d}</p>
         </div>
       ))}
+    </div>
+  </div>
+</section>
+
+<!-- Watch it work -->
+<section class="section">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <h2 class="mb-3">Watch It Work</h2>
+      <p class="text-bakery-navy/70">Two short clips: how to install the JD-3 in your kitchen, and how to fine-tune the built-in detergent dispenser.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <YouTubeShort
+        videoId="bjxEYRiRTnI"
+        title="JD-3 Installation Guide"
+        caption="Install: water + power + first wash cycle"
+      />
+      <YouTubeShort
+        videoId="Zkf6h8u7mFE"
+        title="JD-3: How to adjust the built-in dispenser"
+        caption="Adjust: built-in detergent dispenser dosing"
+      />
     </div>
   </div>
 </section>
