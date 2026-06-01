@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
-import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import YouTubeShort from '../../components/YouTubeShort.astro';
 import CTASection from '../../components/CTASection.astro';
 import FAQSection from '../../components/FAQSection.astro';
 
@@ -33,7 +33,11 @@ const locale = 'en' as const;
       The JD-3 was designed for self-installation. When the machine arrives, you follow the video tutorial included with delivery, connect water and electricity, and start washing. No specialized installer required for most kitchens — a regular plumber and electrician are sufficient.
     </p>
 
-    <ImagePlaceholder alt="JD-3 installation video tutorial — opening box, connecting water hose, plugging in" ratio="16/9" label="Installation tutorial video thumbnail" />
+    <YouTubeShort
+      videoId="bjxEYRiRTnI"
+      title="JD-3 Commercial Dishwasher Installation Guide"
+      caption="Watch: receive the machine, connect water and power, run the first cycle — full self-install in under 30 seconds of video."
+    />
 
     <h2 class="mt-10 mb-4">The Process — 3 Simple Steps</h2>
 

@@ -21,6 +21,17 @@ const sub = (s: string) => s.replace(/\{LP\}/g, linkPrefix);
 
 // Manufacturing facts numbers (same across all locales — they're brand stats)
 const factNumbers = ['8,000 m²', '12,000', '<3%', '92%', '60+', '10+', '25%', '30%'];
+
+// Product-line images shown above each sister-product card. Order matches
+// the sisterCards array in i18n/about-content.ts: JD-3, Roll-in, Undercounter,
+// OEM. The first three are white-background product photos; the last is a
+// factory scene with V-TAI-branded machines.
+const sisterImages = [
+  { src: '/images/product-line/jd-3-white.webp',          fit: 'contain' as const, bg: 'bg-white' },
+  { src: '/images/product-line/roll-in-white.webp',       fit: 'contain' as const, bg: 'bg-white' },
+  { src: '/images/product-line/undercounter-white.webp',  fit: 'contain' as const, bg: 'bg-white' },
+  { src: '/images/product-line/oem-factory.webp',         fit: 'cover'   as const, bg: '' },
+];
 ---
 <BaseLayout title={title} description={description} locale={locale} canonicalPath="/about/" schemaType="Organization">
 <BreadcrumbNav items={[{label: t(locale,'nav.home'), href: lp('/')}, {label: t(locale,'nav.about')}]} />
@@ -57,14 +68,23 @@ const factNumbers = ['8,000 m²', '12,000', '<3%', '92%', '60+', '10+', '25%', '
     <h2 class="mb-4">{a.sisterHeading}</h2>
     <p>{a.sisterIntro}</p>
     <div class="grid md:grid-cols-2 gap-6 mt-6">
-      {a.sisterCards.map((card) => (
-        <div class="card">
-          <p class="eyebrow mb-1">{card.eyebrow}</p>
-          <h3 class="mb-2">{card.title}</h3>
-          <p class="text-sm text-bakery-navy/70 mb-3" set:html={sub(card.body)} />
-          <a href={sub(card.ctaHref)} class="text-bakery-orange text-sm font-semibold hover:underline">{card.ctaLabel}</a>
-        </div>
-      ))}
+      {a.sisterCards.map((card, i) => {
+        const img = sisterImages[i];
+        const fitClass = img && img.fit === 'contain' ? 'object-contain' : 'object-cover';
+        return (
+          <div class="card !p-0 overflow-hidden flex flex-col">
+            {img && (
+              <img src={img.src} alt={card.title} class={`w-full aspect-[4/3] ${fitClass} ${img.bg}`} loading="lazy" />
+            )}
+            <div class="p-6 flex-1 flex flex-col">
+              <p class="eyebrow mb-1">{card.eyebrow}</p>
+              <h3 class="mb-2">{card.title}</h3>
+              <p class="text-sm text-bakery-navy/70 mb-3 flex-1" set:html={sub(card.body)} />
+              <a href={sub(card.ctaHref)} class="text-bakery-orange text-sm font-semibold hover:underline">{card.ctaLabel}</a>
+            </div>
+          </div>
+        );
+      })}
     </div>
     <p class="mt-6 text-sm text-bakery-navy/60" set:html={sub(a.sisterFooter)} />
   </div>

@@ -1,0 +1,28 @@
+---
+// Responsive 9:16 YouTube Shorts embed.
+// The shorts iframe is vertical — clamp width so it doesn't dominate
+// the layout on desktop; aspect-ratio preserves it on mobile.
+interface Props {
+  videoId: string;
+  title?: string;
+  caption?: string;
+}
+const { videoId, title = 'YouTube video', caption } = Astro.props;
+---
+<figure class="my-6 mx-auto" style="max-width: 360px;">
+  <div class="relative overflow-hidden rounded-card shadow-card-hover bg-black" style="aspect-ratio: 9 / 16;">
+    <iframe
+      class="absolute inset-0 w-full h-full"
+      src={`https://www.youtube.com/embed/${videoId}`}
+      title={title}
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+  </div>
+  {caption && (
+    <figcaption class="text-sm text-bakery-navy/60 text-center mt-3">{caption}</figcaption>
+  )}
+</figure>
