@@ -3,6 +3,17 @@ interface Crumb { label: string; href?: string }
 interface Props { items: Crumb[] }
 const { items } = Astro.props;
 
+// Google Search Console requires `item` on every BreadcrumbList entry.
+// For the current page (the last crumb, which has no href in the visible
+// nav), fall back to the page's canonical URL so the JSON-LD stays valid.
+const site = 'https://bakerytraywasher.com';
+const currentUrl = new URL(Astro.url.pathname, site).toString();
+const toAbs = (href?: string) => {
+  if (!href) return currentUrl;
+  if (/^https?:\/\//i.test(href)) return href;
+  return `${site}${href.startsWith('/') ? '' : '/'}${href}`;
+};
+
 const ld = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -10,7 +21,7 @@ const ld = {
     '@type': 'ListItem',
     position: i + 1,
     name: c.label,
-    ...(c.href ? { item: `https://bakerytraywasher.com${c.href}` } : {}),
+    item: toAbs(c.href),
   })),
 };
 ---
