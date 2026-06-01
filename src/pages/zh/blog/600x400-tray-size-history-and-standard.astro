@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
+const locale = 'zh' as const;
+---
+<BaseLayout title="600×400 mm 烤盘标准的由来（英文版）| JD-3" description="600×400 mm 烤盘标准的由来" locale={locale} canonicalPath="/blog/600x400-tray-size-history-and-standard/" schemaType="Article">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/zh/'},{label: t(locale,'nav.blog'), href:'/zh/blog/'},{label: "600×400 mm 烤盘标准的由来"}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">600×400 mm 烤盘标准的由来</h1>
+<p class="text-lg mb-6 text-bakery-navy/70">这篇文章暂时未翻译成简体中文，请阅读完整的英文版本：</p>
+<p><a href="/blog/600x400-tray-size-history-and-standard/" class="btn-primary inline-block">600×400 mm 烤盘标准的由来（英文）→</a></p>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

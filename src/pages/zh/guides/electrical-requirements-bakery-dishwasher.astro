@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
+const locale = 'zh' as const;
+---
+<BaseLayout title="ข้อกำหนดทางไฟฟ้า | JD-3" description="ข้อกำหนดทางไฟฟ้า" locale={locale} canonicalPath="/guides/electrical-requirements-bakery-dishwasher/" schemaType="Article">
+<BreadcrumbNav items={[
+  { label: t(locale, 'nav.home'), href: '/zh/' },
+  { label: t(locale, 'nav.guides') },
+  { label: "ข้อกำหนดทางไฟฟ้า" }
+]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">ข้อกำหนดทางไฟฟ้า</h1>
+<p class="text-lg mb-6">คู่มือปฏิบัติสำหรับผู้ประกอบการเบเกอรี่ที่ใช้ V-TAI JD-3</p>
+<p class="text-bakery-navy/70"><a href="/guides/electrical-requirements-bakery-dishwasher/" class="underline">ดูฉบับเต็มภาษาอังกฤษ</a></p>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

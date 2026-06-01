@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductSpecsTable from '../../../components/ProductSpecsTable.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'zh' as const;
+const sections = [
+  { title: 'ขนาด', rows: [
+    { k: 'ขนาด (ปิด)', v: '804 × 816 × 1,550 มม.' },
+    { k: 'ความสูง (เปิด)', v: '2,115 มม.' },
+    { k: 'แร็ค', v: '650 × 550 มม.' },
+    { k: 'น้ำหนัก', v: '145 กก.' },
+  ]},
+  { title: 'ประสิทธิภาพ', rows: [
+    { k: 'อัตราการล้าง', v: '180 ถาด/ชั่วโมง' },
+    { k: 'ถาดต่อรอบ', v: '6 ถาด' },
+    { k: 'เวลารอบ', v: '2 นาที (120 วินาที)' },
+    { k: 'รอบต่อชั่วโมง', v: '30 รอบ/ชั่วโมง' },
+    { k: 'น้ำ/รอบ', v: '2.0-2.5 ลิตร' },
+    { k: 'อุณหภูมิล้างสุดท้าย', v: '>82°C' },
+  ]},
+  { title: 'ไฟฟ้า', rows: [
+    { k: 'กำลังรวม', v: '13 กิโลวัตต์' },
+    { k: 'แรงดัน', v: '380V / 3N / 50Hz' },
+    { k: 'กระแส', v: '21.5 A' },
+  ]},
+];
+---
+<BaseLayout title="สเปค JD-3" description="ข้อมูลสเปคของ V-TAI JD-3" locale={locale} canonicalPath="/product/jd-3-specifications/" schemaType="Product">
+<BreadcrumbNav items={[{label:'หน้าแรก',href:'/zh/'},{label:'สเปค'}]} />
+<section class="section"><div class="container-page"><h1 class="mb-6">สเปค JD-3 ฉบับเต็ม</h1><ProductSpecsTable sections={sections} /></div></section>
+<CTASection locale={locale} />
+</BaseLayout>

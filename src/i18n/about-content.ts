@@ -532,4 +532,49 @@ const ar: AboutContent = {
   contactHoursNote: 'ساعات المكتب: الإثنين-السبت، 9:00 صباحاً-6:30 مساءً بتوقيت الصين القياسي (GMT+8). رسائل WhatsApp خارج الساعات عادةً ما تتلقى رداً خلال 2-3 ساعات.',
 };
 
-export const aboutContent: Record<Locale, AboutContent> = { en, es, fr, de, ru, th, vi, ar };
+// zh (Simplified Chinese) seed: reuse the English content object as the
+// fallback until the dedicated Chinese About page content is written. The
+// zh hero/story copy is overridden via the EN /zh/about.astro entry —
+// where we render with `aboutContent['zh']` and override key strings inline.
+const zh: AboutContent = {
+  ...en,
+  heroEyebrow: '关于 V-TAI',
+  heroTitle: '深耕商用洗碗机 10 余年，只为一个信念：小型经营者也值得用上专业设备',
+  heroP1: '深圳市威泰电器有限公司（全球称为 <strong>V-TAI</strong>）在中国广东珠江三角洲拥有 8,000 m² 的智能制造基地，设计与制造商用洗碗机。我们作为认证制造商已运营 10 余年，年产约 12,000 台商用机器，远销 60 多个国家。',
+  heroP2: '本站主推的 <strong>JD-3 烘焙烤盘清洗机</strong>是我们更广泛的商用洗碗机系列中的其中一款。我们还生产推车式洗碗机（面向工业客户）、台下式洗碗机、传送带式洗碗系统，以及面向欧洲、北美与亚洲品牌客户的定制 OEM 产品线。',
+  storyHeading: '我们的故事',
+  storyP1: 'V-TAI 始于 2013 年，最初为欧洲商用厨房设备品牌做代工。我们的创始团队在此之前已在 OEM 洗碗机生产领域积累十年经验，目睹了西方品牌进口中国制造的机器、贴牌后以 3–4 倍价格出售，再经过经销网络层层加价才抵达餐厅老板手中。我们觉得这个数学算式有问题。',
+  storyP2: '到 2016 年，我们已开发出自己的产品线，开始以 V-TAI 自有品牌销往国际客户。我们的理念很简单：独立的烘焙店、单店咖啡馆、酒店西点房、学校食堂这些中小型商用经营者，应当用上专业级别的设备，而不必为品牌溢价买单。通过工厂直供与全程透明定价，我们能以高端零售价的一小部分提供同等 CE 认证的安全与性能。',
+  storyP3: '这个理念走通了。如今 V-TAI 的设备已部署到全球 60 多个国家，覆盖每一个有人居住的大洲。从迪拜豪华酒店的厨房、韩国咖啡连锁、澳大利亚法式甜品店、德国传统面包店、巴西糕点铺，到利马、曼谷、约翰内斯堡、马尼拉、利雅得的家族烘焙坊，都能见到我们的机器在运转。',
+  storyP4: '这款 <strong>JD-3 烤盘清洗机</strong>是 2019–2020 年间应欧洲西点店与亚洲烘焙连锁的反复要求而开发的——他们想要一款价格合理、又能容纳 600×400 mm 欧标烤盘的烘焙专用洗碗机，而这正是大多数同价位西方品牌至今仍未做到的标准。<a href="{LP}/product/" class="underline">查看 JD-3 完整产品介绍</a>。',
+  sisterHeading: '我们的完整产品线',
+  sisterIntro: 'bakerytraywasher.com 是 V-TAI 旗下专门聚焦 JD-3 机型的细分站点。我们更广泛的产品系列包括：',
+  sisterFooter: '欲了解我们的完整企业产品线，请访问品牌官网 <a href="https://v-tai.com" class="underline">v-tai.com</a>。',
+  believeHeading: '我们的理念',
+  factsHeading: '制造实力',
+  factsLabels: ['智能制造基地', '年产能', '不良率（行业领先）', '垂直整合的供应链', '服务国家数', '认证制造经验', '废料减排（vs 行业均值）', '交付速度提升（vs 行业）'],
+  certHeading: '认证与标准',
+  shipHeading: '我们的服务区域',
+  shipIntro: '我们的产品销往全球所有有人居住的大洲。目前定期发货的主要市场：',
+  shipRegions: [
+    { name: '北美', countries: '美国、加拿大、墨西哥' },
+    { name: '欧洲', countries: '英国、德国、法国、西班牙、意大利、荷兰、俄罗斯、乌克兰，以及所有欧盟成员国' },
+    { name: '海湾国家与中东', countries: '阿联酋、沙特阿拉伯、卡塔尔、科威特、巴林、阿曼、埃及、约旦、摩洛哥' },
+    { name: '亚太', countries: '泰国、越南、新加坡、马来西亚、印度尼西亚、菲律宾、日本、韩国、澳大利亚、新西兰' },
+    { name: '拉丁美洲', countries: '巴西、阿根廷、智利、哥伦比亚、秘鲁' },
+    { name: '非洲', countries: '南非、肯尼亚、尼日利亚' },
+  ],
+  shipFooter: '<a href="{LP}/pricing/by-country/" class="underline text-bakery-orange font-semibold">查看 18 国 DDP 到岸价 →</a>',
+  contactHeading: '联系方式',
+  contactEmailTitle: '电子邮箱',
+  contactEmailNote: '用于技术问题、招标、正式文件请求。',
+  contactWaTitle: 'WhatsApp',
+  contactWaNote: '最快的沟通渠道——支持中文、英文、西班牙文。通常 2–3 小时内回复。',
+  contactOfficeTitle: '办公室与工厂',
+  contactOfficeNote: '到访请提前预约。我们也可安排参观 8,000 m² 的生产车间。',
+  contactBrandTitle: '品牌官网',
+  contactBrandNote: '我们更广泛的企业站点，涵盖 V-TAI 所有产品线，包括台下式、传送带式与 OEM 产品。',
+  contactHoursNote: '办公时间：周一至周六，9:00 AM–6:30 PM（中国标准时间 GMT+8）。WhatsApp 在非办公时段发来的消息通常 2–3 小时内回复。',
+};
+
+export const aboutContent: Record<Locale, AboutContent> = { en, es, fr, de, ru, th, vi, ar, zh };

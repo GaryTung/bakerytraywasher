@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
+const locale = 'zh' as const;
+---
+<BaseLayout title="采购指南 PDF | JD-3" description="采购指南 PDF" locale={locale} canonicalPath="/resources/buyers-guide-pdf/" schemaType="Article">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/zh/'},{label: t(locale,'nav.resources'), href:'/zh/resources/'},{label: "采购指南 PDF"}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">采购指南 PDF</h1>
+<p class="text-lg mb-6 text-bakery-navy/70">此页面有英文完整版本可供下载：</p>
+<p><a href="/resources/buyers-guide-pdf/" class="btn-primary inline-block">采购指南 PDF（英文）→</a></p>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

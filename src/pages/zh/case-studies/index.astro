@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
+import { caseStudies, caseStudiesTitle, caseStudiesIntro, annualSavingsLabel } from '../../../i18n/vsdata';
+const locale = 'zh' as const;
+---
+<BaseLayout
+  title={caseStudiesTitle[locale] + ' | V-TAI JD-3'}
+  description={caseStudiesIntro[locale]}
+  locale={locale}
+  canonicalPath="/case-studies/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: t(locale, 'nav.home'), href: '/zh/'}, {label: caseStudiesTitle[locale]}]} />
+
+<section class="section">
+  <div class="container-page">
+    <h1 class="mb-4 text-center">{caseStudiesTitle[locale]}</h1>
+    <p class="text-bakery-navy/70 text-lg max-w-2xl mx-auto text-center mb-10">{caseStudiesIntro[locale]}</p>
+    <div class="grid sm:grid-cols-2 gap-6">
+      {caseStudies.map((c) => (
+        <a href={`/zh/case-studies/${c.slug}/`} class="card hover:scale-[1.02] transition">
+          <h3 class="mb-1">{c.name[locale]}</h3>
+          <p class="text-sm text-bakery-navy/60 mb-3">{c.location[locale]}</p>
+          <p class="text-bakery-orange font-semibold">{annualSavingsLabel[locale]}: {c.savings[locale]}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

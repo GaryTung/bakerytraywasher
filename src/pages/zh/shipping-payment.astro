@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import CTASection from '../../components/CTASection.astro';
+import { t } from '../../i18n/utils';
+const locale = 'zh' as const;
+---
+<BaseLayout title="货运与付款 | JD-3" description="V-TAI JD-3 货运与付款条款。" locale={locale} canonicalPath="/shipping-payment/">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/zh/'},{label: '货运与付款'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">货运与付款</h1>
+<h2 class="mt-6 mb-3">付款方式</h2>
+<ul class="list-disc list-inside space-y-1">
+<li>下单时支付 30% 定金，发货前支付剩余 70%</li>
+<li>电汇 (TT)，2 万美元以上订单可用信用证 (L/C)</li>
+<li>主结算货币为美元；接受欧元、英镑、阿联酋迪拉姆</li>
+</ul>
+<h2 class="mt-6 mb-3">交货周期</h2>
+<ul class="list-disc list-inside space-y-1">
+<li>生产：4 周</li>
+<li>海运：20–35 天</li>
+<li>空运：3–7 天</li>
+</ul>
+<h2 class="mt-6 mb-3">18 个市场的 DDP 报价</h2>
+<p>面向 18 个主要市场我们直接提供当地货币的 DDP 到岸价。详见 <a href="/zh/pricing/by-country/" class="underline">各国 DDP 价格</a>。</p>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

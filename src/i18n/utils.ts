@@ -6,6 +6,7 @@ import th from './th.json';
 import vi from './vi.json';
 import fr from './fr.json';
 import de from './de.json';
+import zh from './zh.json';
 
 export const languages = {
   en: 'English',
@@ -16,21 +17,25 @@ export const languages = {
   vi: 'Tiếng Việt',
   fr: 'Français',
   de: 'Deutsch',
+  zh: '简体中文',
 } as const;
 
 export type Locale = keyof typeof languages;
 export const defaultLocale: Locale = 'en';
 
 export const localeDirection: Record<Locale, 'ltr' | 'rtl'> = {
-  en: 'ltr', es: 'ltr', ru: 'ltr', ar: 'rtl', th: 'ltr', vi: 'ltr', fr: 'ltr', de: 'ltr',
+  en: 'ltr', es: 'ltr', ru: 'ltr', ar: 'rtl', th: 'ltr', vi: 'ltr', fr: 'ltr', de: 'ltr', zh: 'ltr',
 };
 
 export const localeLang: Record<Locale, string> = {
   en: 'en-US', es: 'es-ES', ru: 'ru-RU', ar: 'ar-SA',
   th: 'th-TH', vi: 'vi-VN', fr: 'fr-FR', de: 'de-DE',
+  // Use Hans (Simplified Chinese, script-based) — works for SG/MY/global Chinese readers
+  // and isn't tied to a specific country like zh-CN would be.
+  zh: 'zh-Hans',
 };
 
-const dict: Record<Locale, Record<string, string>> = { en, es, ru, ar, th, vi, fr, de };
+const dict: Record<Locale, Record<string, string>> = { en, es, ru, ar, th, vi, fr, de, zh };
 
 export function getLocaleFromUrl(url: URL): Locale {
   const seg = url.pathname.split('/').filter(Boolean)[0];

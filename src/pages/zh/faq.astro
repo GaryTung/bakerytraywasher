@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTASection from '../../components/CTASection.astro';
+import { t } from '../../i18n/utils';
+const locale = 'zh' as const;
+const faqs = [
+  { q: 'V-TAI JD-3 คืออะไร?', a: 'เครื่องล้างจานเชิงพาณิชย์แบบกระโจมสำหรับถาดเบเกอรี่ รุ่น VT-AE-JD-3' },
+  { q: 'ราคาเท่าไหร่?', a: 'เริ่มต้น $4,400 FOB เซินเจิ้น สูงสุด $4,900 พร้อมตัวเลือกเสริม (เครื่องจ่ายน้ำยาทำความสะอาดอัตโนมัติ, การกู้คืนความร้อน)' },
+  { q: 'แตกต่างจากแบรนด์อื่นอย่างไร?', a: 'แร็คขนาด 650×550 มม. รองรับถาด 600×400 มม. ตามมาตรฐาน DIN 18876 / EN 631 — มาตรฐานที่ Rational, Convotherm, Unox, MIWE ใช้ ราคาต่ำกว่าแบรนด์พรีเมียมมากในระดับการรับรอง CE เดียวกัน' },
+  { q: 'ระยะเวลาส่งมอบ?', a: '4 สัปดาห์การผลิตในเซินเจิ้น บวกการขนส่งทางทะเล (20–35 วันขึ้นอยู่กับปลายทาง) หรือทางอากาศ (3–7 วัน แพงกว่า)' },
+  { q: 'การรับประกัน?', a: 'รับประกันจากผู้ผลิต 12 เดือนสำหรับชิ้นส่วน อะไหล่ส่งทั่วโลกภายใน 5 วันทำการ' },
+  { q: 'หากเสียทำอย่างไร?', a: 'ทุกเครื่องมาพร้อมแผนผังวงจรไฟฟ้าในแผงบริการ ช่างไฟฟ้าทั่วไปสามารถซ่อมปัญหาส่วนใหญ่ได้ อะไหล่ส่งทั่วโลกใน 5 วัน' },
+  { q: 'การติดตั้ง?', a: 'รับเครื่อง ทำตามวิดีโอแนะนำ เชื่อมต่อน้ำ + ไฟฟ้า ใช้เวลา 1–2 ชั่วโมงโดยปกติ ไม่ต้องใช้ช่างเทคนิคเฉพาะทาง' },
+  { q: 'ส่งไปประเทศของฉันได้ไหม?', a: 'ได้ ดูหน้าราคา DDP สำหรับ 18 ตลาดในสกุลเงินท้องถิ่น หากประเทศของคุณไม่อยู่ในรายการ ขอใบเสนอราคาเฉพาะ — เราตอบกลับใน 12 ชั่วโมง' },
+];
+---
+<BaseLayout title={`${t(locale,'nav.faq')} | JD-3`} description="คำถามที่พบบ่อยเกี่ยวกับ V-TAI JD-3" locale={locale} canonicalPath="/faq/" schemaType="FAQPage">
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/zh/'},{label: t(locale,'nav.faq')}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4 text-center">คำถามที่พบบ่อย</h1>
+</div></section>
+<FAQSection items={faqs} title="" locale={locale} />
+<CTASection locale={locale} />
+</BaseLayout>

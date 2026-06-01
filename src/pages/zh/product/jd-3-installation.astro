@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'zh' as const;
+---
+<BaseLayout title="คู่มือติดตั้ง JD-3" description="รับเครื่อง ดูวิดีโอสอน เชื่อมต่อน้ำและไฟฟ้า เริ่มล้างได้เลย" locale={locale} canonicalPath="/product/jd-3-installation/" schemaType="HowTo">
+<BreadcrumbNav items={[{label:'หน้าแรก',href:'/zh/'},{label:'ติดตั้ง'}]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">ติดตั้ง JD-3 — รับ เชื่อมต่อ ล้าง</h1>
+<p class="text-lg mb-6">JD-3 ออกแบบมาให้ติดตั้งเองได้ เมื่อได้รับเครื่อง ทำตามวิดีโอสอนที่มาพร้อมกับการจัดส่ง เชื่อมต่อน้ำและไฟฟ้า แล้วเริ่มล้างได้เลย ไม่ต้องใช้ช่างติดตั้งเฉพาะทาง — ช่างประปาและช่างไฟฟ้าทั่วไปก็เพียงพอ</p>
+<h2 class="mt-8 mb-3">3 ขั้นตอนง่ายๆ</h2>
+<ol class="space-y-3 list-decimal list-inside">
+<li><strong>แกะกล่องและวางตำแหน่ง</strong> — บนพื้นเรียบใกล้กับท่อน้ำและท่อระบายน้ำ</li>
+<li><strong>เชื่อมต่อน้ำและไฟฟ้า</strong> — น้ำเย็น G 3/4", ท่อระบาย G 1½", วงจรไฟฟ้าเฉพาะ 380V/3N/50Hz (หรือ 400V เฟสเดียวตามมาตรฐานท้องถิ่น)</li>
+<li><strong>ทำตามวิดีโอสอน</strong> — รวมในการจัดส่ง พร้อมใช้งานผ่าน WhatsApp ทันทีที่สั่งซื้อ เวลาทั้งหมดประมาณ 1–2 ชั่วโมง</li>
+</ol>
+<h2 class="mt-8 mb-3">ในกล่อง</h2>
+<ul class="space-y-1 list-disc list-inside">
+<li>เครื่อง JD-3</li>
+<li>แร็คมาตรฐาน 2 ชิ้น + แร็คถ้วย</li>
+<li>สายน้ำเข้าและสายระบายน้ำ</li>
+<li>การ์ดเริ่มต้นใช้งานด่วน พร้อมลิงก์วิดีโอสอน</li>
+<li>คู่มือการใช้งาน</li>
+<li>ใบรับรอง CE</li>
+<li><strong>แผนผังวงจรไฟฟ้า</strong> ติดอยู่ด้านในแผงบริการ — เก็บไว้ที่นั่นสำหรับการบำรุงรักษาในอนาคต</li>
+</ul>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

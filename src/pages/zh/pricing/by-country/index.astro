@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { countries, getCountriesByRegion } from '../../../../data/countries';
+import { t } from '../../../../i18n/utils';
+const locale = 'zh' as const;
+const grouped = getCountriesByRegion();
+const regionOrder = ['North America', 'Latin America', 'Europe', 'GCC / Middle East', 'Asia-Pacific', 'Africa'];
+const regionKeyMap: Record<string, string> = {
+  'North America': 'country.region.northAmerica',
+  'Latin America': 'country.region.latinAmerica',
+  'Europe': 'country.region.europe',
+  'GCC / Middle East': 'country.region.gcc',
+  'Asia-Pacific': 'country.region.asiaPacific',
+  'Africa': 'country.region.africa',
+};
+---
+<BaseLayout
+  title={t(locale, 'country.title')}
+  description={t(locale, 'country.intro')}
+  locale={locale}
+  canonicalPath="/pricing/by-country/"
+  schemaType="Product"
+>
+<BreadcrumbNav items={[
+  { label: t(locale, 'nav.home'), href: '/zh/' },
+  { label: t(locale, 'nav.pricing'), href: '/zh/pricing/' },
+  { label: t(locale, 'nav.ddpByCountry') }
+]} />
+<section class="section">
+  <div class="container-page">
+    <h1 class="text-center mb-4">{t(locale, 'country.title')}</h1>
+    <p class="text-center text-bakery-navy/70 mb-10">{t(locale, 'country.intro')}</p>
+    {regionOrder.map((region) => grouped[region] && (
+      <div class="mb-8">
+        <h2 class="mb-3">{t(locale, regionKeyMap[region])}</h2>
+        <div class="overflow-x-auto card !p-0">
+          <table class="w-full text-sm">
+            <thead class="bg-bakery-navy text-white">
+              <tr>
+                <th class="text-left p-3">{t(locale, 'country.tableCountry')}</th>
+                <th class="text-left p-3">{t(locale, 'country.tableCity')}</th>
+                <th class="text-left p-3">{t(locale, 'country.tablePrice')}</th>
+                <th class="text-left p-3 hidden md:table-cell">{t(locale, 'country.tableUsd')}</th>
+                <th class="text-left p-3 hidden md:table-cell">{t(locale, 'country.tableLeadTime')}</th>
+                <th class="text-left p-3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {grouped[region].map((c) => (
+                <tr class="border-t border-bakery-navy/5">
+                  <td class="p-3 font-semibold">{c.name}</td>
+                  <td class="p-3 text-bakery-navy/70">{c.city}</td>
+                  <td class="p-3 text-bakery-orange font-semibold">{c.priceLocal}</td>
+                  <td class="p-3 text-bakery-navy/70 hidden md:table-cell">${c.usdApprox.toLocaleString('en-US')}</td>
+                  <td class="p-3 text-bakery-navy/70 hidden md:table-cell">{c.leadTimeWeeks} {t(locale, 'country.weekShort')}</td>
+                  <td class="p-3 text-right"><a href={`/zh/pricing/by-country/${c.slug}/`} class="text-bakery-orange font-semibold hover:underline">{t(locale, 'country.details')} →</a></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+<CTASection locale={locale} />
+</BaseLayout>

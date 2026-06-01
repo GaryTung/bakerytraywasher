@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ComparisonTable from '../../../components/ComparisonTable.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'zh' as const;
+const rows = [
+  { label: 'อัตราการล้าง', jd3: '180 ถาด/ชม.', competitor: '60 แร็ค/ชม.' },
+  { label: 'ขนาดแร็ค', jd3: '650×550 มม.', competitor: '500×500 มม.' },
+  { label: 'ถาด 600×400', jd3: '✓ ใช่', competitor: '✗ ไม่', highlight: true },
+  { label: 'ราคา', jd3: '$4,400 FOB', competitor: 'Significantly higher' },
+];
+---
+<BaseLayout title="JD-3 vs Hobart AMX" description="เปรียบเทียบ V-TAI JD-3 และ Hobart AMX" locale={locale} canonicalPath="/product/jd-3-vs-hobart-amx/" schemaType="Article">
+<BreadcrumbNav items={[{label:'หน้าแรก',href:'/zh/'},{label:'vs Hobart'}]} />
+<section class="section"><div class="container-prose"><h1>JD-3 vs Hobart AMX</h1><p class="text-lg mt-4 mb-6">Hobart เป็นผู้นำตลาดสหรัฐ JD-3 ราคาต่ำกว่าอย่างมาก และรองรับถาด 600×400 ที่ Hobart ไม่รองรับ</p></div>
+<div class="container-page"><ComparisonTable competitorName="Hobart AMX" rows={rows} /></div></section>
+<CTASection locale={locale} />
+</BaseLayout>

@@ -43,6 +43,7 @@ export const csLabels: Record<Locale, { breadcrumbAll: string; whyJd3: string; r
   th: { breadcrumbAll: 'กรณีศึกษา', whyJd3: 'ทำไมเลือก JD-3', results: 'ผลลัพธ์', paybackPrefix: 'ระยะเวลาคืนทุนรวม:', inWords: 'ในคำพูดของพวกเขา', closing: 'บทเรียนที่ได้' },
   vi: { breadcrumbAll: 'Tình huống', whyJd3: 'Tại sao chọn JD-3', results: 'Kết quả', paybackPrefix: 'Tổng thời gian hoàn vốn:', inWords: 'Lời của họ', closing: 'Bài học' },
   ar: { breadcrumbAll: 'دراسات الحالة', whyJd3: 'لماذا اختاروا JD-3', results: 'النتائج', paybackPrefix: 'إجمالي فترة الاسترداد:', inWords: 'بكلماتهم', closing: 'الدرس المستفاد' },
+  zh: { breadcrumbAll: '客户案例', whyJd3: '为何选择 JD-3', results: '成效', paybackPrefix: '总回本周期：', inWords: '用户原声', closing: '经验启示' },
 };
 
 // ============================================================
@@ -1119,4 +1120,10 @@ const ar: Record<CaseStudySlug, CaseStudy> = {
   },
 };
 
-export const caseStudiesContent: Record<Locale, Record<CaseStudySlug, CaseStudy>> = { en, es, fr, de, ru, th, vi, ar };
+// zh (Simplified Chinese): seed with English content for now. The /zh/case-studies/
+// pages render structurally; full Chinese case-study copy can be added by
+// either editing this `zh` const directly or by copying the `en` block above,
+// renaming to `zh`, and translating the prose fields.
+const zh: Record<CaseStudySlug, CaseStudy> = en;
+
+export const caseStudiesContent: Record<Locale, Record<CaseStudySlug, CaseStudy>> = { en, es, fr, de, ru, th, vi, ar, zh };

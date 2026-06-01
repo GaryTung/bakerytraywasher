@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
+const locale = 'zh' as const;
+const posts = [
+  {
+    slug: 'residential-dishwasher-for-commercial-bakery',
+    title: '家用洗碗机能用于商用烘焙吗？',
+    desc: 'FDA Food Code 4-501.112 标准、NSF/ANSI 3 温度认证、24 个月回本算账。',
+    date: '2026-04-15',
+  },
+  {
+    slug: 'why-your-bakery-needs-a-tray-washer',
+    title: '为什么您的烘焙店需要一台烤盘清洗机',
+    desc: '即便手洗一直行得通，为什么仍要买一台商用洗碗机的理性论证。',
+    date: '2026-01-15',
+  },
+  {
+    slug: '600x400-tray-size-history-and-standard',
+    title: '600×400 烤盘标准的来龙去脉',
+    desc: '一个 1960 年代的德国工业标准，如何成为全球烘焙业的事实标准。',
+    date: '2026-01-22',
+  },
+  {
+    slug: 'dishwasher-roi-for-small-bakery',
+    title: '小型烘焙店的洗碗机投资回报算账',
+    desc: '具体的数字：设备投入、运营成本、人力节省、回本周期。',
+    date: '2026-01-29',
+  },
+];
+---
+<BaseLayout
+  title="博客 | V-TAI JD-3"
+  description="烘焙运营、商用洗碗经济学、600×400 烤盘标准、ROI 算账等方面的实用文章，专为新加坡、马来西亚以及海外华人烘焙业主撰写。"
+  locale={locale}
+  canonicalPath="/blog/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/zh/'},{label: t(locale,'nav.blog')}]} />
+
+<section class="section">
+  <div class="container-page">
+    <h1 class="text-center mb-4">博客</h1>
+    <p class="text-bakery-navy/70 text-lg max-w-2xl mx-auto text-center mb-10">面向烘焙店老板与中小型商用厨房的实用文章。文章逐步翻译为简体中文中，未翻译篇目附英文链接。</p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {posts.map((p) => (
+        <a href={`/zh/blog/${p.slug}/`} class="card hover:scale-[1.02] transition flex flex-col">
+          <p class="text-xs text-bakery-navy/50 mb-2">{p.date}</p>
+          <h3 class="mb-3">{p.title}</h3>
+          <p class="text-sm text-bakery-navy/70 flex-1">{p.desc}</p>
+          <p class="text-bakery-orange text-sm mt-3 font-semibold">阅读文章 →</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<CTASection locale={locale} />
+</BaseLayout>

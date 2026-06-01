@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import YouTubeShort from '../../components/YouTubeShort.astro';
+import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+const locale = 'zh' as const;
+
+const businessTypes = [
+  { name: '面包店',         href: '/zh/by-business-type/bakery-shop/',         icon: '🥐' },
+  { name: '咖啡连锁',       href: '/zh/by-business-type/coffee-chain/',        icon: '☕' },
+  { name: '法式甜品店',     href: '/zh/by-business-type/patisserie/',          icon: '🧁' },
+  { name: '蛋糕店',         href: '/zh/by-business-type/cake-shop/',           icon: '🎂' },
+  { name: '小型餐厅',       href: '/zh/by-business-type/small-restaurant/',    icon: '🍽️' },
+  { name: '员工食堂',       href: '/zh/by-business-type/cafeteria/',           icon: '🥪' },
+  { name: '酒店西点房',     href: '/zh/by-business-type/hotel-pastry-kitchen/', icon: '🏨' },
+  { name: '云厨房',         href: '/zh/by-business-type/cloud-kitchen/',       icon: '👨‍🍳' },
+];
+
+const faqs = [
+  { q: 'JD-3 真的能洗 600×400 mm 烤盘吗？', a: '可以。这是这个价位段唯一一台 650×550 mm 洗碗筐的揭盖式机器。Hobart、Jackson、CMA 同价位机型都是 500×500 洗碗筐，装不下 600×400 mm 烤盘。' },
+  { q: '生产到交货要多久？', a: '深圳生产 4 周 + 海运 20–35 天，全程 8–10 周送达新加坡 / 马来西亚 / 香港 / 台湾。东南亚海运较快，欧美时间长一些。' },
+  { q: '可以洗中式器具吗？', a: '可以洗大型不锈钢炒锅（直径 28 cm 内）、汤桶、蒸笼托盘。中式深炒锅需斜放，建议下单前发图片给我们确认尺寸。' },
+  { q: '在新加坡和马来西亚有保修吗？', a: '12 个月零件保修，通过 DHL/FedEx 全球发货。设备内置电路图，本地电工即可诊断与更换零件。' },
+  { q: '我能买二手设备吗？', a: '我们不卖二手，但我们的新机 FOB 起价 4,400 美元，比同等 CE 认证的二手高端品牌还便宜。性价比远胜二手设备。' },
+];
+---
+<BaseLayout
+  title="烘焙烤盘清洗机 | V-TAI JD-3 商用洗碗机"
+  description="4 个月回本的烘焙烤盘清洗机。可洗 600×400 mm 烤盘 — 大多数美式洗碗机装不下的尺寸。CE 认证，深圳 FOB 起价 4,400 美元。专为新加坡、马来西亚、海外华人市场。"
+  locale={locale}
+  canonicalPath="/"
+>
+<section class="bg-gradient-to-br from-bakery-cream via-white to-bakery-cream/50 section">
+  <div class="container-page grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="eyebrow mb-3">V-TAI JD-3 · 揭盖式商用洗碗机</p>
+      <h1 class="mb-5">4 个月回本的<span class="text-bakery-orange">烘焙烤盘清洗机</span></h1>
+      <p class="text-lg text-bakery-navy/80 mb-6 leading-relaxed">
+        可洗 600×400 mm 欧标烤盘 — 多数同价位洗碗机装不下的标准尺寸。CE 认证，
+        SUS304 食品级不锈钢，<strong>深圳 FOB 起价 4,400 美元</strong>。专为新加坡、马来西亚以及海外华人市场量身打造。
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/zh/get-quote/" class="btn-primary">获取报价</a>
+        <a href="/zh/product/" class="btn-secondary">查看规格</a>
+      </div>
+    </div>
+    <ImagePlaceholder src="/images/jd-3-hero.webp" alt="V-TAI JD-3 烘焙烤盘清洗机" ratio="4/3" label="JD-3 主图" />
+  </div>
+</section>
+
+<TrustBadgeStrip locale={locale} />
+
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="text-center mb-3">您的业务类型是？</h2>
+    <p class="text-center text-bakery-navy/70 max-w-2xl mx-auto mb-10">选择您的实际经营场景，看看 JD-3 如何匹配您的运营节奏。</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {businessTypes.map((bt) => (
+        <a href={bt.href} class="card text-center hover:scale-[1.02] transition">
+          <div class="text-4xl mb-2">{bt.icon}</div>
+          <p class="font-semibold">{bt.name}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <h2 class="mb-4">透明定价，明明白白</h2>
+      <p class="text-bakery-navy/80 mb-4">JD-3 起价 <strong>4,400 美元 FOB 深圳</strong> — 同等 CE 认证下，价格仅为欧美高端品牌的零头。</p>
+      <ul class="space-y-2 text-bakery-navy/80">
+        <li class="flex gap-2 font-bold text-bakery-orange"><span>✓</span> V-TAI JD-3 标准型：<strong>4,400 美元 FOB</strong></li>
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> + 自动洗涤剂分配器：4,600 美元起</li>
+        <li class="flex gap-2"><span class="text-bakery-orange">✓</span> + 热回收升级：4,900 美元起</li>
+      </ul>
+      <p class="mt-4 text-sm text-bakery-navy/60">为方便比较，我们公开了 <a href="/zh/pricing/by-country/" class="underline">18 个国家的 DDP 到岸价</a>（含运费、关税、当地税）。</p>
+    </div>
+    <PriceCalloutBox locale={locale} />
+  </div>
+</section>
+
+<section class="section bg-bakery-cream">
+  <div class="container-page text-center">
+    <h2 class="mb-3">30 秒看 JD-3 实机运行</h2>
+    <p class="text-bakery-navy/70 max-w-2xl mx-auto mb-2">收货、接水接电、第一次清洗 — JD-3 设计为可在商用厨房自行安装。</p>
+    <YouTubeShort videoId="bjxEYRiRTnI" title="JD-3 商用洗碗机安装指南" />
+  </div>
+</section>
+
+<FAQSection items={faqs} title="常见问题" />
+
+<CTASection locale={locale} title="准备好告别手洗烤盘了吗？" subtitle="12 小时内为您定制报价。" />
+</BaseLayout>

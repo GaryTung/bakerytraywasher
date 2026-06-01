@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import PriceCalloutBox from '../../../components/PriceCalloutBox.astro';
+import CTASection from '../../../components/CTASection.astro';
+const locale = 'zh' as const;
+---
+<BaseLayout title="V-TAI JD-3 — เครื่องล้างถาดเบเกอรี่" description="V-TAI JD-3: 180 ถาด/ชั่วโมง, ถาด 600×400, SUS304, CE." locale={locale} canonicalPath="/product/" schemaType="Product">
+<BreadcrumbNav items={[{label:'หน้าแรก',href:'/zh/'},{label:'สินค้า'}]} />
+<section class="section"><div class="container-page grid lg:grid-cols-2 gap-10">
+<ImagePlaceholder src="/images/jd-3-front.webp" alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
+<div>
+<p class="eyebrow mb-2">รุ่น VT-AE-JD-3</p>
+<h1 class="mb-4">V-TAI JD-3 — เครื่องล้างถาดเบเกอรี่แบบกระโจม</h1>
+<p class="text-lg mb-5">เครื่องล้างจานแบบกระโจมเดียวในระดับราคานี้ที่ออกแบบสำหรับมาตรฐานยุโรป <strong>600×400 มม.</strong></p>
+<PriceCalloutBox locale={locale} />
+</div>
+</div></section>
+<section class="section"><div class="container-prose">
+<h2 class="mb-3">คุณสมบัติหลัก</h2>
+<ul class="space-y-2 list-disc list-inside">
+<li>โครงสร้าง SUS304 สแตนเลสเกรดอาหาร</li>
+<li>ห้องล้างใหญ่พิเศษ (650×550 มม.)</li>
+<li>แขนล้างหมุนคู่ครอบคลุม 360°</li>
+<li>ควบคุมอุณหภูมิอัจฉริยะ >82°C</li>
+<li>ใช้น้ำต่ำ 2.0-2.5 ลิตร/รอบ</li>
+<li>ระบบกู้คืนความร้อน (ตัวเลือก)</li>
+<li>ประตูซีลฉนวน — ลดไอน้ำ 70%</li>
+<li>มาตรฐาน CE Safety</li>
+</ul>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

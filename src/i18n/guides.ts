@@ -15,6 +15,7 @@ export const guides: GuideEntry[] = [
     slug: 'bakery-tray-cleaning-best-practices',
     title: {
       en: 'Bakery Tray Cleaning — Best Practices',
+      zh: '烘焙烤盘清洗实务 — 最佳做法',
       es: 'Mejores prácticas para lavar bandejas de panadería',
       fr: 'Meilleures pratiques de lavage des plaques de boulangerie',
       de: 'Best Practices zur Bäckereibleche-Reinigung',
@@ -25,6 +26,7 @@ export const guides: GuideEntry[] = [
     },
     desc: {
       en: 'Daily routine, weekly maintenance, what to use, and what to avoid for the JD-3 in a bakery setting.',
+      zh: '从每日例行到每周维护，告诉您在烘焙场景下使用 JD-3 该用什么、不该用什么。',
       es: 'Rutina diaria, mantenimiento semanal, qué usar y qué evitar con el JD-3 en una panadería.',
       fr: 'Routine quotidienne, entretien hebdomadaire, ce qu\'il faut utiliser et éviter avec le JD-3.',
       de: 'Tagesroutine, wöchentliche Wartung, was zu verwenden und was zu vermeiden ist.',
@@ -38,6 +40,7 @@ export const guides: GuideEntry[] = [
     slug: 'how-to-choose-bakery-tray-washer',
     title: {
       en: 'How to Choose a Bakery Tray Washer',
+      zh: '如何挑选一台烘焙烤盘清洗机',
       es: 'Cómo elegir un lavavajillas para panadería',
       fr: 'Comment choisir un lave-plaques de boulangerie',
       de: 'Wie wählt man eine Bäckerei-Spülmaschine?',
@@ -48,6 +51,7 @@ export const guides: GuideEntry[] = [
     },
     desc: {
       en: 'The 8 specs that actually matter. Capacity, rack size, temperature, water use, footprint, power, certifications, support.',
+      zh: '真正关键的 8 项参数：处理量、洗碗筐尺寸、清洗温度、用水量、占地、功率、认证、售后。',
       es: 'Las 8 especificaciones que realmente importan: capacidad, tamaño del rack, temperatura, consumo, huella, energía, certificados, soporte.',
       fr: 'Les 8 critères qui comptent vraiment : capacité, taille du panier, température, consommation, encombrement, énergie, certifications, support.',
       de: 'Die 8 Spezifikationen, die wirklich zählen: Kapazität, Korbgröße, Temperatur, Verbrauch, Stellfläche, Leistung, Zertifikate, Support.',
@@ -61,6 +65,7 @@ export const guides: GuideEntry[] = [
     slug: '600x400-bakery-norm-explained',
     title: {
       en: 'The 600×400 mm Bakery Norm Explained',
+      zh: '600×400 mm 烘焙欧标，一文讲透',
       es: 'La norma 600×400 mm de panadería explicada',
       fr: 'La norme 600×400 mm de boulangerie expliquée',
       de: 'Die 600×400-mm-Bäckerei-Norm erklärt',
@@ -71,6 +76,7 @@ export const guides: GuideEntry[] = [
     },
     desc: {
       en: 'DIN 18876 / EN 631. Why every modern combi oven uses it and why most dishwashers under 8K cannot fit it.',
+      zh: 'DIN 18876 / EN 631 标准。为何所有现代蒸烤箱都按它设计，而 8,000 美元以下的洗碗机大多放不下。',
       es: 'DIN 18876 / EN 631. Por qué todos los hornos combi modernos lo usan y por qué pocas lavadoras lo aceptan.',
       fr: 'DIN 18876 / EN 631. Pourquoi tous les fours combi modernes l\'utilisent et pourquoi peu de lave-vaisselle l\'acceptent.',
       de: 'DIN 18876 / EN 631. Warum jeder moderne Kombiofen sie verwendet und warum die meisten Spüler sie nicht aufnehmen können.',
@@ -84,6 +90,7 @@ export const guides: GuideEntry[] = [
     slug: 'cost-of-manual-tray-cleaning',
     title: {
       en: 'The Hidden Cost of Manual Tray Cleaning',
+      zh: '人工洗烤盘的隐性成本',
       es: 'El costo oculto del lavado manual de bandejas',
       fr: 'Le coût caché du lavage manuel des plaques',
       de: 'Die versteckten Kosten der manuellen Bleche-Reinigung',
@@ -94,6 +101,7 @@ export const guides: GuideEntry[] = [
     },
     desc: {
       en: 'Labor hours, water, hot water energy, tray damage, lost capacity — what hand-washing really costs per year.',
+      zh: '工时、水费、热水电费、烤盘磨损、产能损失 — 算清楚手洗一年到底花掉多少钱。',
       es: 'Horas de mano de obra, agua, energía, daño en bandejas, capacidad perdida — costo real anual.',
       fr: 'Heures de travail, eau, énergie de chauffe, dégâts aux plaques, capacité perdue — le vrai coût annuel.',
       de: 'Arbeitsstunden, Wasser, Heißwasser, Blechschäden, verlorene Kapazität — was Handwäsche jährlich wirklich kostet.',
@@ -107,6 +115,7 @@ export const guides: GuideEntry[] = [
     slug: 'water-consumption-comparison',
     title: {
       en: 'Water Consumption — JD-3 vs Competitors',
+      zh: '用水量对比 — JD-3 与竞品',
       es: 'Consumo de agua — JD-3 vs competencia',
       fr: 'Consommation d\'eau — JD-3 vs concurrence',
       de: 'Wasserverbrauch — JD-3 vs Wettbewerb',
@@ -117,6 +126,7 @@ export const guides: GuideEntry[] = [
     },
     desc: {
       en: '2.0–2.5 L per cycle vs the 5–10 L most competitors consume. The math over 5 years.',
+      zh: '单次循环 2.0–2.5 升，而大部分竞品要用 5–10 升。我们把 5 年的水费差额算给您看。',
       es: '2.0–2.5 L por ciclo vs 5–10 L de la mayoría de competidores. Cálculo en 5 años.',
       fr: '2,0–2,5 L par cycle contre 5–10 L pour la plupart des concurrents. Calcul sur 5 ans.',
       de: '2,0–2,5 L pro Zyklus gegenüber 5–10 L bei den meisten Wettbewerbern. Rechnung über 5 Jahre.',
@@ -130,6 +140,7 @@ export const guides: GuideEntry[] = [
     slug: 'sanitization-temperature-standards',
     title: {
       en: 'Sanitization Temperature Standards',
+      zh: '消毒温度标准详解',
       es: 'Estándares de temperatura de sanitización',
       fr: 'Normes de température de désinfection',
       de: 'Temperatur-Standards für die Sanitisierung',
@@ -140,6 +151,7 @@ export const guides: GuideEntry[] = [
     },
     desc: {
       en: 'Why 82°C? NSF/ANSI 3, EN 12875-2, DIN 10516, FDA Food Code 4-501.112 — all converge on the same number.',
+      zh: '为什么是 82°C？NSF/ANSI 3、EN 12875-2、DIN 10516、FDA 食品法规 4-501.112 — 全世界的标准都指向同一个数字。',
       es: '¿Por qué 82°C? NSF/ANSI 3, EN 12875-2, DIN 10516, FDA Food Code 4-501.112 — todos coinciden.',
       fr: 'Pourquoi 82°C ? NSF/ANSI 3, EN 12875-2, DIN 10516, FDA Food Code 4-501.112 — tous convergent.',
       de: 'Warum 82°C? NSF/ANSI 3, EN 12875-2, DIN 10516, FDA Food Code 4-501.112 — alle Standards stimmen überein.',
@@ -153,6 +165,7 @@ export const guides: GuideEntry[] = [
     slug: 'dishwasher-detergent-for-bakery',
     title: {
       en: 'Dishwasher Detergent for Bakeries',
+      zh: '烘焙店专用的洗碗机洗涤剂',
       es: 'Detergente de lavavajillas para panaderías',
       fr: 'Détergent lave-vaisselle pour boulangeries',
       de: 'Spülmaschinen-Reiniger für Bäckereien',
@@ -163,6 +176,7 @@ export const guides: GuideEntry[] = [
     },
     desc: {
       en: 'Alkaline vs enzyme, pH ranges, rinse-aid selection, and how to adjust the built-in dispenser.',
+      zh: '碱性 vs 酶基洗涤剂、pH 值区间、漂洗剂选型，以及内置分配器怎么调。',
       es: 'Alcalino vs enzimático, rangos de pH, selección de abrillantador, ajuste del dispensador.',
       fr: 'Alcalin vs enzymatique, pH, sélection du liquide de rinçage, réglage du distributeur.',
       de: 'Alkalisch vs Enzyme, pH-Werte, Klarspüler-Wahl, Einstellung des Dispensers.',
@@ -176,6 +190,7 @@ export const guides: GuideEntry[] = [
     slug: 'electrical-requirements-bakery-dishwasher',
     title: {
       en: 'Electrical Requirements for a Bakery Dishwasher',
+      zh: '烘焙洗碗机的电气要求',
       es: 'Requisitos eléctricos del lavavajillas',
       fr: 'Exigences électriques du lave-vaisselle',
       de: 'Elektrische Anforderungen der Spülmaschine',
@@ -186,6 +201,7 @@ export const guides: GuideEntry[] = [
     },
     desc: {
       en: '380V three-phase vs 400V single-phase, breaker sizing, dedicated circuit, US/EU/GCC differences.',
+      zh: '380V 三相 vs 400V 单相、断路器规格、专用回路，以及美国、欧洲、海湾各市场的差异。',
       es: '380V trifásico vs 400V monofásico, dimensionamiento del breaker, circuito dedicado, diferencias regionales.',
       fr: '380 V triphasé vs 400 V monophasé, calibrage du disjoncteur, circuit dédié, différences régionales.',
       de: '380 V Drehstrom vs 400 V einphasig, Sicherungsdimensionierung, dedizierter Stromkreis.',
@@ -199,6 +215,7 @@ export const guides: GuideEntry[] = [
     slug: 'space-requirements-small-bakery',
     title: {
       en: 'Space Requirements — Small Bakery Layouts',
+      zh: '空间要求 — 小型烘焙店动线设计',
       es: 'Requisitos de espacio — layouts de panaderías pequeñas',
       fr: 'Exigences d\'espace — implantations de petites boulangeries',
       de: 'Platzbedarf — Grundrisse kleiner Bäckereien',
@@ -209,6 +226,7 @@ export const guides: GuideEntry[] = [
     },
     desc: {
       en: 'JD-3 footprint, door clearance, ventilation, where to put the dish-pit relative to the oven.',
+      zh: 'JD-3 的占地尺寸、开门间隙、排风需求，以及洗涤区相对于烤箱的最佳位置。',
       es: 'Huella del JD-3, espacio para la puerta, ventilación, dónde ubicar el área de lavado.',
       fr: 'Encombrement du JD-3, dégagement porte, ventilation, position du poste de lavage.',
       de: 'Stellfläche, Türfreiraum, Lüftung, Position der Spülstation relativ zum Ofen.',
@@ -230,4 +248,5 @@ export const guidesHub: Record<Locale, { h1: string; intro: string }> = {
   th: { h1: 'คู่มือ', intro: 'คู่มือที่นำไปใช้ได้จริงสำหรับเจ้าของเบเกอรี่และผู้ดำเนินงานครัวเชิงพาณิชย์ขนาดเล็กที่กำลังพิจารณา V-TAI JD-3' },
   vi: { h1: 'Hướng dẫn', intro: 'Hướng dẫn thực tế cho chủ tiệm bánh và người vận hành bếp thương mại nhỏ đang cân nhắc V-TAI JD-3.' },
   ar: { h1: 'الأدلة', intro: 'أدلة عملية لأصحاب المخابز ومشغلي المطابخ التجارية الصغيرة الذين يفكرون في V-TAI JD-3.' },
+  zh: { h1: '选购指南', intro: '面向烘焙店老板与中小型商用厨房负责人的实用指南，帮您评估 V-TAI JD-3 是否合适。' },
 };
