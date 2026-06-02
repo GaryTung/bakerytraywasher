@@ -2,33 +2,299 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import YouTubeShort from '../../../components/YouTubeShort.astro';
+import ProductSpecsTable from '../../../components/ProductSpecsTable.astro';
+import TrustBadgeStrip from '../../../components/TrustBadgeStrip.astro';
 import PriceCalloutBox from '../../../components/PriceCalloutBox.astro';
 import CTASection from '../../../components/CTASection.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 const locale = 'de' as const;
+
+const specSections = [
+  { title: "Abmessungen und Gewicht", rows: [
+    { k: "Gehäuse (Haube zu)", v: "804 × 816 × 1.550 mm" },
+    { k: "Max. Höhe (Haube offen)", v: "2.115 mm" },
+    { k: "Kammerhöhe", v: "550 mm" },
+    { k: "Korbgröße", v: "650 × 550 mm" },
+    { k: "Netto- / Bruttogewicht", v: "145 kg / 165 kg" },
+    { k: "Stellfläche", v: "0,65 m²" },
+  ]},
+  { title: "Spülleistung", rows: [
+    { k: "Durchsatz (Standardbleche)", v: "180 Bleche/Stunde" },
+    { k: "Ladung pro Zyklus", v: "6 Bleche" },
+    { k: "Zykluszeit", v: "2 Minuten (120 s)" },
+    { k: "Zyklen pro Stunde", v: "30" },
+    { k: "Wasser pro Zyklus", v: "2,0–2,5 L" },
+    { k: "Spültank-Temperatur", v: "60–65°C" },
+    { k: "Endspülung", v: "≥82°C (NSF/ANSI 3)" },
+  ]},
+  { title: "Kompatibilität", rows: [
+    { k: "600×400 mm EN-Norm-Bleche", v: "6 pro Zyklus (vertikal)" },
+    { k: "18×26\" Halbblech", v: "6 pro Zyklus (flach)" },
+    { k: "18×26\" Vollblech", v: "1–2 pro Zyklus (diagonal)" },
+    { k: "Gastronorm GN 2/1", v: "6 pro Zyklus" },
+    { k: "Kuchenformen 8\"", v: "6 pro Zyklus" },
+    { k: "Kuchenformen 12\"", v: "2 pro Zyklus (vertikal)" },
+    { k: "Pizzableche 14\" / 16\"", v: "4 / 3 pro Zyklus" },
+    { k: "Kochtöpfe (≤ 28 cm)", v: "2 pro Zyklus" },
+    { k: "KitchenAid 5-L-Schüsseln", v: "4 pro Zyklus (vertikal)" },
+  ]},
+  { title: "Elektrik", rows: [
+    { k: "Gesamtleistung", v: "13 kW" },
+    { k: "Heizelement", v: "9 kW" },
+    { k: "Pumpe", v: "0,75 kW" },
+    { k: "Spannungsversorgung (Standard)", v: "380V / 3N / 50Hz" },
+    { k: "Alternativen", v: "400V / 50Hz · 220V / 60Hz (auf Bestellung)" },
+    { k: "Betriebsstrom", v: "21,5 A" },
+    { k: "Empfohlener Schutzschalter", v: "32 A Typ C" },
+  ]},
+  { title: "Wasser", rows: [
+    { k: "Zulaufanschluss", v: "G 3/4\"" },
+    { k: "Zulaufdruck", v: "2,5–6 kg/cm²" },
+    { k: "Zulauftemperatur", v: "≥ 10°C (50–60°C vorgewärmt spart Energie)" },
+    { k: "Ablaufanschluss", v: "G 1½\" Schlauch" },
+    { k: "Ablaufentfernung", v: "≤ 1,5 m" },
+    { k: "Ablaufdurchfluss", v: "~25 L/min" },
+  ]},
+  { title: "Materialien", rows: [
+    { k: "Außenhülle", v: "SUS304 lebensmittelecht" },
+    { k: "Kammerwände", v: "SUS304 lebensmittelecht" },
+    { k: "Korb / Blechträger", v: "SUS304 lebensmittelecht" },
+    { k: "Sprüharme", v: "SUS304 lebensmittelecht" },
+    { k: "Innere Rohre", v: "Lebensmittel-Silikon + Edelstahl" },
+  ]},
+  { title: "Zertifikate", rows: [
+    { k: "Sicherheit", v: "CE (volle EU-Konformität)" },
+    { k: "Qualität", v: "ISO 9001:2015" },
+    { k: "Desinfektion", v: "NSF/ANSI 3, EN 12875-2, DIN 10516, FDA 4-501.112" },
+    { k: "Lebensmittelkontakt", v: "FDA, EU 1935/2004" },
+    { k: "Maschinenrichtlinie", v: "EN ISO 12100, EN 60204-1" },
+  ]},
+  { title: "Funktional", rows: [
+    { k: "Türaktivierter Auto-Start", v: "Ja" },
+    { k: "Wärmerückgewinnung", v: "Optional (15–25%)" },
+    { k: "Auto-Dosierer", v: "Optional" },
+    { k: "Klarspüler-Pumpe", v: "Optional" },
+    { k: "Türverriegelung", v: "Standard" },
+    { k: "Überspannungsschutz", v: "Standard" },
+    { k: "Temperaturanzeige", v: "LED digital" },
+    { k: "Geräusch", v: "≤ 70 dB" },
+  ]}
+];
+
+const washThumbs = [
+  { slug: 'baking-trays-600x400', label: "Backbleche 600×400 mm", img: '/images/600x400-tray-comparison.webp' },
+  { slug: 'sheet-pans', label: "US-Backbleche", img: '/images/what-it-washes/sheet-pans.webp' },
+  { slug: 'mixing-bowls', label: "Rührschüsseln", img: '/images/what-it-washes/mixing-bowls.webp' },
+  { slug: 'cake-pans', label: "Kuchenformen", img: '/images/what-it-washes/cake-pans.webp' },
+  { slug: 'pizza-pans', label: "Pizzableche", img: '/images/what-it-washes/pizza-pans.webp' },
+  { slug: 'frying-baskets', label: "Frittierkörbe", img: '/images/what-it-washes/frying-baskets.webp' },
+  { slug: 'stockpots', label: "Kochtöpfe", img: '/images/what-it-washes/stockpots.webp' },
+  { slug: 'dishes-plates', label: "Geschirr und Teller", img: '/images/what-it-washes/dishes-plates.webp' },
+  { slug: 'utensils-mixers', label: "Werkzeuge & Mixer-Zubehör", img: '/images/what-it-washes/utensils-mixers.webp' },
+  { slug: 'large-bakeware', label: "Großes Backgeschirr", img: '/images/what-it-washes/large-bakeware.webp' }
+];
+
+const features = [
+  { icon: "🛡️", title: "SUS304 Edelstahl", text: "Gesamte Maschine aus SUS304 Lebensmittel-Edelstahl — korrosionsbeständig, leicht zu desinfizieren, FDA-konform." },
+  { icon: "📏", title: "Extra große Spülkammer", text: "650×550 mm Korb nimmt 600×400 mm EN-Norm-Bleche, Kochtöpfe, KitchenAid-Schüsseln auf." },
+  { icon: "💧", title: "Zwei rotierende Sprüharme + Spezialdüsen", text: "360°-Reinigung. Düsengeometrie optimiert für flache Blechoberflächen." },
+  { icon: "🌡️", title: "Intelligente Temperaturregelung", text: "Automatische Desinfektion bei ≥82°C mit LED-Anzeige. Modulares Steuerboard." },
+  { icon: "💦", title: "Sehr geringer Wasserverbrauch", text: "2,0–2,5 L pro Zyklus gegenüber 5–10 L bei den meisten Wettbewerbern." },
+  { icon: "♻️", title: "Wärmerückgewinnungssystem", text: "Heißwasser aus dem Klarspülen fließt zurück in den Spültank, 15–25% Energieersparnis." },
+  { icon: "🚪", title: "Versiegelte isolierte Haube", text: "Reduziert Dampfaustritt um bis zu 70%. Küche bleibt kühler und trockener." },
+  { icon: "🧑‍🍳", title: "Ergonomische Bedienung", text: "Push-Pull-Schienen. Haube schließen — Zyklus startet, keine Taste." },
+  { icon: "🔒", title: "Mehrfache Sicherheitsvorrichtungen", text: "Türverriegelung, Spannungsüberlastschutz." },
+  { icon: "🧪", title: "Bereit für Auto-Dosierer", text: "Vorinstallierte Anschlüsse für Dosierer und Wasseraufbereitungsmodule." },
+  { icon: "⚡", title: "CE-Sicherheitszertifiziert", text: "EU-Konformität. Versandbereit in EU, GCC, APAC, LATAM, Afrika." },
+  { icon: "⏱️", title: "Türaktivierter Zyklusstart", text: "Haube schließen — Zyklus läuft. Keine Tasten, keine Wartezeit." }
+];
 ---
-<BaseLayout title="V-TAI JD-3 — Haubenspüler für Bäckereien" description="V-TAI JD-3: 180 Bleche/Stunde, Bleche 600×400, SUS304, CE." locale={locale} canonicalPath="/product/" schemaType="Product">
-<BreadcrumbNav items={[{label:'Startseite',href:'/de/'},{label:'Produkt'}]} />
-<section class="section"><div class="container-page grid lg:grid-cols-2 gap-10">
-<ImagePlaceholder src="/images/jd-3-front.webp" alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
-<div>
-<p class="eyebrow mb-2">Modell VT-AE-JD-3</p>
-<h1 class="mb-4">V-TAI JD-3 — Haubenspüler für Bäckereien</h1>
-<p class="text-lg mb-5">Der einzige Haubenspüler in seiner Preisklasse, der für den europäischen Standard <strong>600×400 mm</strong> ausgelegt ist.</p>
-<PriceCalloutBox locale={locale} />
-</div>
-</div></section>
-<section class="section"><div class="container-prose">
-<h2 class="mb-3">Hauptmerkmale</h2>
-<ul class="space-y-2 list-disc list-inside">
-<li>SUS304-Konstruktion — lebensmittelechter Edelstahl</li>
-<li>Extra-große Kammer (650×550 mm)</li>
-<li>Doppelt rotierende Waschdüsen 360°</li>
-<li>Intelligente Temperaturregelung >82°C</li>
-<li>Ultraniedriger Wasserverbrauch 2,0-2,5 L/Zyklus</li>
-<li>Optional Wärmerückgewinnung</li>
-<li>Versiegelte isolierte Tür — 70% weniger Dampf</li>
-<li>CE Safety zertifiziert</li>
-</ul>
-</div></section>
+<BaseLayout
+  title="V-TAI JD-3 — Bäckerei-Haubenspülmaschine | Komplette Produktseite"
+  description="V-TAI JD-3 Bäckerei-Haubenspülmaschine: 180 Bleche/Stunde, kompatibel mit 600×400 mm Blechen, SUS304, CE-zertifiziert. Ab 4.400 $ FOB Shenzhen. Datenblatt PDF zum Download."
+  locale={locale}
+  canonicalPath="/product/"
+  schemaType="Product"
+  schemaData={{
+    name: 'V-TAI JD-3',
+    sku: 'VT-AE-JD-3',
+    brand: { '@type': 'Brand', name: 'V-TAI' },
+    description: "V-TAI JD-3 Bäckerei-Haubenspülmaschine: 180 Bleche/Stunde, kompatibel mit 600×400 mm Blechen, SUS304, CE-zertifiziert. Ab 4.400 $ FOB Shenzhen. Datenblatt PDF zum Download.",
+    image: 'https://bakerytraywasher.com/images/jd-3-hero.webp',
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '4400', highPrice: '4900', availability: 'https://schema.org/InStock' },
+  }}
+>
+
+<BreadcrumbNav items={[{label: "Startseite", href: '/de/'}, {label: "Produkt"}]} />
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10">
+    <div>
+      <ImagePlaceholder src="/images/jd-3-front.webp" alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
+      <div class="grid grid-cols-3 gap-3 mt-3">
+        <ImagePlaceholder src="/images/jd-3-inside.webp"      alt="JD-3 inside"   ratio="1/1" />
+        <ImagePlaceholder src="/images/jd-3-led-control.webp" alt="JD-3 LED"      ratio="1/1" />
+        <ImagePlaceholder src="/images/jd-3-wash-arms.webp"   alt="JD-3 arms"     ratio="1/1" />
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow mb-2">Modell VT-AE-JD-3</p>
+      <h1 class="mb-4">V-TAI JD-3 — Bäckerei-Haubenspülmaschine</h1>
+      <p class="text-lg text-bakery-navy/80 mb-5" set:html={"Die einzige Haubenspülmaschine in ihrer Preisklasse, die für den europäischen Standard <strong>600×400 mm Bäckerei-Bleche</strong> ausgelegt ist. Gebaut für kleine gewerbliche Küchen — Bäckereien, Cafés, Patisserien, Hotel-Konditoreien."} />
+      <div class="grid grid-cols-2 gap-3 mb-6">
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">Durchsatz</p><p class="font-semibold">180 Bleche/Stunde</p></div>
+        <div class="rounded-card border-bakery-orange/30 bg-bakery-cream border p-3"><p class="text-xs text-bakery-brown">Korbgröße</p><p class="font-semibold">650×550 mm ⭐</p></div>
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">Zykluszeit</p><p class="font-semibold">2 Min · 6 Bleche</p></div>
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">Gesamtleistung</p><p class="font-semibold">13 kW</p></div>
+      </div>
+      <PriceCalloutBox locale={locale} />
+
+      <!-- Spec sheet PDF + Quote -->
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/downloads/jd-3-spec-sheet-en.pdf"
+           class="btn-primary inline-flex items-center gap-2"
+           download
+           aria-label="Download spec sheet PDF">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          <span>Datenblatt herunterladen (PDF)</span>
+        </a>
+        <a href="/de/get-quote/" class="btn-secondary inline-flex items-center gap-2">Angebot anfordern</a>
+      </div>
+      <p class="mt-2 text-xs text-bakery-navy/60" set:html={"PDF auf Englisch. Deutsche Version benötigt? <a href=\"/de/contact/\" class=\"underline\">Hier anfordern</a>."} />
+    </div>
+  </div>
+</section>
+
+<TrustBadgeStrip locale={locale} />
+
+<!-- Full specifications table -->
+<section class="section">
+  <div class="container-page">
+    <div class="text-center max-w-3xl mx-auto mb-8">
+      <h2 class="mb-3">Vollständige Spezifikationen</h2>
+      <p class="text-bakery-navy/70" set:html={"Alles, was Einkauf, Anlagenplanung und Hygieneaudits brauchen. <a href=\"/downloads/jd-3-spec-sheet-en.pdf\" class=\"text-bakery-orange underline\" download>Datenblatt als PDF</a> für Offline-Prüfung herunterladen."} />
+    </div>
+    <ProductSpecsTable sections={specSections} />
+    <div class="text-center mt-8">
+      <a href="/downloads/jd-3-spec-sheet-en.pdf"
+         class="btn-primary inline-flex items-center gap-2"
+         download>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        <span>Vollständiges Datenblatt herunterladen (PDF)</span>
+      </a>
+      <p class="mt-3 text-xs text-bakery-navy/60" set:html={"PDF auf Englisch. Deutsche Version benötigt? <a href=\"/de/contact/\" class=\"underline\">Hier anfordern</a>."} />
+    </div>
+  </div>
+</section>
+
+<!-- Videos -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <h2 class="mb-3">Die Maschine in Aktion</h2>
+      <p class="text-bakery-navy/70">Zwei kurze Clips: Installation in Ihrer Küche und Justierung des integrierten Dosierers.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <YouTubeShort videoId="bjxEYRiRTnI" title="JD-3 Installationsanleitung" caption="Installation: Wasser + Strom + erster Zyklus" />
+      <YouTubeShort videoId="Zkf6h8u7mFE" title="JD-3: integrierten Dosierer einstellen" caption="Einstellung: Dosierung des integrierten Dispensers" />
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-10">So funktioniert es — 4 Schritte</h2>
+    <div class="grid md:grid-cols-4 gap-6">
+      {[
+      { n: '1', t: "Beladen", d: "Körbe mit Blechen, Formen oder Schüsseln in die Kammer schieben." },
+      { n: '2', t: "Haube schließen", d: "Zyklus startet automatisch — keine Tasten." },
+      { n: '3', t: "Spülen + Klarspülen", d: "Zwei Sprüharme 360°. Endspülung bei 82°C." },
+      { n: '4', t: "Entnehmen", d: "In 2 Minuten (120 s). Sauber, desinfiziert, tropft ab." }
+      ].map((s) => (
+        <div class="text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-bakery-orange text-white font-bold flex items-center justify-center mb-3">{s.n}</div>
+          <h3 class="text-base mb-2">{s.t}</h3>
+          <p class="text-sm text-bakery-navy/70">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="mb-3">12 Funktionen, die zählen</h2>
+      <p class="text-bakery-navy/70">Jedes Detail ist für die kleine gewerbliche Küche entwickelt — weder industrieller Overkill noch Verbraucher-Kompromiss.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {features.map((f) => (
+        <div class="card">
+          <div class="text-3xl mb-2">{f.icon}</div>
+          <h3 class="text-lg mb-1">{f.title}</h3>
+          <p class="text-sm text-bakery-navy/70">{f.text}</p>
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <a href="/de/product/jd-3-features/" class="btn-secondary">Details zu allen 12 Funktionen</a>
+    </div>
+  </div>
+</section>
+
+<!-- What it cleans (thumbnails) -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-3">Was es spült</h2>
+    <p class="text-center text-bakery-navy/70 max-w-2xl mx-auto mb-10">Klicken Sie auf eine Kategorie, um Beladungsmuster, empfohlene Einstellungen und spezifische FAQ zu sehen.</p>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      {washThumbs.map((w) => (
+        <a href={`/de/what-it-washes/${w.slug}/`} class="card !p-0 overflow-hidden hover:scale-[1.03] transition flex flex-col">
+          <img src={w.img} alt={w.label} class="w-full aspect-[4/3] object-cover" loading="lazy" />
+          <p class="p-3 text-sm font-medium text-bakery-navy text-center">{w.label}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Configurations -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="text-center mb-8">Konfigurationsoptionen</h2>
+    <div class="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+      {[
+      { t: "Standard Elektrisch", p: "4.400 $", d: "JD-3 Basis, 380V/3N/50Hz" },
+      { t: "+ Auto-Dosierer", p: "4.600 $", d: "Reinigungsmittel- und Klarspülerpumpen" },
+      { t: "+ Wärmerückgewinnungs-Upgrade", p: "4.900 $", d: "Verstärktes Energiesparpaket" }
+      ].map((cfg) => (
+        <div class="card">
+          <h3 class="text-lg mb-1">{cfg.t}</h3>
+          <p class="text-2xl font-bold text-bakery-orange mb-2">Ab {cfg.p}</p>
+          <p class="text-sm text-bakery-navy/70">{cfg.d}</p>
+        </div>
+      ))}
+    </div>
+    <p class="text-center mt-6 text-sm text-bakery-navy/60" set:html={"Alle Preise FOB Shenzhen. Versand und Zölle hängen vom Zielland ab — siehe <a href=\"/de/pricing/by-country/\" class=\"underline\">DDP-Preise nach Land</a>."} />
+  </div>
+</section>
+
+<FAQSection locale={locale} title="Häufig gestellte Fragen" items={[
+  { q: "Was ist im Lieferumfang?", a: "JD-3 Maschine, ein maßgefertigter Edelstahl-Backblechträger, Wassereinlaufschlauch, Ablaufschlauch, Bedienungsanleitung, CE-Zertifikat." },
+  { q: "Versand nach Deutschland / Österreich / Schweiz möglich?", a: "Ja. Wir veröffentlichen DDP-Preise in Landeswährung. Siehe <a href=\"/de/pricing/by-country/\" class=\"underline\">Preise nach Land</a>." },
+  { q: "Garantie?", a: "12-monatige Herstellergarantie auf Teile. Ersatzteile per internationalem Expresskurier weltweit." },
+  { q: "Ersatzteile in 5 Jahren?", a: "Alle Hauptkomponenten — Pumpen, Heizelemente, Steuerplatinen — werkseitig auf Lager." },
+  { q: "Kann ich das Datenblatt als PDF herunterladen?", a: "Ja. Verwenden Sie die Schaltfläche \"Datenblatt herunterladen (PDF)\" oben. Das PDF ist auf Englisch; eine deutsche Version <a href=\"/de/contact/\" class=\"underline\">erhalten Sie auf Anfrage</a>." }
+]} />
+
 <CTASection locale={locale} />
 </BaseLayout>

@@ -2,36 +2,299 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import YouTubeShort from '../../../components/YouTubeShort.astro';
+import ProductSpecsTable from '../../../components/ProductSpecsTable.astro';
+import TrustBadgeStrip from '../../../components/TrustBadgeStrip.astro';
 import PriceCalloutBox from '../../../components/PriceCalloutBox.astro';
 import CTASection from '../../../components/CTASection.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 const locale = 'ar' as const;
+
+const specSections = [
+  { title: "الأبعاد والوزن", rows: [
+    { k: "الجسم (الغطاء مغلق)", v: "804 × 816 × 1,550 مم" },
+    { k: "أقصى ارتفاع (غطاء مفتوح)", v: "2,115 مم" },
+    { k: "ارتفاع الحجرة", v: "550 مم" },
+    { k: "حجم الرف", v: "650 × 550 مم" },
+    { k: "الوزن الصافي / الإجمالي", v: "145 كغ / 165 كغ" },
+    { k: "البصمة", v: "0.65 م²" },
+  ]},
+  { title: "أداء الغسيل", rows: [
+    { k: "الإنتاجية (صواني قياسية)", v: "180 صينية/ساعة" },
+    { k: "التحميل لكل دورة", v: "6 صواني" },
+    { k: "وقت الدورة", v: "دقيقتان (120 ثانية)" },
+    { k: "الدورات في الساعة", v: "30" },
+    { k: "الماء لكل دورة", v: "2.0–2.5 لتر" },
+    { k: "حرارة خزان الغسيل", v: "60–65°م" },
+    { k: "الشطف النهائي", v: "≥82°م (NSF/ANSI 3)" },
+  ]},
+  { title: "التوافق", rows: [
+    { k: "صواني 600×400 مم", v: "6 لكل دورة (عمودي)" },
+    { k: "صواني نصفية 18×26\"", v: "6 لكل دورة (مسطّحة)" },
+    { k: "صواني كاملة 18×26\"", v: "1–2 لكل دورة (قطري)" },
+    { k: "Gastronorm GN 2/1", v: "6 لكل دورة" },
+    { k: "قوالب كيك 8\"", v: "6 لكل دورة" },
+    { k: "قوالب كيك 12\"", v: "2 لكل دورة (عمودي)" },
+    { k: "صواني بيتزا 14\" / 16\"", v: "4 / 3 لكل دورة" },
+    { k: "قدور (≤ 28 سم)", v: "2 لكل دورة" },
+    { k: "أوعية KitchenAid 5 لتر", v: "4 لكل دورة (عمودي)" },
+  ]},
+  { title: "الكهرباء", rows: [
+    { k: "الطاقة الكلية", v: "13 كيلو واط" },
+    { k: "عنصر التسخين", v: "9 كيلو واط" },
+    { k: "المضخة", v: "0.75 كيلو واط" },
+    { k: "التغذية (القياسية)", v: "380V / 3N / 50Hz" },
+    { k: "البدائل", v: "400V / 50Hz · 220V / 60Hz (يُحدّد عند الطلب)" },
+    { k: "تيار التشغيل", v: "21.5 أمبير" },
+    { k: "القاطع الموصى به", v: "32 أمبير نوع C" },
+  ]},
+  { title: "الماء", rows: [
+    { k: "اتصال الدخول", v: "G 3/4\"" },
+    { k: "ضغط الدخول", v: "2.5–6 كغ/سم²" },
+    { k: "حرارة الدخول", v: "≥ 10°م (50–60°م مُسخّن مسبقاً يوفر الطاقة)" },
+    { k: "اتصال التصريف", v: "خرطوم G 1½\"" },
+    { k: "مسافة التصريف", v: "≤ 1.5 م" },
+    { k: "تدفق التصريف", v: "~25 لتر/دقيقة" },
+  ]},
+  { title: "المواد", rows: [
+    { k: "الهيكل الخارجي", v: "SUS304 غذائي" },
+    { k: "جدران الحجرة", v: "SUS304 غذائي" },
+    { k: "الرف / إطار دعم الصواني", v: "SUS304 غذائي" },
+    { k: "الأذرع الدوّارة", v: "SUS304 غذائي" },
+    { k: "الأنابيب الداخلية", v: "سيليكون غذائي + ستانلس ستيل" },
+  ]},
+  { title: "الشهادات", rows: [
+    { k: "السلامة", v: "CE (توافق EU كامل)" },
+    { k: "الجودة", v: "ISO 9001:2015" },
+    { k: "التعقيم", v: "NSF/ANSI 3, EN 12875-2, DIN 10516, FDA 4-501.112" },
+    { k: "تلامس الغذاء", v: "FDA, EU 1935/2004" },
+    { k: "توجيه الآلات", v: "EN ISO 12100, EN 60204-1" },
+  ]},
+  { title: "الوظائف", rows: [
+    { k: "بدء تلقائي عند إغلاق الباب", v: "نعم" },
+    { k: "نظام استرداد الحرارة", v: "ترقية اختيارية (15–25%)" },
+    { k: "موزع تلقائي", v: "ترقية اختيارية" },
+    { k: "مضخة مساعد الشطف", v: "ترقية اختيارية" },
+    { k: "قفل الباب", v: "قياسي" },
+    { k: "حماية الجهد الزائد", v: "قياسي" },
+    { k: "عرض الحرارة", v: "LED رقمي" },
+    { k: "الضوضاء", v: "≤ 70 ديسيبل" },
+  ]}
+];
+
+const washThumbs = [
+  { slug: 'baking-trays-600x400', label: "صواني المخابز 600×400 مم", img: '/images/600x400-tray-comparison.webp' },
+  { slug: 'sheet-pans', label: "صواني أمريكية", img: '/images/what-it-washes/sheet-pans.webp' },
+  { slug: 'mixing-bowls', label: "أوعية الخلط", img: '/images/what-it-washes/mixing-bowls.webp' },
+  { slug: 'cake-pans', label: "قوالب الكيك", img: '/images/what-it-washes/cake-pans.webp' },
+  { slug: 'pizza-pans', label: "صواني البيتزا", img: '/images/what-it-washes/pizza-pans.webp' },
+  { slug: 'frying-baskets', label: "سلال القلي", img: '/images/what-it-washes/frying-baskets.webp' },
+  { slug: 'stockpots', label: "قدور كبيرة", img: '/images/what-it-washes/stockpots.webp' },
+  { slug: 'dishes-plates', label: "الأطباق والصحون", img: '/images/what-it-washes/dishes-plates.webp' },
+  { slug: 'utensils-mixers', label: "الأدوات وملحقات الخلاط", img: '/images/what-it-washes/utensils-mixers.webp' },
+  { slug: 'large-bakeware', label: "أدوات الخبز الكبيرة", img: '/images/what-it-washes/large-bakeware.webp' }
+];
+
+const features = [
+  { icon: "🛡️", title: "فولاذ SUS304", text: "الآلة بكاملها من SUS304 الغذائي — مقاوم للصدأ، سهل التعقيم، متوافق مع FDA." },
+  { icon: "📏", title: "حجرة غسيل كبيرة جداً", text: "رف 650×550 مم يستوعب صواني 600×400 مم، قدور كبيرة، أوعية KitchenAid." },
+  { icon: "💧", title: "ذراعان دوّاران + فوهات مخصصة للصواني", text: "غسيل 360°. هندسة الفوهات محسّنة للأسطح المسطحة للصواني." },
+  { icon: "🌡️", title: "تحكم ذكي بالحرارة", text: "تعقيم تلقائي ≥82°م مع شاشة LED. لوحة تحكم نمطية سهلة الصيانة." },
+  { icon: "💦", title: "استهلاك ماء منخفض جداً", text: "2.0–2.5 لتر لكل دورة مقابل 5–10 لتر لمعظم المنافسين." },
+  { icon: "♻️", title: "نظام استرداد الحرارة", text: "المياه الساخنة من الشطف تعود لخزان الغسيل، توفير طاقة 15–25%." },
+  { icon: "🚪", title: "باب معزول محكم", text: "يقلل تسرب البخار حتى 70%. مطبخ أبرد وأكثر جفافاً." },
+  { icon: "🧑‍🍳", title: "تشغيل مريح", text: "سكك دفع-سحب. إغلاق الباب يبدأ الدورة — بدون أزرار." },
+  { icon: "🔒", title: "حماية متعددة", text: "قفل الباب، حماية من الجهد الزائد." },
+  { icon: "🧪", title: "جاهز للموزع التلقائي", text: "واجهات مثبتة مسبقاً للموزع ووحدات معالجة المياه." },
+  { icon: "⚡", title: "معتمد CE Safety", text: "متوافق مع EU. جاهز للشحن إلى EU وGCC وآسيا والباسيفيك وأمريكا اللاتينية وأفريقيا." },
+  { icon: "⏱️", title: "بدء تلقائي عند إغلاق الباب", text: "أغلق الغطاء وتبدأ الدورة. لا أزرار، لا انتظار." }
+];
 ---
-<BaseLayout title="V-TAI JD-3 — غسالة صواني المخابز" description="غسالة V-TAI JD-3 بغطاء قبة: 180 صينية/ساعة، صواني 600×400، SUS304، معتمدة CE." locale={locale} canonicalPath="/product/" schemaType="Product">
-<BreadcrumbNav items={[{label:'الرئيسية',href:'/ar/'},{label:'المنتج'}]} />
+<BaseLayout
+  title="V-TAI JD-3 — غسالة صواني المخابز ذات الغطاء | صفحة المنتج الكاملة"
+  description="V-TAI JD-3 غسالة صواني المخابز ذات الغطاء: 180 صينية/ساعة، متوافقة مع صواني 600×400 مم، SUS304، معتمدة CE. من $4,400 FOB شنتشن. تحميل PDF لورقة المواصفات."
+  locale={locale}
+  canonicalPath="/product/"
+  schemaType="Product"
+  schemaData={{
+    name: 'V-TAI JD-3',
+    sku: 'VT-AE-JD-3',
+    brand: { '@type': 'Brand', name: 'V-TAI' },
+    description: "V-TAI JD-3 غسالة صواني المخابز ذات الغطاء: 180 صينية/ساعة، متوافقة مع صواني 600×400 مم، SUS304، معتمدة CE. من $4,400 FOB شنتشن. تحميل PDF لورقة المواصفات.",
+    image: 'https://bakerytraywasher.com/images/jd-3-hero.webp',
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '4400', highPrice: '4900', availability: 'https://schema.org/InStock' },
+  }}
+>
+
+<BreadcrumbNav items={[{label: "الرئيسية", href: '/ar/'}, {label: "المنتج"}]} />
+
 <section class="section">
   <div class="container-page grid lg:grid-cols-2 gap-10">
-    <ImagePlaceholder src="/images/jd-3-front.webp" alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
     <div>
-      <p class="eyebrow mb-2">طراز VT-AE-JD-3</p>
-      <h1 class="mb-4">V-TAI JD-3 — غسالة صواني المخابز</h1>
-      <p class="text-lg mb-5">الغسالة الوحيدة بغطاء قبة في فئة السعر هذه المصممة للمعيار الأوروبي <strong>600×400 مم</strong>.</p>
+      <ImagePlaceholder src="/images/jd-3-front.webp" alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
+      <div class="grid grid-cols-3 gap-3 mt-3">
+        <ImagePlaceholder src="/images/jd-3-inside.webp"      alt="JD-3 inside"   ratio="1/1" />
+        <ImagePlaceholder src="/images/jd-3-led-control.webp" alt="JD-3 LED"      ratio="1/1" />
+        <ImagePlaceholder src="/images/jd-3-wash-arms.webp"   alt="JD-3 arms"     ratio="1/1" />
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow mb-2">الموديل VT-AE-JD-3</p>
+      <h1 class="mb-4">V-TAI JD-3 — غسالة صواني المخابز ذات الغطاء</h1>
+      <p class="text-lg text-bakery-navy/80 mb-5" set:html={"الغسالة ذات الغطاء الوحيدة في فئتها السعرية المصممة للمعيار الأوروبي <strong>صواني 600×400 مم</strong>. مبنية للمطابخ التجارية الصغيرة — مخابز، مقاهي، باتيسري، مطابخ حلويات الفنادق."} />
+      <div class="grid grid-cols-2 gap-3 mb-6">
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">الإنتاجية</p><p class="font-semibold">180 صينية/ساعة</p></div>
+        <div class="rounded-card border-bakery-orange/30 bg-bakery-cream border p-3"><p class="text-xs text-bakery-brown">حجم الرف</p><p class="font-semibold">650×550 مم ⭐</p></div>
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">وقت الدورة</p><p class="font-semibold">دقيقتان · 6 صواني</p></div>
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">إجمالي الطاقة</p><p class="font-semibold">13 كيلو واط</p></div>
+      </div>
       <PriceCalloutBox locale={locale} />
+
+      <!-- Spec sheet PDF + Quote -->
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/downloads/jd-3-spec-sheet-en.pdf"
+           class="btn-primary inline-flex items-center gap-2"
+           download
+           aria-label="Download spec sheet PDF">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          <span>تحميل ورقة المواصفات (PDF)</span>
+        </a>
+        <a href="/ar/get-quote/" class="btn-secondary inline-flex items-center gap-2">طلب عرض سعر</a>
+      </div>
+      <p class="mt-2 text-xs text-bakery-navy/60" set:html={"PDF بالإنجليزية. تحتاج النسخة العربية؟ <a href=\"/ar/contact/\" class=\"underline\">اطلبها هنا</a>."} />
     </div>
   </div>
 </section>
-<section class="section"><div class="container-prose">
-<h2 class="mb-3">الميزات الرئيسية</h2>
-<ul class="space-y-2 list-disc list-inside">
-<li>هيكل SUS304 — فولاذ مقاوم للصدأ غذائي</li>
-<li>غرفة كبيرة جداً (650×550 مم)</li>
-<li>أذرع غسيل دوارة مزدوجة 360°</li>
-<li>تحكم ذكي بدرجة الحرارة >82°C</li>
-<li>استهلاك مياه منخفض 2.0-2.5 لتر/دورة</li>
-<li>نظام استرداد الحرارة الاختياري</li>
-<li>باب محكم معزول — تقليل البخار 70%</li>
-<li>بدء تلقائي عند الإغلاق</li>
-<li>معتمد CE Safety</li>
-</ul>
-</div></section>
+
+<TrustBadgeStrip locale={locale} />
+
+<!-- Full specifications table -->
+<section class="section">
+  <div class="container-page">
+    <div class="text-center max-w-3xl mx-auto mb-8">
+      <h2 class="mb-3">المواصفات الكاملة</h2>
+      <p class="text-bakery-navy/70" set:html={"كل ما يحتاجه المشتريات والهندسة وتدقيق الصحة. حمّل <a href=\"/downloads/jd-3-spec-sheet-en.pdf\" class=\"text-bakery-orange underline\" download>ورقة المواصفات PDF</a> للمراجعة دون اتصال."} />
+    </div>
+    <ProductSpecsTable sections={specSections} />
+    <div class="text-center mt-8">
+      <a href="/downloads/jd-3-spec-sheet-en.pdf"
+         class="btn-primary inline-flex items-center gap-2"
+         download>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        <span>تحميل ورقة المواصفات الكاملة (PDF)</span>
+      </a>
+      <p class="mt-3 text-xs text-bakery-navy/60" set:html={"PDF بالإنجليزية. تحتاج النسخة العربية؟ <a href=\"/ar/contact/\" class=\"underline\">اطلبها هنا</a>."} />
+    </div>
+  </div>
+</section>
+
+<!-- Videos -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <h2 class="mb-3">شاهد الآلة تعمل</h2>
+      <p class="text-bakery-navy/70">مقطعان قصيران: كيفية تركيب JD-3 في مطبخك وكيفية ضبط الموزع المدمج.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <YouTubeShort videoId="bjxEYRiRTnI" title="دليل تركيب JD-3" caption="التركيب: ماء + كهرباء + دورة أولى" />
+      <YouTubeShort videoId="Zkf6h8u7mFE" title="JD-3: ضبط الموزع المدمج" caption="ضبط: جرعات الموزع المدمج" />
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-10">كيف يعمل — 4 خطوات</h2>
+    <div class="grid md:grid-cols-4 gap-6">
+      {[
+      { n: '1', t: "التحميل", d: "ادفع رفوف الصواني أو القوالب أو الأوعية داخل الحجرة." },
+      { n: '2', t: "إغلاق الغطاء", d: "تبدأ الدورة تلقائياً — بدون أزرار." },
+      { n: '3', t: "الغسيل + الشطف", d: "ذراعان مزدوجان يرشان 360°. الشطف النهائي عند 82°م." },
+      { n: '4', t: "التفريغ", d: "خلال دقيقتين (120 ثانية). نظيف، معقّم، مصفّى." }
+      ].map((s) => (
+        <div class="text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-bakery-orange text-white font-bold flex items-center justify-center mb-3">{s.n}</div>
+          <h3 class="text-base mb-2">{s.t}</h3>
+          <p class="text-sm text-bakery-navy/70">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="mb-3">12 ميزة تهم</h2>
+      <p class="text-bakery-navy/70">كل تفصيل مصمم للمطبخ التجاري الصغير — لا إفراط صناعي ولا تنازل استهلاكي.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {features.map((f) => (
+        <div class="card">
+          <div class="text-3xl mb-2">{f.icon}</div>
+          <h3 class="text-lg mb-1">{f.title}</h3>
+          <p class="text-sm text-bakery-navy/70">{f.text}</p>
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <a href="/ar/product/jd-3-features/" class="btn-secondary">تفاصيل الميزات الـ 12</a>
+    </div>
+  </div>
+</section>
+
+<!-- What it cleans (thumbnails) -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-3">ماذا يغسل</h2>
+    <p class="text-center text-bakery-navy/70 max-w-2xl mx-auto mb-10">اضغط على أي فئة لرؤية أنماط التحميل والإعدادات الموصى بها وأسئلة شائعة محددة.</p>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      {washThumbs.map((w) => (
+        <a href={`/ar/what-it-washes/${w.slug}/`} class="card !p-0 overflow-hidden hover:scale-[1.03] transition flex flex-col">
+          <img src={w.img} alt={w.label} class="w-full aspect-[4/3] object-cover" loading="lazy" />
+          <p class="p-3 text-sm font-medium text-bakery-navy text-center">{w.label}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Configurations -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="text-center mb-8">خيارات التكوين</h2>
+    <div class="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+      {[
+      { t: "كهربائي قياسي", p: "$4,400", d: "JD-3 الأساسي، 380V/3N/50Hz" },
+      { t: "+ موزع تلقائي", p: "$4,600", d: "مضخات منظف ومساعد شطف" },
+      { t: "+ ترقية استرداد الحرارة", p: "$4,900", d: "حزمة توفير طاقة معززة" }
+      ].map((cfg) => (
+        <div class="card">
+          <h3 class="text-lg mb-1">{cfg.t}</h3>
+          <p class="text-2xl font-bold text-bakery-orange mb-2">من {cfg.p}</p>
+          <p class="text-sm text-bakery-navy/70">{cfg.d}</p>
+        </div>
+      ))}
+    </div>
+    <p class="text-center mt-6 text-sm text-bakery-navy/60" set:html={"جميع الأسعار FOB شنتشن. الشحن والرسوم تعتمد على الوجهة — انظر <a href=\"/ar/pricing/by-country/\" class=\"underline\">أسعار DDP حسب الدولة</a>."} />
+  </div>
+</section>
+
+<FAQSection locale={locale} title="الأسئلة الشائعة" items={[
+  { q: "ماذا يحتوي الصندوق؟", a: "آلة JD-3، إطار دعم صواني خبز مخصص من الفولاذ المقاوم للصدأ، خرطوم دخول الماء، خرطوم التصريف، دليل التشغيل، شهادة CE." },
+  { q: "الشحن إلى السعودية / الإمارات / قطر؟", a: "نعم. ننشر أسعار DDP بالعملة المحلية. انظر <a href=\"/ar/pricing/by-country/\" class=\"underline\">الأسعار حسب الدولة</a>." },
+  { q: "الضمان؟", a: "ضمان مصنّع 12 شهراً على القطع. القطع تُشحن عبر الشحن السريع الدولي." },
+  { q: "قطع غيار بعد 5 سنوات؟", a: "جميع المكونات الرئيسية — المضخات، عناصر التسخين، لوحات التحكم — متوفرة في المصنع." },
+  { q: "هل يمكنني تنزيل ورقة المواصفات PDF؟", a: "نعم. استخدم زر \"تحميل ورقة المواصفات (PDF)\" في الأعلى. PDF بالإنجليزية؛ للنسخة العربية <a href=\"/ar/contact/\" class=\"underline\">تواصل معنا</a>." }
+]} />
+
 <CTASection locale={locale} />
 </BaseLayout>

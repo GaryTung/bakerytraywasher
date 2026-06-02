@@ -2,60 +2,299 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import YouTubeShort from '../../../components/YouTubeShort.astro';
+import ProductSpecsTable from '../../../components/ProductSpecsTable.astro';
 import TrustBadgeStrip from '../../../components/TrustBadgeStrip.astro';
 import PriceCalloutBox from '../../../components/PriceCalloutBox.astro';
 import CTASection from '../../../components/CTASection.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 const locale = 'es' as const;
+
+const specSections = [
+  { title: "Dimensiones y Peso", rows: [
+    { k: "Cuerpo (campana cerrada)", v: "804 × 816 × 1.550 mm" },
+    { k: "Altura máx. (campana abierta)", v: "2.115 mm" },
+    { k: "Altura de cámara", v: "550 mm" },
+    { k: "Tamaño del rack", v: "650 × 550 mm" },
+    { k: "Peso neto / bruto", v: "145 kg / 165 kg" },
+    { k: "Huella", v: "0,65 m²" },
+  ]},
+  { title: "Rendimiento de Lavado", rows: [
+    { k: "Capacidad (bandejas estándar)", v: "180 bandejas/hora" },
+    { k: "Carga por ciclo (bandejas)", v: "6 bandejas" },
+    { k: "Tiempo de ciclo", v: "2 minutos (120 s)" },
+    { k: "Ciclos por hora", v: "30" },
+    { k: "Agua por ciclo", v: "2,0–2,5 L" },
+    { k: "Temperatura del tanque de lavado", v: "60–65°C" },
+    { k: "Temperatura del enjuague final", v: "≥82°C (NSF/ANSI 3)" },
+  ]},
+  { title: "Compatibilidad", rows: [
+    { k: "Bandejas 600×400 mm", v: "6 por ciclo (vertical)" },
+    { k: "Bandejas medias 18×26\"", v: "6 por ciclo (planas)" },
+    { k: "Bandejas completas 18×26\"", v: "1–2 por ciclo (diagonal)" },
+    { k: "Gastronorm GN 2/1", v: "6 por ciclo" },
+    { k: "Moldes pastel 8\"", v: "6 por ciclo" },
+    { k: "Moldes pastel 12\"", v: "2 por ciclo (vertical)" },
+    { k: "Moldes pizza 14\" / 16\"", v: "4 / 3 por ciclo" },
+    { k: "Ollas (≤ 28 cm diám.)", v: "2 por ciclo" },
+    { k: "Tazones KitchenAid 5 L", v: "4 por ciclo (vertical)" },
+  ]},
+  { title: "Eléctrico", rows: [
+    { k: "Potencia total", v: "13 kW" },
+    { k: "Resistencia", v: "9 kW" },
+    { k: "Bomba", v: "0,75 kW" },
+    { k: "Alimentación (estándar)", v: "380V / 3N / 50Hz" },
+    { k: "Alternativas", v: "400V / 50Hz · 220V / 60Hz (especificar)" },
+    { k: "Corriente de trabajo", v: "21,5 A" },
+    { k: "Breaker recomendado", v: "32 A tipo C" },
+  ]},
+  { title: "Agua", rows: [
+    { k: "Conexión de entrada", v: "G 3/4\"" },
+    { k: "Presión de entrada", v: "2,5–6 kg/cm²" },
+    { k: "Temperatura de entrada", v: "≥ 10°C (50–60°C precalentada ahorra energía)" },
+    { k: "Conexión de desagüe", v: "Manguera G 1½\"" },
+    { k: "Distancia de desagüe", v: "≤ 1,5 m" },
+    { k: "Caudal de desagüe", v: "~25 L/min" },
+  ]},
+  { title: "Materiales", rows: [
+    { k: "Carcasa", v: "SUS304 grado alimentario" },
+    { k: "Paredes de cámara", v: "SUS304 grado alimentario" },
+    { k: "Rack / soporte de bandejas", v: "SUS304 grado alimentario" },
+    { k: "Brazos rotativos", v: "SUS304 grado alimentario" },
+    { k: "Tubería interna", v: "Silicona alimentaria + inoxidable" },
+  ]},
+  { title: "Certificaciones", rows: [
+    { k: "Seguridad", v: "CE (cumplimiento UE total)" },
+    { k: "Calidad", v: "ISO 9001:2015" },
+    { k: "Sanitización", v: "NSF/ANSI 3, EN 12875-2, DIN 10516, FDA 4-501.112" },
+    { k: "Materiales en contacto", v: "FDA, UE 1935/2004" },
+    { k: "Directiva máquinas", v: "EN ISO 12100, EN 60204-1" },
+  ]},
+  { title: "Funcional", rows: [
+    { k: "Inicio automático al cerrar puerta", v: "Sí" },
+    { k: "Recuperación de calor", v: "Upgrade opcional (15–25% ahorro)" },
+    { k: "Dispensador automático", v: "Upgrade opcional" },
+    { k: "Bomba de abrillantador", v: "Upgrade opcional" },
+    { k: "Corte por interbloqueo de puerta", v: "Estándar" },
+    { k: "Protección sobrevoltaje", v: "Estándar" },
+    { k: "Pantalla de temperatura", v: "LED digital" },
+    { k: "Ruido", v: "≤ 70 dB" },
+  ]}
+];
+
+const washThumbs = [
+  { slug: 'baking-trays-600x400', label: "Bandejas Panadería 600×400 mm", img: '/images/600x400-tray-comparison.webp' },
+  { slug: 'sheet-pans', label: "Bandejas Americanas", img: '/images/what-it-washes/sheet-pans.webp' },
+  { slug: 'mixing-bowls', label: "Tazones Mezcladores", img: '/images/what-it-washes/mixing-bowls.webp' },
+  { slug: 'cake-pans', label: "Moldes para Pastel", img: '/images/what-it-washes/cake-pans.webp' },
+  { slug: 'pizza-pans', label: "Moldes para Pizza", img: '/images/what-it-washes/pizza-pans.webp' },
+  { slug: 'frying-baskets', label: "Canastas para Freír", img: '/images/what-it-washes/frying-baskets.webp' },
+  { slug: 'stockpots', label: "Ollas Grandes", img: '/images/what-it-washes/stockpots.webp' },
+  { slug: 'dishes-plates', label: "Vajilla y Platos", img: '/images/what-it-washes/dishes-plates.webp' },
+  { slug: 'utensils-mixers', label: "Utensilios y Accesorios", img: '/images/what-it-washes/utensils-mixers.webp' },
+  { slug: 'large-bakeware', label: "Utensilios Grandes de Hornear", img: '/images/what-it-washes/large-bakeware.webp' }
+];
+
+const features = [
+  { icon: "🛡️", title: "Acero Inoxidable SUS304", text: "Toda la máquina es SUS304 grado alimentario — resistente a la corrosión, fácil de sanitizar, cumple FDA." },
+  { icon: "📏", title: "Cámara de Lavado Extra Grande", text: "Rack de 650×550 mm acepta bandejas 600×400 mm de norma europea, ollas grandes, tazones KitchenAid." },
+  { icon: "💧", title: "Brazos Rotativos Duales + Boquillas para Bandejas", text: "Lavado 360°. Geometría de boquilla optimizada para superficies planas de bandejas." },
+  { icon: "🌡️", title: "Control de Temperatura Inteligente", text: "Sanitización automática a ≥82°C con pantalla LED. Placa de control modular." },
+  { icon: "💦", title: "Bajísimo Consumo de Agua", text: "2,0–2,5 L por ciclo, contra los 5–10 L de la mayoría de competidores." },
+  { icon: "♻️", title: "Sistema de Recuperación de Calor", text: "El agua caliente del enjuague vuelve al tanque, ahorrando 15–25% de energía." },
+  { icon: "🚪", title: "Puerta Sellada Aislada", text: "Reduce escape de vapor hasta 70%. Cocina más fresca y seca." },
+  { icon: "🧑‍🍳", title: "Operación Ergonómica", text: "Rieles push-pull. Cerrar la puerta arranca el ciclo — sin botones." },
+  { icon: "🔒", title: "Múltiples Protecciones de Seguridad", text: "Interbloqueo de puerta, protección contra sobrecarga de voltaje." },
+  { icon: "🧪", title: "Listo para Dispensador Automático", text: "Interfaces pre-instaladas para dispensador y módulos de tratamiento de agua." },
+  { icon: "⚡", title: "Certificada CE Safety", text: "Cumplimiento UE. Lista para enviar a UE, GCC, APAC, LATAM, África." },
+  { icon: "⏱️", title: "Inicio Automático al Cerrar Puerta", text: "Cierre la campana y el ciclo arranca solo. Sin botones, sin espera." }
+];
 ---
 <BaseLayout
   title="V-TAI JD-3 — Lavadora con Campana para Panaderías | Producto Completo"
-  description="Lavadora V-TAI JD-3 con campana para panaderías: 180 bandejas/hora, compatible con bandejas de 600×400 mm, SUS304, certificada CE. Desde $4.400 FOB Shenzhen."
+  description="Lavadora V-TAI JD-3 con campana para panaderías: 180 bandejas/hora, compatible con bandejas de 600×400 mm, SUS304, certificada CE. Desde $4.400 FOB Shenzhen. Ficha técnica PDF descargable."
   locale={locale}
   canonicalPath="/product/"
   schemaType="Product"
+  schemaData={{
+    name: 'V-TAI JD-3',
+    sku: 'VT-AE-JD-3',
+    brand: { '@type': 'Brand', name: 'V-TAI' },
+    description: "Lavadora V-TAI JD-3 con campana para panaderías: 180 bandejas/hora, compatible con bandejas de 600×400 mm, SUS304, certificada CE. Desde $4.400 FOB Shenzhen. Ficha técnica PDF descargable.",
+    image: 'https://bakerytraywasher.com/images/jd-3-hero.webp',
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '4400', highPrice: '4900', availability: 'https://schema.org/InStock' },
+  }}
 >
-<BreadcrumbNav items={[{label: 'Inicio', href: '/es/'}, {label: 'Producto'}]} />
+
+<BreadcrumbNav items={[{label: "Inicio", href: '/es/'}, {label: "Producto"}]} />
 
 <section class="section">
   <div class="container-page grid lg:grid-cols-2 gap-10">
-    <ImagePlaceholder src="/images/jd-3-front.webp" alt="V-TAI JD-3 lavadora con campana para panaderías" ratio="4/3" label="JD-3 vista frontal" />
+    <div>
+      <ImagePlaceholder src="/images/jd-3-front.webp" alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
+      <div class="grid grid-cols-3 gap-3 mt-3">
+        <ImagePlaceholder src="/images/jd-3-inside.webp"      alt="JD-3 inside"   ratio="1/1" />
+        <ImagePlaceholder src="/images/jd-3-led-control.webp" alt="JD-3 LED"      ratio="1/1" />
+        <ImagePlaceholder src="/images/jd-3-wash-arms.webp"   alt="JD-3 arms"     ratio="1/1" />
+      </div>
+    </div>
     <div>
       <p class="eyebrow mb-2">Modelo VT-AE-JD-3</p>
       <h1 class="mb-4">V-TAI JD-3 — Lavadora con Campana para Panaderías</h1>
-      <p class="text-lg text-bakery-navy/80 mb-5">
-        La única lavavajillas con campana en su clase de precio diseñada para el estándar europeo de
-        <strong>bandejas de panadería de 600×400 mm</strong>. Construida para cocinas comerciales pequeñas.
-      </p>
+      <p class="text-lg text-bakery-navy/80 mb-5" set:html={"La única lavavajillas con campana de su clase de precio diseñada para el estándar europeo <strong>de bandejas de panadería de 600×400 mm</strong>. Construida para cocinas comerciales pequeñas — panaderías, cafés, pastelerías, repostería de hotel."} />
       <div class="grid grid-cols-2 gap-3 mb-6">
-        <div class="rounded-card border border-bakery-navy/10 p-3"><p class="text-xs text-bakery-navy/60">Capacidad</p><p class="font-semibold">180 bandejas/hora</p></div>
-        <div class="rounded-card border border-bakery-orange/30 p-3 bg-bakery-cream"><p class="text-xs text-bakery-brown">Rack</p><p class="font-semibold">650×550 mm ⭐</p></div>
-        <div class="rounded-card border border-bakery-navy/10 p-3"><p class="text-xs text-bakery-navy/60">Agua/ciclo</p><p class="font-semibold">2,0–2,5 L</p></div>
-        <div class="rounded-card border border-bakery-navy/10 p-3"><p class="text-xs text-bakery-navy/60">Potencia</p><p class="font-semibold">13 kW</p></div>
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">Capacidad</p><p class="font-semibold">180 bandejas/hora</p></div>
+        <div class="rounded-card border-bakery-orange/30 bg-bakery-cream border p-3"><p class="text-xs text-bakery-brown">Tamaño del rack</p><p class="font-semibold">650×550 mm ⭐</p></div>
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">Tiempo de ciclo</p><p class="font-semibold">2 min · 6 bandejas</p></div>
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">Potencia total</p><p class="font-semibold">13 kW</p></div>
       </div>
       <PriceCalloutBox locale={locale} />
+
+      <!-- Spec sheet PDF + Quote -->
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/downloads/jd-3-spec-sheet-en.pdf"
+           class="btn-primary inline-flex items-center gap-2"
+           download
+           aria-label="Download spec sheet PDF">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          <span>Descargar Ficha Técnica (PDF)</span>
+        </a>
+        <a href="/es/get-quote/" class="btn-secondary inline-flex items-center gap-2">Solicitar Cotización</a>
+      </div>
+      <p class="mt-2 text-xs text-bakery-navy/60" set:html={"PDF en inglés. ¿Necesita versión en español? <a href=\"/es/contact/\" class=\"underline\">Solicítela aquí</a>."} />
     </div>
   </div>
 </section>
 
 <TrustBadgeStrip locale={locale} />
 
+<!-- Full specifications table -->
 <section class="section">
-  <div class="container-prose">
-    <h2 class="mb-3">Características Clave</h2>
-    <ul class="space-y-3 list-disc list-inside text-bakery-navy/80">
-      <li><strong>Construcción SUS304</strong> — acero inoxidable grado alimentario en toda la máquina</li>
-      <li><strong>Cámara extra grande</strong> — acepta bandejas de 600×400 mm europeas, ollas grandes</li>
-      <li><strong>Brazos rotativos duales</strong> — cobertura 360° con boquillas anti-obstrucción</li>
-      <li><strong>Control de temperatura inteligente</strong> — esterilización automática a más de 82°C</li>
-      <li><strong>Bajo consumo de agua</strong> — 2,0–2,5 L por ciclo</li>
-      <li><strong>Recuperación de calor opcional</strong> — ahorro de energía</li>
-      <li><strong>Puerta sellada aislada</strong> — reduce escape de vapor en 70%</li>
-      <li><strong>Operación ergonómica</strong> — panel a altura de ojos, inicio automático al cerrar la puerta</li>
-      <li><strong>Múltiples protecciones de seguridad</strong></li>
-      <li><strong>Certificación CE Safety</strong></li>
-    </ul>
+  <div class="container-page">
+    <div class="text-center max-w-3xl mx-auto mb-8">
+      <h2 class="mb-3">Especificaciones Completas</h2>
+      <p class="text-bakery-navy/70" set:html={"Todo lo que necesitan compras, ingeniería de planta y auditorías sanitarias. Descargue la <a href=\"/downloads/jd-3-spec-sheet-en.pdf\" class=\"text-bakery-orange underline\" download>ficha técnica en PDF</a> para revisión sin conexión."} />
+    </div>
+    <ProductSpecsTable sections={specSections} />
+    <div class="text-center mt-8">
+      <a href="/downloads/jd-3-spec-sheet-en.pdf"
+         class="btn-primary inline-flex items-center gap-2"
+         download>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        <span>Descargar Ficha Técnica Completa (PDF)</span>
+      </a>
+      <p class="mt-3 text-xs text-bakery-navy/60" set:html={"PDF en inglés. ¿Necesita versión en español? <a href=\"/es/contact/\" class=\"underline\">Solicítela aquí</a>."} />
+    </div>
   </div>
 </section>
 
-<CTASection locale={locale} title="¿Listo para Cotizar?" subtitle="Cotización personalizada en 12 horas con todos los costos incluidos." />
+<!-- Videos -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <h2 class="mb-3">Vea la Máquina en Acción</h2>
+      <p class="text-bakery-navy/70">Dos clips cortos: cómo instalar el JD-3 en su cocina y cómo ajustar el dispensador interno.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <YouTubeShort videoId="bjxEYRiRTnI" title="Guía de Instalación JD-3" caption="Instalación: agua + electricidad + primer ciclo" />
+      <YouTubeShort videoId="Zkf6h8u7mFE" title="JD-3: cómo ajustar el dispensador" caption="Ajuste: dosificación del dispensador integrado" />
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-10">Cómo Funciona — 4 Pasos</h2>
+    <div class="grid md:grid-cols-4 gap-6">
+      {[
+      { n: '1', t: "Cargar", d: "Deslice racks con bandejas, moldes o tazones dentro de la cámara." },
+      { n: '2', t: "Cerrar campana", d: "El ciclo arranca automáticamente — sin botones." },
+      { n: '3', t: "Lavar + enjuagar", d: "Brazos duales lanzan 360°. Enjuague final a 82°C." },
+      { n: '4', t: "Descargar", d: "En 2 minutos (120 s). Limpio, sanitizado, escurriendo." }
+      ].map((s) => (
+        <div class="text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-bakery-orange text-white font-bold flex items-center justify-center mb-3">{s.n}</div>
+          <h3 class="text-base mb-2">{s.t}</h3>
+          <p class="text-sm text-bakery-navy/70">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="mb-3">12 Características que Importan</h2>
+      <p class="text-bakery-navy/70">Cada detalle está diseñado para la cocina comercial pequeña — ni sobre-ingeniería industrial, ni compromisos de consumidor.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {features.map((f) => (
+        <div class="card">
+          <div class="text-3xl mb-2">{f.icon}</div>
+          <h3 class="text-lg mb-1">{f.title}</h3>
+          <p class="text-sm text-bakery-navy/70">{f.text}</p>
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <a href="/es/product/jd-3-features/" class="btn-secondary">Detalle de las 12 características</a>
+    </div>
+  </div>
+</section>
+
+<!-- What it cleans (thumbnails) -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-3">Qué Limpia</h2>
+    <p class="text-center text-bakery-navy/70 max-w-2xl mx-auto mb-10">Haga clic en cualquier categoría para ver patrones de carga, ajustes recomendados y FAQ específicas.</p>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      {washThumbs.map((w) => (
+        <a href={`/es/what-it-washes/${w.slug}/`} class="card !p-0 overflow-hidden hover:scale-[1.03] transition flex flex-col">
+          <img src={w.img} alt={w.label} class="w-full aspect-[4/3] object-cover" loading="lazy" />
+          <p class="p-3 text-sm font-medium text-bakery-navy text-center">{w.label}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Configurations -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="text-center mb-8">Opciones de Configuración</h2>
+    <div class="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+      {[
+      { t: "Eléctrico Estándar", p: "$4.400", d: "JD-3 base, 380V/3N/50Hz" },
+      { t: "+ Dispensador Automático", p: "$4.600", d: "Bombas de detergente y abrillantador" },
+      { t: "+ Recuperación de Calor", p: "$4.900", d: "Paquete de ahorro energético reforzado" }
+      ].map((cfg) => (
+        <div class="card">
+          <h3 class="text-lg mb-1">{cfg.t}</h3>
+          <p class="text-2xl font-bold text-bakery-orange mb-2">Desde {cfg.p}</p>
+          <p class="text-sm text-bakery-navy/70">{cfg.d}</p>
+        </div>
+      ))}
+    </div>
+    <p class="text-center mt-6 text-sm text-bakery-navy/60" set:html={"Todos los precios FOB Shenzhen. Envío y aranceles dependen del destino — vea <a href=\"/es/pricing/by-country/\" class=\"underline\">precios DDP por país</a>."} />
+  </div>
+</section>
+
+<FAQSection locale={locale} title="Preguntas Frecuentes" items={[
+  { q: "¿Qué viene incluido en la caja?", a: "Máquina JD-3, un soporte de bandejas de panadería de acero inoxidable hecho a medida, manguera de entrada de agua, manguera de desagüe, manual de operación, certificado CE." },
+  { q: "¿Pueden enviar a México / Chile / Colombia?", a: "Sí. Publicamos precios DDP en la moneda local. Vea <a href=\"/es/pricing/by-country/\" class=\"underline\">precios por país</a>." },
+  { q: "¿Garantía?", a: "Garantía de 12 meses de fabricante en piezas. Repuestos por mensajería express internacional a cualquier país." },
+  { q: "¿Repuestos en 5 años?", a: "Todos los componentes clave — bombas, resistencias, placas de control — en stock de fábrica." },
+  { q: "¿Puedo descargar la ficha técnica en PDF?", a: "Sí. Use el botón \"Descargar Ficha Técnica (PDF)\" en la parte superior. El PDF está en inglés; si necesita versión en español, <a href=\"/es/contact/\" class=\"underline\">contáctenos</a>." }
+]} />
+
+<CTASection locale={locale} />
 </BaseLayout>

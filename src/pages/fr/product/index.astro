@@ -2,38 +2,299 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import YouTubeShort from '../../../components/YouTubeShort.astro';
+import ProductSpecsTable from '../../../components/ProductSpecsTable.astro';
 import TrustBadgeStrip from '../../../components/TrustBadgeStrip.astro';
 import PriceCalloutBox from '../../../components/PriceCalloutBox.astro';
 import CTASection from '../../../components/CTASection.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 const locale = 'fr' as const;
+
+const specSections = [
+  { title: "Dimensions et Poids", rows: [
+    { k: "Corps (hotte fermée)", v: "804 × 816 × 1 550 mm" },
+    { k: "Hauteur max (hotte ouverte)", v: "2 115 mm" },
+    { k: "Hauteur de chambre", v: "550 mm" },
+    { k: "Taille du panier", v: "650 × 550 mm" },
+    { k: "Poids net / brut", v: "145 kg / 165 kg" },
+    { k: "Encombrement", v: "0,65 m²" },
+  ]},
+  { title: "Performance de lavage", rows: [
+    { k: "Capacité (plaques standard)", v: "180 plaques/heure" },
+    { k: "Charge par cycle (plaques)", v: "6 plaques" },
+    { k: "Durée de cycle", v: "2 minutes (120 s)" },
+    { k: "Cycles par heure", v: "30" },
+    { k: "Eau par cycle", v: "2,0–2,5 L" },
+    { k: "Température de lavage", v: "60–65°C" },
+    { k: "Température de rinçage final", v: "≥82°C (NSF/ANSI 3)" },
+  ]},
+  { title: "Compatibilité", rows: [
+    { k: "Plaques 600×400 mm", v: "6 par cycle (vertical)" },
+    { k: "Demi-plaques 18×26\"", v: "6 par cycle (à plat)" },
+    { k: "Plaques complètes 18×26\"", v: "1–2 par cycle (diagonale)" },
+    { k: "Gastronorme GN 2/1", v: "6 par cycle" },
+    { k: "Moules à gâteaux 8\"", v: "6 par cycle" },
+    { k: "Moules à gâteaux 12\"", v: "2 par cycle (vertical)" },
+    { k: "Moules à pizza 14\" / 16\"", v: "4 / 3 par cycle" },
+    { k: "Marmites (diam. ≤ 28 cm)", v: "2 par cycle" },
+    { k: "Bols KitchenAid 5 L", v: "4 par cycle (vertical)" },
+  ]},
+  { title: "Électrique", rows: [
+    { k: "Puissance totale", v: "13 kW" },
+    { k: "Résistance", v: "9 kW" },
+    { k: "Pompe", v: "0,75 kW" },
+    { k: "Alimentation (standard)", v: "380V / 3N / 50Hz" },
+    { k: "Alternatives", v: "400V / 50Hz · 220V / 60Hz (à préciser)" },
+    { k: "Courant de service", v: "21,5 A" },
+    { k: "Disjoncteur recommandé", v: "32 A type C" },
+  ]},
+  { title: "Eau", rows: [
+    { k: "Raccord d'entrée", v: "G 3/4\"" },
+    { k: "Pression d'entrée", v: "2,5–6 kg/cm²" },
+    { k: "Température d'entrée", v: "≥ 10°C (50–60°C préchauffée économise l'énergie)" },
+    { k: "Raccord d'évacuation", v: "Tuyau G 1½\"" },
+    { k: "Distance d'évacuation", v: "≤ 1,5 m" },
+    { k: "Débit d'évacuation", v: "~25 L/min" },
+  ]},
+  { title: "Matériaux", rows: [
+    { k: "Carrosserie", v: "SUS304 qualité alimentaire" },
+    { k: "Parois de chambre", v: "SUS304 qualité alimentaire" },
+    { k: "Panier / support de plaques", v: "SUS304 qualité alimentaire" },
+    { k: "Bras rotatifs", v: "SUS304 qualité alimentaire" },
+    { k: "Tuyauterie interne", v: "Silicone alimentaire + inox" },
+  ]},
+  { title: "Certifications", rows: [
+    { k: "Sécurité", v: "CE (conformité UE complète)" },
+    { k: "Qualité", v: "ISO 9001:2015" },
+    { k: "Désinfection", v: "NSF/ANSI 3, EN 12875-2, DIN 10516, FDA 4-501.112" },
+    { k: "Matériaux contact aliment", v: "FDA, UE 1935/2004" },
+    { k: "Directive machines", v: "EN ISO 12100, EN 60204-1" },
+  ]},
+  { title: "Fonctionnel", rows: [
+    { k: "Démarrage auto à la fermeture", v: "Oui" },
+    { k: "Récupération de chaleur", v: "Upgrade optionnel (15–25%)" },
+    { k: "Distributeur automatique", v: "Upgrade optionnel" },
+    { k: "Pompe liquide de rinçage", v: "Upgrade optionnel" },
+    { k: "Verrouillage de porte", v: "Standard" },
+    { k: "Protection surcharge", v: "Standard" },
+    { k: "Affichage température", v: "LED numérique" },
+    { k: "Bruit", v: "≤ 70 dB" },
+  ]}
+];
+
+const washThumbs = [
+  { slug: 'baking-trays-600x400', label: "Plaques Boulangère 600×400 mm", img: '/images/600x400-tray-comparison.webp' },
+  { slug: 'sheet-pans', label: "Plaques de four américaines", img: '/images/what-it-washes/sheet-pans.webp' },
+  { slug: 'mixing-bowls', label: "Bols mélangeurs", img: '/images/what-it-washes/mixing-bowls.webp' },
+  { slug: 'cake-pans', label: "Moules à gâteaux", img: '/images/what-it-washes/cake-pans.webp' },
+  { slug: 'pizza-pans', label: "Moules à pizza", img: '/images/what-it-washes/pizza-pans.webp' },
+  { slug: 'frying-baskets', label: "Paniers de friture", img: '/images/what-it-washes/frying-baskets.webp' },
+  { slug: 'stockpots', label: "Marmites", img: '/images/what-it-washes/stockpots.webp' },
+  { slug: 'dishes-plates', label: "Assiettes et vaisselle", img: '/images/what-it-washes/dishes-plates.webp' },
+  { slug: 'utensils-mixers', label: "Ustensiles et accessoires", img: '/images/what-it-washes/utensils-mixers.webp' },
+  { slug: 'large-bakeware', label: "Grands moules", img: '/images/what-it-washes/large-bakeware.webp' }
+];
+
+const features = [
+  { icon: "🛡️", title: "Inox SUS304", text: "Toute la machine en SUS304 qualité alimentaire — résistante à la corrosion, facile à désinfecter, conforme FDA." },
+  { icon: "📏", title: "Chambre de lavage extra-large", text: "Panier 650×550 mm accueille les plaques 600×400 mm aux normes européennes, marmites, bols KitchenAid." },
+  { icon: "💧", title: "Deux bras rotatifs + buses adaptées", text: "Lavage 360°. Géométrie des buses optimisée pour les surfaces plates des plaques." },
+  { icon: "🌡️", title: "Contrôle de température intelligent", text: "Désinfection automatique ≥82°C avec affichage LED. Carte modulaire facile à entretenir." },
+  { icon: "💦", title: "Très faible consommation d'eau", text: "2,0–2,5 L par cycle, contre 5–10 L pour la plupart des concurrents." },
+  { icon: "♻️", title: "Système de récupération de chaleur", text: "L'eau chaude du rinçage retourne au bac de lavage, économie d'énergie 15–25%." },
+  { icon: "🚪", title: "Porte isolée étanche", text: "Réduit jusqu'à 70% l'évacuation de vapeur. Cuisine plus fraîche et sèche." },
+  { icon: "🧑‍🍳", title: "Opération ergonomique", text: "Rails push-pull. Fermer la porte démarre le cycle — sans bouton." },
+  { icon: "🔒", title: "Protections multiples", text: "Verrouillage de porte, protection contre les surcharges de tension." },
+  { icon: "🧪", title: "Prêt pour distributeur automatique", text: "Interfaces pré-installées pour distributeur et modules de traitement." },
+  { icon: "⚡", title: "Certifié CE Safety", text: "Conformité UE. Prêt à expédier vers UE, CCG, APAC, Amérique latine, Afrique." },
+  { icon: "⏱️", title: "Démarrage automatique à la fermeture", text: "Fermez la hotte et le cycle démarre seul. Aucun bouton, pas d'attente." }
+];
 ---
-<BaseLayout title="V-TAI JD-3 — Lave-Plaques à Hotte pour Boulangerie" description="Lave-plaques V-TAI JD-3 à hotte : 180 plaques/heure, compatible plaques 600×400, SUS304, certifié CE. À partir de 4 400 $ FOB." locale={locale} canonicalPath="/product/" schemaType="Product">
-<BreadcrumbNav items={[{label:'Accueil',href:'/fr/'},{label:'Produit'}]} />
+<BaseLayout
+  title="V-TAI JD-3 — Lave-vaisselle à hotte pour boulangerie | Page Produit"
+  description="V-TAI JD-3 lave-vaisselle à hotte pour boulangerie : 180 plaques/heure, compatible avec plaques 600×400 mm, SUS304, certifié CE. À partir de 4 400 $ FOB Shenzhen. Fiche technique PDF téléchargeable."
+  locale={locale}
+  canonicalPath="/product/"
+  schemaType="Product"
+  schemaData={{
+    name: 'V-TAI JD-3',
+    sku: 'VT-AE-JD-3',
+    brand: { '@type': 'Brand', name: 'V-TAI' },
+    description: "V-TAI JD-3 lave-vaisselle à hotte pour boulangerie : 180 plaques/heure, compatible avec plaques 600×400 mm, SUS304, certifié CE. À partir de 4 400 $ FOB Shenzhen. Fiche technique PDF téléchargeable.",
+    image: 'https://bakerytraywasher.com/images/jd-3-hero.webp',
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '4400', highPrice: '4900', availability: 'https://schema.org/InStock' },
+  }}
+>
+
+<BreadcrumbNav items={[{label: "Accueil", href: '/fr/'}, {label: "Produit"}]} />
+
 <section class="section">
   <div class="container-page grid lg:grid-cols-2 gap-10">
-    <ImagePlaceholder src="/images/jd-3-front.webp" alt="V-TAI JD-3 lave-plaques à hotte" ratio="4/3" label="JD-3 vue de face" />
+    <div>
+      <ImagePlaceholder src="/images/jd-3-front.webp" alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
+      <div class="grid grid-cols-3 gap-3 mt-3">
+        <ImagePlaceholder src="/images/jd-3-inside.webp"      alt="JD-3 inside"   ratio="1/1" />
+        <ImagePlaceholder src="/images/jd-3-led-control.webp" alt="JD-3 LED"      ratio="1/1" />
+        <ImagePlaceholder src="/images/jd-3-wash-arms.webp"   alt="JD-3 arms"     ratio="1/1" />
+      </div>
+    </div>
     <div>
       <p class="eyebrow mb-2">Modèle VT-AE-JD-3</p>
-      <h1 class="mb-4">V-TAI JD-3 — Lave-Plaques à Hotte</h1>
-      <p class="text-lg mb-5">Le seul lave-vaisselle à hotte dans sa gamme de prix conçu pour le standard européen <strong>600×400 mm</strong>. Construit pour les boulangeries, cafés, et stations de pâtisserie.</p>
+      <h1 class="mb-4">V-TAI JD-3 — Lave-vaisselle à hotte pour boulangerie</h1>
+      <p class="text-lg text-bakery-navy/80 mb-5" set:html={"Le seul lave-vaisselle à hotte de sa gamme de prix conçu pour le standard européen <strong>des plaques de boulangerie de 600×400 mm</strong>. Conçu pour les petites cuisines commerciales — boulangeries, cafés, pâtisseries, pâtisseries d'hôtel."} />
+      <div class="grid grid-cols-2 gap-3 mb-6">
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">Capacité</p><p class="font-semibold">180 plaques/heure</p></div>
+        <div class="rounded-card border-bakery-orange/30 bg-bakery-cream border p-3"><p class="text-xs text-bakery-brown">Taille du panier</p><p class="font-semibold">650×550 mm ⭐</p></div>
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">Temps de cycle</p><p class="font-semibold">2 min · 6 plaques</p></div>
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">Puissance totale</p><p class="font-semibold">13 kW</p></div>
+      </div>
       <PriceCalloutBox locale={locale} />
+
+      <!-- Spec sheet PDF + Quote -->
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/downloads/jd-3-spec-sheet-en.pdf"
+           class="btn-primary inline-flex items-center gap-2"
+           download
+           aria-label="Download spec sheet PDF">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          <span>Télécharger la fiche technique (PDF)</span>
+        </a>
+        <a href="/fr/get-quote/" class="btn-secondary inline-flex items-center gap-2">Demander un devis</a>
+      </div>
+      <p class="mt-2 text-xs text-bakery-navy/60" set:html={"PDF en anglais. Besoin de la version française ? <a href=\"/fr/contact/\" class=\"underline\">Demandez-la ici</a>."} />
     </div>
   </div>
 </section>
+
 <TrustBadgeStrip locale={locale} />
-<section class="section"><div class="container-prose">
-<h2 class="mb-3">Caractéristiques Clés</h2>
-<ul class="space-y-2 list-disc list-inside text-bakery-navy/80">
-<li>Construction SUS304 inox grade alimentaire</li>
-<li>Chambre extra-large (650×550 mm) — accepte les plaques 600×400</li>
-<li>Bras de lavage rotatifs doubles, couverture 360°</li>
-<li>Contrôle de température intelligent, stérilisation auto &gt;82°C</li>
-<li>Consommation d'eau ultra-basse 2,0–2,5 L/cycle</li>
-<li>Système de récupération de chaleur optionnel</li>
-<li>Porte étanche isolée — réduit la vapeur de 70%</li>
-<li>Démarrage activé par fermeture de la hotte</li>
-<li>Certifié CE Safety</li>
-</ul>
-</div></section>
+
+<!-- Full specifications table -->
+<section class="section">
+  <div class="container-page">
+    <div class="text-center max-w-3xl mx-auto mb-8">
+      <h2 class="mb-3">Spécifications complètes</h2>
+      <p class="text-bakery-navy/70" set:html={"Tout ce dont les achats, l'ingénierie d'installation et les audits sanitaires ont besoin. Téléchargez la <a href=\"/downloads/jd-3-spec-sheet-en.pdf\" class=\"text-bakery-orange underline\" download>fiche technique PDF</a> pour examen hors ligne."} />
+    </div>
+    <ProductSpecsTable sections={specSections} />
+    <div class="text-center mt-8">
+      <a href="/downloads/jd-3-spec-sheet-en.pdf"
+         class="btn-primary inline-flex items-center gap-2"
+         download>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        <span>Télécharger la fiche technique complète (PDF)</span>
+      </a>
+      <p class="mt-3 text-xs text-bakery-navy/60" set:html={"PDF en anglais. Besoin de la version française ? <a href=\"/fr/contact/\" class=\"underline\">Demandez-la ici</a>."} />
+    </div>
+  </div>
+</section>
+
+<!-- Videos -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <h2 class="mb-3">Voir la machine en action</h2>
+      <p class="text-bakery-navy/70">Deux courtes vidéos : comment installer le JD-3 dans votre cuisine et comment régler le distributeur intégré.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <YouTubeShort videoId="bjxEYRiRTnI" title="Guide d'installation JD-3" caption="Installation : eau + électricité + premier cycle" />
+      <YouTubeShort videoId="Zkf6h8u7mFE" title="JD-3 : régler le distributeur intégré" caption="Réglage : dosage du distributeur intégré" />
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-10">Fonctionnement — 4 étapes</h2>
+    <div class="grid md:grid-cols-4 gap-6">
+      {[
+      { n: '1', t: "Charger", d: "Glissez les paniers de plaques, moules ou bols dans la chambre." },
+      { n: '2', t: "Fermer la hotte", d: "Le cycle démarre automatiquement — sans boutons." },
+      { n: '3', t: "Laver + rincer", d: "Deux bras pulvérisent à 360°. Rinçage final à 82°C." },
+      { n: '4', t: "Décharger", d: "En 2 minutes (120 s). Propre, désinfecté, séché par égouttement." }
+      ].map((s) => (
+        <div class="text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-bakery-orange text-white font-bold flex items-center justify-center mb-3">{s.n}</div>
+          <h3 class="text-base mb-2">{s.t}</h3>
+          <p class="text-sm text-bakery-navy/70">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="mb-3">12 Caractéristiques qui comptent</h2>
+      <p class="text-bakery-navy/70">Chaque détail est conçu pour la petite cuisine commerciale — ni surdimensionné industriellement, ni un compromis grand public.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {features.map((f) => (
+        <div class="card">
+          <div class="text-3xl mb-2">{f.icon}</div>
+          <h3 class="text-lg mb-1">{f.title}</h3>
+          <p class="text-sm text-bakery-navy/70">{f.text}</p>
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <a href="/fr/product/jd-3-features/" class="btn-secondary">Détails des 12 caractéristiques</a>
+    </div>
+  </div>
+</section>
+
+<!-- What it cleans (thumbnails) -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-3">Ce que le JD-3 lave</h2>
+    <p class="text-center text-bakery-navy/70 max-w-2xl mx-auto mb-10">Cliquez sur une catégorie pour voir les modèles de chargement, les réglages recommandés et les FAQ spécifiques.</p>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      {washThumbs.map((w) => (
+        <a href={`/fr/what-it-washes/${w.slug}/`} class="card !p-0 overflow-hidden hover:scale-[1.03] transition flex flex-col">
+          <img src={w.img} alt={w.label} class="w-full aspect-[4/3] object-cover" loading="lazy" />
+          <p class="p-3 text-sm font-medium text-bakery-navy text-center">{w.label}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Configurations -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="text-center mb-8">Options de configuration</h2>
+    <div class="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+      {[
+      { t: "Électrique standard", p: "4 400 $", d: "JD-3 base, 380V/3N/50Hz" },
+      { t: "+ Distributeur automatique", p: "4 600 $", d: "Pompes de détergent et liquide de rinçage" },
+      { t: "+ Récupération de chaleur", p: "4 900 $", d: "Pack d'économie d'énergie renforcé" }
+      ].map((cfg) => (
+        <div class="card">
+          <h3 class="text-lg mb-1">{cfg.t}</h3>
+          <p class="text-2xl font-bold text-bakery-orange mb-2">À partir de {cfg.p}</p>
+          <p class="text-sm text-bakery-navy/70">{cfg.d}</p>
+        </div>
+      ))}
+    </div>
+    <p class="text-center mt-6 text-sm text-bakery-navy/60" set:html={"Tous les prix FOB Shenzhen. Le fret et les droits dépendent de la destination — voir <a href=\"/fr/pricing/by-country/\" class=\"underline\">prix DDP par pays</a>."} />
+  </div>
+</section>
+
+<FAQSection locale={locale} title="Questions fréquentes" items={[
+  { q: "Que contient la boîte ?", a: "Machine JD-3, un support à plaques de boulangerie en inox sur mesure, tuyau d'entrée d'eau, tuyau de vidange, manuel d'utilisation, certificat CE." },
+  { q: "Pouvez-vous expédier en France / Belgique / Suisse ?", a: "Oui. Nous publions les prix DDP en monnaie locale. Voir <a href=\"/fr/pricing/by-country/\" class=\"underline\">prix par pays</a>." },
+  { q: "Garantie ?", a: "Garantie fabricant 12 mois sur les pièces. Pièces de rechange par messagerie express internationale." },
+  { q: "Pièces dans 5 ans ?", a: "Tous les composants clés — pompes, résistances, cartes électroniques — en stock à l'usine." },
+  { q: "Puis-je télécharger la fiche technique PDF ?", a: "Oui. Utilisez le bouton \"Télécharger la fiche technique (PDF)\" en haut. PDF en anglais ; pour une version française, <a href=\"/fr/contact/\" class=\"underline\">contactez-nous</a>." }
+]} />
+
 <CTASection locale={locale} />
 </BaseLayout>

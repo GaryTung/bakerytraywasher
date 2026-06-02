@@ -2,33 +2,299 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import YouTubeShort from '../../../components/YouTubeShort.astro';
+import ProductSpecsTable from '../../../components/ProductSpecsTable.astro';
+import TrustBadgeStrip from '../../../components/TrustBadgeStrip.astro';
 import PriceCalloutBox from '../../../components/PriceCalloutBox.astro';
 import CTASection from '../../../components/CTASection.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 const locale = 'th' as const;
+
+const specSections = [
+  { title: "ขนาดและน้ำหนัก", rows: [
+    { k: "ตัวเครื่อง (ปิดกระโจม)", v: "804 × 816 × 1,550 มม." },
+    { k: "สูงสุด (เปิดกระโจม)", v: "2,115 มม." },
+    { k: "ความสูงห้องล้าง", v: "550 มม." },
+    { k: "ขนาดแร็ค", v: "650 × 550 มม." },
+    { k: "น้ำหนักสุทธิ / รวม", v: "145 กก. / 165 กก." },
+    { k: "พื้นที่วาง", v: "0.65 ตร.ม." },
+  ]},
+  { title: "ประสิทธิภาพการล้าง", rows: [
+    { k: "อัตราการล้าง (ถาดมาตรฐาน)", v: "180 ถาด/ชั่วโมง" },
+    { k: "การบรรจุต่อรอบ", v: "6 ถาด" },
+    { k: "เวลารอบ", v: "2 นาที (120 วินาที)" },
+    { k: "รอบต่อชั่วโมง", v: "30" },
+    { k: "น้ำต่อรอบ", v: "2.0–2.5 ลิตร" },
+    { k: "อุณหภูมิถังล้าง", v: "60–65°C" },
+    { k: "อุณหภูมิฉีดสุดท้าย", v: "≥82°C (NSF/ANSI 3)" },
+  ]},
+  { title: "ความเข้ากันได้", rows: [
+    { k: "ถาด 600×400 มม.", v: "6 ต่อรอบ (แนวตั้ง)" },
+    { k: "ถาด 18×26\" ครึ่ง", v: "6 ต่อรอบ (แบน)" },
+    { k: "ถาด 18×26\" เต็ม", v: "1–2 ต่อรอบ (เฉียง)" },
+    { k: "Gastronorm GN 2/1", v: "6 ต่อรอบ" },
+    { k: "พิมพ์เค้ก 8\"", v: "6 ต่อรอบ" },
+    { k: "พิมพ์เค้ก 12\"", v: "2 ต่อรอบ (แนวตั้ง)" },
+    { k: "ถาดพิซซ่า 14\" / 16\"", v: "4 / 3 ต่อรอบ" },
+    { k: "หม้อ (≤ 28 ซม. เส้นผ่าน)", v: "2 ต่อรอบ" },
+    { k: "ชาม KitchenAid 5 ล.", v: "4 ต่อรอบ (แนวตั้ง)" },
+  ]},
+  { title: "ไฟฟ้า", rows: [
+    { k: "กำลังรวม", v: "13 kW" },
+    { k: "ฮีตเตอร์", v: "9 kW" },
+    { k: "ปั๊ม", v: "0.75 kW" },
+    { k: "ไฟ (มาตรฐาน)", v: "380V / 3N / 50Hz" },
+    { k: "ทางเลือก", v: "400V / 50Hz · 220V / 60Hz (ระบุตอนสั่ง)" },
+    { k: "กระแสใช้งาน", v: "21.5 A" },
+    { k: "เบรกเกอร์แนะนำ", v: "32 A type C" },
+  ]},
+  { title: "น้ำ", rows: [
+    { k: "การต่อท่อน้ำเข้า", v: "G 3/4\"" },
+    { k: "ความดันน้ำเข้า", v: "2.5–6 kg/cm²" },
+    { k: "อุณหภูมิน้ำเข้า", v: "≥ 10°C (50–60°C อุ่นล่วงหน้าประหยัด)" },
+    { k: "การต่อท่อระบาย", v: "ท่อ G 1½\"" },
+    { k: "ระยะระบาย", v: "≤ 1.5 ม." },
+    { k: "อัตราระบาย", v: "~25 ล./นาที" },
+  ]},
+  { title: "วัสดุ", rows: [
+    { k: "ตัวเครื่อง", v: "SUS304 เกรดอาหาร" },
+    { k: "ผนังห้องล้าง", v: "SUS304 เกรดอาหาร" },
+    { k: "แร็ค / โครงรองรับถาด", v: "SUS304 เกรดอาหาร" },
+    { k: "แขนหมุน", v: "SUS304 เกรดอาหาร" },
+    { k: "ท่อภายใน", v: "ซิลิโคนเกรดอาหาร + สแตนเลส" },
+  ]},
+  { title: "ใบรับรอง", rows: [
+    { k: "ความปลอดภัย", v: "CE (ตาม EU)" },
+    { k: "คุณภาพ", v: "ISO 9001:2015" },
+    { k: "ฆ่าเชื้อ", v: "NSF/ANSI 3, EN 12875-2, DIN 10516, FDA 4-501.112" },
+    { k: "วัสดุสัมผัสอาหาร", v: "FDA, EU 1935/2004" },
+    { k: "ระเบียบเครื่องจักร", v: "EN ISO 12100, EN 60204-1" },
+  ]},
+  { title: "ฟังก์ชั่น", rows: [
+    { k: "เริ่มอัตโนมัติเมื่อปิดประตู", v: "มี" },
+    { k: "ระบบกู้คืนความร้อน", v: "อัปเกรดเสริม (15–25%)" },
+    { k: "เครื่องจ่ายอัตโนมัติ", v: "อัปเกรดเสริม" },
+    { k: "ปั๊มน้ำยาเคลือบ", v: "อัปเกรดเสริม" },
+    { k: "ตัดไฟเมื่อเปิดประตู", v: "มาตรฐาน" },
+    { k: "ป้องกันไฟเกิน", v: "มาตรฐาน" },
+    { k: "แสดงอุณหภูมิ", v: "LED ดิจิทัล" },
+    { k: "เสียง", v: "≤ 70 dB" },
+  ]}
+];
+
+const washThumbs = [
+  { slug: 'baking-trays-600x400', label: "ถาดเบเกอรี่ 600×400 มม.", img: '/images/600x400-tray-comparison.webp' },
+  { slug: 'sheet-pans', label: "ถาดอเมริกัน", img: '/images/what-it-washes/sheet-pans.webp' },
+  { slug: 'mixing-bowls', label: "ชามผสม", img: '/images/what-it-washes/mixing-bowls.webp' },
+  { slug: 'cake-pans', label: "พิมพ์เค้ก", img: '/images/what-it-washes/cake-pans.webp' },
+  { slug: 'pizza-pans', label: "ถาดพิซซ่า", img: '/images/what-it-washes/pizza-pans.webp' },
+  { slug: 'frying-baskets', label: "ตะกร้าทอด", img: '/images/what-it-washes/frying-baskets.webp' },
+  { slug: 'stockpots', label: "หม้อใหญ่", img: '/images/what-it-washes/stockpots.webp' },
+  { slug: 'dishes-plates', label: "จานและภาชนะ", img: '/images/what-it-washes/dishes-plates.webp' },
+  { slug: 'utensils-mixers', label: "อุปกรณ์และหัวเครื่องผสม", img: '/images/what-it-washes/utensils-mixers.webp' },
+  { slug: 'large-bakeware', label: "อุปกรณ์อบขนาดใหญ่", img: '/images/what-it-washes/large-bakeware.webp' }
+];
+
+const features = [
+  { icon: "🛡️", title: "สแตนเลส SUS304", text: "ทั้งเครื่อง SUS304 เกรดอาหาร — กันสนิม ฆ่าเชื้อง่าย ผ่าน FDA" },
+  { icon: "📏", title: "ห้องล้างใหญ่พิเศษ", text: "แร็ค 650×550 มม. รับถาด 600×400 มม. หม้อใหญ่ ชาม KitchenAid" },
+  { icon: "💧", title: "แขนหมุนคู่ + หัวฉีดเฉพาะถาด", text: "ล้าง 360° เรขาคณิตหัวฉีดออกแบบสำหรับผิวเรียบของถาด" },
+  { icon: "🌡️", title: "ควบคุมอุณหภูมิอัจฉริยะ", text: "ฆ่าเชื้ออัตโนมัติที่ ≥82°C พร้อมหน้าจอ LED แผงควบคุมแบบโมดูล" },
+  { icon: "💦", title: "ใช้น้ำต่ำมาก", text: "2.0–2.5 ลิตร/รอบ เทียบกับ 5–10 ลิตรของคู่แข่งส่วนใหญ่" },
+  { icon: "♻️", title: "ระบบกู้คืนความร้อน", text: "น้ำร้อนจากการฉีดกลับเข้าถังล้าง ประหยัด 15–25%" },
+  { icon: "🚪", title: "ประตูฉนวนปิดสนิท", text: "ลดไอน้ำออก 70% ครัวเย็นและแห้งกว่า" },
+  { icon: "🧑‍🍳", title: "ใช้งานสะดวก", text: "รางผลัก-ดึง ปิดประตูรอบเริ่มเอง ไม่ต้องกดปุ่ม" },
+  { icon: "🔒", title: "ระบบป้องกันหลายชั้น", text: "ล็อคประตู ป้องกันไฟฟ้าเกิน" },
+  { icon: "🧪", title: "พร้อมเครื่องจ่ายอัตโนมัติ", text: "ติดตั้งอินเทอร์เฟซเครื่องจ่ายและโมดูลปรับสภาพน้ำไว้ก่อน" },
+  { icon: "⚡", title: "ผ่าน CE Safety", text: "ตามข้อกำหนด EU ส่งไป EU, GCC, APAC, LATAM, แอฟริกาได้" },
+  { icon: "⏱️", title: "ปิดประตูเริ่มอัตโนมัติ", text: "ปิดกระโจม รอบเริ่มเอง ไม่มีปุ่ม ไม่ต้องรอ" }
+];
 ---
-<BaseLayout title="V-TAI JD-3 — เครื่องล้างถาดเบเกอรี่" description="V-TAI JD-3: 180 ถาด/ชั่วโมง, ถาด 600×400, SUS304, CE." locale={locale} canonicalPath="/product/" schemaType="Product">
-<BreadcrumbNav items={[{label:'หน้าแรก',href:'/th/'},{label:'สินค้า'}]} />
-<section class="section"><div class="container-page grid lg:grid-cols-2 gap-10">
-<ImagePlaceholder src="/images/jd-3-front.webp" alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
-<div>
-<p class="eyebrow mb-2">รุ่น VT-AE-JD-3</p>
-<h1 class="mb-4">V-TAI JD-3 — เครื่องล้างถาดเบเกอรี่แบบกระโจม</h1>
-<p class="text-lg mb-5">เครื่องล้างจานแบบกระโจมเดียวในระดับราคานี้ที่ออกแบบสำหรับมาตรฐานยุโรป <strong>600×400 มม.</strong></p>
-<PriceCalloutBox locale={locale} />
-</div>
-</div></section>
-<section class="section"><div class="container-prose">
-<h2 class="mb-3">คุณสมบัติหลัก</h2>
-<ul class="space-y-2 list-disc list-inside">
-<li>โครงสร้าง SUS304 สแตนเลสเกรดอาหาร</li>
-<li>ห้องล้างใหญ่พิเศษ (650×550 มม.)</li>
-<li>แขนล้างหมุนคู่ครอบคลุม 360°</li>
-<li>ควบคุมอุณหภูมิอัจฉริยะ >82°C</li>
-<li>ใช้น้ำต่ำ 2.0-2.5 ลิตร/รอบ</li>
-<li>ระบบกู้คืนความร้อน (ตัวเลือก)</li>
-<li>ประตูซีลฉนวน — ลดไอน้ำ 70%</li>
-<li>มาตรฐาน CE Safety</li>
-</ul>
-</div></section>
+<BaseLayout
+  title="V-TAI JD-3 — เครื่องล้างถาดเบเกอรี่แบบกระโจม | หน้าผลิตภัณฑ์เต็ม"
+  description="V-TAI JD-3 เครื่องล้างถาดเบเกอรี่แบบกระโจม: 180 ถาด/ชั่วโมง รองรับถาด 600×400 mm SUS304 รับรอง CE เริ่ม $4,400 FOB เซินเจิ้น ดาวน์โหลด PDF สเปค"
+  locale={locale}
+  canonicalPath="/product/"
+  schemaType="Product"
+  schemaData={{
+    name: 'V-TAI JD-3',
+    sku: 'VT-AE-JD-3',
+    brand: { '@type': 'Brand', name: 'V-TAI' },
+    description: "V-TAI JD-3 เครื่องล้างถาดเบเกอรี่แบบกระโจม: 180 ถาด/ชั่วโมง รองรับถาด 600×400 mm SUS304 รับรอง CE เริ่ม $4,400 FOB เซินเจิ้น ดาวน์โหลด PDF สเปค",
+    image: 'https://bakerytraywasher.com/images/jd-3-hero.webp',
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '4400', highPrice: '4900', availability: 'https://schema.org/InStock' },
+  }}
+>
+
+<BreadcrumbNav items={[{label: "หน้าแรก", href: '/th/'}, {label: "ผลิตภัณฑ์"}]} />
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10">
+    <div>
+      <ImagePlaceholder src="/images/jd-3-front.webp" alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
+      <div class="grid grid-cols-3 gap-3 mt-3">
+        <ImagePlaceholder src="/images/jd-3-inside.webp"      alt="JD-3 inside"   ratio="1/1" />
+        <ImagePlaceholder src="/images/jd-3-led-control.webp" alt="JD-3 LED"      ratio="1/1" />
+        <ImagePlaceholder src="/images/jd-3-wash-arms.webp"   alt="JD-3 arms"     ratio="1/1" />
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow mb-2">รุ่น VT-AE-JD-3</p>
+      <h1 class="mb-4">V-TAI JD-3 — เครื่องล้างถาดเบเกอรี่แบบกระโจม</h1>
+      <p class="text-lg text-bakery-navy/80 mb-5" set:html={"เครื่องล้างจานแบบกระโจมเดียวในช่วงราคานี้ที่ออกแบบสำหรับมาตรฐานยุโรป <strong>ถาด 600×400 มม.</strong> สร้างเพื่อครัวเชิงพาณิชย์ขนาดเล็ก — ร้านเบเกอรี่ คาเฟ่ ร้านขนมหวาน ครัวขนมโรงแรม"} />
+      <div class="grid grid-cols-2 gap-3 mb-6">
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">อัตราการล้าง</p><p class="font-semibold">180 ถาด/ชั่วโมง</p></div>
+        <div class="rounded-card border-bakery-orange/30 bg-bakery-cream border p-3"><p class="text-xs text-bakery-brown">ขนาดแร็ค</p><p class="font-semibold">650×550 มม. ⭐</p></div>
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">เวลารอบ</p><p class="font-semibold">2 นาที · 6 ถาด</p></div>
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">กำลังรวม</p><p class="font-semibold">13 kW</p></div>
+      </div>
+      <PriceCalloutBox locale={locale} />
+
+      <!-- Spec sheet PDF + Quote -->
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/downloads/jd-3-spec-sheet-en.pdf"
+           class="btn-primary inline-flex items-center gap-2"
+           download
+           aria-label="Download spec sheet PDF">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          <span>ดาวน์โหลดสเปค (PDF)</span>
+        </a>
+        <a href="/th/get-quote/" class="btn-secondary inline-flex items-center gap-2">ขอใบเสนอราคา</a>
+      </div>
+      <p class="mt-2 text-xs text-bakery-navy/60" set:html={"PDF ภาษาอังกฤษ ต้องการเวอร์ชันภาษาไทย? <a href=\"/th/contact/\" class=\"underline\">แจ้งขอที่นี่</a>"} />
+    </div>
+  </div>
+</section>
+
+<TrustBadgeStrip locale={locale} />
+
+<!-- Full specifications table -->
+<section class="section">
+  <div class="container-page">
+    <div class="text-center max-w-3xl mx-auto mb-8">
+      <h2 class="mb-3">สเปคเต็ม</h2>
+      <p class="text-bakery-navy/70" set:html={"ทุกอย่างที่ฝ่ายจัดซื้อ วิศวกรครัว และผู้ตรวจสอบสุขอนามัยต้องการ ดาวน์โหลด <a href=\"/downloads/jd-3-spec-sheet-en.pdf\" class=\"text-bakery-orange underline\" download>สเปค PDF</a> สำหรับตรวจสอบออฟไลน์"} />
+    </div>
+    <ProductSpecsTable sections={specSections} />
+    <div class="text-center mt-8">
+      <a href="/downloads/jd-3-spec-sheet-en.pdf"
+         class="btn-primary inline-flex items-center gap-2"
+         download>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        <span>ดาวน์โหลดสเปคเต็ม (PDF)</span>
+      </a>
+      <p class="mt-3 text-xs text-bakery-navy/60" set:html={"PDF ภาษาอังกฤษ ต้องการเวอร์ชันภาษาไทย? <a href=\"/th/contact/\" class=\"underline\">แจ้งขอที่นี่</a>"} />
+    </div>
+  </div>
+</section>
+
+<!-- Videos -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <h2 class="mb-3">ดูเครื่องทำงาน</h2>
+      <p class="text-bakery-navy/70">คลิปสั้นสองตอน: การติดตั้ง JD-3 ในครัวของคุณ และการปรับเครื่องจ่ายในตัว</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <YouTubeShort videoId="bjxEYRiRTnI" title="คู่มือติดตั้ง JD-3" caption="ติดตั้ง: น้ำ + ไฟฟ้า + รอบแรก" />
+      <YouTubeShort videoId="Zkf6h8u7mFE" title="JD-3: ปรับเครื่องจ่ายในตัว" caption="ปรับ: ปริมาณการจ่ายของเครื่องจ่ายในตัว" />
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-10">การทำงาน — 4 ขั้นตอน</h2>
+    <div class="grid md:grid-cols-4 gap-6">
+      {[
+      { n: '1', t: "โหลด", d: "เลื่อนแร็คที่มีถาด แม่พิมพ์ หรือชามเข้าห้องล้าง" },
+      { n: '2', t: "ปิดกระโจม", d: "รอบเริ่มอัตโนมัติ — ไม่ต้องกดปุ่ม" },
+      { n: '3', t: "ล้าง + ฉีด", d: "แขนคู่ฉีด 360° ฉีดสุดท้ายที่ 82°C" },
+      { n: '4', t: "นำออก", d: "ใน 2 นาที (120 วินาที) สะอาด ฆ่าเชื้อ สะเด็ดน้ำ" }
+      ].map((s) => (
+        <div class="text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-bakery-orange text-white font-bold flex items-center justify-center mb-3">{s.n}</div>
+          <h3 class="text-base mb-2">{s.t}</h3>
+          <p class="text-sm text-bakery-navy/70">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="mb-3">12 คุณสมบัติที่สำคัญ</h2>
+      <p class="text-bakery-navy/70">ทุกรายละเอียดถูกออกแบบสำหรับครัวเชิงพาณิชย์ขนาดเล็ก — ไม่ใช่อุตสาหกรรมเกินไป ไม่ใช่ของบ้านที่ประนีประนอม</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {features.map((f) => (
+        <div class="card">
+          <div class="text-3xl mb-2">{f.icon}</div>
+          <h3 class="text-lg mb-1">{f.title}</h3>
+          <p class="text-sm text-bakery-navy/70">{f.text}</p>
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <a href="/th/product/jd-3-features/" class="btn-secondary">อ่านรายละเอียด 12 คุณสมบัติ</a>
+    </div>
+  </div>
+</section>
+
+<!-- What it cleans (thumbnails) -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-3">ล้างอะไรได้บ้าง</h2>
+    <p class="text-center text-bakery-navy/70 max-w-2xl mx-auto mb-10">คลิกหมวดใดก็ได้เพื่อดูรูปแบบการบรรจุ การตั้งค่าที่แนะนำ และ FAQ เฉพาะ</p>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      {washThumbs.map((w) => (
+        <a href={`/th/what-it-washes/${w.slug}/`} class="card !p-0 overflow-hidden hover:scale-[1.03] transition flex flex-col">
+          <img src={w.img} alt={w.label} class="w-full aspect-[4/3] object-cover" loading="lazy" />
+          <p class="p-3 text-sm font-medium text-bakery-navy text-center">{w.label}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Configurations -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="text-center mb-8">ตัวเลือกการกำหนดค่า</h2>
+    <div class="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+      {[
+      { t: "ไฟฟ้ามาตรฐาน", p: "$4,400", d: "JD-3 พื้นฐาน 380V/3N/50Hz" },
+      { t: "+ เครื่องจ่ายอัตโนมัติ", p: "$4,600", d: "ปั๊มน้ำยาทำความสะอาดและน้ำยาเคลือบ" },
+      { t: "+ อัปเกรดกู้คืนความร้อน", p: "$4,900", d: "แพ็คเกจประหยัดพลังงานเสริม" }
+      ].map((cfg) => (
+        <div class="card">
+          <h3 class="text-lg mb-1">{cfg.t}</h3>
+          <p class="text-2xl font-bold text-bakery-orange mb-2">เริ่ม {cfg.p}</p>
+          <p class="text-sm text-bakery-navy/70">{cfg.d}</p>
+        </div>
+      ))}
+    </div>
+    <p class="text-center mt-6 text-sm text-bakery-navy/60" set:html={"ราคา FOB เซินเจิ้น ค่าขนส่งและอากรขึ้นกับปลายทาง — ดู <a href=\"/th/pricing/by-country/\" class=\"underline\">ราคา DDP ตามประเทศ</a>"} />
+  </div>
+</section>
+
+<FAQSection locale={locale} title="คำถามที่พบบ่อย" items={[
+  { q: "ในกล่องมีอะไร?", a: "เครื่อง JD-3, แร็ครองรับถาดอบทำจากสแตนเลสตามสั่ง 1 ชิ้น, ท่อน้ำเข้า, ท่อระบายน้ำ, คู่มือ, ใบรับรอง CE" },
+  { q: "ส่งไปประเทศไทยได้ไหม?", a: "ได้ เราเผยแพร่ราคา DDP เป็นสกุลเงินท้องถิ่น ดู <a href=\"/th/pricing/by-country/\" class=\"underline\">ราคาตามประเทศ</a>" },
+  { q: "การรับประกัน?", a: "รับประกันชิ้นส่วน 12 เดือน อะไหล่จัดส่งผ่านพัสดุด่วนระหว่างประเทศ" },
+  { q: "อะไหล่ใน 5 ปี?", a: "ส่วนประกอบหลัก — ปั๊ม, ฮีตเตอร์, แผงควบคุม — มีสต็อกที่โรงงาน" },
+  { q: "ดาวน์โหลด PDF สเปคได้ไหม?", a: "ได้ ใช้ปุ่ม \"ดาวน์โหลดสเปค (PDF)\" ด้านบน PDF เป็นภาษาอังกฤษ ต้องการเวอร์ชันไทย <a href=\"/th/contact/\" class=\"underline\">ติดต่อเรา</a>" }
+]} />
+
 <CTASection locale={locale} />
 </BaseLayout>

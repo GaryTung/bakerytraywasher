@@ -2,33 +2,299 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import YouTubeShort from '../../../components/YouTubeShort.astro';
+import ProductSpecsTable from '../../../components/ProductSpecsTable.astro';
+import TrustBadgeStrip from '../../../components/TrustBadgeStrip.astro';
 import PriceCalloutBox from '../../../components/PriceCalloutBox.astro';
 import CTASection from '../../../components/CTASection.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 const locale = 'vi' as const;
+
+const specSections = [
+  { title: "Kích thước & trọng lượng", rows: [
+    { k: "Thân máy (đóng nắp)", v: "804 × 816 × 1.550 mm" },
+    { k: "Chiều cao tối đa (mở nắp)", v: "2.115 mm" },
+    { k: "Chiều cao buồng", v: "550 mm" },
+    { k: "Kích thước rack", v: "650 × 550 mm" },
+    { k: "Trọng lượng tịnh / cả bì", v: "145 kg / 165 kg" },
+    { k: "Diện tích chiếm chỗ", v: "0,65 m²" },
+  ]},
+  { title: "Hiệu suất rửa", rows: [
+    { k: "Năng suất (khay chuẩn)", v: "180 khay/giờ" },
+    { k: "Tải mỗi chu kỳ", v: "6 khay" },
+    { k: "Thời gian chu kỳ", v: "2 phút (120 giây)" },
+    { k: "Chu kỳ mỗi giờ", v: "30" },
+    { k: "Nước mỗi chu kỳ", v: "2,0–2,5 L" },
+    { k: "Nhiệt độ bồn rửa", v: "60–65°C" },
+    { k: "Nhiệt độ tráng cuối", v: "≥82°C (NSF/ANSI 3)" },
+  ]},
+  { title: "Tương thích", rows: [
+    { k: "Khay 600×400 mm", v: "6 mỗi chu kỳ (đứng)" },
+    { k: "Khay nửa 18×26\"", v: "6 mỗi chu kỳ (phẳng)" },
+    { k: "Khay đầy 18×26\"", v: "1–2 mỗi chu kỳ (chéo)" },
+    { k: "Gastronorm GN 2/1", v: "6 mỗi chu kỳ" },
+    { k: "Khuôn bánh 8\"", v: "6 mỗi chu kỳ" },
+    { k: "Khuôn bánh 12\"", v: "2 mỗi chu kỳ (đứng)" },
+    { k: "Khay pizza 14\" / 16\"", v: "4 / 3 mỗi chu kỳ" },
+    { k: "Nồi (≤ 28 cm)", v: "2 mỗi chu kỳ" },
+    { k: "Bát KitchenAid 5 L", v: "4 mỗi chu kỳ (đứng)" },
+  ]},
+  { title: "Điện", rows: [
+    { k: "Công suất tổng", v: "13 kW" },
+    { k: "Điện trở", v: "9 kW" },
+    { k: "Bơm", v: "0,75 kW" },
+    { k: "Nguồn (chuẩn)", v: "380V / 3N / 50Hz" },
+    { k: "Tùy chọn", v: "400V / 50Hz · 220V / 60Hz (chỉ định khi đặt)" },
+    { k: "Dòng làm việc", v: "21,5 A" },
+    { k: "CB đề xuất", v: "32 A loại C" },
+  ]},
+  { title: "Nước", rows: [
+    { k: "Kết nối cấp", v: "G 3/4\"" },
+    { k: "Áp suất cấp", v: "2,5–6 kg/cm²" },
+    { k: "Nhiệt độ cấp", v: "≥ 10°C (50–60°C tiết kiệm năng lượng)" },
+    { k: "Kết nối thoát", v: "Ống G 1½\"" },
+    { k: "Khoảng cách thoát", v: "≤ 1,5 m" },
+    { k: "Lưu lượng thoát", v: "~25 L/phút" },
+  ]},
+  { title: "Vật liệu", rows: [
+    { k: "Vỏ ngoài", v: "SUS304 thực phẩm" },
+    { k: "Vách buồng", v: "SUS304 thực phẩm" },
+    { k: "Rack / khung đỡ khay", v: "SUS304 thực phẩm" },
+    { k: "Cánh tay xoay", v: "SUS304 thực phẩm" },
+    { k: "Ống bên trong", v: "Silicon thực phẩm + inox" },
+  ]},
+  { title: "Chứng nhận", rows: [
+    { k: "An toàn", v: "CE (tuân thủ EU)" },
+    { k: "Chất lượng", v: "ISO 9001:2015" },
+    { k: "Tiệt trùng", v: "NSF/ANSI 3, EN 12875-2, DIN 10516, FDA 4-501.112" },
+    { k: "Tiếp xúc thực phẩm", v: "FDA, EU 1935/2004" },
+    { k: "Chỉ thị máy móc", v: "EN ISO 12100, EN 60204-1" },
+  ]},
+  { title: "Chức năng", rows: [
+    { k: "Tự khởi động khi đóng nắp", v: "Có" },
+    { k: "Thu hồi nhiệt", v: "Nâng cấp tùy chọn (15–25%)" },
+    { k: "Bộ phân phối tự động", v: "Nâng cấp tùy chọn" },
+    { k: "Bơm chất trợ xả", v: "Nâng cấp tùy chọn" },
+    { k: "Khóa cửa cắt điện", v: "Chuẩn" },
+    { k: "Bảo vệ quá áp", v: "Chuẩn" },
+    { k: "Hiển thị nhiệt độ", v: "LED số" },
+    { k: "Tiếng ồn", v: "≤ 70 dB" },
+  ]}
+];
+
+const washThumbs = [
+  { slug: 'baking-trays-600x400', label: "Khay bánh 600×400 mm", img: '/images/600x400-tray-comparison.webp' },
+  { slug: 'sheet-pans', label: "Khay Mỹ", img: '/images/what-it-washes/sheet-pans.webp' },
+  { slug: 'mixing-bowls', label: "Bát trộn", img: '/images/what-it-washes/mixing-bowls.webp' },
+  { slug: 'cake-pans', label: "Khuôn bánh kem", img: '/images/what-it-washes/cake-pans.webp' },
+  { slug: 'pizza-pans', label: "Khay pizza", img: '/images/what-it-washes/pizza-pans.webp' },
+  { slug: 'frying-baskets', label: "Giỏ chiên", img: '/images/what-it-washes/frying-baskets.webp' },
+  { slug: 'stockpots', label: "Nồi lớn", img: '/images/what-it-washes/stockpots.webp' },
+  { slug: 'dishes-plates', label: "Đĩa và bát", img: '/images/what-it-washes/dishes-plates.webp' },
+  { slug: 'utensils-mixers', label: "Dụng cụ và phụ kiện", img: '/images/what-it-washes/utensils-mixers.webp' },
+  { slug: 'large-bakeware', label: "Dụng cụ nướng lớn", img: '/images/what-it-washes/large-bakeware.webp' }
+];
+
+const features = [
+  { icon: "🛡️", title: "Thép không gỉ SUS304", text: "Toàn máy bằng SUS304 thực phẩm — chống ăn mòn, dễ tiệt trùng, đạt FDA." },
+  { icon: "📏", title: "Buồng rửa cực lớn", text: "Rack 650×550 mm vừa khay 600×400 mm, nồi lớn, bát KitchenAid." },
+  { icon: "💧", title: "Hai cánh tay xoay + vòi chuyên dụng", text: "Rửa 360°. Hình dạng vòi tối ưu cho bề mặt phẳng của khay." },
+  { icon: "🌡️", title: "Điều khiển nhiệt độ thông minh", text: "Tiệt trùng tự động ≥82°C với màn hình LED. Bo mạch điều khiển dạng mô-đun." },
+  { icon: "💦", title: "Tiêu thụ nước siêu thấp", text: "2,0–2,5 L mỗi chu kỳ so với 5–10 L của hầu hết đối thủ." },
+  { icon: "♻️", title: "Hệ thống thu hồi nhiệt", text: "Nước nóng từ tráng cuối quay lại bồn rửa, tiết kiệm 15–25% năng lượng." },
+  { icon: "🚪", title: "Nắp cách nhiệt kín", text: "Giảm hơi thoát ra tới 70%. Bếp mát và khô hơn." },
+  { icon: "🧑‍🍳", title: "Vận hành công thái học", text: "Ray đẩy-kéo. Đóng nắp chu kỳ tự khởi động — không nút." },
+  { icon: "🔒", title: "Bảo vệ nhiều lớp", text: "Khóa cửa, bảo vệ quá tải điện áp." },
+  { icon: "🧪", title: "Sẵn sàng cho bộ phân phối tự động", text: "Giao diện cài sẵn cho bộ phân phối và mô-đun xử lý nước." },
+  { icon: "⚡", title: "Chứng nhận CE Safety", text: "Tuân thủ EU. Sẵn sàng xuất khẩu sang EU, GCC, APAC, LATAM, châu Phi." },
+  { icon: "⏱️", title: "Tự động khởi động khi đóng nắp", text: "Đóng nắp chu kỳ chạy. Không nút, không chờ." }
+];
 ---
-<BaseLayout title="V-TAI JD-3 — Máy rửa khay bánh" description="V-TAI JD-3: 180 khay/giờ, khay 600×400, SUS304, CE." locale={locale} canonicalPath="/product/" schemaType="Product">
-<BreadcrumbNav items={[{label:'Trang chủ',href:'/vi/'},{label:'Sản phẩm'}]} />
-<section class="section"><div class="container-page grid lg:grid-cols-2 gap-10">
-<ImagePlaceholder src="/images/jd-3-front.webp" alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
-<div>
-<p class="eyebrow mb-2">Model VT-AE-JD-3</p>
-<h1 class="mb-4">V-TAI JD-3 — Máy rửa khay bánh kiểu nắp vòm</h1>
-<p class="text-lg mb-5">Máy rửa kiểu nắp vòm duy nhất trong phân khúc giá này được thiết kế cho tiêu chuẩn châu Âu <strong>600×400 mm</strong></p>
-<PriceCalloutBox locale={locale} />
-</div>
-</div></section>
-<section class="section"><div class="container-prose">
-<h2 class="mb-3">Các tính năng chính</h2>
-<ul class="space-y-2 list-disc list-inside">
-<li>Kết cấu SUS304 — thép không gỉ thực phẩm</li>
-<li>Buồng rửa cực lớn (650×550 mm)</li>
-<li>Cánh tay phun đôi 360°</li>
-<li>Kiểm soát nhiệt độ thông minh >82°C</li>
-<li>Tiêu thụ nước thấp 2,0-2,5 L/chu kỳ</li>
-<li>Hệ thống thu hồi nhiệt (tùy chọn)</li>
-<li>Cửa kín cách nhiệt — giảm hơi 70%</li>
-<li>Chứng nhận CE Safety</li>
-</ul>
-</div></section>
+<BaseLayout
+  title="V-TAI JD-3 — Máy rửa khay bánh kiểu nắp vòm | Trang sản phẩm đầy đủ"
+  description="V-TAI JD-3 máy rửa khay bánh kiểu nắp vòm: 180 khay/giờ, tương thích khay 600×400 mm, SUS304, chứng nhận CE. Từ $4,400 FOB Thâm Quyến. Tải PDF thông số kỹ thuật."
+  locale={locale}
+  canonicalPath="/product/"
+  schemaType="Product"
+  schemaData={{
+    name: 'V-TAI JD-3',
+    sku: 'VT-AE-JD-3',
+    brand: { '@type': 'Brand', name: 'V-TAI' },
+    description: "V-TAI JD-3 máy rửa khay bánh kiểu nắp vòm: 180 khay/giờ, tương thích khay 600×400 mm, SUS304, chứng nhận CE. Từ $4,400 FOB Thâm Quyến. Tải PDF thông số kỹ thuật.",
+    image: 'https://bakerytraywasher.com/images/jd-3-hero.webp',
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '4400', highPrice: '4900', availability: 'https://schema.org/InStock' },
+  }}
+>
+
+<BreadcrumbNav items={[{label: "Trang chủ", href: '/vi/'}, {label: "Sản phẩm"}]} />
+
+<section class="section">
+  <div class="container-page grid lg:grid-cols-2 gap-10">
+    <div>
+      <ImagePlaceholder src="/images/jd-3-front.webp" alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
+      <div class="grid grid-cols-3 gap-3 mt-3">
+        <ImagePlaceholder src="/images/jd-3-inside.webp"      alt="JD-3 inside"   ratio="1/1" />
+        <ImagePlaceholder src="/images/jd-3-led-control.webp" alt="JD-3 LED"      ratio="1/1" />
+        <ImagePlaceholder src="/images/jd-3-wash-arms.webp"   alt="JD-3 arms"     ratio="1/1" />
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow mb-2">Mẫu VT-AE-JD-3</p>
+      <h1 class="mb-4">V-TAI JD-3 — Máy rửa khay bánh kiểu nắp vòm</h1>
+      <p class="text-lg text-bakery-navy/80 mb-5" set:html={"Máy rửa kiểu nắp vòm duy nhất trong tầm giá này được thiết kế cho tiêu chuẩn châu Âu <strong>khay 600×400 mm</strong>. Dành cho bếp thương mại nhỏ — tiệm bánh, quán cà phê, tiệm bánh ngọt, bếp bánh khách sạn."} />
+      <div class="grid grid-cols-2 gap-3 mb-6">
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">Năng suất</p><p class="font-semibold">180 khay/giờ</p></div>
+        <div class="rounded-card border-bakery-orange/30 bg-bakery-cream border p-3"><p class="text-xs text-bakery-brown">Kích thước rack</p><p class="font-semibold">650×550 mm ⭐</p></div>
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">Thời gian chu kỳ</p><p class="font-semibold">2 phút · 6 khay</p></div>
+        <div class="rounded-card border-bakery-navy/10 border p-3"><p class="text-xs text-bakery-navy/60">Công suất tổng</p><p class="font-semibold">13 kW</p></div>
+      </div>
+      <PriceCalloutBox locale={locale} />
+
+      <!-- Spec sheet PDF + Quote -->
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/downloads/jd-3-spec-sheet-en.pdf"
+           class="btn-primary inline-flex items-center gap-2"
+           download
+           aria-label="Download spec sheet PDF">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          <span>Tải thông số kỹ thuật (PDF)</span>
+        </a>
+        <a href="/vi/get-quote/" class="btn-secondary inline-flex items-center gap-2">Yêu cầu báo giá</a>
+      </div>
+      <p class="mt-2 text-xs text-bakery-navy/60" set:html={"PDF tiếng Anh. Cần bản tiếng Việt? <a href=\"/vi/contact/\" class=\"underline\">Yêu cầu tại đây</a>."} />
+    </div>
+  </div>
+</section>
+
+<TrustBadgeStrip locale={locale} />
+
+<!-- Full specifications table -->
+<section class="section">
+  <div class="container-page">
+    <div class="text-center max-w-3xl mx-auto mb-8">
+      <h2 class="mb-3">Thông số kỹ thuật đầy đủ</h2>
+      <p class="text-bakery-navy/70" set:html={"Tất cả những gì mua sắm, kỹ thuật bếp và kiểm tra vệ sinh cần. Tải <a href=\"/downloads/jd-3-spec-sheet-en.pdf\" class=\"text-bakery-orange underline\" download>PDF thông số</a> để xem ngoại tuyến."} />
+    </div>
+    <ProductSpecsTable sections={specSections} />
+    <div class="text-center mt-8">
+      <a href="/downloads/jd-3-spec-sheet-en.pdf"
+         class="btn-primary inline-flex items-center gap-2"
+         download>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        <span>Tải thông số kỹ thuật đầy đủ (PDF)</span>
+      </a>
+      <p class="mt-3 text-xs text-bakery-navy/60" set:html={"PDF tiếng Anh. Cần bản tiếng Việt? <a href=\"/vi/contact/\" class=\"underline\">Yêu cầu tại đây</a>."} />
+    </div>
+  </div>
+</section>
+
+<!-- Videos -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <h2 class="mb-3">Xem máy hoạt động</h2>
+      <p class="text-bakery-navy/70">Hai video ngắn: cài đặt JD-3 trong bếp của bạn và cách điều chỉnh bộ phân phối tích hợp.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <YouTubeShort videoId="bjxEYRiRTnI" title="Hướng dẫn cài đặt JD-3" caption="Cài đặt: nước + điện + chu kỳ đầu" />
+      <YouTubeShort videoId="Zkf6h8u7mFE" title="JD-3: điều chỉnh bộ phân phối" caption="Điều chỉnh: liều bộ phân phối tích hợp" />
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-10">Cách vận hành — 4 bước</h2>
+    <div class="grid md:grid-cols-4 gap-6">
+      {[
+      { n: '1', t: "Nạp", d: "Đẩy rack khay, khuôn hoặc bát vào buồng." },
+      { n: '2', t: "Đóng nắp", d: "Chu kỳ tự động bắt đầu — không cần nút." },
+      { n: '3', t: "Rửa + tráng", d: "Hai cánh tay phun 360°. Tráng cuối ở 82°C." },
+      { n: '4', t: "Lấy ra", d: "Sau 2 phút (120 giây). Sạch, tiệt trùng, ráo nước." }
+      ].map((s) => (
+        <div class="text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-bakery-orange text-white font-bold flex items-center justify-center mb-3">{s.n}</div>
+          <h3 class="text-base mb-2">{s.t}</h3>
+          <p class="text-sm text-bakery-navy/70">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="mb-3">12 tính năng quan trọng</h2>
+      <p class="text-bakery-navy/70">Mỗi chi tiết được thiết kế cho bếp thương mại nhỏ — không phải công nghiệp dư thừa, cũng không phải gia dụng thỏa hiệp.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {features.map((f) => (
+        <div class="card">
+          <div class="text-3xl mb-2">{f.icon}</div>
+          <h3 class="text-lg mb-1">{f.title}</h3>
+          <p class="text-sm text-bakery-navy/70">{f.text}</p>
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <a href="/vi/product/jd-3-features/" class="btn-secondary">Chi tiết 12 tính năng</a>
+    </div>
+  </div>
+</section>
+
+<!-- What it cleans (thumbnails) -->
+<section class="section">
+  <div class="container-page">
+    <h2 class="text-center mb-3">Rửa được những gì</h2>
+    <p class="text-center text-bakery-navy/70 max-w-2xl mx-auto mb-10">Bấm bất kỳ danh mục nào để xem cách xếp, cài đặt khuyến nghị và FAQ riêng.</p>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      {washThumbs.map((w) => (
+        <a href={`/vi/what-it-washes/${w.slug}/`} class="card !p-0 overflow-hidden hover:scale-[1.03] transition flex flex-col">
+          <img src={w.img} alt={w.label} class="w-full aspect-[4/3] object-cover" loading="lazy" />
+          <p class="p-3 text-sm font-medium text-bakery-navy text-center">{w.label}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Configurations -->
+<section class="section bg-bakery-cream">
+  <div class="container-page">
+    <h2 class="text-center mb-8">Tùy chọn cấu hình</h2>
+    <div class="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+      {[
+      { t: "Điện chuẩn", p: "$4,400", d: "JD-3 cơ bản, 380V/3N/50Hz" },
+      { t: "+ Bộ phân phối tự động", p: "$4,600", d: "Bơm chất tẩy rửa và chất trợ xả" },
+      { t: "+ Nâng cấp thu hồi nhiệt", p: "$4,900", d: "Gói tiết kiệm năng lượng nâng cao" }
+      ].map((cfg) => (
+        <div class="card">
+          <h3 class="text-lg mb-1">{cfg.t}</h3>
+          <p class="text-2xl font-bold text-bakery-orange mb-2">Từ {cfg.p}</p>
+          <p class="text-sm text-bakery-navy/70">{cfg.d}</p>
+        </div>
+      ))}
+    </div>
+    <p class="text-center mt-6 text-sm text-bakery-navy/60" set:html={"Tất cả giá FOB Thâm Quyến. Vận chuyển và thuế phụ thuộc điểm đến — xem <a href=\"/vi/pricing/by-country/\" class=\"underline\">giá DDP theo quốc gia</a>."} />
+  </div>
+</section>
+
+<FAQSection locale={locale} title="Câu hỏi thường gặp" items={[
+  { q: "Trong hộp có gì?", a: "Máy JD-3, một khung đỡ khay nướng inox tùy chỉnh, ống cấp nước, ống xả, hướng dẫn, chứng nhận CE." },
+  { q: "Có thể gửi đến Việt Nam?", a: "Có. Chúng tôi công bố giá DDP bằng tiền địa phương. Xem <a href=\"/vi/pricing/by-country/\" class=\"underline\">giá theo quốc gia</a>." },
+  { q: "Bảo hành?", a: "Bảo hành nhà sản xuất 12 tháng cho linh kiện. Phụ tùng gửi qua chuyển phát nhanh quốc tế." },
+  { q: "Phụ tùng sau 5 năm?", a: "Tất cả linh kiện chính — bơm, điện trở, bo mạch — sẵn có tại nhà máy." },
+  { q: "Tải PDF thông số được không?", a: "Được. Dùng nút \"Tải thông số kỹ thuật (PDF)\" ở trên. PDF tiếng Anh; bản tiếng Việt <a href=\"/vi/contact/\" class=\"underline\">liên hệ chúng tôi</a>." }
+]} />
+
 <CTASection locale={locale} />
 </BaseLayout>
