@@ -35,7 +35,7 @@ const labels = csLabels[locale];
   <div class="container-prose">
     <h1 class="mb-3">{data.title}</h1>
     <p class="text-sm text-bakery-navy/60 mb-6">{data.subheader}</p>
-    <ImagePlaceholder alt={data.imageAlt} ratio="16/9" label={data.imageLabel} />
+    <ImagePlaceholder src={`/images/case-studies/${slug}.webp`} alt={data.imageAlt} ratio="16/9" label={data.imageLabel} />
 
     {data.sections.map((s) => (
       <>

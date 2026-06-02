@@ -2,12 +2,16 @@
 import BusinessTypeLayout from '../../../layouts/BusinessTypeLayout.astro';
 const locale = 'zh' as const;
 ---
-<BusinessTypeLayout locale={locale} canonicalPath="/by-business-type/cloud-kitchen/" slug="cloud-kitchen" businessName="云厨房 / 中央厨房" icon="👨‍🍳"
+<BusinessTypeLayout locale={locale} canonicalPath="/by-business-type/cloud-kitchen/" slug="cloud-kitchen" businessName="中央厨房" icon="👨‍🍳"
   title="云厨房 / 外卖中央厨房的器具周转"
   description="每天 500+ 单外卖背后是 800+ 件器具的周转。JD-3 让中央厨房保持高节奏运转。"
   reality={"云厨房没有堂食压力，但器具周转密度更高 — 每天 500+ 单外卖意味着 800+ 件备餐器具需要在 2–3 个洗涤窗口内全部清干净。"}
   needs={"极高的单位时间吞吐、低水耗（中央厨房常按用水计费）、低人力依赖。"}
-  fit={"JD-3 每循环用水仅 2.0–2.5 升 — 比同级设备低 60%。180 个/小时的吞吐意味着 2 个 1 小时窗口可洗 360 件，覆盖大多数云厨房日需求。"}
+  fit={"JD-3 每循环用水仅 2.0–2.5 升 — 比同级设备低 60%。每小时 30 个循环按 6 个标准烤盘装载 = 180 个/小时，覆盖大多数云厨房日需求。"}
   roi={"云厨房每月用水节省约 30 m³ × 当地水价（新加坡 3.7 SGD/m³）= 111 SGD/月，加上人工节省 1,800 SGD/月。年节省 ~23,000 SGD，3 个月回本。"}
-  faqs={[{q:'可对接厨房管理系统吗？',a:'JD-3 是机械式控制，无 API 对接。但运行日志可手动导出 PDF。'},{q:'水回收系统兼容吗？',a:'可对接灰水回收（漂洗水温度高，回收后可做预冲水）。'},{q:'占地多大？',a:'0.65 m²（804 × 816 mm），高度 1,470 mm（盖板打开 1,950 mm）。'}]}
+  faqs={[
+    {q:'可对接厨房管理系统吗？',a:'JD-3 是机械式控制，无 API 对接。但运行日志可手动导出 PDF。'},
+    {q:'内置水回收系统吗？',a:'内置 — JD-3 配有热回收系统：>82°C 漂洗后的高温水会自动回流至主洗缸，既保持主洗温度，又节能 15–25%。无需外接灰水回收装置。'},
+    {q:'占地多大？',a:'0.65 m²（804 × 816 mm），高度 1,470 mm（盖板打开 1,950 mm）。'},
+  ]}
 />

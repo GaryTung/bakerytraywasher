@@ -1,16 +1,106 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
-import CTASection from '../../../components/CTASection.astro';
-import { t } from '../../../i18n/utils';
+import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
 const locale = 'zh' as const;
 ---
-<BaseLayout title="小型烘焙店的洗碗机投资回报算账（英文版）| JD-3" description="小型烘焙店的洗碗机投资回报算账" locale={locale} canonicalPath="/blog/dishwasher-roi-for-small-bakery/" schemaType="Article">
-<BreadcrumbNav items={[{label: t(locale,'nav.home'), href:'/zh/'},{label: t(locale,'nav.blog'), href:'/zh/blog/'},{label: "小型烘焙店的洗碗机投资回报算账"}]} />
-<section class="section"><div class="container-prose">
-<h1 class="mb-4">小型烘焙店的洗碗机投资回报算账</h1>
-<p class="text-lg mb-6 text-bakery-navy/70">这篇文章暂时未翻译成简体中文，请阅读完整的英文版本：</p>
-<p><a href="/blog/dishwasher-roi-for-small-bakery/" class="btn-primary inline-block">小型烘焙店的洗碗机投资回报算账（英文）→</a></p>
-</div></section>
-<CTASection locale={locale} />
-</BaseLayout>
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/dishwasher-roi-for-small-bakery/"
+  slug="dishwasher-roi-for-small-bakery"
+  title="小型烘焙店的洗碗机投资回报算账 — 具体数字"
+  description="设备投入、运营成本、人力节省、回本周期。我们把一家典型新加坡 / 马来西亚 / 香港小型烘焙店的真实数字拉出来给您看 — 4 个月回本不是噱头，是数学。"
+  pubDate="2026-01-29"
+  tldr={"一家年营业额约 30 万美元的典型东南亚小型烘焙店，"+
+"<strong>每年在洗涤上的总成本（人工 + 流动率 + 产能损失 + 烤盘磨损 + 水电）约 17,200 美元</strong>。"+
+"换上 JD-3 之后这个数字降到 <strong>约 3,800 美元</strong>，"+
+"每年净节省约 <strong>13,400 美元</strong>。"+
+"按 6,800 SGD（约 5,100 美元）新加坡 DDP 到岸价 + 800 美元安装培训 = 总投入 5,900 美元，"+
+"<strong>5.3 个月即可回本</strong>。"+
+"如果用本地货币贷款，按 6% 年利率 24 月期，月供约 260 美元 — 不到节省金额的 1/4。"}
+  faqs={[
+    { q: '我的烘焙店比典型店小，算下来还合算吗？', a: '可能仍然合算。即便您只洗 30 个烤盘 / 天（1 小时手洗 / 天），按 12 美元/小时 × 26 天 = 312 美元/月 = 3,744 美元/年。新加坡 / 马来西亚的人工成本通常更高（兼职 15–20 美元/小时），所以小店的回本周期通常 12–18 个月。仍然是合算投资。' },
+    { q: '如果我老婆在洗烤盘呢？这怎么算？', a: '把您家人的时间按市场费率折算。在新加坡 / 马来西亚，开烘焙店的家庭通常会把家庭时间折算成兼职面包师工资（15–20 美元/小时）。如果您家人愿意把这个时间用在产品研发或销售上，每小时机会成本通常更高。' },
+    { q: '如果我已经雇了一个洗碗工，把他开掉划算吗？', a: '不一定要开。多数烘焙店把洗碗工调岗去做烘焙备料 — 这是真正缺人的环节。同样的工资，从洗涤变成可加值的备料工作。' },
+    { q: '水电费会不会反而增加？', a: '净下降。JD-3 每个循环 2.0–2.5 升水 × 30 循环 / 天 = 60–75 升水 / 天。手洗一个烤盘需要约 5–10 升水（包括预冲、刷洗、漂洗），200 个烤盘 / 天 = 1,000–2,000 升水。新加坡水费 ~3.7 SGD/m³ × （1.5 m³/天节省）= 5.5 SGD/天 × 26 = 143 SGD/月节省。电费略增（JD-3 加热水），但被水费节省抵消还有富余。' },
+    { q: '有没有融资 / 租赁选项？', a: '我们不提供融资，但新加坡、马来西亚的本地银行（DBS、Maybank、CIMB 等）对食品行业小型设备贷款的批准率较高，年利率通常 5–8%。如需信用证支付（订单 > 2 万美元），我们接受。' },
+  ]}
+>
+
+<h2>典型场景设定</h2>
+<p>为了让数字落地，我们用一个 East Asia 真实场景：</p>
+
+<ul>
+  <li>地点：新加坡 / 马来西亚槟城 / 香港铜锣湾（任选）</li>
+  <li>类型：单店独立烘焙坊，1 个老板 + 2 个全职面包师 + 1 个兼职洗碗工 + 1 个零售员工</li>
+  <li>产能：日产 200 个 600×400 烤盘的产品（面包、维也纳类糕点、塔类）</li>
+  <li>年营业额：约 30 万美元（约 40 万 SGD / 110 万 MYR / 230 万 HKD）</li>
+  <li>蒸烤箱：Convotherm Mini OEB</li>
+  <li>当前洗涤方式：兼职工 + 老板补位，全部手洗</li>
+</ul>
+
+<h2>当前洗涤的真实成本（每年）</h2>
+<div class="card !p-0 overflow-hidden my-4">
+  <table class="w-full text-sm">
+    <thead class="bg-bakery-navy text-white">
+      <tr><th class="p-3 text-left">成本项</th><th class="p-3 text-left">计算</th><th class="p-3 text-left">年成本（美元）</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="p-3 border-b">兼职工资</td><td class="p-3 border-b">12 美元/小时 × 3 小时/天 × 26 天 × 12 月</td><td class="p-3 border-b">11,232</td></tr>
+      <tr><td class="p-3 border-b">人员流动率</td><td class="p-3 border-b">3 次招聘/年 × 700 美元招聘培训</td><td class="p-3 border-b">2,100</td></tr>
+      <tr><td class="p-3 border-b">老板补位时间</td><td class="p-3 border-b">3 小时/月 × 30 美元/小时</td><td class="p-3 border-b">1,080</td></tr>
+      <tr><td class="p-3 border-b">烤盘磨损（钢丝球刷损伤）</td><td class="p-3 border-b">10 个烤盘/年 × 35 美元</td><td class="p-3 border-b">350</td></tr>
+      <tr><td class="p-3 border-b">水费（手洗）</td><td class="p-3 border-b">1.5 m³/天 × 26 × 12 × 3.7 SGD/m³ ÷ 1.35</td><td class="p-3 border-b">1,283</td></tr>
+      <tr><td class="p-3 border-b">洗涤剂（手洗专用）</td><td class="p-3 border-b">每月 100 美元</td><td class="p-3 border-b">1,200</td></tr>
+      <tr class="bg-bakery-cream font-bold"><td class="p-3">总计</td><td class="p-3"></td><td class="p-3 text-bakery-orange">17,245</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>换 JD-3 之后的成本（每年）</h2>
+<div class="card !p-0 overflow-hidden my-4">
+  <table class="w-full text-sm">
+    <thead class="bg-bakery-navy text-white">
+      <tr><th class="p-3 text-left">成本项</th><th class="p-3 text-left">计算</th><th class="p-3 text-left">年成本（美元）</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="p-3 border-b">操作时间（员工装载/卸载）</td><td class="p-3 border-b">15 美元/小时 × 0.5 小时/天 × 26 × 12</td><td class="p-3 border-b">2,340</td></tr>
+      <tr><td class="p-3 border-b">水费</td><td class="p-3 border-b">0.075 m³/天 × 26 × 12 × 3.7 SGD/m³</td><td class="p-3 border-b">64</td></tr>
+      <tr><td class="p-3 border-b">电费（加热）</td><td class="p-3 border-b">13 kW × 1 小时/天 × 0.27 SGD/kWh × 26 × 12</td><td class="p-3 border-b">844</td></tr>
+      <tr><td class="p-3 border-b">商用低泡洗涤剂</td><td class="p-3 border-b">每月 35 美元</td><td class="p-3 border-b">420</td></tr>
+      <tr><td class="p-3 border-b">年度维护（本地电工）</td><td class="p-3 border-b">每年 1 次</td><td class="p-3 border-b">150</td></tr>
+      <tr class="bg-bakery-cream font-bold"><td class="p-3">总计</td><td class="p-3"></td><td class="p-3 text-bakery-orange">3,818</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>回本算式</h2>
+<p><strong>年节省 = 17,245 − 3,818 = 13,427 美元</strong></p>
+<p><strong>总投入 = 5,100 美元（JD-3 DDP 新加坡）+ 800 美元（安装 + 培训 + 杂费）= 5,900 美元</strong></p>
+<p><strong>回本周期 = 5,900 ÷ 13,427 × 12 = 5.3 个月</strong></p>
+
+<p>第 1 年净收益 = 13,427 − 5,900 = 7,527 美元</p>
+<p>第 2–10 年净收益 = 13,427 × 9 = 120,843 美元</p>
+<p><strong>10 年累计净收益 ≈ 128,000 美元</strong>。</p>
+
+<h2>不同规模的回本周期</h2>
+<div class="card !p-0 overflow-hidden my-4">
+  <table class="w-full text-sm">
+    <thead class="bg-bakery-navy text-white">
+      <tr><th class="p-3 text-left">烘焙店规模</th><th class="p-3 text-left">日产烤盘</th><th class="p-3 text-left">回本周期</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="p-3 border-b">微型（1 人店）</td><td class="p-3 border-b">30</td><td class="p-3 border-b">12–18 个月</td></tr>
+      <tr><td class="p-3 border-b">小型（3–5 人）</td><td class="p-3 border-b">100</td><td class="p-3 border-b">6–9 个月</td></tr>
+      <tr class="bg-bakery-cream"><td class="p-3 font-bold">典型小店（5–8 人）</td><td class="p-3">200</td><td class="p-3 text-bakery-orange font-bold">4–6 个月</td></tr>
+      <tr><td class="p-3 border-b">中型（10+ 人）</td><td class="p-3 border-b">400+</td><td class="p-3 border-b">2–3 个月</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>下一步</h2>
+<ul>
+  <li>查看 <a href="/zh/pricing/by-country/">您所在国家的 DDP 到岸价</a> — 用您的真实数字算一遍</li>
+  <li>查看 <a href="/zh/case-studies/">4 个真实客户案例</a>（迪拜酒店、墨尔本甜品店、首尔咖啡连锁、利马面包连锁）</li>
+  <li><a href="/zh/get-quote/">12 小时内获取定制报价</a></li>
+</ul>
+
+</BlogPostLayout>
