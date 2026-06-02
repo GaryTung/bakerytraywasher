@@ -5,16 +5,18 @@ import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import CTASection from '../../components/CTASection.astro';
 const locale = 'zh' as const;
 ---
-<BaseLayout title="ราคา JD-3 — เริ่มต้น $4,400 FOB" description="ราคาตรงไปตรงมาสำหรับ V-TAI JD-3" locale={locale} canonicalPath="/pricing/" schemaType="Product">
-<BreadcrumbNav items={[{label:'หน้าแรก',href:'/zh/'},{label:'ราคา'}]} />
+<BaseLayout title="V-TAI JD-3 价格 — FOB 起价 4,400 美元" description="V-TAI JD-3 商用烘焙洗碗机的透明定价：3 种配置方案、深圳 FOB 起价 4,400 美元、18 国本地货币 DDP 到岸价。" locale={locale} canonicalPath="/pricing/" schemaType="Product">
+<BreadcrumbNav items={[{label:'首页',href:'/zh/'},{label:'价格'}]} />
 <section class="section"><div class="container-page">
-<h1 class="text-center mb-4">ราคาตรงไปตรงมา โปร่งใส</h1>
+<h1 class="text-center mb-3">透明定价，明明白白</h1>
+<p class="text-center text-bakery-navy/70 max-w-2xl mx-auto mb-10">3 种配置方案对应不同预算与运营节奏。我们不通过经销商加价，工厂直供。</p>
 <div class="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
-<div class="card"><h3>มาตรฐาน</h3><p class="text-3xl font-bold text-bakery-orange">$4,400</p></div>
-<div class="card border-2 border-bakery-orange"><h3>+ เครื่องจ่ายสารทำความสะอาด</h3><p class="text-3xl font-bold text-bakery-orange">$4,600</p></div>
-<div class="card"><h3>+ การกู้คืนความร้อน</h3><p class="text-3xl font-bold text-bakery-orange">$4,900</p></div>
+<div class="card"><p class="eyebrow mb-1">入门型</p><h3 class="mb-2">JD-3 标准型</h3><p class="text-3xl font-bold text-bakery-orange mb-2">4,400 美元</p><p class="text-sm text-bakery-navy/70">深圳 FOB 起价。基础配置，380V/3N/50Hz，含 2 个洗碗筐 + 杯架 + 工具 + 说明书 + CE 证书。适合单店面包店、小型咖啡馆。</p></div>
+<div class="card border-2 border-bakery-orange"><p class="eyebrow mb-1">最受欢迎</p><h3 class="mb-2">+ 自动洗涤剂分配器</h3><p class="text-3xl font-bold text-bakery-orange mb-2">4,600 美元</p><p class="text-sm text-bakery-navy/70">加入液体洗涤剂与漂洗剂自动定量泵。免去人工补加，剂量稳定，省剂量约 15%。适合多门店、连锁、酒店西点房。</p></div>
+<div class="card"><p class="eyebrow mb-1">节能升级</p><h3 class="mb-2">+ 热回收升级</h3><p class="text-3xl font-bold text-bakery-orange mb-2">4,900 美元</p><p class="text-sm text-bakery-navy/70">含分配器与热回收模块 — 高温漂洗的余热回到主洗水箱，节能 15–25%。适合高频运营、电费较高的市场。</p></div>
 </div>
-<div class="mt-6 max-w-md mx-auto"><PriceCalloutBox locale={locale} /></div>
+<p class="text-center mt-6 text-sm text-bakery-navy/60">以上为深圳 FOB 价格。运费、关税、当地税请见 <a href="/zh/pricing/by-country/" class="underline">各国 DDP 到岸价</a>。</p>
+<div class="mt-10 max-w-md mx-auto"><PriceCalloutBox locale={locale} /></div>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

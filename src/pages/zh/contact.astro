@@ -4,16 +4,18 @@ import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import InlineInquiryForm from '../../components/InlineInquiryForm.astro';
 const locale = 'zh' as const;
 ---
-<BaseLayout title="ติดต่อ V-TAI" description="ติดต่อเรา" locale={locale} canonicalPath="/contact/">
-<BreadcrumbNav items={[{label:'หน้าแรก',href:'/zh/'},{label:'ติดต่อ'}]} />
+<BaseLayout title="联系 V-TAI — 商用洗碗机咨询" description="WhatsApp、邮件直接联系 V-TAI 团队。新加坡、马来西亚、海外华人市场专人对接，12 个工作小时内回复。" locale={locale} canonicalPath="/contact/">
+<BreadcrumbNav items={[{label:'首页',href:'/zh/'},{label:'联系我们'}]} />
 <section class="section"><div class="container-page grid lg:grid-cols-2 gap-10">
 <div>
-<h1 class="mb-4">ติดต่อเรา</h1>
+<h1 class="mb-4">联系我们</h1>
+<p class="text-bakery-navy/80 mb-6">最快的联系方式是 WhatsApp — 通常 2–3 小时内回复（中国时间 GMT+8 工作时段）。也可通过邮件提交详细需求。</p>
 <div class="space-y-4">
-<div class="card"><h3 class="text-lg mb-2">WhatsApp</h3><a href="https://wa.me/8613509623269" class="text-bakery-orange underline">+86 135 0962 3269</a></div>
-<div class="card"><h3 class="text-lg mb-2">อีเมล</h3><a href="mailto:info@v-tai.com" class="text-bakery-orange underline">info@v-tai.com</a></div>
+<div class="card"><h3 class="text-lg mb-2">WhatsApp（推荐）</h3><a href="https://wa.me/8613509623269" class="text-bakery-orange underline">+86 135 0962 3269</a><p class="text-sm text-bakery-navy/60 mt-2">支持中文、英文、马来文沟通。</p></div>
+<div class="card"><h3 class="text-lg mb-2">电子邮件</h3><a href="mailto:info@v-tai.com" class="text-bakery-orange underline">info@v-tai.com</a><p class="text-sm text-bakery-navy/60 mt-2">技术问询、招标 RFP、文件请求请发邮件。</p></div>
+<div class="card"><h3 class="text-lg mb-2">工厂地址</h3><p class="text-bakery-navy">中国广东深圳龙岗区<br/>环球物流中心 22 楼 2202 室</p><p class="text-sm text-bakery-navy/60 mt-2">参观需提前预约。可安排参观 8,000 m² 智能制造车间。</p></div>
 </div>
 </div>
-<InlineInquiryForm locale={locale} title="ส่งข้อความ" />
+<InlineInquiryForm locale={locale} title="发送询盘" />
 </div></section>
 </BaseLayout>

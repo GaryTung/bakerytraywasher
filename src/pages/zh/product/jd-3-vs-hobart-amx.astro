@@ -5,15 +5,22 @@ import ComparisonTable from '../../../components/ComparisonTable.astro';
 import CTASection from '../../../components/CTASection.astro';
 const locale = 'zh' as const;
 const rows = [
-  { label: 'อัตราการล้าง', jd3: '180 ถาด/ชม.', competitor: '60 แร็ค/ชม.' },
-  { label: 'ขนาดแร็ค', jd3: '650×550 มม.', competitor: '500×500 มม.' },
-  { label: 'ถาด 600×400', jd3: '✓ ใช่', competitor: '✗ ไม่', highlight: true },
-  { label: 'ราคา', jd3: '$4,400 FOB', competitor: 'Significantly higher' },
+  { label: '清洗能力',   jd3: '180 个烤盘/小时', competitor: '60 筐/小时（公开数据）' },
+  { label: '洗碗筐尺寸', jd3: '650×550 mm',     competitor: '500×500 mm' },
+  { label: '兼容 600×400 mm 烤盘', jd3: '✓ 是',  competitor: '✗ 否', highlight: true },
+  { label: '最终漂洗温度', jd3: '>82°C 自动',     competitor: '>82°C' },
+  { label: '价格',       jd3: '4,400 美元 FOB', competitor: '明显更高（零售价）' },
 ];
 ---
-<BaseLayout title="JD-3 vs Hobart AMX" description="เปรียบเทียบ V-TAI JD-3 และ Hobart AMX" locale={locale} canonicalPath="/product/jd-3-vs-hobart-amx/" schemaType="Article">
-<BreadcrumbNav items={[{label:'หน้าแรก',href:'/zh/'},{label:'vs Hobart'}]} />
-<section class="section"><div class="container-prose"><h1>JD-3 vs Hobart AMX</h1><p class="text-lg mt-4 mb-6">Hobart เป็นผู้นำตลาดสหรัฐ JD-3 ราคาต่ำกว่าอย่างมาก และรองรับถาด 600×400 ที่ Hobart ไม่รองรับ</p></div>
+<BaseLayout title="JD-3 vs Hobart AMX | 同级对比" description="V-TAI JD-3 与 Hobart AMX 同级对比 — 洗碗筐尺寸、清洗能力、烤盘兼容性、价格逐项分析。" locale={locale} canonicalPath="/product/jd-3-vs-hobart-amx/" schemaType="Article">
+<BreadcrumbNav items={[{label:'首页',href:'/zh/'},{label:'对比',href:'/zh/vs/'},{label:'vs Hobart AMX'}]} />
+<section class="section"><div class="container-prose">
+<h1>JD-3 vs Hobart AMX</h1>
+<p class="text-lg mt-4 mb-6 text-bakery-navy/80">Hobart 是美国揭盖式商用洗碗机的市场领头。JD-3 在同等 CE 认证安全标准下价格显著更低，并且 — 关键点 — 能装下 Hobart AMX 装不下的 600×400 mm 欧标烤盘。</p>
+<h2 class="mt-8 mb-3">为什么这个对比重要</h2>
+<p>对烘焙业主来说，决定洗碗机能否用的关键不是「名牌」，而是「能不能装下我的烤盘」。Hobart AMX 用的是 500×500 mm 洗碗筐 — 这是为咖啡馆碗碟设计的尺寸，装不下 Convotherm、Rational、Unox 蒸烤箱标配的 600×400 烤盘。这意味着：要么您只能洗碗碟（烤盘还得手洗），要么您得加价 2–3 倍买 Hobart 的烘焙专用型号 PROFI。</p>
+<p class="mt-3">JD-3 的 650×550 mm 洗碗筐是从一开始就按 600×400 烤盘设计的。资本支出明显更低，且可在 4 个月内回本。</p>
+</div>
 <div class="container-page"><ComparisonTable competitorName="Hobart AMX" rows={rows} /></div></section>
 <CTASection locale={locale} />
 </BaseLayout>

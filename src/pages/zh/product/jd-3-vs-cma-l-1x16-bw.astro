@@ -4,11 +4,21 @@ import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import ComparisonTable from '../../../components/ComparisonTable.astro';
 import CTASection from '../../../components/CTASection.astro';
 const locale = 'zh' as const;
-const rows = [{ label: 'ถาด 600×400', jd3: '✓', competitor: '✗', highlight: true }];
+const rows = [
+  { label: '清洗能力',   jd3: '180 个烤盘/小时', competitor: '60 筐/小时（公开数据）' },
+  { label: '洗碗筐尺寸', jd3: '650×550 mm',     competitor: '500×500 mm' },
+  { label: '兼容 600×400 mm 烤盘', jd3: '✓ 是',  competitor: '✗ 否', highlight: true },
+  { label: '热回收系统', jd3: '可选',           competitor: '可选' },
+  { label: '价格',       jd3: '4,400 美元 FOB', competitor: '明显更高（零售价）' },
+];
 ---
-<BaseLayout title="JD-3 vs CMA L-1X16-BW" description="เปรียบเทียบ JD-3 vs CMA" locale={locale} canonicalPath="/product/jd-3-vs-cma-l-1x16-bw/" schemaType="Article">
-<BreadcrumbNav items={[{label:'หน้าแรก',href:'/zh/'},{label:'vs CMA'}]} />
-<section class="section"><div class="container-prose"><h1>JD-3 vs CMA L-1X16-BW</h1><p class="text-lg mt-4 mb-6">CMA ใช้แร็ค 500×500 ที่ไม่รองรับ 600×400 JD-3 รองรับ</p></div>
+<BaseLayout title="JD-3 vs CMA L-1X16-BW | 同级对比" description="V-TAI JD-3 与 CMA L-1X16-BW 同级对比 — 烘焙专用机型横评。" locale={locale} canonicalPath="/product/jd-3-vs-cma-l-1x16-bw/" schemaType="Article">
+<BreadcrumbNav items={[{label:'首页',href:'/zh/'},{label:'对比',href:'/zh/vs/'},{label:'vs CMA L-1X16-BW'}]} />
+<section class="section"><div class="container-prose">
+<h1>JD-3 vs CMA L-1X16-BW</h1>
+<p class="text-lg mt-4 mb-6 text-bakery-navy/80">CMA L-1X16-BW 是美国 / 意大利合资品牌中专门强调「面包房 spec」（BW = Bakery Ware）的型号。营销上向烘焙业主倾斜，但实际洗碗筐仍是 500×500 mm — 装不下 600×400 欧标烤盘。这是市场上很常见的「品牌承诺与实际规格不符」的情况。</p>
+<p class="mt-3">JD-3 是物理意义上能装下 600×400 的机型，且价格更低。如果您正在比较 CMA L-1X16-BW，建议先确认您的烤盘尺寸 — 大概率您需要的是 JD-3。</p>
+</div>
 <div class="container-page"><ComparisonTable competitorName="CMA L-1X16-BW" rows={rows} /></div></section>
 <CTASection locale={locale} />
 </BaseLayout>

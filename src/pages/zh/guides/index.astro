@@ -7,11 +7,10 @@ import { t } from '../../../i18n/utils';
 
 const locale = 'zh' as const;
 const hub = guidesHub[locale];
-const readLabel = "อ่านคู่มือ";
 ---
 <BaseLayout
-  title={"คู่มือ JD-3 — เครื่องล้างถาดเบเกอรี่"}
-  description={"คู่มือปฏิบัติ 9 ฉบับ สำหรับการเลือก ติดตั้ง และใช้งานเครื่องล้างถาดเบเกอรี่เชิงพาณิชย์"}
+  title="JD-3 选购指南 — 烘焙烤盘清洗机"
+  description="9 篇实用指南，覆盖选机、安装、运营商用烘焙洗碗机：最佳实践、600×400 mm 烤盘标准、ROI 算账、用水与能耗、消毒标准、电气与空间要求。"
   locale={locale}
   canonicalPath="/guides/"
   schemaType="Article"
@@ -22,13 +21,12 @@ const readLabel = "อ่านคู่มือ";
   <div class="container-page">
     <h1 class="text-center mb-4">{hub.h1}</h1>
     <p class="text-bakery-navy/70 text-lg max-w-2xl mx-auto text-center mb-10">{hub.intro}</p>
-
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {guides.map((g) => (
         <a href={`/zh/guides/${g.slug}/`} class="card hover:scale-[1.02] transition flex flex-col">
           <h3 class="mb-3 text-lg">{g.title[locale]}</h3>
           <p class="text-sm text-bakery-navy/70 flex-1">{g.desc[locale]}</p>
-          <p class="text-bakery-orange text-sm mt-3 font-semibold">{readLabel} →</p>
+          <p class="text-bakery-orange text-sm mt-3 font-semibold">阅读指南 →</p>
         </a>
       ))}
     </div>

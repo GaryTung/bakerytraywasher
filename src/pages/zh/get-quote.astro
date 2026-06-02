@@ -4,10 +4,11 @@ import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import InquiryForm from '../../components/InquiryForm.astro';
 const locale = 'zh' as const;
 ---
-<BaseLayout title="ขอใบเสนอราคา — JD-3" description="ขอใบเสนอราคา JD-3 ตอบกลับภายใน 12 ชั่วโมง" locale={locale} canonicalPath="/get-quote/">
-<BreadcrumbNav items={[{label:'หน้าแรก',href:'/zh/'},{label:'ขอใบเสนอราคา'}]} />
+<BaseLayout title="获取报价 — V-TAI JD-3" description="12 小时内为您定制 JD-3 报价。新加坡、马来西亚、香港、台湾本地货币 DDP 到岸价。" locale={locale} canonicalPath="/get-quote/">
+<BreadcrumbNav items={[{label:'首页',href:'/zh/'},{label:'获取报价'}]} />
 <section class="section"><div class="container-page max-w-3xl">
-<h1 class="mb-3 text-center">ใบเสนอราคาภายใน 12 ชั่วโมง</h1>
+<h1 class="mb-3 text-center">12 小时内为您出具定制报价</h1>
+<p class="text-bakery-navy/70 text-center mb-8">告诉我们您的城市、业务类型与采购时间。我们将以您的本地货币提供完整的 DDP 到岸价（含运费、关税、当地税）。</p>
 <div class="card"><InquiryForm locale={locale} /></div>
 </div></section>
 </BaseLayout>

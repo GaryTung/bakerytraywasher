@@ -5,16 +5,17 @@ import CTASection from '../../../components/CTASection.astro';
 import { t } from '../../../i18n/utils';
 const locale = 'zh' as const;
 ---
-<BaseLayout title="แนวปฏิบัติที่ดีในการล้างถาดเบเกอรี่ | JD-3" description="แนวปฏิบัติที่ดีในการล้างถาดเบเกอรี่" locale={locale} canonicalPath="/guides/bakery-tray-cleaning-best-practices/" schemaType="Article">
+<BaseLayout title="烘焙烤盘清洗最佳实践 | V-TAI JD-3 选购指南" description="从每日例行到每周维护、月度除垢，告诉您在烘焙场景下使用 JD-3 该用什么洗涤剂、该用什么水温、什么不该做。" locale={locale} canonicalPath="/guides/bakery-tray-cleaning-best-practices/" schemaType="Article">
 <BreadcrumbNav items={[
   { label: t(locale, 'nav.home'), href: '/zh/' },
-  { label: t(locale, 'nav.guides') },
-  { label: "แนวปฏิบัติที่ดีในการล้างถาดเบเกอรี่" }
+  { label: t(locale, 'nav.guides'), href: '/zh/guides/' },
+  { label: "烘焙烤盘清洗最佳实践" }
 ]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">แนวปฏิบัติที่ดีในการล้างถาดเบเกอรี่</h1>
-<p class="text-lg mb-6">คู่มือปฏิบัติสำหรับผู้ประกอบการเบเกอรี่ที่ใช้ V-TAI JD-3</p>
-<p class="text-bakery-navy/70"><a href="/guides/bakery-tray-cleaning-best-practices/" class="underline">ดูฉบับเต็มภาษาอังกฤษ</a></p>
+<h1 class="mb-4">烘焙烤盘清洗最佳实践</h1>
+<p class="text-lg mb-6 text-bakery-navy/80">从每日例行到每周维护、月度除垢，告诉您在烘焙场景下使用 JD-3 该用什么洗涤剂、该用什么水温、什么不该做。</p>
+<p class="text-bakery-navy/70">完整长文版本正在翻译中。同时您可阅读英文完整版（含图表、计算示例与可下载表格）：</p>
+<p class="mt-4"><a href="/guides/bakery-tray-cleaning-best-practices/" class="btn-primary inline-block">烘焙烤盘清洗最佳实践（英文完整版）→</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

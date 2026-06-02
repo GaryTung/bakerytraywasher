@@ -1,81 +1,20 @@
 ---
-import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'zh' as const;
 ---
-<BlogPostLayout
-  locale={locale}
-  canonicalPath="/blog/600x400-tray-norm-explained/"
-  slug="600x400-tray-norm-explained"
-  title="มาตรฐานถาดเบเกอรี่ 600×400 มม. คืออะไร และทำไมร้านเบเกอรี่ไทยต้องสนใจ"
-  description="อธิบายมาตรฐานถาดเบเกอรี่ 600×400 มม. (DIN 18876 / EN 631) สำหรับเจ้าของร้านเบเกอรี่ในประเทศไทย — เตา Combi ที่รองรับ (Rational, Convotherm, Unox) และวิธีเลือกเครื่องล้างที่เข้ากันได้"
-  pubDate="2026-01-28"
-  tldr="<strong>ถาดเบเกอรี่ขนาด 600×400 มม.</strong> คือมาตรฐานยุโรปสำหรับเบเกอรี่มืออาชีพ (DIN 18876 / EN 631) ที่เตา Combi ระดับมืออาชีพทุกแบรนด์ใช้ — Rational, Convotherm, Unox, MIWE เครื่องล้างจานในระดับราคานี้ส่วนใหญ่มีแร็ค 500×500 มม. และ<strong>ใส่ไม่ได้</strong> V-TAI JD-3 มีแร็ค 650×550 มม. ออกแบบมาเพื่อมาตรฐานนี้โดยเฉพาะ"
-  faqs={[
-    { q: 'มาตรฐาน DIN 18876 / EN 631 คืออะไร?', a: 'DIN 18876 คือมาตรฐานอุตสาหกรรมเยอรมันที่กำหนดขนาด 600×400 มม. สำหรับถาดเบเกอรี่ และต่อมาถูกบรรจุเข้าในมาตรฐานยุโรป EN 631-1 ในชื่อ EN 1/1 (อนุภาคของ Gastronorm GN 2/1 ที่ 650×530 มม.)' },
-    { q: 'เตาอบรุ่นไหนใช้มาตรฐานนี้?', a: 'เตา Combi มืออาชีพระดับยุโรปทั้งหมด: Rational iCombi Pro/Classic, Convotherm Mini/OEC, Unox Cheftop และ Bakertop, Tecnoeka EKF, Salva, Wachtel, MIWE, Werner & Pfleiderer ถ้าร้านเบเกอรี่ของคุณใช้ยี่ห้อใดยี่ห้อหนึ่งเหล่านี้ ถาดของคุณคือ 600×400 มม.' },
-    { q: 'ทำไมเครื่องล้างจานส่วนใหญ่ใส่ไม่ได้?', a: 'แบรนด์พรีเมียม (Hobart AMX, Jackson TempStar, CMA L-1X16, Winterhalter UC-M) ใช้แร็ค 500×500 มม. ซึ่งออกแบบมาเพื่อจานคาเฟ่ในช่วงทศวรรษ 1970 ถาด 600 มม. ใส่ไม่เข้าไม่ว่าจะตรงหรือทแยง' },
-    { q: 'JD-3 รองรับขนาดอื่นไหม?', a: 'รองรับ แร็ค 650×550 มม. ของ JD-3 ยังรองรับ Sheet pan อเมริกัน 18×26" (ทแยง), GN 2/1, ชาม KitchenAid 5–6 ลิตรในแนวตั้ง และหม้อสูง 28 ซม.' },
-    { q: 'ราคาในประเทศไทยเท่าไหร่?', a: 'V-TAI JD-3 รุ่นมาตรฐานเริ่มต้นที่ $4,400 FOB เซินเจิ้น ซึ่งเท่ากับ ฿160,000 DDP กรุงเทพฯ — รวมค่าระวางทางเรือ ภาษีนำเข้าไทย 5% และ VAT 7% ดูราคา DDP เต็มที่ <a href="/zh/pricing/by-country/thailand/">หน้าประเทศไทย</a>' },
-  ]}
->
-
-<h2>มาตรฐานที่คนส่วนใหญ่ไม่รู้จัก</h2>
-<p>ขนาด <strong>600×400 มิลลิเมตร</strong> เป็นมิติที่สำคัญที่สุดในวงการเบเกอรี่มืออาชีพยุคใหม่ แต่ผู้ซื้ออุปกรณ์ส่วนใหญ่ไม่รู้ที่มา และไม่รู้ผลกระทบทางปฏิบัติ</p>
-
-<p>มาตรฐานนี้เกิดขึ้นในเยอรมนีตะวันตกในช่วงทศวรรษ 1960 เป็นส่วนหนึ่งของขบวนการมาตรฐานอุตสาหกรรม DIN ผู้ผลิตเตาอบเยอรมันต้องการขนาดที่ตอบโจทย์สี่ข้อ:</p>
-
-<ul>
-  <li>วางซ้อนได้อย่างมีประสิทธิภาพบนรถเข็นขนถาด (Stikkenwagen)</li>
-  <li>แบ่งครึ่ง (300×400), แบ่งสาม (200×400) และแบ่งสี่ (300×200) ได้สะอาดสำหรับการแบ่งสัดส่วน</li>
-  <li>เข้ากับเตา Combi รุ่นใหม่ที่ใช้พัดลมแบบบังคับ</li>
-  <li>เป็นอนุภาคของ Gastronorm GN 2/1 (650×530 มม.)</li>
-</ul>
-
-<p>ขนาด 600×400 มม. ตอบโจทย์ครบทั้งสี่ข้อ มันถูกบรรจุใน DIN 18876 และต่อมาในมาตรฐานยุโรป EN 631 ปัจจุบันเป็นมาตรฐานระดับโลกโดยพฤตินัยสำหรับการผลิตเบเกอรี่มืออาชีพ</p>
-
-<h2>ทำไมเรื่องนี้สำคัญสำหรับร้านเบเกอรี่ในประเทศไทย</h2>
-<p>ถ้าร้านเบเกอรี่ของคุณใช้เตา Combi ยุคใหม่ — และร้านส่วนใหญ่ใช้ — ถาดของคุณคือ 600×400 มม. แต่เมื่อคุณจะซื้อเครื่องล้างจานเชิงพาณิชย์ คุณจะเจอปัญหาที่ไม่คาดคิด: <strong>เครื่องเกือบทุกรุ่นใส่ขนาดนี้ไม่ได้</strong></p>
-
-<h3>ตารางความเข้ากันได้ — แร็ค vs ถาด</h3>
-<div class="card !p-0 overflow-hidden my-4">
-  <table class="w-full text-sm">
-    <thead class="bg-bakery-navy text-white">
-      <tr><th class="p-3 text-left">เครื่องล้างจาน</th><th class="p-3 text-left">ขนาดแร็ค</th><th class="p-3 text-left">รับ 600×400?</th></tr>
-    </thead>
-    <tbody>
-      <tr class="bg-bakery-cream"><td class="p-3 font-bold">V-TAI JD-3</td><td class="p-3">650×550 มม.</td><td class="p-3 text-bakery-orange font-bold">✓ ใช่</td></tr>
-      <tr><td class="p-3">Hobart AMX</td><td class="p-3">500×500 มม.</td><td class="p-3">✗ ไม่</td></tr>
-      <tr><td class="p-3">Jackson TempStar HH-E</td><td class="p-3">500×500 มม.</td><td class="p-3">✗ ไม่</td></tr>
-      <tr><td class="p-3">CMA L-1X16-BW</td><td class="p-3">500×500 มม.</td><td class="p-3">✗ ไม่</td></tr>
-      <tr><td class="p-3">Winterhalter UC-M</td><td class="p-3">500×500 มม.</td><td class="p-3">✗ ไม่</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<h2>วิธีแก้ที่ไม่ได้ผล</h2>
-<ul>
-  <li><strong>ตัดถาดให้เล็กลง</strong> — เสียความเข้ากันกับรถเข็นเตาของคุณ ความคิดที่แย่</li>
-  <li><strong>ซื้อเครื่องล้าง "เฉพาะเบเกอรี่"</strong> — เพิ่มต้นทุนเป็น 2 เท่า และเสียพื้นที่ 2 ตร.ม.</li>
-  <li><strong>ล้างด้วยมือ</strong> — 2–3 ชั่วโมงต่อวัน เปลืองแรงงาน</li>
-  <li><strong>ซื้อ Hobart PROFI</strong> — ใช้ได้ แต่ราคาขายปลีกสูงกว่ามาก</li>
-</ul>
-
-<h2>คำตอบจาก JD-3</h2>
-<p><a href="/zh/product/">V-TAI JD-3</a> ถูกออกแบบตั้งแต่ต้นด้วยแร็ค <strong>650×550 มม.</strong> เพื่อรองรับมาตรฐาน 600×400 โดยเฉพาะ มันเป็นหนึ่งในไม่กี่เครื่องในระดับราคานี้ที่รองรับมาตรฐานยุโรปทางกายภาพ</p>
-
-<p>สเปคที่สำคัญสำหรับเจ้าของเบเกอรี่:</p>
-<ul>
-  <li>180 ถาดต่อชั่วโมง (30 รอบ × 6 ถาด)</li>
-  <li>รอบล้าง 2 นาที</li>
-  <li>น้ำล้างสุดท้ายเกิน 82°C (มาตรฐานสุขอนามัย HACCP)</li>
-  <li>น้ำ 2.0–2.5 ลิตร/รอบ</li>
-  <li>สแตนเลส SUS304 เกรดอาหาร</li>
-  <li>รับรอง CE Safety</li>
-</ul>
-
-<p>ถ้าคุณเป็นเจ้าของร้านเบเกอรี่ในประเทศไทยและอยากเห็นราคา DDP ถึงประตูบ้าน — ไม่มีค่าใช้จ่ายเซอร์ไพรส์ที่ศุลกากร — ดู<a href="/zh/pricing/by-country/">ตารางราคา DDP ตามประเทศ</a>ของเรา</p>
-
-<h2>สรุป</h2>
-<p>มาตรฐาน 600×400 มม. ไม่ใช่ตัวเลือกสำหรับร้านเบเกอรี่มืออาชีพยุคใหม่ มันคือมิติที่กำหนดว่าคุณจะซื้อเตาใด ใช้ถาดใด และ — สำคัญที่สุด — เครื่องล้างจานใดจะทำความสะอาดอุปกรณ์ของคุณได้ การตรวจสอบความเข้ากันได้ก่อนซื้อคือปัจจัยอันดับ 1 ที่แยกการตัดสินใจที่ถูกต้องจากความผิดพลาดที่แพง</p>
-
-</BlogPostLayout>
+<BaseLayout title="600×400 mm 欧标烤盘解读 | V-TAI 博客" description="DIN 18876 / EN 631 标准的由来，以及为什么 Rational / Convotherm / Unox 蒸烤箱都按这个尺寸设计。" locale={locale} canonicalPath="/blog/600x400-tray-norm-explained/" schemaType="Article">
+<BreadcrumbNav items={[
+  { label: t(locale, 'nav.home'), href: '/zh/' },
+  { label: t(locale, 'nav.blog'), href: '/zh/blog/' },
+  { label: "600×400 mm 欧标烤盘解读" }
+]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">600×400 mm 欧标烤盘解读</h1>
+<p class="text-lg mb-6 text-bakery-navy/80">DIN 18876 / EN 631 标准的由来，以及为什么 Rational / Convotherm / Unox 蒸烤箱都按这个尺寸设计。</p>
+<p class="mt-4"><a href="/zh/guides/600x400-bakery-norm-explained/" class="btn-primary inline-block">阅读完整指南：600×400 mm 烘焙欧标 →</a></p>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

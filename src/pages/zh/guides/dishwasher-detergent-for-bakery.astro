@@ -5,16 +5,17 @@ import CTASection from '../../../components/CTASection.astro';
 import { t } from '../../../i18n/utils';
 const locale = 'zh' as const;
 ---
-<BaseLayout title="สารทำความสะอาดสำหรับเบเกอรี่ | JD-3" description="สารทำความสะอาดสำหรับเบเกอรี่" locale={locale} canonicalPath="/guides/dishwasher-detergent-for-bakery/" schemaType="Article">
+<BaseLayout title="烘焙店专用洗涤剂选型 | V-TAI JD-3 选购指南" description="碱性 vs 酶基洗涤剂、pH 值区间、漂洗剂选型，以及如何调节 JD-3 内置的洗涤剂分配器。" locale={locale} canonicalPath="/guides/dishwasher-detergent-for-bakery/" schemaType="Article">
 <BreadcrumbNav items={[
   { label: t(locale, 'nav.home'), href: '/zh/' },
-  { label: t(locale, 'nav.guides') },
-  { label: "สารทำความสะอาดสำหรับเบเกอรี่" }
+  { label: t(locale, 'nav.guides'), href: '/zh/guides/' },
+  { label: "烘焙店专用洗涤剂选型" }
 ]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">สารทำความสะอาดสำหรับเบเกอรี่</h1>
-<p class="text-lg mb-6">คู่มือปฏิบัติสำหรับผู้ประกอบการเบเกอรี่ที่ใช้ V-TAI JD-3</p>
-<p class="text-bakery-navy/70"><a href="/guides/dishwasher-detergent-for-bakery/" class="underline">ดูฉบับเต็มภาษาอังกฤษ</a></p>
+<h1 class="mb-4">烘焙店专用洗涤剂选型</h1>
+<p class="text-lg mb-6 text-bakery-navy/80">碱性 vs 酶基洗涤剂、pH 值区间、漂洗剂选型，以及如何调节 JD-3 内置的洗涤剂分配器。</p>
+<p class="text-bakery-navy/70">完整长文版本正在翻译中。同时您可阅读英文完整版（含图表、计算示例与可下载表格）：</p>
+<p class="mt-4"><a href="/guides/dishwasher-detergent-for-bakery/" class="btn-primary inline-block">烘焙店专用洗涤剂选型（英文完整版）→</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

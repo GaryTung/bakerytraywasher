@@ -41,7 +41,7 @@ export const businessTypeNames: Record<string, Record<Locale, string>> = {
   'cloud-kitchen': {
     en: 'Cloud Kitchen', es: 'Cocina Cloud', fr: 'Cuisine Virtuelle', de: 'Cloud-Küche',
     ru: 'Облачная кухня', th: 'ครัวคลาวด์', vi: 'Bếp đám mây', ar: 'مطبخ سحابي',
-    zh: '云厨房 / 中央厨房',
+    zh: '中央厨房',
   },
 };
 

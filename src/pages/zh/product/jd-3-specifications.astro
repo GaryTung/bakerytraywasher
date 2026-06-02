@@ -5,29 +5,48 @@ import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
 const locale = 'zh' as const;
 const sections = [
-  { title: 'ขนาด', rows: [
-    { k: 'ขนาด (ปิด)', v: '804 × 816 × 1,550 มม.' },
-    { k: 'ความสูง (เปิด)', v: '2,115 มม.' },
-    { k: 'แร็ค', v: '650 × 550 มม.' },
-    { k: 'น้ำหนัก', v: '145 กก.' },
+  { title: '尺寸与重量', rows: [
+    { k: '机身尺寸（盖板关闭）', v: '804 × 816 × 1,550 mm' },
+    { k: '最大高度（盖板打开）', v: '2,115 mm' },
+    { k: '洗碗筐尺寸',         v: '650 × 550 mm' },
+    { k: '机身重量',           v: '145 kg' },
   ]},
-  { title: 'ประสิทธิภาพ', rows: [
-    { k: 'อัตราการล้าง', v: '180 ถาด/ชั่วโมง' },
-    { k: 'ถาดต่อรอบ', v: '6 ถาด' },
-    { k: 'เวลารอบ', v: '2 นาที (120 วินาที)' },
-    { k: 'รอบต่อชั่วโมง', v: '30 รอบ/ชั่วโมง' },
-    { k: 'น้ำ/รอบ', v: '2.0-2.5 ลิตร' },
-    { k: 'อุณหภูมิล้างสุดท้าย', v: '>82°C' },
+  { title: '清洗能力', rows: [
+    { k: '吞吐量',         v: '180 个烤盘/小时' },
+    { k: '每循环装载',     v: '6 个烤盘' },
+    { k: '单次循环时间',   v: '2 分钟（120 秒）' },
+    { k: '循环频次',       v: '30 次/小时' },
+    { k: '每循环用水',     v: '2.0–2.5 升' },
+    { k: '最终漂洗温度',   v: '>82°C' },
   ]},
-  { title: 'ไฟฟ้า', rows: [
-    { k: 'กำลังรวม', v: '13 กิโลวัตต์' },
-    { k: 'แรงดัน', v: '380V / 3N / 50Hz' },
-    { k: 'กระแส', v: '21.5 A' },
+  { title: '电气参数', rows: [
+    { k: '总功率',   v: '13 kW' },
+    { k: '电源',     v: '380V / 3N / 50Hz' },
+    { k: '工作电流', v: '21.5 A' },
+  ]},
+  { title: '水路参数', rows: [
+    { k: '进水接口',   v: 'G 3/4" 螺纹' },
+    { k: '进水压力',   v: '2.5–6 kg/cm²' },
+    { k: '排水接口',   v: 'G 1½"' },
+  ]},
+  { title: '主体材质', rows: [
+    { k: '机身材质',     v: 'SUS304 食品级不锈钢' },
+    { k: '洗碗筐材质',   v: 'SUS304 不锈钢' },
+    { k: '喷臂材质',     v: 'SUS304 不锈钢' },
+  ]},
+  { title: '认证与标准', rows: [
+    { k: '安全认证',     v: 'CE（欧盟合规）' },
+    { k: '质量体系',     v: 'ISO 9001:2015' },
+    { k: '消毒温度',     v: 'NSF/ANSI 3 / FDA Food Code 4-501.112 标准 ≥82°C' },
   ]},
 ];
 ---
-<BaseLayout title="สเปค JD-3" description="ข้อมูลสเปคของ V-TAI JD-3" locale={locale} canonicalPath="/product/jd-3-specifications/" schemaType="Product">
-<BreadcrumbNav items={[{label:'หน้าแรก',href:'/zh/'},{label:'สเปค'}]} />
-<section class="section"><div class="container-page"><h1 class="mb-6">สเปค JD-3 ฉบับเต็ม</h1><ProductSpecsTable sections={sections} /></div></section>
+<BaseLayout title="JD-3 完整规格参数 | V-TAI" description="V-TAI JD-3 揭盖式烘焙洗碗机的完整规格参数：尺寸、清洗能力、电气、水路、材质、认证。" locale={locale} canonicalPath="/product/jd-3-specifications/" schemaType="Product">
+<BreadcrumbNav items={[{label:'首页',href:'/zh/'},{label:'产品',href:'/zh/product/'},{label:'规格参数'}]} />
+<section class="section"><div class="container-page">
+<h1 class="mb-3">JD-3 完整规格参数</h1>
+<p class="text-bakery-navy/70 mb-8">需要导入您的招标文件或机房布置图？所有参数都可在这里找到，也可通过 WhatsApp 索取 PDF 规格书。</p>
+<ProductSpecsTable sections={sections} />
+</div></section>
 <CTASection locale={locale} />
 </BaseLayout>

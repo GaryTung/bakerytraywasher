@@ -5,16 +5,17 @@ import CTASection from '../../../components/CTASection.astro';
 import { t } from '../../../i18n/utils';
 const locale = 'zh' as const;
 ---
-<BaseLayout title="ข้อกำหนดพื้นที่สำหรับเบเกอรี่ขนาดเล็ก | JD-3" description="ข้อกำหนดพื้นที่สำหรับเบเกอรี่ขนาดเล็ก" locale={locale} canonicalPath="/guides/space-requirements-small-bakery/" schemaType="Article">
+<BaseLayout title="空间要求 — 中小型烘焙店动线设计 | V-TAI JD-3 选购指南" description="JD-3 的占地尺寸、开盖间隙、排风需求，以及洗涤区相对于烤箱、备餐台的最佳位置。" locale={locale} canonicalPath="/guides/space-requirements-small-bakery/" schemaType="Article">
 <BreadcrumbNav items={[
   { label: t(locale, 'nav.home'), href: '/zh/' },
-  { label: t(locale, 'nav.guides') },
-  { label: "ข้อกำหนดพื้นที่สำหรับเบเกอรี่ขนาดเล็ก" }
+  { label: t(locale, 'nav.guides'), href: '/zh/guides/' },
+  { label: "空间要求 — 中小型烘焙店动线设计" }
 ]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">ข้อกำหนดพื้นที่สำหรับเบเกอรี่ขนาดเล็ก</h1>
-<p class="text-lg mb-6">คู่มือปฏิบัติสำหรับผู้ประกอบการเบเกอรี่ที่ใช้ V-TAI JD-3</p>
-<p class="text-bakery-navy/70"><a href="/guides/space-requirements-small-bakery/" class="underline">ดูฉบับเต็มภาษาอังกฤษ</a></p>
+<h1 class="mb-4">空间要求 — 中小型烘焙店动线设计</h1>
+<p class="text-lg mb-6 text-bakery-navy/80">JD-3 的占地尺寸、开盖间隙、排风需求，以及洗涤区相对于烤箱、备餐台的最佳位置。</p>
+<p class="text-bakery-navy/70">完整长文版本正在翻译中。同时您可阅读英文完整版（含图表、计算示例与可下载表格）：</p>
+<p class="mt-4"><a href="/guides/space-requirements-small-bakery/" class="btn-primary inline-block">空间要求 — 中小型烘焙店动线设计（英文完整版）→</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

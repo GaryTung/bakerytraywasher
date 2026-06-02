@@ -4,11 +4,22 @@ import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import ComparisonTable from '../../../components/ComparisonTable.astro';
 import CTASection from '../../../components/CTASection.astro';
 const locale = 'zh' as const;
-const rows = [{ label: 'ถาด 600×400', jd3: '✓', competitor: '✗', highlight: true }];
+const rows = [
+  { label: '清洗能力',   jd3: '180 个烤盘/小时', competitor: '60 筐/小时（公开数据）' },
+  { label: '洗碗筐尺寸', jd3: '650×550 mm',     competitor: '500×500 mm' },
+  { label: '兼容 600×400 mm 烤盘', jd3: '✓ 是',  competitor: '✗ 否', highlight: true },
+  { label: '腔体高度',   jd3: '550 mm',          competitor: '约 400 mm' },
+  { label: '价格',       jd3: '4,400 美元 FOB', competitor: '明显更高（零售价）' },
+];
 ---
-<BaseLayout title="JD-3 vs Jackson TempStar" description="เปรียบเทียบ JD-3 vs Jackson" locale={locale} canonicalPath="/product/jd-3-vs-jackson-tempstar/" schemaType="Article">
-<BreadcrumbNav items={[{label:'หน้าแรก',href:'/zh/'},{label:'vs Jackson'}]} />
-<section class="section"><div class="container-prose"><h1>JD-3 vs Jackson TempStar</h1><p class="text-lg mt-4 mb-6">JD-3 ราคาต่ำกว่า 35% ห้องล้างใหญ่กว่า รองรับถาด 600×400</p></div>
-<div class="container-page"><ComparisonTable competitorName="Jackson TempStar" rows={rows} /></div></section>
+<BaseLayout title="JD-3 vs Jackson TempStar | 同级对比" description="V-TAI JD-3 与 Jackson TempStar HH-E 同级对比 — 烘焙业主该选哪个？" locale={locale} canonicalPath="/product/jd-3-vs-jackson-tempstar/" schemaType="Article">
+<BreadcrumbNav items={[{label:'首页',href:'/zh/'},{label:'对比',href:'/zh/vs/'},{label:'vs Jackson TempStar'}]} />
+<section class="section"><div class="container-prose">
+<h1>JD-3 vs Jackson TempStar</h1>
+<p class="text-lg mt-4 mb-6 text-bakery-navy/80">Jackson 是北美中端市场的主力品牌，TempStar HH-E 是该价位段的入门揭盖式机型。与 JD-3 的关键差异同样集中在洗碗筐尺寸 — Jackson 的 500×500 装不下 600×400 烤盘。对烘焙业主而言，这等于设备买回去也只能洗碗碟。</p>
+<h2 class="mt-8 mb-3">JD-3 更适合烘焙的原因</h2>
+<p>JD-3 的 650×550 mm 洗碗筐与 550 mm 腔体高度专为烘焙类器具（烤盘、慕斯圈、蛋糕模具、KitchenAid 搅拌桶）设计。Jackson TempStar 走的是「通用商用洗碗机」路线，结果烘焙器具大多塞不进。</p>
+</div>
+<div class="container-page"><ComparisonTable competitorName="Jackson TempStar HH-E" rows={rows} /></div></section>
 <CTASection locale={locale} />
 </BaseLayout>

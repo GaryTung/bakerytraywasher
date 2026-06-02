@@ -1,30 +1,89 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import YouTubeShort from '../../../components/YouTubeShort.astro';
 import CTASection from '../../../components/CTASection.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 const locale = 'zh' as const;
 ---
-<BaseLayout title="คู่มือติดตั้ง JD-3" description="รับเครื่อง ดูวิดีโอสอน เชื่อมต่อน้ำและไฟฟ้า เริ่มล้างได้เลย" locale={locale} canonicalPath="/product/jd-3-installation/" schemaType="HowTo">
-<BreadcrumbNav items={[{label:'หน้าแรก',href:'/zh/'},{label:'ติดตั้ง'}]} />
-<section class="section"><div class="container-prose">
-<h1 class="mb-4">ติดตั้ง JD-3 — รับ เชื่อมต่อ ล้าง</h1>
-<p class="text-lg mb-6">JD-3 ออกแบบมาให้ติดตั้งเองได้ เมื่อได้รับเครื่อง ทำตามวิดีโอสอนที่มาพร้อมกับการจัดส่ง เชื่อมต่อน้ำและไฟฟ้า แล้วเริ่มล้างได้เลย ไม่ต้องใช้ช่างติดตั้งเฉพาะทาง — ช่างประปาและช่างไฟฟ้าทั่วไปก็เพียงพอ</p>
-<h2 class="mt-8 mb-3">3 ขั้นตอนง่ายๆ</h2>
-<ol class="space-y-3 list-decimal list-inside">
-<li><strong>แกะกล่องและวางตำแหน่ง</strong> — บนพื้นเรียบใกล้กับท่อน้ำและท่อระบายน้ำ</li>
-<li><strong>เชื่อมต่อน้ำและไฟฟ้า</strong> — น้ำเย็น G 3/4", ท่อระบาย G 1½", วงจรไฟฟ้าเฉพาะ 380V/3N/50Hz (หรือ 400V เฟสเดียวตามมาตรฐานท้องถิ่น)</li>
-<li><strong>ทำตามวิดีโอสอน</strong> — รวมในการจัดส่ง พร้อมใช้งานผ่าน WhatsApp ทันทีที่สั่งซื้อ เวลาทั้งหมดประมาณ 1–2 ชั่วโมง</li>
-</ol>
-<h2 class="mt-8 mb-3">ในกล่อง</h2>
-<ul class="space-y-1 list-disc list-inside">
-<li>เครื่อง JD-3</li>
-<li>แร็คมาตรฐาน 2 ชิ้น + แร็คถ้วย</li>
-<li>สายน้ำเข้าและสายระบายน้ำ</li>
-<li>การ์ดเริ่มต้นใช้งานด่วน พร้อมลิงก์วิดีโอสอน</li>
-<li>คู่มือการใช้งาน</li>
-<li>ใบรับรอง CE</li>
-<li><strong>แผนผังวงจรไฟฟ้า</strong> ติดอยู่ด้านในแผงบริการ — เก็บไว้ที่นั่นสำหรับการบำรุงรักษาในอนาคต</li>
-</ul>
-</div></section>
-<CTASection locale={locale} />
+<BaseLayout
+  title="JD-3 安装指南 | V-TAI 烘焙洗碗机自助安装"
+  description="收到机器、看视频教程、接通水电 — 即可开始清洗。JD-3 设计为可在商用厨房自助安装，普通水电工 1–2 小时完成。"
+  locale={locale}
+  canonicalPath="/product/jd-3-installation/"
+  schemaType="HowTo"
+  schemaData={{
+    name: 'V-TAI JD-3 揭盖式烘焙洗碗机安装方法',
+    step: [
+      { '@type': 'HowToStep', name: '开箱', text: '开箱并对照装箱单核对配件' },
+      { '@type': 'HowToStep', name: '就位', text: '放置在水平地面、靠近进水管与地漏的位置' },
+      { '@type': 'HowToStep', name: '接水', text: '连接 G 3/4" 冷水进水管和 G 1½" 排水管' },
+      { '@type': 'HowToStep', name: '接电', text: '接入专用 380V 三相回路（或按当地标准 400V 单相）' },
+      { '@type': 'HowToStep', name: '测试', text: '按视频教程运行两次空循环，确认最终漂洗到达 82°C' },
+    ],
+  }}
+>
+<BreadcrumbNav items={[{label:'首页',href:'/zh/'},{label:'产品',href:'/zh/product/'},{label:'安装指南'}]} />
+
+<section class="section">
+  <div class="container-prose">
+    <h1 class="mb-4">JD-3 安装 — 收货、接通、开洗</h1>
+    <p class="text-lg text-bakery-navy/80 mb-8">
+      JD-3 设计为可自助安装。机器到货时，按随机视频教程接好水电就能开始清洗。大多数商用厨房无需专业安装人员 — 普通水电工即可。
+    </p>
+
+    <YouTubeShort
+      videoId="bjxEYRiRTnI"
+      title="JD-3 商用洗碗机安装指南"
+      caption="观看：开箱、接通水电、第一次循环 — 不到 30 秒完整看完自助安装流程。"
+    />
+
+    <h2 class="mt-10 mb-4">3 个简单步骤</h2>
+
+    <h3 class="mt-6 mb-2">第 1 步：开箱与就位</h3>
+    <p>开箱后把机器抬到水平地面，靠近原有的进水管与地漏。占地约 804 × 816 mm — 大概一个小型橱柜的大小。</p>
+
+    <h3 class="mt-6 mb-2">第 2 步：接水接电</h3>
+    <ul class="space-y-2 list-disc list-inside mt-3">
+      <li><strong>冷水进水：</strong>G 3/4" 螺纹接口，水压 2.5–6 kg/cm²。普通厨房水龙头出水即可满足。</li>
+      <li><strong>排水：</strong>G 1½" 排水管接入地漏（或墙排），距离 ≤ 1.5 m。</li>
+      <li><strong>电源：</strong>380V 三相 / 50Hz 专用回路，21.5 A。持证电工约 45 分钟可接通。</li>
+      <li>新加坡、马来西亚以及香港的商用厨房一般已有 380V 三相 — 直接对接即可。</li>
+    </ul>
+
+    <h3 class="mt-6 mb-2">第 3 步：按视频教程运行第一次循环</h3>
+    <p>每台 JD-3 都附带一张快速开始卡片，指向视频教程（下单当天即可通过 WhatsApp 获取）。教程包含：</p>
+    <ul class="space-y-1 list-disc list-inside mt-2">
+      <li>第一次开机时给主洗水箱加水</li>
+      <li>把烤盘 / 蛋糕模 / 搅拌桶装入洗碗筐</li>
+      <li>关上盖板 — 循环自动启动</li>
+      <li>每日打烊清洁（2 分钟）</li>
+    </ul>
+
+    <h2 class="mt-10 mb-4">随机配件清单</h2>
+    <ul class="space-y-1 list-disc list-inside">
+      <li>JD-3 主机</li>
+      <li>2 个标准洗碗筐 + 1 个杯架</li>
+      <li>冷水进水管 + 排水管</li>
+      <li>基础安装配件</li>
+      <li>快速开始卡（附视频教程二维码）</li>
+      <li>中英文操作手册</li>
+      <li>CE 认证证书</li>
+      <li><strong>电路图</strong>（贴在维修门内侧 — 保留位置，方便日后维修）</li>
+    </ul>
+
+    <h2 class="mt-10 mb-4">典型安装时长</h2>
+    <p>对于已具备进水管与专用电路的厨房，总安装时间通常 1–2 小时。耗时最长的是电工接线（约 45 分钟）。如有疑问，可通过 WhatsApp 视频通话由我们远程指导。</p>
+  </div>
+</section>
+
+<FAQSection items={[
+  { q: '需要专业安装人员吗？', a: '不需要 — 持证的普通水电工就够。我们提供视频教程与 WhatsApp 远程支持。' },
+  { q: '安装实际要多久？', a: '已具备水电的厨房 1–2 小时即可。水路约 30 分钟，电路约 45 分钟，测试约 15 分钟。' },
+  { q: '可以发到新加坡 / 马来西亚 / 香港吗？', a: '可以。这些地区的商用厨房一般具备 380V 三相电源 — JD-3 直接对接。如您只有 220V 单相，可在下单时申请 220V 转换版。' },
+  { q: '机器坏了怎么办？', a: '机器内嵌完整电路图（贴在维修门内）。普通电工就能据此诊断与维修大多数问题。需要更换零件时全球 DHL/FedEx 空运，5 个工作日内到货。' },
+  { q: '以后能搬到别处吗？', a: '可以。机器没有螺栓固定在地面上 — 两个成年人用搬运推车即可移动。新位置重新接水电即可。' },
+]} />
+
+<CTASection locale={locale} title="需要安装指导？" subtitle="把您的厨房布局发给我们，下单前我们先帮您确认可行性。" />
 </BaseLayout>

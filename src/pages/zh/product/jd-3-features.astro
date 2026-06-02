@@ -3,25 +3,69 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import CTASection from '../../../components/CTASection.astro';
 const locale = 'zh' as const;
+
+const features = [
+  {
+    n: 1, t: 'SUS304 食品级不锈钢',
+    body: '整机包括腔体、洗碗筐、喷臂、盖板，全部采用 SUS304 食品级不锈钢 — 这是商用厨房工作台与食品加工设备使用的同款合金。防锈、抗腐蚀，与食品接触面符合 FDA 标准。',
+  },
+  {
+    n: 2, t: '超大洗涤腔体（650×550 mm）',
+    body: '同级别洗碗机的洗碗筐通常是 500×500 mm — 这个尺寸是为 1970 年代的咖啡馆碗碟设计的，装不下现代烘焙的 600×400 mm 欧标烤盘。JD-3 的 650×550 mm 洗碗筐就是为容纳 600×400 烤盘而生的。',
+  },
+  {
+    n: 3, t: '双旋转喷臂 + 烤盘专用喷嘴几何',
+    body: '上下双喷臂同时旋转，360° 立体覆盖。喷嘴角度针对烤盘长条形扁平表面优化 — 不是普通圆盘式喷嘴，能保证水流到达烤盘背面（手洗经常漏掉的部位）。',
+  },
+  {
+    n: 4, t: '智能温度控制',
+    body: '主洗水箱保持 60–65°C，最终漂洗自动达 ≥82°C 实现热力杀菌（符合 NSF/ANSI 3 与 FDA Food Code 4-501.112 标准）。LED 数字温度显示，控制板模块化便于维修。',
+  },
+  {
+    n: 5, t: '超低用水',
+    body: '每个 2 分钟循环仅 2.0–2.5 升水 — 而大多数同级商用洗碗机要用 5–10 升。在水费较高的市场（如新加坡），五年累计可节省 4,000+ 美元水费。',
+  },
+  {
+    n: 6, t: '热回收系统（可选）',
+    body: '高温漂洗（>82°C）后的热水流回主洗水箱预热下一轮 — 减少加热器负载 15–25%。在电费较高的国家（德国、新加坡、澳大利亚）回报最明显。',
+  },
+  {
+    n: 7, t: '密封隔热盖板',
+    body: '盖板与腔体之间的双层密封件 + 隔热夹层让蒸汽外逸减少高达 70%。后果：您的厨房不会变成蒸汽房，员工舒适度提升，空调能耗下降。',
+  },
+  {
+    n: 8, t: '人体工学操作',
+    body: '推拉式洗碗筐导轨让装载省力。盖板气压杆设计 — 一只手就能抬起。控制按键放在视线高度，符合女性员工的人体工学。',
+  },
+  {
+    n: 9, t: '多重安全保护',
+    body: '盖板联锁开关：打开盖板时电源自动切断。电压过载保护内置 — 即使本地电网波动也不会烧毁控制板。CE 安全认证覆盖所有欧盟标准。',
+  },
+  {
+    n: 10, t: '预留分配器与水处理接口',
+    body: '基础版预装了自动洗涤剂泵、漂洗剂泵、内联水处理模块的接口。您可以先买 4,400 美元的基础版，半年后现金流改善时再加装分配器（+200 美元）。同级品牌多数要求整机升级。',
+  },
+  {
+    n: 11, t: 'CE 安全认证',
+    body: '符合欧盟所有相关 CE 指令（机械指令、低压指令、EMC 指令）。CE 证书全球认可 — 可直接进口至欧盟、海湾、亚太、拉美、非洲。',
+  },
+  {
+    n: 12, t: '门联锁自动启动',
+    body: '关上盖板循环自动开始 — 无需按键。员工只需关盖板就可以去做其他工作。2 分钟后自动停止，无需守在机器旁。',
+  },
+];
 ---
-<BaseLayout title="คุณสมบัติ JD-3" description="12 คุณสมบัติหลักของ V-TAI JD-3" locale={locale} canonicalPath="/product/jd-3-features/" schemaType="Article">
-<BreadcrumbNav items={[{label:'หน้าแรก',href:'/zh/'},{label:'คุณสมบัติ'}]} />
+<BaseLayout title="JD-3 12 大特性详解" description="V-TAI JD-3 的 12 大核心特性逐一解读：SUS304 不锈钢、650×550 mm 大腔体、双旋转喷臂、热回收、>82°C 消毒、CE 认证等。" locale={locale} canonicalPath="/product/jd-3-features/" schemaType="Article">
+<BreadcrumbNav items={[{label:'首页',href:'/zh/'},{label:'产品',href:'/zh/product/'},{label:'12 大特性'}]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">12 คุณสมบัติหลักของ JD-3</h1>
-<ol class="space-y-3 list-decimal list-inside">
-<li>โครงสร้าง SUS304</li>
-<li>ห้องล้างใหญ่พิเศษ 650×550 มม.</li>
-<li>แขนล้างหมุนคู่ 360°</li>
-<li>หัวฉีดป้องกันการอุดตัน</li>
-<li>ควบคุมอุณหภูมิอัจฉริยะ</li>
-<li>ใช้น้ำต่ำ 2.0-2.5 ลิตร</li>
-<li>ระบบกู้คืนความร้อน</li>
-<li>ประตูซีลฉนวน</li>
-<li>การทำงานตามหลักสรีรศาสตร์</li>
-<li>เริ่มต้นอัตโนมัติเมื่อปิดประตู</li>
-<li>การป้องกันความปลอดภัยหลายชั้น</li>
-<li>ขยายฟังก์ชั่นได้</li>
-</ol>
+<h1 class="mb-4">JD-3 12 大特性详解</h1>
+<p class="text-lg text-bakery-navy/80 mb-8">每个特性都是为中小型商用厨房而设计 — 既不像工业级那样过度配置，也不像家用机那样妥协。下面是工程师对每个特性的实战解释。</p>
+{features.map((f) => (
+  <div class="mb-6">
+    <h2 class="mb-2">{f.n}. {f.t}</h2>
+    <p class="text-bakery-navy/80">{f.body}</p>
+  </div>
+))}
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

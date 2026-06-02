@@ -5,16 +5,17 @@ import CTASection from '../../../components/CTASection.astro';
 import { t } from '../../../i18n/utils';
 const locale = 'zh' as const;
 ---
-<BaseLayout title="การเปรียบเทียบการใช้น้ำ | JD-3" description="การเปรียบเทียบการใช้น้ำ" locale={locale} canonicalPath="/guides/water-consumption-comparison/" schemaType="Article">
+<BaseLayout title="用水量对比 — JD-3 与同级竞品 | V-TAI JD-3 选购指南" description="JD-3 单次循环 2.0–2.5 升 vs 大多数同级竞品 5–10 升。我们把新加坡、马来西亚、香港 5 年的水费差额算给您看。" locale={locale} canonicalPath="/guides/water-consumption-comparison/" schemaType="Article">
 <BreadcrumbNav items={[
   { label: t(locale, 'nav.home'), href: '/zh/' },
-  { label: t(locale, 'nav.guides') },
-  { label: "การเปรียบเทียบการใช้น้ำ" }
+  { label: t(locale, 'nav.guides'), href: '/zh/guides/' },
+  { label: "用水量对比 — JD-3 与同级竞品" }
 ]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">การเปรียบเทียบการใช้น้ำ</h1>
-<p class="text-lg mb-6">คู่มือปฏิบัติสำหรับผู้ประกอบการเบเกอรี่ที่ใช้ V-TAI JD-3</p>
-<p class="text-bakery-navy/70"><a href="/guides/water-consumption-comparison/" class="underline">ดูฉบับเต็มภาษาอังกฤษ</a></p>
+<h1 class="mb-4">用水量对比 — JD-3 与同级竞品</h1>
+<p class="text-lg mb-6 text-bakery-navy/80">JD-3 单次循环 2.0–2.5 升 vs 大多数同级竞品 5–10 升。我们把新加坡、马来西亚、香港 5 年的水费差额算给您看。</p>
+<p class="text-bakery-navy/70">完整长文版本正在翻译中。同时您可阅读英文完整版（含图表、计算示例与可下载表格）：</p>
+<p class="mt-4"><a href="/guides/water-consumption-comparison/" class="btn-primary inline-block">用水量对比 — JD-3 与同级竞品（英文完整版）→</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

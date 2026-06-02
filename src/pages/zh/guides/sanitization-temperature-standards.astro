@@ -5,16 +5,17 @@ import CTASection from '../../../components/CTASection.astro';
 import { t } from '../../../i18n/utils';
 const locale = 'zh' as const;
 ---
-<BaseLayout title="มาตรฐานอุณหภูมิการฆ่าเชื้อ | JD-3" description="มาตรฐานอุณหภูมิการฆ่าเชื้อ" locale={locale} canonicalPath="/guides/sanitization-temperature-standards/" schemaType="Article">
+<BaseLayout title="消毒温度标准详解 | V-TAI JD-3 选购指南" description="为什么是 82°C？NSF/ANSI 3、EN 12875-2、DIN 10516、FDA 食品法规 4-501.112 — 全世界的标准都指向同一个数字。" locale={locale} canonicalPath="/guides/sanitization-temperature-standards/" schemaType="Article">
 <BreadcrumbNav items={[
   { label: t(locale, 'nav.home'), href: '/zh/' },
-  { label: t(locale, 'nav.guides') },
-  { label: "มาตรฐานอุณหภูมิการฆ่าเชื้อ" }
+  { label: t(locale, 'nav.guides'), href: '/zh/guides/' },
+  { label: "消毒温度标准详解" }
 ]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">มาตรฐานอุณหภูมิการฆ่าเชื้อ</h1>
-<p class="text-lg mb-6">คู่มือปฏิบัติสำหรับผู้ประกอบการเบเกอรี่ที่ใช้ V-TAI JD-3</p>
-<p class="text-bakery-navy/70"><a href="/guides/sanitization-temperature-standards/" class="underline">ดูฉบับเต็มภาษาอังกฤษ</a></p>
+<h1 class="mb-4">消毒温度标准详解</h1>
+<p class="text-lg mb-6 text-bakery-navy/80">为什么是 82°C？NSF/ANSI 3、EN 12875-2、DIN 10516、FDA 食品法规 4-501.112 — 全世界的标准都指向同一个数字。</p>
+<p class="text-bakery-navy/70">完整长文版本正在翻译中。同时您可阅读英文完整版（含图表、计算示例与可下载表格）：</p>
+<p class="mt-4"><a href="/guides/sanitization-temperature-standards/" class="btn-primary inline-block">消毒温度标准详解（英文完整版）→</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

@@ -1,75 +1,20 @@
 ---
-import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { t } from '../../../i18n/utils';
 const locale = 'zh' as const;
 ---
-<BlogPostLayout
-  locale={locale}
-  canonicalPath="/blog/ddp-bangkok-cost-breakdown/"
-  slug="ddp-bangkok-cost-breakdown"
-  title="เครื่องล้างถาดเบเกอรี่ราคา DDP กรุงเทพฯ: ค่าใช้จ่ายจริงในการนำเข้า"
-  description="ราคา DDP เครื่องล้างถาดเบเกอรี่เชิงพาณิชย์ส่งถึงประตูบ้านในกรุงเทพฯ — FOB เซินเจิ้น ค่าระวางเรือ ภาษีนำเข้าไทย VAT 7% รวมทุกอย่าง ตัวเลขจริงปี 2026"
-  pubDate="2026-02-11"
-  tldr="ราคา FOB เครื่องล้างจานเชิงพาณิชย์ที่ใช้ได้สำหรับเบเกอรี่ (V-TAI JD-3) เริ่มต้นที่ <strong>$4,400 USD FOB เซินเจิ้น</strong> ราคา DDP ถึงประตูบ้านในกรุงเทพฯ: <strong>฿160,000 THB</strong> — รวมค่าระวางเรือ ศุลกากร ภาษีนำเข้าไทย 5% และ VAT 7% แบรนด์พรีเมียม (Hobart, Jackson, CMA, Winterhalter) แพงกว่ามากในระดับการรับรอง CE เดียวกัน"
-  faqs={[
-    { q: 'FOB คืออะไร?', a: 'FOB ("Free On Board") คือราคาสินค้าโหลดขึ้นเรือที่ท่าเรือต้นทาง — เซินเจิ้นในกรณีของเรา ไม่รวมค่าระวางเรือ ศุลกากร ภาษีนำเข้า VAT ไทย หรือการจัดส่งถึงที่อยู่' },
-    { q: 'ทำไมต้องใช้ DDP แทน FOB?', a: 'DDP ("Delivered Duty Paid") หมายความว่าผู้ขายดูแลทุกอย่าง: ค่าระวาง ศุลกากร ภาษี การจัดส่งสุดท้าย คุณจ่ายราคาเดียว เครื่องมาถึงประตูบ้าน ไม่มีค่าใช้จ่ายเซอร์ไพรส์ที่ท่าเรือ ไม่มีใบเรียกเก็บจากนายหน้าศุลกากร' },
-    { q: 'ฉันจะจ่ายเท่าไหร่จริงในกรุงเทพฯ?', a: '฿160,000 THB DDP กรุงเทพฯ (~$4,600 USD) สำหรับ JD-3 มาตรฐาน รวมค่าระวางจาก Laem Chabang ภาษีนำเข้าไทย 5% (HS 8422.11) และ VAT ไทย 7% เชียงใหม่/ภูเก็ต: ±2% เนื่องจากการขนส่งภายในประเทศ' },
-    { q: 'มีค่าใช้จ่ายเพิ่มเติมหลังส่งมอบไหม?', a: 'มี — ค่าติดตั้งในประเทศ (ช่างไฟ + ช่างประปา ประมาณ ฿7,000–฿17,000) อุปกรณ์เสริม (เครื่องจ่ายน้ำยาทำความสะอาดอัตโนมัติ +$200, การกู้คืนความร้อน +$500) การฝึกอบรมพนักงานฟรีผ่านวิดีโอคอล WhatsApp (30 นาที)' },
-    { q: 'แล้วการคืน VAT ล่ะ?', a: 'ถ้าร้านเบเกอรี่ของคุณจดทะเบียน VAT คุณสามารถขอคืนภาษีมูลค่าเพิ่มที่จ่ายในการนำเข้าผ่านการยื่นรายเดือน ราคาสุทธิหลังคืน VAT ประมาณ ฿149,000 ดูรายละเอียดที่<a href="/zh/pricing/by-country/thailand/">หน้าประเทศไทย</a>' },
-  ]}
->
-
-<h2>ปัญหากับการสื่อสารราคาในอุตสาหกรรมนี้</h2>
-<p>อุตสาหกรรมอุปกรณ์ครัวเชิงพาณิชย์มีนิสัยไม่ดี: เสนอราคาแค่ FOB และปล่อยให้ผู้ซื้อหาเองว่าจะจ่ายเท่าไหร่จริง ผลลัพธ์: เครื่องล้างจาน "ราคา $4,400" ลงเอยที่ $6,000+ หลังจากบวกค่าผู้ส่งของ นายหน้าศุลกากร ภาษีเซอร์ไพรส์ และค่าจัดส่งสุดท้าย</p>
-
-<p>สำหรับ 18 ตลาดสำคัญ — รวมถึงประเทศไทย — V-TAI เผยแพร่ราคา <a href="/zh/pricing/by-country/">DDP ในสกุลเงินท้องถิ่น รวมทุกอย่าง</a> ตัวเลขที่คุณเห็นคือตัวเลขที่คุณจ่าย</p>
-
-<h2>รายละเอียดสำหรับประเทศไทย (฿160,000 THB DDP กรุงเทพฯ)</h2>
-
-<div class="card !p-0 overflow-hidden my-4">
-  <table class="w-full text-sm">
-    <tbody>
-      <tr><td class="p-3 border-b">JD-3 มาตรฐาน FOB เซินเจิ้น</td><td class="p-3 border-b text-right">$4,400 USD</td></tr>
-      <tr><td class="p-3 border-b">ค่าระวางเรือ เซินเจิ้น → Laem Chabang</td><td class="p-3 border-b text-right text-bakery-navy/70">รวม</td></tr>
-      <tr><td class="p-3 border-b">ภาษีนำเข้าไทย 5% (HS 8422.11)</td><td class="p-3 border-b text-right text-bakery-navy/70">รวม</td></tr>
-      <tr><td class="p-3 border-b">VAT ไทย 7%</td><td class="p-3 border-b text-right text-bakery-navy/70">รวม</td></tr>
-      <tr><td class="p-3 border-b">การจัดส่งสุดท้ายในกรุงเทพฯ</td><td class="p-3 border-b text-right text-bakery-navy/70">รวม</td></tr>
-      <tr class="bg-bakery-cream font-bold">
-        <td class="p-3">ยอดรวม DDP กรุงเทพฯ</td>
-        <td class="p-3 text-right text-bakery-orange text-lg">฿160,000 THB</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<p>รายละเอียดที่ <a href="/zh/pricing/by-country/thailand/">หน้าประเทศไทย</a></p>
-
-<h2>ค่าใช้จ่ายที่ไม่รวมใน DDP</h2>
-<ul>
-  <li><strong>การติดตั้งในประเทศ</strong> (ช่างไฟ + ช่างประปา): ฿7,000–฿17,000 ขึ้นอยู่กับพื้นที่ เครื่องมาพร้อมเสียบใช้ — ช่างไฟทั่วไปติดตั้งใน 1–2 ชั่วโมงตามวิดีโอที่ให้มา</li>
-  <li><strong>อุปกรณ์เสริม</strong>: เครื่องจ่ายน้ำยาอัตโนมัติ (+$200), โมดูลกู้คืนความร้อน (+$500)</li>
-  <li><strong>การบำรุงรักษาประจำปี</strong>: ~฿5,000 (ปะเก็น, การกำจัดตะกรัน) แผนผังวงจรไฟฟ้าอยู่ในตัวเครื่อง — ช่างไฟท้องถิ่นใดๆ ก็วินิจฉัยได้</li>
-</ul>
-
-<h2>การเปรียบเทียบกับแบรนด์พรีเมียม</h2>
-<p>สำหรับร้านเบเกอรี่อิสระที่มีถาด 600×400 มม. ทางเลือกจริงคือ:</p>
-<ol>
-  <li><strong>V-TAI JD-3</strong>: เริ่ม $4,400 FOB / ฿160,000 DDP กรุงเทพฯ รับรอง CE <a href="/zh/product/">ดูสเปคเต็ม</a></li>
-  <li><strong>แบรนด์พรีเมียม</strong> (Hobart, Jackson, CMA, Winterhalter): ราคาขายปลีกสูงกว่ามากที่การรับรองเดียวกัน หลายรุ่น (Hobart AMX, Jackson TempStar, CMA L-1X16) ใช้แร็ค 500×500 มม. และไม่รับถาด 600×400</li>
-</ol>
-
-<h2>ขั้นตอนการนำเข้า</h2>
-<p>เราดูแลทุกอย่าง แต่เพื่อความโปร่งใส นี่คือลำดับขั้นตอน:</p>
-<ol>
-  <li>ยืนยันคำสั่งซื้อ + เงินมัดจำ 30% → การผลิตในเซินเจิ้น (4 สัปดาห์)</li>
-  <li>ชำระยอดคงเหลือ 70% + จองค่าระวางเรือ</li>
-  <li>การขนส่งเรือ เซินเจิ้น → Laem Chabang: 7–12 วัน</li>
-  <li>ดำเนินพิธีการศุลกากร: 2–5 วันทำการ (ผ่านนายหน้าท้องถิ่นของเรา)</li>
-  <li>การจัดส่งภายในประเทศถึงที่อยู่ของคุณ: 3–7 วัน</li>
-  <li><strong>รวม: ประมาณ 6–8 สัปดาห์จากคำสั่งซื้อถึงประตู</strong></li>
-</ol>
-
-<h2>สรุป</h2>
-<p>ต้นทุนจริงขึ้นอยู่กับสถานที่ของคุณ สำหรับประเทศไทยและตลาดอื่นๆ 17 แห่ง เราเผยแพร่<a href="/zh/pricing/by-country/">ราคา DDP ที่แน่นอนในสกุลเงินท้องถิ่น</a> หากประเทศของคุณไม่อยู่ในรายการ <a href="/zh/get-quote/">ขอใบเสนอราคาเฉพาะ</a> — เราตอบกลับใน 12 ชั่วโมงด้วยตัวเลขสุดท้ายแบบรวมทุกอย่าง</p>
-
-</BlogPostLayout>
+<BaseLayout title="曼谷 DDP 成本拆解（泰语市场文章） | V-TAI 博客" description="本文针对泰国曼谷 DDP 进口成本撰写。新加坡、马来西亚、香港的 DDP 报价请参见各国到岸价页面。" locale={locale} canonicalPath="/blog/ddp-bangkok-cost-breakdown/" schemaType="Article">
+<BreadcrumbNav items={[
+  { label: t(locale, 'nav.home'), href: '/zh/' },
+  { label: t(locale, 'nav.blog'), href: '/zh/blog/' },
+  { label: "曼谷 DDP 成本拆解（泰语市场文章）" }
+]} />
+<section class="section"><div class="container-prose">
+<h1 class="mb-4">曼谷 DDP 成本拆解（泰语市场文章）</h1>
+<p class="text-lg mb-6 text-bakery-navy/80">本文针对泰国曼谷 DDP 进口成本撰写。新加坡、马来西亚、香港的 DDP 报价请参见各国到岸价页面。</p>
+<p class="mt-4"><a href="/zh/pricing/by-country/" class="btn-primary inline-block">查看 18 国 DDP 到岸价 →</a></p>
+</div></section>
+<CTASection locale={locale} />
+</BaseLayout>

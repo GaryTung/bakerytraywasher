@@ -5,16 +5,17 @@ import CTASection from '../../../components/CTASection.astro';
 import { t } from '../../../i18n/utils';
 const locale = 'zh' as const;
 ---
-<BaseLayout title="ต้นทุนจริงของการล้างมือ | JD-3" description="ต้นทุนจริงของการล้างมือ" locale={locale} canonicalPath="/guides/cost-of-manual-tray-cleaning/" schemaType="Article">
+<BaseLayout title="人工洗烤盘的隐性成本 | V-TAI JD-3 选购指南" description="工时、水费、热水电费、烤盘磨损、产能损失 — 我们用真实数字告诉您手洗一年到底花掉多少钱（提示：远超您的直觉）。" locale={locale} canonicalPath="/guides/cost-of-manual-tray-cleaning/" schemaType="Article">
 <BreadcrumbNav items={[
   { label: t(locale, 'nav.home'), href: '/zh/' },
-  { label: t(locale, 'nav.guides') },
-  { label: "ต้นทุนจริงของการล้างมือ" }
+  { label: t(locale, 'nav.guides'), href: '/zh/guides/' },
+  { label: "人工洗烤盘的隐性成本" }
 ]} />
 <section class="section"><div class="container-prose">
-<h1 class="mb-4">ต้นทุนจริงของการล้างมือ</h1>
-<p class="text-lg mb-6">คู่มือปฏิบัติสำหรับผู้ประกอบการเบเกอรี่ที่ใช้ V-TAI JD-3</p>
-<p class="text-bakery-navy/70"><a href="/guides/cost-of-manual-tray-cleaning/" class="underline">ดูฉบับเต็มภาษาอังกฤษ</a></p>
+<h1 class="mb-4">人工洗烤盘的隐性成本</h1>
+<p class="text-lg mb-6 text-bakery-navy/80">工时、水费、热水电费、烤盘磨损、产能损失 — 我们用真实数字告诉您手洗一年到底花掉多少钱（提示：远超您的直觉）。</p>
+<p class="text-bakery-navy/70">完整长文版本正在翻译中。同时您可阅读英文完整版（含图表、计算示例与可下载表格）：</p>
+<p class="mt-4"><a href="/guides/cost-of-manual-tray-cleaning/" class="btn-primary inline-block">人工洗烤盘的隐性成本（英文完整版）→</a></p>
 </div></section>
 <CTASection locale={locale} />
 </BaseLayout>

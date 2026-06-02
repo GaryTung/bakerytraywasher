@@ -4,29 +4,109 @@ import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
 import InlineInquiryForm from '../../../components/InlineInquiryForm.astro';
 import ComparisonTable from '../../../components/ComparisonTable.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 import CTASection from '../../../components/CTASection.astro';
 const locale = 'zh' as const;
 const rows = [
-  { label: 'V-TAI JD-3', jd3: '650 × 550 มม.', competitor: '✓ ใช่', highlight: true },
-  { label: 'Hobart AMX', jd3: '500 × 500 มม.', competitor: '✗ ไม่' },
+  { label: 'V-TAI JD-3',          jd3: '650 × 550 mm', competitor: '✓ 兼容', highlight: true },
+  { label: 'Hobart AMX',          jd3: '500 × 500 mm', competitor: '✗ 不兼容' },
+  { label: 'Jackson TempStar',    jd3: '500 × 500 mm', competitor: '✗ 不兼容' },
+  { label: 'CMA L-1X16-BW',       jd3: '500 × 500 mm', competitor: '✗ 不兼容' },
+  { label: 'Winterhalter UC-M',   jd3: '500 × 500 mm', competitor: '✗ 不兼容' },
 ];
 ---
-<BaseLayout title="เครื่องล้างถาดเบเกอรี่ 600×400 มม." description="เครื่องล้างจานแบบกระโจมเดียวในระดับราคานี้ที่รองรับถาดเบเกอรี่ยุโรป 600×400 มม." locale={locale} canonicalPath="/what-it-washes/baking-trays-600x400/" schemaType="Article">
-<BreadcrumbNav items={[{label:'หน้าแรก',href:'/zh/'},{label:'ถาด 600×400'}]} />
+<BaseLayout
+  title="600×400 mm 欧标烘焙烤盘清洗机 — JD-3 by V-TAI"
+  description="同价位段唯一一台能装下 600×400 mm 欧标烤盘的揭盖式商用洗碗机。Hobart、Jackson、CMA、Winterhalter 都用 500×500 洗碗筐 — 装不下。"
+  locale={locale}
+  canonicalPath="/what-it-washes/baking-trays-600x400/"
+  schemaType="Article"
+>
+<BreadcrumbNav items={[{label:'首页',href:'/zh/'},{label:'清洗品类',href:'/zh/what-it-washes/'},{label:'600×400 mm 烤盘'}]} />
+
 <section class="section">
-<div class="container-page grid lg:grid-cols-3 gap-10">
-<article class="lg:col-span-2">
-<p class="eyebrow mb-3">⭐ การใช้งานหลัก</p>
-<h1 class="mb-4">เครื่องล้างถาดเบเกอรี่ 600×400 มม.</h1>
-<p class="text-lg mb-6">JD-3 เป็นเครื่องล้างจานแบบกระโจมเดียวในระดับราคานี้ที่รองรับมาตรฐานยุโรป 600×400 มม.</p>
-<ImagePlaceholder src="/images/600x400-tray-comparison.webp" alt="ถาด 600×400 ใน JD-3" ratio="16/9" label="เปรียบเทียบ 600×400" />
-<h2 class="mt-10 mb-3">มาตรฐาน 600×400 คืออะไร?</h2>
-<p>มาตรฐานยุโรปที่เกิดขึ้นในเยอรมนีในยุค 1960 ใช้โดยเตา Convotherm, Rational, Unox</p>
-<h2 class="mt-10 mb-3">ตารางความเข้ากันได้</h2>
-<ComparisonTable competitorName="รองรับ 600×400?" rows={rows} />
-</article>
-<aside class="lg:sticky lg:top-24 self-start"><InlineInquiryForm locale={locale} title="ขอใบเสนอราคา" /></aside>
-</div>
+  <div class="container-page grid lg:grid-cols-3 gap-10">
+    <article class="lg:col-span-2 prose-section">
+      <p class="eyebrow mb-3">⭐ 主打用例</p>
+      <h1 class="mb-4">600×400 mm 欧标烘焙烤盘清洗机 — 把欧洲标准做到 4,400 美元以内</h1>
+      <p class="text-lg text-bakery-navy/80 mb-6">
+        JD-3 是这个价位段唯一一台能装下 600×400 mm 欧标烤盘的揭盖式商用洗碗机。其它主流品牌 — Hobart、Jackson、CMA、Winterhalter — 都是 500×500 mm 洗碗筐，物理上装不下。
+      </p>
+
+      <ImagePlaceholder src="/images/600x400-tray-comparison.webp" alt="600×400 mm 烤盘装入 JD-3 650×550 洗碗筐 vs 装不进竞品 500×500 洗碗筐" ratio="16/9" label="600×400 烤盘兼容性对比图" />
+
+      <h2 class="mt-10 mb-3">什么是 600×400「欧标」？</h2>
+      <p>600×400 mm 烤盘尺寸 — 正式名称「Euro Bakery Norm（欧洲烘焙标准）」— 起源于 1960 年代欧洲，作为商用烘焙生产线标准化烤盘尺寸出现。这个尺寸是 GN（Gastronorm）2/1 标准的子尺寸，可以与欧洲烤盘小推车（德语 Stikkenwagen、法语 chariots de fournil）完美配合，便于批量运输。</p>
+      <p class="mt-3">一代人之内，600×400 成为欧洲商用烘焙的主流标准，然后扩展到亚洲、澳大利亚。所有主流蒸烤箱厂商 — <strong>Rational、Convotherm、Unox、Tecnoeka、Salva、Wachtel、MIWE、Werner & Pfleiderer</strong> — 的烤盘货架都按这个尺寸设计。这意味着过去 25 年生产的任何一台现代商用烘焙烤箱都是为它打造的。</p>
+      <p class="mt-3">北美市场近年也在大规模采用这个标准。美式 18×26"（457×660 mm）半幅烤盘正逐步让位给公制 600×400，因为越来越多的欧洲蒸烤箱进口到北美。到 2030 年，600×400 将成为全球商用烘焙的事实标准。</p>
+
+      <h2 class="mt-10 mb-3">为什么大多数揭盖式商用洗碗机装不下</h2>
+      <p>同级商用洗碗机的洗碗筐尺寸（按主流品牌列）：</p>
+      <ul class="list-disc list-inside space-y-1 my-3">
+        <li><strong>Hobart AMX：</strong>500 × 500 mm</li>
+        <li><strong>Jackson TempStar HH-E：</strong>500 × 500 mm</li>
+        <li><strong>CMA L-1X16-BW：</strong>500 × 500 mm</li>
+        <li><strong>Winterhalter UC-M / UC-L：</strong>500 × 500 mm</li>
+        <li><strong>Champion EHS-2：</strong>500 × 500 mm</li>
+      </ul>
+      <p>600×400 mm 烤盘装不进 500×500 mm 洗碗筐 — 横放装不进，斜放也装不进（500×500 的对角线虽然是 707 mm，但洗碗筐口的对角实际可入空间还是 500 mm，600 mm 的烤盘过不去）。物理上就是不行。</p>
+      <p class="mt-3"><strong>烘焙业主常见的「变通」做法 — 全都不好：</strong></p>
+      <ul class="list-disc list-inside space-y-1 my-3">
+        <li><em>把烤盘剪小。</em>这等于放弃了与烤盘推车的配合，得不偿失。</li>
+        <li><em>单买一台「烘焙专用」洗碗机。</em>设备投入翻倍，还要再占 2 m² 的厨房空间。</li>
+        <li><em>烤盘全部手洗。</em>慢、不稳定、累人，而且是隐形的人力成本黑洞。</li>
+        <li><em>买 Hobart PROFI 高端型号。</em>价格明显更高 — 财务上很痛。</li>
+      </ul>
+
+      <h2 class="mt-10 mb-3">JD-3 的解决方案</h2>
+      <p>JD-3 从设计第一天起就采用 <strong>650 × 550 mm 洗碗筐</strong> — 这个尺寸是为容纳 600×400 烤盘并留出装卸余量而专门选择的。这是整台机器里最关键的一个设计决策。</p>
+      <p class="mt-3"><strong>由此带来的效果：</strong></p>
+      <ul class="list-disc list-inside space-y-1 my-3">
+        <li>多个 600×400 烤盘可竖向装入腔体，烤盘间留出喷水穿透空间。</li>
+        <li>高压双臂喷射覆盖烤盘背面 — 手洗经常漏掉的位置。</li>
+        <li>360° 旋转喷臂保证所有角度都喷到。</li>
+        <li>>82°C 最终漂洗在不损伤烤盘钢材的前提下完成热力杀菌。</li>
+        <li>循环结束后 30 秒内滴干 — 立刻可回到下一炉使用。</li>
+      </ul>
+
+      <h2 class="mt-10 mb-3">哪些烘焙店需要 600×400 兼容？</h2>
+      <p>以下情况建议优先考虑 600×400 兼容性：</p>
+      <ul class="list-disc list-inside space-y-1 my-3">
+        <li>使用 Convotherm、Rational、Unox、Tecnoeka、Salva、Wachtel、MIWE、Werner & Pfleiderer 等蒸烤箱（都按 600×400 设计）</li>
+        <li>批发型烘焙坊，供应咖啡馆、餐厅、超市</li>
+        <li>多门店的法式甜品店或糕点连锁</li>
+        <li>运营地点在欧洲、亚洲、澳大利亚、中东 — 任何以公制为主的市场</li>
+        <li>采用欧洲烘焙模式扩张的亚洲、拉美连锁（许多新加坡、马来西亚、香港高端烘焙店都遵循欧洲规范）</li>
+      </ul>
+
+      <h2 class="mt-10 mb-3">对比表 — 烤盘兼容性</h2>
+      <ComparisonTable competitorName="兼容 600×400 mm？" rows={rows} />
+    </article>
+
+    <aside class="lg:sticky lg:top-24 self-start">
+      <InlineInquiryForm locale={locale} title="索取 600×400 规格报价" />
+      <div class="mt-6 card">
+        <h3 class="text-base mb-3">相关链接</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/zh/guides/600x400-bakery-norm-explained/" class="hover:underline">600×400 标准详解</a></li>
+          <li><a href="/zh/product/jd-3-vs-hobart-amx/" class="hover:underline">vs Hobart AMX</a></li>
+          <li><a href="/zh/by-business-type/bakery-shop/" class="hover:underline">面包店专题</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
 </section>
-<CTASection locale={locale} />
+
+<FAQSection items={[
+  { q: '也能洗美式 18×26" 半幅烤盘吗？', a: '可以 — 18×26"（457×660 mm）烤盘斜放进 650×550 腔体。最后留出的空隙较紧但能用。' },
+  { q: '能洗 GN 2/1 万能蒸烤盘吗？', a: '可以 — GN 2/1 是 650×530 mm，留出 0–20 mm 空隙刚好。' },
+  { q: '每个循环能装几个 600×400 烤盘？', a: '标准 6 个/循环。残留较轻的高峰期最多可装 8 个/循环。每个循环 2–3 分钟，视残留程度而定。' },
+  { q: '推荐用什么洗涤剂？', a: '标准商用低泡碱性洗涤剂（pH 12–13）。糖渍重的残留（蛋糕、甜品店）建议选用专为糖类残留设计的洗涤剂。' },
+  { q: '每天烤盘的清洗维护怎么做？', a: '每日：滤网冲洗（2 分钟）；每周：腔体擦拭（10 分钟）；每月：除垢（30 分钟）；每年：工厂技师上门维护。' },
+  { q: 'JD-3 的交货周期？', a: '深圳生产 4–6 周，加海运 20–35 天（视目的地）。新加坡、马来西亚、香港、台湾通常 6–8 周到货。' },
+  { q: 'JD-3 兼容 Convotherm 蒸烤箱的烤盘吗？', a: '兼容 — Convotherm 用 600×400 EN 1/1 标准，和其它欧洲蒸烤箱品牌一样。已确认兼容。' },
+  { q: '我用的是 400×600 GN 1/1（旋转方向不同）的烤盘，能用吗？', a: '可以 — 400×600 与 600×400 是同一个尺寸，只是放置方向不同。完全兼容。' },
+]} />
+
+<CTASection locale={locale} title="需要清洗 600×400 mm 欧标烤盘？" subtitle="同价位段就这一台能装下。12 小时内出报价。" />
 </BaseLayout>
