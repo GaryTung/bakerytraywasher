@@ -24,6 +24,26 @@ const orgData = {
   sameAs: ['https://v-tai.com'],
 };
 
-const schema = type === 'Organization' ? orgData : { '@context': 'https://schema.org', '@type': type, ...data };
+// Validate Product schema. Google requires at minimum `name` plus one of
+// `offers` / `review` / `aggregateRating`. If a page declares
+// schemaType="Product" but doesn't supply complete data, we silently
+// downgrade to Article rather than emit an incomplete (and therefore
+// search-console-error-triggering) Product blob.
+let effectiveType = type;
+let effectiveData: Record<string, any> = data;
+if (type === 'Product') {
+  const hasName = typeof data.name === 'string' && data.name.length > 0;
+  const hasMonetization = Boolean(data.offers || data.review || data.aggregateRating);
+  if (!hasName || !hasMonetization) {
+    effectiveType = 'Article';
+    // Strip Product-only keys that don't apply to Article
+    const { offers, sku, brand, ...rest } = data;
+    effectiveData = rest;
+  }
+}
+
+const schema = type === 'Organization'
+  ? orgData
+  : { '@context': 'https://schema.org', '@type': effectiveType, ...effectiveData };
 ---
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
