@@ -7,16 +7,16 @@ import { washesNames, flagshipLabel } from '../../../i18n/categories';
 const locale = 'vi' as const;
 
 const items = [
-  { slug: 'baking-trays-600x400', flagship: true },
-  { slug: 'sheet-pans' },
-  { slug: 'mixing-bowls' },
-  { slug: 'cake-pans' },
-  { slug: 'pizza-pans' },
-  { slug: 'frying-baskets' },
-  { slug: 'stockpots' },
-  { slug: 'dishes-plates' },
-  { slug: 'utensils-mixers' },
-  { slug: 'large-bakeware' },
+  { slug: 'baking-trays-600x400', flagship: true, img: '/images/600x400-tray-comparison.webp' },
+  { slug: 'sheet-pans',                            img: '/images/what-it-washes/sheet-pans.webp' },
+  { slug: 'mixing-bowls',                          img: '/images/what-it-washes/mixing-bowls.webp' },
+  { slug: 'cake-pans',                             img: '/images/what-it-washes/cake-pans.webp' },
+  { slug: 'pizza-pans',                            img: '/images/what-it-washes/pizza-pans.webp' },
+  { slug: 'frying-baskets',                        img: '/images/what-it-washes/frying-baskets.webp' },
+  { slug: 'stockpots',                             img: '/images/what-it-washes/stockpots.webp' },
+  { slug: 'dishes-plates',                         img: '/images/what-it-washes/dishes-plates.webp' },
+  { slug: 'utensils-mixers',                       img: '/images/what-it-washes/utensils-mixers.webp' },
+  { slug: 'large-bakeware',                        img: '/images/what-it-washes/large-bakeware.webp' },
 ];
 const intro = "Mọi loại dụng cụ JD-3 có thể rửa — khay, khuôn, bát và nhiều hơn nữa.";
 ---
@@ -32,11 +32,14 @@ const intro = "Mọi loại dụng cụ JD-3 có thể rửa — khay, khuôn, b
   <div class="container-page">
     <h1 class="mb-4 text-center">{t(locale, 'nav.washes')}</h1>
     <p class="text-center text-bakery-navy/70 max-w-2xl mx-auto mb-10">{intro}</p>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
       {items.map((it) => (
-        <a href={`/vi/what-it-washes/${it.slug}/`} class={`card hover:scale-[1.02] transition ${it.flagship ? 'border-2 border-bakery-orange' : ''}`}>
-          {it.flagship && <p class="eyebrow text-bakery-orange">⭐ {flagshipLabel[locale]}</p>}
-          <h3 class="text-lg mb-2 mt-1">{washesNames[it.slug][locale]}</h3>
+        <a href={`/vi/what-it-washes/${it.slug}/`} class={`card !p-0 overflow-hidden hover:scale-[1.03] transition flex flex-col ${it.flagship ? 'ring-2 ring-bakery-orange' : ''}`}>
+          <img src={it.img} alt={washesNames[it.slug][locale]} class="w-full aspect-[4/3] object-cover" loading="lazy" />
+          <div class="p-4">
+            {it.flagship && <p class="eyebrow text-bakery-orange mb-1">⭐ {flagshipLabel[locale]}</p>}
+            <h3 class="text-base">{washesNames[it.slug][locale]}</h3>
+          </div>
         </a>
       ))}
     </div>
