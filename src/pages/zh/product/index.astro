@@ -3,10 +3,97 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../../components/BreadcrumbNav.astro';
 import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
 import YouTubeShort from '../../../components/YouTubeShort.astro';
+import ProductSpecsTable from '../../../components/ProductSpecsTable.astro';
 import PriceCalloutBox from '../../../components/PriceCalloutBox.astro';
 import CTASection from '../../../components/CTASection.astro';
 import FAQSection from '../../../components/FAQSection.astro';
 const locale = 'zh' as const;
+
+const specSections = [
+  { title: '尺寸与重量', rows: [
+    { k: '机身尺寸（盖板关闭）', v: '804 × 816 × 1,550 mm' },
+    { k: '最大高度（盖板打开）', v: '2,115 mm' },
+    { k: '腔体高度', v: '550 mm' },
+    { k: '洗碗筐尺寸', v: '650 × 550 mm' },
+    { k: '净重 / 毛重', v: '145 kg / 165 kg' },
+    { k: '占地面积', v: '0.65 m²' },
+  ]},
+  { title: '清洗能力', rows: [
+    { k: '吞吐量（标准烤盘）', v: '180 个 / 小时' },
+    { k: '每循环装载（标准烤盘）', v: '6 个' },
+    { k: '单次循环时间', v: '2 分钟（120 秒）' },
+    { k: '循环频次', v: '30 次 / 小时' },
+    { k: '每循环用水', v: '2.0–2.5 升' },
+    { k: '主洗水温', v: '60–65°C' },
+    { k: '最终漂洗水温', v: '≥82°C（NSF/ANSI 3 标准）' },
+  ]},
+  { title: '兼容器具尺寸', rows: [
+    { k: '600×400 mm 欧标烤盘', v: '一次 6 个（竖向装载）' },
+    { k: '美式 18×26" 半幅烤盘', v: '一次 6 个（平铺）' },
+    { k: '美式 18×26" 全幅烤盘', v: '一次 1–2 个（斜放）' },
+    { k: 'GN 2/1 万能蒸烤盘', v: '一次 6 个' },
+    { k: '8 寸蛋糕模具', v: '一次 6 个' },
+    { k: '12 寸蛋糕模具', v: '一次 2 个（竖放）' },
+    { k: '14 寸 / 16 寸披萨盘', v: '一次 4 个 / 3 个' },
+    { k: '汤桶（直径 ≤ 28 cm）', v: '一次 2 口（正放）' },
+    { k: 'KitchenAid 5 公升搅拌桶', v: '一次 4 个（竖放）' },
+  ]},
+  { title: '电气参数', rows: [
+    { k: '总功率', v: '13 kW' },
+    { k: '加热元件功率', v: '9 kW' },
+    { k: '泵功率', v: '0.75 kW' },
+    { k: '电源', v: '380V / 3N / 50Hz（标配）' },
+    { k: '可选电源', v: '400V / 50Hz · 220V / 60Hz（下单时指定）' },
+    { k: '工作电流', v: '21.5 A' },
+    { k: '推荐断路器', v: 'C 型 32 A' },
+  ]},
+  { title: '水路参数', rows: [
+    { k: '进水接口', v: 'G 3/4" 螺纹' },
+    { k: '进水压力', v: '2.5–6 kg/cm²' },
+    { k: '进水温度', v: '常温 ≥ 10°C（推荐 50–60°C 预热入水更省电）' },
+    { k: '排水接口', v: 'G 1½" 软管' },
+    { k: '排水距离', v: '≤ 1.5 m（建议接地漏或墙排）' },
+    { k: '排水流量', v: '约 25 L / 分钟' },
+  ]},
+  { title: '主体材质', rows: [
+    { k: '机身外壳', v: 'SUS304 食品级不锈钢' },
+    { k: '腔体内壁', v: 'SUS304 食品级不锈钢' },
+    { k: '洗碗筐 / 烤盘支撑框', v: 'SUS304 食品级不锈钢' },
+    { k: '旋转喷臂', v: 'SUS304 食品级不锈钢' },
+    { k: '管路', v: '食品级硅胶 + 不锈钢' },
+  ]},
+  { title: '认证与标准', rows: [
+    { k: '安全认证', v: 'CE（欧盟合规）' },
+    { k: '质量体系', v: 'ISO 9001:2015' },
+    { k: '消毒标准', v: 'NSF/ANSI 3、EN 12875-2、DIN 10516、FDA Food Code 4-501.112' },
+    { k: '食品接触材料', v: 'FDA 合规、欧盟 1935/2004 合规' },
+    { k: '机械标准', v: 'EN ISO 12100、EN 60204-1（低压电气）' },
+  ]},
+  { title: '功能特性', rows: [
+    { k: '门联锁自动启动', v: '是（关盖即洗）' },
+    { k: '热回收系统', v: '可选升级（节能 15–25%）' },
+    { k: '自动洗涤剂分配器', v: '可选升级' },
+    { k: '内置漂洗剂泵', v: '可选升级' },
+    { k: '门联锁断电保护', v: '标配' },
+    { k: '电压过载保护', v: '标配' },
+    { k: '温度数显', v: 'LED 数字显示' },
+    { k: '运转噪音', v: '≤ 70 dB' },
+  ]},
+];
+
+// 清洗品类配对图片（缩略图）
+const washes = [
+  { slug: 'baking-trays-600x400',  label: '600×400 欧标烤盘',    img: '/images/600x400-tray-comparison.webp' },
+  { slug: 'sheet-pans',            label: '美式烤盘',            img: '/images/what-it-washes/sheet-pans.webp' },
+  { slug: 'mixing-bowls',          label: '搅拌桶',              img: '/images/what-it-washes/mixing-bowls.webp' },
+  { slug: 'cake-pans',             label: '蛋糕模具',            img: '/images/what-it-washes/cake-pans.webp' },
+  { slug: 'pizza-pans',            label: '披萨盘',              img: '/images/what-it-washes/pizza-pans.webp' },
+  { slug: 'frying-baskets',        label: '炸篮',                img: '/images/what-it-washes/frying-baskets.webp' },
+  { slug: 'stockpots',             label: '汤桶大锅',            img: '/images/what-it-washes/stockpots.webp' },
+  { slug: 'dishes-plates',         label: '碗碟餐具',            img: '/images/what-it-washes/dishes-plates.webp' },
+  { slug: 'utensils-mixers',       label: '小工具与搅拌机配件',  img: '/images/what-it-washes/utensils-mixers.webp' },
+  { slug: 'large-bakeware',        label: '大型烘焙器具',        img: '/images/what-it-washes/large-bakeware.webp' },
+];
 
 const features = [
   { icon: '🛡️', title: 'SUS304 食品级不锈钢',         text: '整机采用 SUS304 食品级不锈钢 — 防锈、防虫、易清洁，符合 FDA 食品接触材料标准。' },
@@ -25,7 +112,7 @@ const features = [
 ---
 <BaseLayout
   title="V-TAI JD-3 — 烘焙烤盘揭盖式清洗机 | 完整产品页"
-  description="V-TAI JD-3 揭盖式烘焙烤盘清洗机：180 个烤盘/小时、兼容 600×400 mm 欧标烤盘、SUS304 食品级不锈钢、CE 认证。深圳 FOB 起价 4,400 美元。"
+  description="V-TAI JD-3 揭盖式烘焙烤盘清洗机：180 个烤盘/小时、兼容 600×400 mm 欧标烤盘、SUS304 食品级不锈钢、CE 认证。深圳 FOB 起价 4,400 美元。可下载完整中文规格书 PDF。"
   locale={locale}
   canonicalPath="/product/"
   schemaType="Product"
@@ -66,12 +153,49 @@ const features = [
         <div class="rounded-card border border-bakery-navy/10 p-3"><p class="text-xs text-bakery-navy/60">总功率</p><p class="font-semibold">13 kW</p></div>
       </div>
       <PriceCalloutBox locale={locale} />
+
+      <!-- 规格书 PDF 下载 + 报价 -->
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/downloads/jd-3-spec-sheet-zh.pdf"
+           class="btn-primary inline-flex items-center gap-2"
+           download
+           aria-label="下载 JD-3 中文规格书 PDF">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          <span>下载规格书 PDF</span>
+        </a>
+        <a href="/zh/get-quote/" class="btn-secondary inline-flex items-center gap-2">索取报价</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 完整规格参数表 -->
+<section class="section">
+  <div class="container-page">
+    <div class="text-center max-w-3xl mx-auto mb-8">
+      <h2 class="mb-3">完整规格参数</h2>
+      <p class="text-bakery-navy/70">招标、机房布置、采购评估所需的全部技术参数都在这里。也可<a href="/downloads/jd-3-spec-sheet-zh.pdf" class="text-bakery-orange underline" download>下载 PDF 版本</a>带回办公室。</p>
+    </div>
+    <ProductSpecsTable sections={specSections} />
+    <div class="text-center mt-8">
+      <a href="/downloads/jd-3-spec-sheet-zh.pdf"
+         class="btn-primary inline-flex items-center gap-2"
+         download>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        <span>下载完整规格书 PDF（中文版）</span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- 实机演示 -->
-<section class="section">
+<section class="section bg-bakery-cream">
   <div class="container-page">
     <div class="text-center max-w-2xl mx-auto mb-8">
       <h2 class="mb-3">实机演示</h2>
@@ -127,25 +251,16 @@ const features = [
   </div>
 </section>
 
-<!-- 可清洗 -->
+<!-- 可清洗品类 — 带缩略图 -->
 <section class="section">
   <div class="container-page">
-    <h2 class="text-center mb-8">能清洗哪些器具</h2>
-    <div class="grid sm:grid-cols-2 md:grid-cols-5 gap-3 text-center">
-      {[
-        ['600×400 欧标烤盘', '/zh/what-it-washes/baking-trays-600x400/'],
-        ['美式烤盘', '/zh/what-it-washes/sheet-pans/'],
-        ['搅拌桶', '/zh/what-it-washes/mixing-bowls/'],
-        ['蛋糕模具', '/zh/what-it-washes/cake-pans/'],
-        ['披萨盘', '/zh/what-it-washes/pizza-pans/'],
-        ['炸篮', '/zh/what-it-washes/frying-baskets/'],
-        ['汤桶大锅', '/zh/what-it-washes/stockpots/'],
-        ['碗碟餐具', '/zh/what-it-washes/dishes-plates/'],
-        ['小工具与搅拌机配件', '/zh/what-it-washes/utensils-mixers/'],
-        ['大型烘焙器具', '/zh/what-it-washes/large-bakeware/'],
-      ].map(([label, href]) => (
-        <a href={href} class="card hover:bg-bakery-cream text-sm">
-          <p class="font-medium text-bakery-navy">{label}</p>
+    <h2 class="text-center mb-3">能清洗哪些器具</h2>
+    <p class="text-center text-bakery-navy/70 max-w-2xl mx-auto mb-10">点击任一品类查看详细装载方案、清洗循环参数和 FAQ。</p>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      {washes.map((w) => (
+        <a href={`/zh/what-it-washes/${w.slug}/`} class="card !p-0 overflow-hidden hover:scale-[1.03] transition flex flex-col">
+          <img src={w.img} alt={w.label} class="w-full aspect-[4/3] object-cover" loading="lazy" />
+          <p class="p-3 text-sm font-medium text-bakery-navy text-center">{w.label}</p>
         </a>
       ))}
     </div>
@@ -173,11 +288,12 @@ const features = [
   </div>
 </section>
 
-<FAQSection items={[
+<FAQSection locale={locale} title="常见问题" items={[
   { q: '随机配件有哪些？', a: 'JD-3 主机、一个定制不锈钢烤盘支撑框、进水管、排水管、操作手册（中英文）、CE 证书。' },
   { q: '可以发到新加坡 / 马来西亚吗？', a: '可以。新加坡 DDP 约 6,800 SGD，马来西亚 DDP 约 22,000 MYR — 含海运、关税、GST/SST、本地派送。' },
   { q: '保修条款？', a: '12 个月零件保修。配件通过国际快递发往全球。' },
   { q: '5 年后能买到零件吗？', a: '所有关键零件 — 水泵、加热元件、控制板 — 工厂常备库存。常见零件当日发货。' },
+  { q: '可以索取详细规格书 PDF 吗？', a: '可以。点击页面顶部「下载规格书 PDF」按钮即可下载中文版规格书。如需英文版、招标专用版或定制配置技术书，请通过 WhatsApp / 邮件联系我们。' },
 ]} />
 
 <CTASection locale={locale} />

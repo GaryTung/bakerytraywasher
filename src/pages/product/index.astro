@@ -3,12 +3,98 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
 import YouTubeShort from '../../components/YouTubeShort.astro';
+import ProductSpecsTable from '../../components/ProductSpecsTable.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import CTASection from '../../components/CTASection.astro';
 import FAQSection from '../../components/FAQSection.astro';
 
 const locale = 'en' as const;
+
+const specSections = [
+  { title: 'Dimensions & Weight', rows: [
+    { k: 'Body (hood closed)', v: '804 × 816 × 1,550 mm' },
+    { k: 'Max height (hood open)', v: '2,115 mm' },
+    { k: 'Chamber height', v: '550 mm' },
+    { k: 'Rack size', v: '650 × 550 mm' },
+    { k: 'Net / gross weight', v: '145 kg / 165 kg' },
+    { k: 'Footprint', v: '0.65 m²' },
+  ]},
+  { title: 'Wash Performance', rows: [
+    { k: 'Throughput (standard trays)', v: '180 trays/hour' },
+    { k: 'Load per cycle (standard trays)', v: '6 trays' },
+    { k: 'Cycle time', v: '2 minutes (120 s)' },
+    { k: 'Cycles per hour', v: '30' },
+    { k: 'Water per cycle', v: '2.0–2.5 L' },
+    { k: 'Wash tank temperature', v: '60–65°C' },
+    { k: 'Final rinse temperature', v: '≥82°C (NSF/ANSI 3)' },
+  ]},
+  { title: 'Item Compatibility', rows: [
+    { k: '600×400 mm EN-Norm trays', v: '6 per cycle (vertical)' },
+    { k: '18×26" half sheet pans', v: '6 per cycle (flat)' },
+    { k: '18×26" full sheet pans', v: '1–2 per cycle (diagonal)' },
+    { k: 'GN 2/1 gastronorm pans', v: '6 per cycle' },
+    { k: '8" cake pans', v: '6 per cycle' },
+    { k: '12" cake pans', v: '2 per cycle (vertical)' },
+    { k: '14" / 16" pizza pans', v: '4 / 3 per cycle' },
+    { k: 'Stockpots (≤ 28 cm dia.)', v: '2 per cycle (upright)' },
+    { k: 'KitchenAid 5 L mixing bowls', v: '4 per cycle (vertical)' },
+  ]},
+  { title: 'Electrical', rows: [
+    { k: 'Total power', v: '13 kW' },
+    { k: 'Heating element', v: '9 kW' },
+    { k: 'Pump', v: '0.75 kW' },
+    { k: 'Power supply (standard)', v: '380V / 3N / 50Hz' },
+    { k: 'Alternative supplies', v: '400V / 50Hz · 220V / 60Hz (specify at order)' },
+    { k: 'Working current', v: '21.5 A' },
+    { k: 'Recommended breaker', v: '32 A type C' },
+  ]},
+  { title: 'Water', rows: [
+    { k: 'Inlet connection', v: 'G 3/4" thread' },
+    { k: 'Inlet pressure', v: '2.5–6 kg/cm²' },
+    { k: 'Inlet temperature', v: '≥ 10°C (50–60°C pre-heated saves energy)' },
+    { k: 'Drain connection', v: 'G 1½" hose' },
+    { k: 'Drain distance', v: '≤ 1.5 m (floor drain or wall drain)' },
+    { k: 'Drain flow rate', v: '~25 L / min' },
+  ]},
+  { title: 'Materials', rows: [
+    { k: 'Outer shell', v: 'SUS304 food-grade stainless steel' },
+    { k: 'Chamber walls', v: 'SUS304 food-grade stainless steel' },
+    { k: 'Rack / tray support frame', v: 'SUS304 food-grade stainless steel' },
+    { k: 'Rotating wash arms', v: 'SUS304 food-grade stainless steel' },
+    { k: 'Internal piping', v: 'Food-grade silicone + stainless' },
+  ]},
+  { title: 'Certifications & Standards', rows: [
+    { k: 'Safety certification', v: 'CE (full EU compliance)' },
+    { k: 'Quality system', v: 'ISO 9001:2015' },
+    { k: 'Sanitization standards', v: 'NSF/ANSI 3, EN 12875-2, DIN 10516, FDA Food Code 4-501.112' },
+    { k: 'Food-contact materials', v: 'FDA-compliant, EU 1935/2004 compliant' },
+    { k: 'Machinery directive', v: 'EN ISO 12100, EN 60204-1 (low-voltage electrical)' },
+  ]},
+  { title: 'Functional', rows: [
+    { k: 'Door-activated auto-start', v: 'Yes (close hood to start)' },
+    { k: 'Heat recovery system', v: 'Optional upgrade (15–25% energy savings)' },
+    { k: 'Auto detergent dispenser', v: 'Optional upgrade' },
+    { k: 'Built-in rinse-aid pump', v: 'Optional upgrade' },
+    { k: 'Door interlock cutoff', v: 'Standard' },
+    { k: 'Voltage overload protection', v: 'Standard' },
+    { k: 'Temperature display', v: 'LED digital' },
+    { k: 'Operating noise', v: '≤ 70 dB' },
+  ]},
+];
+
+const washThumbs = [
+  { slug: 'baking-trays-600x400',  label: '600×400 EN-Norm Trays',       img: '/images/600x400-tray-comparison.webp' },
+  { slug: 'sheet-pans',            label: 'American Sheet Pans',         img: '/images/what-it-washes/sheet-pans.webp' },
+  { slug: 'mixing-bowls',          label: 'Mixing Bowls',                img: '/images/what-it-washes/mixing-bowls.webp' },
+  { slug: 'cake-pans',             label: 'Cake Pans',                   img: '/images/what-it-washes/cake-pans.webp' },
+  { slug: 'pizza-pans',            label: 'Pizza Pans',                  img: '/images/what-it-washes/pizza-pans.webp' },
+  { slug: 'frying-baskets',        label: 'Frying Baskets',              img: '/images/what-it-washes/frying-baskets.webp' },
+  { slug: 'stockpots',             label: 'Stockpots',                   img: '/images/what-it-washes/stockpots.webp' },
+  { slug: 'dishes-plates',         label: 'Plates & Dishware',           img: '/images/what-it-washes/dishes-plates.webp' },
+  { slug: 'utensils-mixers',       label: 'Utensils & Mixer Attachments', img: '/images/what-it-washes/utensils-mixers.webp' },
+  { slug: 'large-bakeware',        label: 'Large Bakeware',              img: '/images/what-it-washes/large-bakeware.webp' },
+];
 
 const features = [
   { icon: '🛡️', title: 'SUS304 Stainless Construction', text: 'Entire machine is food-grade SUS304 — rust-resistant, rodent-resistant, easy to sanitize.' },
@@ -68,11 +154,48 @@ const features = [
         <div class="rounded-card border border-bakery-navy/10 p-3"><p class="text-xs text-bakery-navy/60">Total power</p><p class="font-semibold">13 kW</p></div>
       </div>
       <PriceCalloutBox locale={locale} />
+
+      <!-- Spec sheet PDF + Quote -->
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/downloads/jd-3-spec-sheet-en.pdf"
+           class="btn-primary inline-flex items-center gap-2"
+           download
+           aria-label="Download JD-3 spec sheet PDF">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          <span>Download Spec Sheet PDF</span>
+        </a>
+        <a href="/get-quote/" class="btn-secondary inline-flex items-center gap-2">Get a Quote</a>
+      </div>
     </div>
   </div>
 </section>
 
 <TrustBadgeStrip locale={locale} />
+
+<!-- Full Specifications -->
+<section class="section">
+  <div class="container-page">
+    <div class="text-center max-w-3xl mx-auto mb-8">
+      <h2 class="mb-3">Full Specifications</h2>
+      <p class="text-bakery-navy/70">Everything procurement, plant engineering, and health-inspection auditors need. Download the <a href="/downloads/jd-3-spec-sheet-en.pdf" class="text-bakery-orange underline" download>PDF version</a> for offline review.</p>
+    </div>
+    <ProductSpecsTable sections={specSections} />
+    <div class="text-center mt-8">
+      <a href="/downloads/jd-3-spec-sheet-en.pdf"
+         class="btn-primary inline-flex items-center gap-2"
+         download>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        <span>Download Full Spec Sheet (PDF)</span>
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- How it works -->
 <section class="section">
@@ -139,25 +262,16 @@ const features = [
   </div>
 </section>
 
-<!-- What it cleans -->
+<!-- What it cleans (thumbnails) -->
 <section class="section">
   <div class="container-page">
-    <h2 class="text-center mb-8">What It Cleans</h2>
-    <div class="grid sm:grid-cols-2 md:grid-cols-5 gap-3 text-center">
-      {[
-        ['600×400 Bakery Norm Trays', '/what-it-washes/baking-trays-600x400/'],
-        ['American Sheet Pans', '/what-it-washes/sheet-pans/'],
-        ['Mixing Bowls', '/what-it-washes/mixing-bowls/'],
-        ['Cake Pans', '/what-it-washes/cake-pans/'],
-        ['Pizza Pans', '/what-it-washes/pizza-pans/'],
-        ['Frying Baskets', '/what-it-washes/frying-baskets/'],
-        ['Stockpots', '/what-it-washes/stockpots/'],
-        ['Plates & Dishware', '/what-it-washes/dishes-plates/'],
-        ['Utensils & Mixers', '/what-it-washes/utensils-mixers/'],
-        ['Large Bakeware', '/what-it-washes/large-bakeware/'],
-      ].map(([label, href]) => (
-        <a href={href} class="card hover:bg-bakery-cream text-sm">
-          <p class="font-medium text-bakery-navy">{label}</p>
+    <h2 class="text-center mb-3">What It Cleans</h2>
+    <p class="text-center text-bakery-navy/70 max-w-2xl mx-auto mb-10">Click any category to see loading patterns, recommended cycle settings, and item-specific FAQs.</p>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      {washThumbs.map((w) => (
+        <a href={`/what-it-washes/${w.slug}/`} class="card !p-0 overflow-hidden hover:scale-[1.03] transition flex flex-col">
+          <img src={w.img} alt={w.label} class="w-full aspect-[4/3] object-cover" loading="lazy" />
+          <p class="p-3 text-sm font-medium text-bakery-navy text-center">{w.label}</p>
         </a>
       ))}
     </div>
@@ -185,11 +299,12 @@ const features = [
   </div>
 </section>
 
-<FAQSection items={[
+<FAQSection locale={locale} items={[
   { q: 'What is included in the box?', a: 'JD-3 machine, one custom stainless-steel baking-tray support frame, water inlet hose, drain hose, English operation manual, CE certificate.' },
   { q: 'Can it ship to the US?', a: 'Yes. US commercial kitchens typically have a 400V single-phase circuit, which the JD-3 connects to directly. CE-certified machines are imported into the US daily.' },
-  { q: 'Warranty?', a: '12-month manufacturer warranty on parts. We air-freight replacement parts globally.' },
+  { q: 'Warranty?', a: '12-month manufacturer warranty on parts. Spare parts ship globally via international express courier.' },
   { q: 'What if I need spare parts in 5 years?', a: 'All key components — pumps, heating elements, control boards — are stocked at the factory. Same-day shipment of common parts.' },
+  { q: 'Can I get a PDF spec sheet?', a: 'Yes. Click the "Download Spec Sheet PDF" button at the top of the page. Need a tender-specific or custom-configuration spec document? Contact us via WhatsApp or email.' },
 ]} />
 
 <CTASection locale={locale} />
