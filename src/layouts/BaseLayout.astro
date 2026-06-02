@@ -63,6 +63,15 @@ const lang = locale;
     })(window, document, "clarity", "script", "wzr6mhbdht");
   </script>
 
+  <!-- Google Analytics 4 (gtag.js) — property G-YDEQKHPDZ0 -->
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-YDEQKHPDZ0"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YDEQKHPDZ0');
+  </script>
+
   <slot name="head" />
 </head>
 <body>
