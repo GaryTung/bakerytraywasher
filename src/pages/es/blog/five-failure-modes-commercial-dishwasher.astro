@@ -1,0 +1,95 @@
+---
+import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+const locale = 'es' as const;
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/five-failure-modes-commercial-dishwasher/"
+  slug="five-failure-modes-commercial-dishwasher"
+  title="Cinco formas en que muere realmente una lavavajillas comercial — checklist de un ingeniero de campo antes de comprar"
+  description="Las lavavajillas comerciales no fallan al azar. En nuestros datos de garantía, vemos los mismos cinco patrones de falla una y otra vez. Cada uno tiene una señal temprana que puede detectarse — y cada uno puede ser combatido con decisiones de ingeniería. Use esto como checklist antes de comprar, ya sea nueva o usada."
+  pubDate="2026-05-15"
+  tldr={"Las lavavajillas comerciales mueren de pocas maneras. Las cinco que explican aproximadamente el 90% de las fallas fuera de garantía son: "+
+"<strong>desgaste de rodamientos de bomba</strong>, <strong>sarro en la resistencia</strong>, <strong>humedad en la placa de control</strong>, "+
+"<strong>degradación de junta de puerta</strong> y <strong>desgaste de impulsor de drenaje</strong>. "+
+"Cada una tiene una señal temprana detectable sin herramientas. "+
+"Cada una depende más de decisiones de fabricación que de la intensidad de uso. "+
+"Esta nota recorre las cinco en orden de ingeniero de campo — qué escuchar, qué mirar, y qué preguntar al vendedor antes de pagar."}
+  faqs={[
+    { q: '¿Cuánto dura realmente una lavavajillas comercial bien construida?', a: 'En nuestra flota desplegada, la mediana de tiempo hasta una falla mayor en máquinas que corren 6–10 ciclos por turno es de aproximadamente 8–11 años, con calidad de agua razonable y limpieza diaria del filtro. Las máquinas que omiten esa limpieza diaria duran aproximadamente la mitad.' },
+    { q: '¿Cuál es el predictor más grande de larga vida?', a: 'La dureza del agua de entrada al tanque de lavado. Por encima de 200 ppm de carbonato de calcio, el sarro se acumula rápidamente en la resistencia. Cada 100 ppm adicionales reducen la vida útil de la resistencia en aproximadamente 2 años. Pre-filtración o ablandador en línea es el agregado de mayor ROI en mercados de agua dura.' },
+    { q: 'Si compro usada, ¿qué reviso primero?', a: 'Quite el tapón del drenaje y mire el fondo del tanque. Escamas negras = material del rodamiento de la bomba saliendo (desgaste avanzado, caro). Costra blanca/gris = sarro (manejable). Óxido visible = el acero de la cámara no es SUS304, váyase. Después corra un ciclo vacío y escuche zumbido en el motor del brazo de lavado.' },
+    { q: 'Dureza de agua — ¿qué tan importante es?', a: 'Más que cualquier otro factor. En Buenos Aires (~120 ppm) una resistencia dura sin problema 6–8 años; en Ciudad de México (~250 ppm sin pre-filtro), la misma resistencia falla en 3–4 años. La máquina es idéntica — el agua la convierte en un producto distinto.' },
+    { q: '¿Debo evitar mercados con fluctuación de voltaje?', a: 'No, pero exija que la máquina tenga protección contra sobre/sub-voltaje en la placa de control. La mayoría de las máquinas baratas no la tienen, por eso un solo bajón de voltaje en Lima, Bogotá o ciudades con red inestable puede quemar la placa de control — $400 USD de reparación en una máquina de $4,000.' },
+  ]}
+>
+
+<h2>Por qué vale la pena leer esto</h2>
+<p>La mayoría de los artículos sobre comprar lavavajillas comerciales comparan especificaciones de portada. El problema es que las cifras de portada (capacidad, tamaño del rack, certificación) le dicen casi nada sobre cuánto durará realmente la máquina. La que dura 11 años y la que dura 3 pueden tener folletos idénticos.</p>
+
+<p>Lo que las diferencia es si la fabricación ha trabajado contra cinco modos específicos de falla — o no. Lo que sigue es lo que vemos, a través de miles de llamadas de garantía, tickets de reparación y visitas a clientes a lo largo de más de una década fabricando lavavajillas comerciales.</p>
+
+<h2>Modo de falla 1: Desgaste de rodamientos de bomba</h2>
+<p>La causa más común de muerte fuera de garantía. La bomba de lavado corre en cada ciclo, frecuentemente 30+ veces al día. Sus rodamientos suelen ser la primera parte de la máquina en fallar.</p>
+
+<p><strong>Señal temprana:</strong> un zumbido agudo que crece levemente durante meses. Eventualmente un sonido de molienda. Luego, escamas metálicas negras aparecen en el tanque al drenarlo.</p>
+
+<p><strong>Qué ayuda:</strong> calidad de rodamiento. Rodamientos de bola sellados duran aproximadamente 4× más que los rodamientos lisos en este ciclo de trabajo. La marca del motor también importa: un motor de bomba industrial de marca seria (Grundfos, Lowara, KSB) está diseñado para ISO 9908 y típicamente dura 2–3 años más que un motor OEM genérico. Pregunte al fabricante qué motor usa. Si no puede responder específicamente, eso ya es una señal.</p>
+
+<h2>Modo de falla 2: Sarro en la resistencia</h2>
+<p>El asesino de agua dura. El carbonato de calcio disuelto en el agua precipita en superficies calientes. En una lavavajillas comercial, la superficie más caliente es la resistencia. Mes tras mes el sarro se acumula — primero haciendo la resistencia menos eficiente (mayor tiempo de calentamiento, más electricidad), luego causando fuga térmica y quemado.</p>
+
+<p><strong>Señal temprana:</strong> el tiempo de calentamiento se alarga gradualmente. Una máquina que llegaba a 65°C en 8 minutos ahora toma 15. La cuenta de luz sube poco a poco. Eventualmente la máquina arroja códigos de error relacionados con temperatura.</p>
+
+<p><strong>Qué ayuda:</strong> tres cosas, en orden de impacto. Primero, pre-filtración. Un filtro de sedimentos simple más un ablandador remueve la mayoría de minerales antes de que lleguen a la resistencia. En mercados de agua dura esto no es negociable. Segundo, una resistencia removible para descalcificar (algunas vienen soldadas). Tercero, ciclos automáticos de descalcificación basados en kWh acumulados.</p>
+
+<p><strong>Realidad geográfica:</strong> Argentina, Chile costero, Uruguay — agua relativamente blanda. México centro/norte, parte del Caribe, Centroamérica — agua dura. Si está en mercado de agua dura y un vendedor le ofrece una máquina sin mencionar pre-filtración, no está siendo honesto.</p>
+
+<h2>Modo de falla 3: Humedad en la placa de control</h2>
+<p>El asesino silencioso. La placa de control va detrás del panel frontal. En una cocina comercial con vapor, ese panel está expuesto repetidamente a condensación, salpicaduras y ocasionalmente a un empleado bien intencionado con manguera de alta presión.</p>
+
+<p><strong>Señal temprana:</strong> fallas intermitentes difíciles de reproducir. Un ciclo que se detiene aleatoriamente. Pantalla que parpadea. Código de error que se reinicia al desenchufar. Todo apunta a humedad llegando a pistas del PCB.</p>
+
+<p><strong>Qué ayuda:</strong> recubrimiento conformal en el PCB (una capa polimérica protectora — cuesta al fabricante unos $2 USD por unidad y agrega años de vida útil). Bordes de panel con junta. Prensaestopas individual para cada entrada de cable. Ruteo conservador lejos de líneas de goteo de condensación. Nada de esto aparece en folletos. Hay que preguntar.</p>
+
+<h2>Modo de falla 4: Degradación de junta de puerta</h2>
+<p>El "problema cosmético que se vuelve catastrófico". La junta se comprime miles de veces por año. Con el tiempo pierde elasticidad, desarrolla microgrietas, luego grietas visibles, luego comienza a filtrar agua por el exterior de la máquina.</p>
+
+<p><strong>Señal temprana:</strong> un charco pequeño frente a la máquina después de cada ciclo. Inicialmente intermitente. El error más común es tratarlo como problema de limpieza ("hay que trapear después de cada ciclo") en lugar de señal de degradación. La fuga empeora. Eventualmente el agua llega al compartimento eléctrico — problema mayor.</p>
+
+<p><strong>Qué ayuda:</strong> material de la junta. Silicona grado alimenticio (típicamente Shore A 50–60) dura aproximadamente 3× más que el EPDM barato de máquinas de entrada. La junta debería ser reemplazable como pieza de desgaste sin desmontar la puerta.</p>
+
+<h2>Modo de falla 5: Desgaste del impulsor de bomba de drenaje</h2>
+<p>La muerte lenta. La bomba de drenaje saca el agua usada después de cada ciclo. Esa agua está caliente, alcalina y contiene residuos. Impulsores baratos — plástico o acero inoxidable de baja calidad — se desgastan por el bombeo constante de agua con sólidos.</p>
+
+<p><strong>Señal temprana:</strong> tiempo de drenaje, medido con cronómetro. Una máquina nueva drena un tanque lleno en 60–90 segundos. Si la misma toma 180+ segundos, el impulsor está desgastado significativamente. A 240+, falla de bomba en cuestión de meses.</p>
+
+<p><strong>Qué ayuda:</strong> material del impulsor. Acero inoxidable 304 sólido en carcasa grado alimenticio dura aproximadamente 5× más que impulsor plástico. Algunos fabricantes usan un cartucho de filtro sacrificial antes de la bomba de drenaje — póliza barata contra escombros grandes.</p>
+
+<h2>Decisiones de ingeniería que importan</h2>
+<ul>
+  <li><strong>Marca y modelo del motor de bomba</strong>: pregunte.</li>
+  <li><strong>Material y montaje de la resistencia</strong>: pregunte. Incoloy 825 con brida es el referente.</li>
+  <li><strong>Recubrimiento conformal del PCB</strong>: pregunte. Es sí o no.</li>
+  <li><strong>Material y dureza Shore de la junta</strong>: pregunte. Silicona Shore A 50–60 es la respuesta deseada.</li>
+  <li><strong>Material del impulsor de drenaje</strong>: pregunte. SUS304 sólido.</li>
+</ul>
+
+<h2>Qué hace JD-3 sobre estos cinco</h2>
+<p>Por transparencia sobre nuestra propia máquina — especificamos motor de bomba Grundfos, resistencia Incoloy 825 removible con brida, PCB con recubrimiento conformal, junta de silicona Shore A 55, e impulsor de drenaje SUS304 con pre-filtro sacrificial. Publicamos estas especificaciones porque esperamos que los compradores informados pregunten. <a href="/es/product/jd-3-features/">Vea las 12 características clave</a>.</p>
+
+<h2>Checklist antes de comprar</h2>
+<ol>
+  <li>Marca y modelo del motor de bomba de lavado.</li>
+  <li>Material, montaje y removibilidad de la resistencia.</li>
+  <li>Si el PCB tiene recubrimiento conformal.</li>
+  <li>Material y dureza Shore de la junta de puerta.</li>
+  <li>Material del impulsor de bomba de drenaje.</li>
+  <li>Si se requiere pre-filtración / ablandador según la dureza local.</li>
+  <li>Si el fabricante publica precios de repuestos para estos 5 componentes.</li>
+  <li>Si los repuestos estarán disponibles en 5 y 10 años.</li>
+</ol>
+
+<p>Máquinas que obtienen 8/8 duran aproximadamente 3× más que máquinas que obtienen 3/8 — aunque sean idénticas en papel.</p>
+
+</BlogPostLayout>
