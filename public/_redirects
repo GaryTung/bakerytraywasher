@@ -1,0 +1,8 @@
+# Cloudflare Pages redirects file
+# https://developers.cloudflare.com/pages/configuration/redirects/
+
+# 301 redirect www subdomain → apex domain (HTTPS canonical)
+# Avoids Google Search Console "not assessed for HTTPS" warning on www.
+https://www.bakerytraywasher.com/*  https://bakerytraywasher.com/:splat  301!
+http://www.bakerytraywasher.com/*   https://bakerytraywasher.com/:splat  301!
+http://bakerytraywasher.com/*       https://bakerytraywasher.com/:splat  301!
