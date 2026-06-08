@@ -1,0 +1,122 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+const locale = 'en' as const;
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/pre-installation-checklist-commercial-dishwasher/"
+  slug="pre-installation-checklist-commercial-dishwasher"
+  title="The Pre-Installation Checklist Most Bakeries Skip — What You Should Have Ready Before Your Commercial Dishwasher Arrives"
+  description="When a commercial dishwasher arrives and the bakery isn't ready, the licensed electrician and plumber bill an extra US$300–$1,500 to fix gaps that should have been handled before shipping. Here are the 8 site-readiness items most operators forget — electrical, water, drain, ventilation, floor, clearance, hot-water supply, and circuit isolation — with the actual numbers your contractor needs."
+  pubDate="2026-06-08"
+  tldr={"A commercial hood-type bakery dishwasher needs eight site-readiness items in place BEFORE it arrives: "+
+"<strong>(1) dedicated 32 A type-C breaker on 380V/3N/50Hz (or local equivalent) with RCD</strong>; "+
+"<strong>(2) cold-water inlet at G 3/4\" thread, 2.5–6 kg/cm² pressure</strong>; "+
+"<strong>(3) drain at G 1½\", ≤ 1.5 m to floor or wall drain</strong>; "+
+"<strong>(4) ventilation for the rinse-cycle steam plume</strong>; "+
+"<strong>(5) level floor with 0.65 m² footprint and 200 mm rear clearance, 2.115 m vertical for hood-open</strong>; "+
+"<strong>(6) floor rated for 165 kg gross with drainage gradient toward the floor drain</strong>; "+
+"<strong>(7) decision on whether to use a pre-heated hot inlet (10°C minimum; 50–60°C saves energy)</strong>; and "+
+"<strong>(8) no shared circuit with high-draw equipment (mixers, ovens, deck ovens)</strong>. "+
+"Operators who handle all eight before delivery pay $0 in install-day surprises. Those who don't pay US$300–$1,500 to the licensed electrician and plumber to retrofit on the spot — sometimes more if a wall has to be opened. This article walks through each item with the exact numbers your local contractor needs."}
+  faqs={[
+    { q: "Can I install a commercial dishwasher on a standard 16 A household circuit?", a: "No. The JD-3 draws 13 kW total (21.5 A working current) and requires a dedicated 32 A type-C breaker. A 16 A circuit will trip within seconds of the heating element firing. Sharing the circuit with a mixer or oven guarantees nuisance trips. Have a licensed electrician run a dedicated line from the panel before delivery — $150–$400 in most countries." },
+    { q: "Do I need hot water plumbed to the machine, or just cold?", a: "Cold is sufficient (≥10°C inlet temperature). The machine has its own internal heating element that brings wash water to 60–65°C and final rinse to ≥82°C. However, if you have existing pre-heated hot water at 50–60°C available cheaply (heat-recovery from another process, solar, district heating), connecting it saves 15–25% on the heating cycle. NEVER connect water below 10°C — the inlet thermistor will throw an error." },
+    { q: "What's the most common install-day surprise?", a: "Inadequate drain. The machine drains at ~25 L/min through a G 1½\" hose, and that hose must travel no more than 1.5 m to a floor drain (or wall drain via siphon). Many bakeries have a floor drain 3–4 m away or — worse — no floor drain at all. The plumber either runs a new floor drain ($300–$1,500 depending on whether the floor needs cutting) or installs a drain pump ($150–$400 + $50/year maintenance). Both are avoidable if the site is checked before ordering." },
+    { q: "Do I need a ventilation hood above the dishwasher?", a: "Strongly recommended but not legally required in most jurisdictions for a hood-type machine (the hood already contains most steam). The 30 s drying cycle releases a small steam plume each time it opens. Without ventilation, the bakery's ceiling will develop condensation over months and HVAC will work harder. A simple kitchen exhaust fan above the unit (or natural ventilation if you have a window within 2 m) is enough. Full Type-I commercial hoods are overkill." },
+    { q: "How much does a complete install actually cost?", a: "Site-ready: $0 (just plug in — the operator can connect water/drain themselves with the supplied hoses). Typical retrofit: $200–$500 for a licensed electrician (dedicated 32 A line + RCD) + $150–$400 for the plumber (drain extension or pump). Worst case (no electrical capacity at panel, no floor drain): $1,500–$3,000 if a sub-panel or floor cutting is required. The point of this article is: do the assessment BEFORE ordering, not after the truck arrives." },
+  ]}
+>
+
+<h2>Why this checklist matters more than the spec sheet</h2>
+<p>Bakery owners who buy a commercial dishwasher typically read the spec sheet two or three times before committing — power rating, throughput, footprint. They rarely read the installation requirements at the same level of detail. The result: the truck arrives on Day 90, the licensed electrician shows up, looks at the panel, and says "you don't have capacity on this circuit, I need to run a new line from the main panel — $400 in labor, $80 in materials, can I get to it next Wednesday?"</p>
+
+<p>That conversation is avoidable. Every item below is something your contractor can verify in 20 minutes of walk-through, BEFORE you sign the purchase order. The numbers below are for the V-TAI JD-3 (380V/3N/50Hz, 13 kW). Numbers for other models scale similarly; check the spec sheet for exact values.</p>
+
+<h2>Item 1: Dedicated 32 A type-C breaker, 380V/3N/50Hz (or local equivalent)</h2>
+<p>The JD-3 draws 13 kW total — 9 kW for the heating element plus 0.75 kW for the pump plus controls. Working current is 21.5 A. A 32 A type-C breaker provides the headroom needed for the heating element's inrush.</p>
+
+<p><strong>Type C, not type B:</strong> Type-B breakers trip at 3–5× rated current; type-C trips at 5–10×. The heating element's startup current spike is enough to nuisance-trip a type-B. If you ask your electrician for "a 32 A breaker," you may get type-B by default. Specify type-C explicitly.</p>
+
+<p><strong>Dedicated circuit, not shared:</strong> The dishwasher must NOT share a breaker with a spiral mixer, deck oven, fryer, or anything else that pulls more than 2 kW intermittently. Combined inrush will trip the breaker. The line from the main panel to the dishwasher should serve nothing else.</p>
+
+<p><strong>RCD (residual current device):</strong> EU and most modern electrical codes require an RCD on any wet-area circuit. 30 mA trip threshold is standard. Have your electrician confirm.</p>
+
+<p><strong>Alternative voltages:</strong> The JD-3 ships with 380V/3N/50Hz by default. Specify at order time if your country needs 400V/50Hz (most of EU is actually 400V on three-phase, not 380V — the difference matters for the heating element) or 220V/60Hz (Mexico, parts of South America, the Philippines). Wrong voltage = burned heating element on first cycle.</p>
+
+<h2>Item 2: Cold-water inlet — G 3/4" thread, 2.5–6 kg/cm² pressure</h2>
+<p>The supplied inlet hose has a G 3/4" female thread on the building side. If your bakery's water supply terminates in a 1/2" tap (common in older buildings), you need a 1/2"→3/4" adapter. Have the plumber install it before delivery.</p>
+
+<p><strong>Pressure:</strong> Below 2.5 kg/cm² (~36 psi), the final rinse won't reach proper spray pressure and trays will come out with detergent residue. Above 6 kg/cm² (~85 psi), the inlet solenoid valve may fail prematurely. In most municipal supplies you're fine — but if your bakery is at the top of a tall building or on a low-pressure rural line, install a booster pump (~$200–$400) or a pressure regulator (~$50–$100) respectively.</p>
+
+<p><strong>Inlet temperature:</strong> The minimum allowed is 10°C. Below that, the inlet thermistor throws an error and the machine refuses to start. The maximum allowed is 60°C — above that, the rubber inlet hose degrades over 12–18 months. If you have free pre-heated water at 50–60°C from a heat-recovery loop or solar source, connecting it saves 15–25% on heating. If not, use cold mains.</p>
+
+<h2>Item 3: Drain — G 1½" hose, ≤ 1.5 m to floor drain</h2>
+<p>The drain hose is the install-day item that surprises operators most often. The JD-3 drains at ~25 L/min through a G 1½" hose for about 8 seconds per cycle. That hose must travel no more than 1.5 m to either:</p>
+
+<ul>
+  <li><strong>A floor drain</strong> within the kitchen (gravity drain, simplest)</li>
+  <li><strong>A wall drain</strong> via a siphon (slightly more complex)</li>
+  <li><strong>A drain pump</strong> if neither is available (requires its own power)</li>
+</ul>
+
+<p>Operators often discover on install day that the only floor drain is 4 m away across a tiled floor. The plumber has three options: cut the tile and lay new drain pipe ($800–$1,500), install a sump pump under the dishwasher ($150–$400, plus annual maintenance), or — worst — leave the hose loose to a bucket (NEVER an acceptable solution; it's a slip hazard and a health-code violation).</p>
+
+<p><strong>Drain gradient:</strong> The hose must run downhill toward the drain. Even a slight uphill section causes wastewater to back up into the wash chamber, which the operator notices as a "slow cycle" or "drain not emptying." This is mechanical; no firmware fix exists.</p>
+
+<h2>Item 4: Ventilation for the rinse-cycle steam plume</h2>
+<p>A hood-type machine releases steam each time the hood opens — about 0.3 m³ of warm humid air per cycle. Over 30 cycles per hour, that's 9 m³/hour of condensation feeding into your bakery's air.</p>
+
+<p>Without ventilation, this manifests as: ceiling condensation drip-marks after 2–3 months, peeling paint above the dishwasher, HVAC running 15–20% longer to maintain temperature, and — in winter in cold climates — frost on adjacent windows.</p>
+
+<p>The fix is cheap: a kitchen exhaust fan rated 200–400 m³/h installed in the wall or ceiling within 1–2 m of the dishwasher, vented outdoors. About $80–$200 in equipment plus installation. Full commercial Type-I hoods are overkill for a tray washer; they're designed for grease-laden cooking exhaust.</p>
+
+<p>Note: hood-type washers (like the JD-3) need much less ventilation than conveyor or pass-through machines. If you're evaluating a conveyor model, expect to spend $1,000–$3,000 on a proper exhaust hood.</p>
+
+<h2>Item 5: Floor space, clearance, and hood-open vertical</h2>
+<p>The JD-3 footprint is 0.65 m² (804 × 816 mm). That's the absolute minimum. To open the hood, you need:</p>
+
+<ul>
+  <li><strong>200 mm rear clearance</strong> for air and the steam-recovery vent</li>
+  <li><strong>100 mm side clearance</strong> on at least one side (preferably both)</li>
+  <li><strong>2,115 mm vertical clearance</strong> when the hood is open. This is the item operators miss most often, especially in basements or under low-clearance soffits.</li>
+</ul>
+
+<p>Measure your ceiling, your soffits, your overhead pipes. If your kitchen ceiling is 2.0 m (a frequent issue in renovated retail spaces), the JD-3 won't fit. Solutions: lower the floor, raise the ceiling, or choose an undercounter model.</p>
+
+<p><strong>Door swing:</strong> The JD-3 hood opens upward, not outward, so you don't need lateral swing clearance — but adjacent shelving must clear the hood's open position by at least 50 mm.</p>
+
+<h2>Item 6: Floor — level, drainable, rated for 165 kg gross</h2>
+<p>The JD-3 weighs 145 kg empty, 165 kg with water in the wash tank. Most commercial kitchen floors handle this without issue, but a few specifics:</p>
+
+<ul>
+  <li><strong>Level within 5 mm across the footprint.</strong> A tilted machine has uneven water levels in the wash tank, which the float sensor reads incorrectly. Use a spirit level when positioning. Adjustable feet are supplied.</li>
+  <li><strong>Drainage gradient toward floor drain.</strong> If there's a leak (a gasket fails, a hose pops off), water needs to flow to the drain, not pool under the machine. Ideally the floor slopes 1–2% toward the floor drain.</li>
+  <li><strong>Surface material:</strong> Sealed concrete, quarry tile, or commercial vinyl. Avoid hardwood, carpet (yes, this exists in some retail bakeries), or unsealed concrete. Splash from spillover will damage the floor over years.</li>
+</ul>
+
+<h2>Item 7: Hot-water decision — pre-heated inlet or cold mains?</h2>
+<p>This is the most strategic of the eight items because it affects operating cost long-term, not install-day cost.</p>
+
+<p><strong>Cold inlet (default):</strong> Simplest. The machine's internal 9 kW heating element brings water from ambient to 60–65°C wash, then ≥82°C final rinse. Energy cost: roughly $0.12–$0.30 per cycle in most countries, depending on local electricity rates.</p>
+
+<p><strong>Pre-heated inlet (50–60°C):</strong> Saves 15–25% on per-cycle energy. Makes sense if you already have a heat-recovery loop from an oven, a solar thermal system, district heating, or any source of essentially-free hot water. Doesn't make sense if you'd be installing a dedicated electric water heater to feed it — you'd just be moving the heating from inside the machine to outside, with no net gain.</p>
+
+<p>Rule of thumb: if your hot-water source is already paid for (waste heat, solar, district), connect it. If you'd be paying to heat it, don't bother.</p>
+
+<h2>Item 8: Isolated circuit, isolated decisions</h2>
+<p>Even after the dedicated breaker is installed, operators sometimes plug the dishwasher into a power strip shared with a planetary mixer or a deck oven via convenience. Don't.</p>
+
+<p>The point of a dedicated breaker is to isolate the dishwasher's inrush from other equipment's inrush. Combined inrush trips even a 32 A breaker. Symptoms: the breaker pops "randomly" but only during morning prep when everything starts at once. The fix is awareness — train staff that the dishwasher's outlet is for the dishwasher only.</p>
+
+<p>This is the cheapest of the eight items (free) and the most commonly violated.</p>
+
+<h2>What it looks like when all eight are handled</h2>
+<p>Install day, site-ready: the delivery driver wheels the JD-3 into place on a pallet jack. The operator connects the supplied G 3/4" inlet hose to the wall tap, runs the supplied G 1½" drain hose to the floor drain 1 m away, plugs in the supplied 32 A power cord to the wall outlet, levels the four feet with a spirit level, fills the tank, runs a hot rinse cycle to verify ≥82°C, and runs the first real load 25 minutes after the truck pulled up. No electrician, no plumber, no surprise invoice.</p>
+
+<p>This is achievable for any bakery that spends 30 minutes with a licensed electrician and 15 minutes with a plumber BEFORE placing the order. The walkthrough costs $0–$100 (most contractors will quote a no-charge walkthrough if you're a likely repeat customer).</p>
+
+<h2>Download our site-readiness PDF</h2>
+<p>The V-TAI <a href="/product/">JD-3</a> spec sheet includes a one-page site-readiness checklist your contractor can use directly. Email us at info@v-tai.com and we'll send the PDF — no inquiry form, no follow-up sales call.</p>
+
+</BlogPostLayout>

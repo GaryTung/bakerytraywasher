@@ -1,0 +1,122 @@
+---
+import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+const locale = 'es' as const;
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/pre-installation-checklist-commercial-dishwasher/"
+  slug="pre-installation-checklist-commercial-dishwasher"
+  title="La lista de pre-instalación que la mayoría de panaderías omite — qué tener listo antes de que llegue su lavavajillas comercial"
+  description="Cuando llega un lavavajillas comercial y el local no está preparado, el electricista certificado y el plomero cobran US$300–$1,500 adicionales para resolver brechas que deberían haberse atendido antes del envío. Aquí están los 8 puntos de preparación de sitio que la mayoría de operadores olvida — eléctrico, agua, drenaje, ventilación, piso, espacio libre, suministro de agua caliente y aislamiento de circuito — con los números reales que su contratista necesita."
+  pubDate="2026-06-08"
+  tldr={"Un lavavajillas comercial tipo capota para panadería necesita ocho condiciones de sitio listas ANTES de llegar: "+
+"<strong>(1) breaker dedicado 32 A tipo C a 380V/3N/50Hz (o equivalente local) con interruptor diferencial</strong>; "+
+"<strong>(2) toma de agua fría con rosca G 3/4\", presión 2.5–6 kg/cm²</strong>; "+
+"<strong>(3) drenaje G 1½\", ≤ 1.5 m hasta coladera o salida de pared</strong>; "+
+"<strong>(4) ventilación para el vapor de la fase de enjuague</strong>; "+
+"<strong>(5) piso a nivel con huella de 0.65 m² y 200 mm de espacio trasero, 2.115 m vertical para abrir la capota</strong>; "+
+"<strong>(6) piso que soporte 165 kg cargado, con pendiente hacia la coladera</strong>; "+
+"<strong>(7) decisión sobre uso de agua precalentada en la entrada (mínimo 10°C; 50–60°C ahorra energía)</strong>; y "+
+"<strong>(8) sin circuito compartido con equipos de alto consumo (batidoras, hornos)</strong>. "+
+"Operadores que resuelven los ocho antes del envío pagan $0 en sorpresas el día de instalación. Los que no, pagan US$300–$1,500 (en CDMX hasta MXN 25,000; en Buenos Aires hasta ARS 1,500,000) al electricista y al plomero para hacer adaptaciones en sitio — a veces más si hay que romper pared. Este artículo recorre cada punto con los números exactos que su contratista local necesita."}
+  faqs={[
+    { q: "¿Puedo instalar un lavavajillas comercial en un circuito doméstico estándar de 16 A?", a: "No. El JD-3 consume 13 kW totales (corriente de trabajo 21.5 A) y requiere un breaker dedicado de 32 A tipo C. Un circuito de 16 A se disparará en segundos cuando arranque la resistencia. Compartir el circuito con una batidora o un horno garantiza disparos espurios. Pida a un electricista certificado que tire una línea dedicada desde el tablero antes de la entrega — MXN 2,500–7,000 / EUR 150–400 / ARS 100,000–250,000 según el país." },
+    { q: "¿Necesito conectar agua caliente a la máquina, o solo fría?", a: "Fría es suficiente (temperatura de entrada ≥10°C). La máquina tiene su propia resistencia interna que sube el agua a 60–65°C para lavado y a ≥82°C para enjuague final. Sin embargo, si ya tiene agua precalentada a 50–60°C disponible barata (recuperación de calor de otro proceso, solar, calefacción urbana), conectarla ahorra 15–25% del ciclo de calentamiento. NUNCA conecte agua por debajo de 10°C — el termistor de entrada arrojará error." },
+    { q: "¿Cuál es la sorpresa más común el día de instalación?", a: "Drenaje inadecuado. La máquina drena a ~25 L/min por una manguera G 1½\", y esa manguera no puede recorrer más de 1.5 m hasta una coladera (o salida de pared con sifón). Muchas panaderías tienen la coladera a 3–4 m — o, peor, no tienen coladera. El plomero corre nueva coladera (MXN 5,000–25,000 / EUR 300–1,500 si hay que cortar piso) o instala una bomba de drenaje (MXN 2,500–7,000 / EUR 150–400 más mantenimiento anual). Ambos casos son evitables si se revisa el sitio antes de pedir." },
+    { q: "¿Necesito campana de ventilación arriba del lavavajillas?", a: "Muy recomendable pero no legalmente obligatorio en la mayoría de jurisdicciones para máquinas tipo capota (la capota ya contiene casi todo el vapor). El ciclo de secado de 30 s libera una pequeña columna cuando abre. Sin ventilación el techo desarrolla condensación tras meses y el HVAC trabaja más. Un simple extractor de cocina arriba del equipo (o ventilación natural si hay ventana a menos de 2 m) basta. Campanas comerciales Tipo I son sobreingeniería." },
+    { q: "¿Cuánto cuesta realmente una instalación completa?", a: "Sitio listo: $0 (solo enchufar — el operador conecta agua/drenaje con las mangueras incluidas). Retrofit típico: USD $200–$500 / MXN 4,000–10,000 / EUR 200–500 para el electricista (línea dedicada 32 A + diferencial) + USD $150–$400 / MXN 3,000–8,000 / EUR 150–400 para el plomero (extensión de drenaje o bomba). Peor caso (sin capacidad eléctrica en tablero, sin coladera): USD $1,500–$3,000 si hay que poner subtablero o cortar piso. El punto del artículo es: hacer la evaluación ANTES de pedir, no después de que llegue el camión." },
+  ]}
+>
+
+<h2>Por qué esta lista importa más que la ficha técnica</h2>
+<p>Los dueños de panadería que compran un lavavajillas comercial suelen leer la ficha técnica dos o tres veces antes de comprometerse — potencia, productividad, huella. Rara vez leen los requisitos de instalación con el mismo detalle. Resultado: el camión llega el Día 90, aparece el electricista certificado, mira el tablero y dice "no hay capacidad en este circuito, necesito tirar línea desde el tablero principal — MXN 5,000 de mano de obra, MXN 800 de materiales, ¿puedo el próximo miércoles?".</p>
+
+<p>Esa conversación es evitable. Cada punto de abajo es algo que su contratista puede verificar en 20 minutos de recorrido, ANTES de firmar la orden de compra. Los números son para el V-TAI JD-3 (380V/3N/50Hz, 13 kW). Otros modelos escalan similar; verifique la ficha exacta.</p>
+
+<h2>Punto 1: Breaker dedicado 32 A tipo C, 380V/3N/50Hz (o equivalente local)</h2>
+<p>El JD-3 consume 13 kW totales — 9 kW de resistencia más 0.75 kW de bomba más controles. Corriente de trabajo 21.5 A. Un breaker 32 A tipo C provee el margen para el pico de arranque de la resistencia.</p>
+
+<p><strong>Tipo C, no tipo B:</strong> Los breakers tipo B disparan a 3–5× la corriente nominal; los tipo C disparan a 5–10×. El pico de arranque de la resistencia basta para disparar un tipo B. Si le pide al electricista "un breaker de 32 A", por defecto le dará tipo B. Especifique tipo C explícitamente.</p>
+
+<p><strong>Circuito dedicado, no compartido:</strong> El lavavajillas NO debe compartir breaker con batidora espiral, horno deck, freidora, o cualquier equipo que consuma más de 2 kW intermitentemente. El pico combinado dispara el breaker. La línea desde el tablero principal sirve únicamente al lavavajillas.</p>
+
+<p><strong>Interruptor diferencial (RCD/ID):</strong> En México NOM-001-SEDE, en España el REBT, y casi todos los códigos modernos exigen ID en circuitos en zona húmeda. Umbral 30 mA estándar.</p>
+
+<p><strong>Voltajes alternativos:</strong> El JD-3 sale por defecto en 380V/3N/50Hz. Especifique al ordenar si su país necesita 400V/50Hz (España y mayoría de UE es 400V real, no 380V — la resistencia importa) o 220V/60Hz (México, partes de Sudamérica, Filipinas). Voltaje incorrecto = resistencia quemada en el primer ciclo.</p>
+
+<h2>Punto 2: Toma de agua fría — rosca G 3/4", presión 2.5–6 kg/cm²</h2>
+<p>La manguera de entrada suministrada lleva rosca G 3/4" hembra del lado del edificio. Si la toma de su panadería termina en 1/2" (común en edificios viejos en CDMX, Madrid, Buenos Aires), necesita un adaptador 1/2"→3/4". Que lo instale el plomero antes de la entrega.</p>
+
+<p><strong>Presión:</strong> Debajo de 2.5 kg/cm² (~36 psi) el enjuague final no alcanza la presión correcta y las bandejas salen con residuo de detergente. Arriba de 6 kg/cm² (~85 psi) la electroválvula de entrada se daña antes. La mayoría de redes municipales bastan — pero si su panadería está en piso alto de un edificio o en línea rural de baja presión, instale bomba presurizadora (~USD $200–$400) o regulador (~USD $50–$100).</p>
+
+<p><strong>Temperatura de entrada:</strong> Mínimo 10°C. Debajo, el termistor da error y la máquina no arranca. Máximo 60°C — arriba, la manguera de caucho se degrada en 12–18 meses. Si tiene agua precalentada gratis a 50–60°C de recuperación de calor o solar, conéctela y ahorre 15–25%. Si no, agua fría de red.</p>
+
+<h2>Punto 3: Drenaje — manguera G 1½", ≤ 1.5 m hasta coladera</h2>
+<p>El drenaje es el punto que más sorprende a operadores el día de la entrega. El JD-3 drena a ~25 L/min por manguera G 1½" durante unos 8 segundos por ciclo. Esa manguera no puede recorrer más de 1.5 m hasta una de:</p>
+
+<ul>
+  <li><strong>Coladera de piso</strong> dentro de la cocina (drenaje por gravedad, lo más simple)</li>
+  <li><strong>Salida de pared</strong> con sifón (algo más complejo)</li>
+  <li><strong>Bomba de drenaje</strong> si no hay ninguna de las dos (con su propia alimentación)</li>
+</ul>
+
+<p>Operadores frecuentemente descubren el día de instalación que la única coladera está a 4 m por piso enlosetado. Tres opciones del plomero: cortar losa y tender drenaje nuevo (MXN 15,000–30,000 / EUR 800–1,500), instalar bomba sumergible (MXN 3,000–8,000 / EUR 150–400 más mantenimiento), o — peor — dejar la manguera suelta a una cubeta (NUNCA aceptable; riesgo de resbalón y violación sanitaria).</p>
+
+<p><strong>Pendiente del drenaje:</strong> La manguera debe ir hacia abajo. Aun una sección con leve subida hace que el agua se regrese al lavado, que el operador percibe como "ciclo lento" o "no termina de drenar". Es mecánico; no hay arreglo en firmware.</p>
+
+<h2>Punto 4: Ventilación del vapor del enjuague</h2>
+<p>Una máquina tipo capota libera vapor cada vez que abre — unos 0.3 m³ de aire cálido húmedo por ciclo. Con 30 ciclos por hora son 9 m³/h de condensación al aire de la panadería.</p>
+
+<p>Sin ventilación: condensación en techo tras 2–3 meses, pintura descascarada arriba del equipo, HVAC trabajando 15–20% más, y — en invierno en clima frío — escarcha en ventanas adyacentes.</p>
+
+<p>La solución es barata: extractor de cocina 200–400 m³/h instalado en pared o techo a 1–2 m del equipo, ventando al exterior. Unos USD $80–$200 en equipo más instalación. Las campanas comerciales Tipo I completas son sobreingeniería para un lavabandejas; están hechas para extracción cargada de grasa de cocción.</p>
+
+<p>Nota: las máquinas tipo capota (como el JD-3) requieren mucha menos ventilación que las de túnel. Si evalúa un modelo de túnel, prepare USD $1,000–$3,000 para campana propia.</p>
+
+<h2>Punto 5: Huella, espacio libre y vertical de capota abierta</h2>
+<p>Huella del JD-3: 0.65 m² (804 × 816 mm). Es el mínimo absoluto. Para abrir la capota necesita:</p>
+
+<ul>
+  <li><strong>200 mm de espacio trasero</strong> para aire y ventilación de vapor</li>
+  <li><strong>100 mm de espacio lateral</strong> al menos en un lado (mejor ambos)</li>
+  <li><strong>2,115 mm de espacio vertical</strong> con la capota abierta. Es el punto que más a menudo se omite, especialmente en sótanos o bajo trabes bajas.</li>
+</ul>
+
+<p>Mida el techo, las trabes, las tuberías colgantes. Si su cocina tiene 2.0 m (frecuente en locales comerciales remodelados en CDMX/Madrid), el JD-3 no cabe. Soluciones: bajar piso, subir techo, o pedir modelo undercounter.</p>
+
+<p><strong>Apertura:</strong> La capota del JD-3 abre hacia arriba, no hacia afuera, así que no necesita espacio lateral de oscilación — pero los estantes adyacentes deben librar al menos 50 mm la posición abierta.</p>
+
+<h2>Punto 6: Piso — a nivel, drenable, soporta 165 kg cargado</h2>
+<p>El JD-3 pesa 145 kg vacío, 165 kg con el tanque de lavado lleno. La mayoría de pisos comerciales aguantan sin problema, pero:</p>
+
+<ul>
+  <li><strong>A nivel dentro de 5 mm a través de la huella.</strong> Una máquina inclinada lee mal el nivel del tanque. Use nivel de burbuja al posicionar; los pies son ajustables.</li>
+  <li><strong>Pendiente hacia coladera.</strong> Si hay fuga (empaque falla, manguera se sale), el agua debe ir a la coladera, no estancarse bajo el equipo. Idealmente piso con 1–2% hacia coladera.</li>
+  <li><strong>Material de piso:</strong> Concreto sellado, loseta cerámica, vinilo comercial. Evite madera, alfombra (sí, existe en algunas panaderías de venta directa), o concreto sin sellar. La salpicadura daña piso con los años.</li>
+</ul>
+
+<h2>Punto 7: Decisión de agua caliente — entrada precalentada o fría de red</h2>
+<p>Este es el punto más estratégico de los ocho porque afecta el costo operativo a largo plazo, no el costo del día de instalación.</p>
+
+<p><strong>Entrada fría (predeterminado):</strong> Lo más simple. La resistencia interna de 9 kW sube el agua de temperatura ambiente a 60–65°C de lavado, luego a ≥82°C de enjuague final. Costo energético: aproximadamente USD $0.12–$0.30 por ciclo según tarifa local.</p>
+
+<p><strong>Entrada precalentada (50–60°C):</strong> Ahorra 15–25% por ciclo. Tiene sentido si ya cuenta con bucle de recuperación de calor de un horno, sistema solar térmico, calefacción urbana, o cualquier fuente de agua caliente esencialmente gratis. No tiene sentido si va a instalar un calentador eléctrico dedicado para alimentarla — solo movería el calentamiento del interior del equipo al exterior, sin ganancia neta.</p>
+
+<p>Regla: si su fuente de agua caliente ya está pagada (calor residual, solar, urbano), conéctela. Si va a pagar por calentar, no se moleste.</p>
+
+<h2>Punto 8: Circuito aislado, decisiones aisladas</h2>
+<p>Aun con el breaker dedicado instalado, los operadores a veces enchufan el lavavajillas a una regleta compartida con la batidora planetaria o el horno deck por conveniencia. No.</p>
+
+<p>El sentido de un breaker dedicado es aislar el pico de arranque del lavavajillas del pico de arranque de otros equipos. Picos combinados disparan incluso un 32 A. Síntoma: el breaker se cae "aleatoriamente" pero solo durante prep matutino cuando todo arranca a la vez. Solución: capacite al staff — el contacto del lavavajillas es para el lavavajillas.</p>
+
+<p>Es el más barato (gratis) y el más comúnmente violado.</p>
+
+<h2>Cómo se ve cuando los ocho están en orden</h2>
+<p>Día de entrega, sitio listo: el camión rueda el JD-3 al lugar con patín. El operador conecta la manguera G 3/4" suministrada al grifo de pared, lleva la manguera G 1½" suministrada a la coladera a 1 m, conecta el cable de poder 32 A suministrado al contacto de pared, nivela los cuatro pies con burbuja, llena el tanque, corre un ciclo de enjuague caliente verificando ≥82°C, y carga su primera tanda real 25 minutos después de que llegó el camión. Sin electricista, sin plomero, sin factura sorpresa.</p>
+
+<p>Es alcanzable para cualquier panadería que dedique 30 minutos con electricista certificado y 15 minutos con plomero ANTES de hacer el pedido. El recorrido cuesta USD $0–$100 (la mayoría de contratistas cotizan recorrido gratis si los ven como cliente recurrente).</p>
+
+<h2>Descargue nuestro PDF de preparación de sitio</h2>
+<p>La ficha técnica del V-TAI <a href="/es/product/">JD-3</a> incluye una lista de una página de preparación de sitio que su contratista puede usar directamente. Escríbanos a info@v-tai.com y le mandamos el PDF — sin formulario de consulta, sin llamada de seguimiento.</p>
+
+</BlogPostLayout>

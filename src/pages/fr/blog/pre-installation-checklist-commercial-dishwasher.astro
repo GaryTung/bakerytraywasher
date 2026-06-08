@@ -1,0 +1,122 @@
+---
+import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+const locale = 'fr' as const;
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/pre-installation-checklist-commercial-dishwasher/"
+  slug="pre-installation-checklist-commercial-dishwasher"
+  title="La checklist de pré-installation que la plupart des boulangeries oublient — ce qu'il faut préparer avant l'arrivée de votre lave-vaisselle pro"
+  description="Quand un lave-vaisselle professionnel arrive et que le local n'est pas prêt, l'électricien habilité et le plombier facturent 250–1 500 € supplémentaires pour combler des manques qui auraient dû être traités avant l'expédition. Voici les 8 points de préparation que la plupart des opérateurs oublient — électricité, eau, évacuation, ventilation, sol, dégagement, alimentation en eau chaude, isolation du circuit — avec les chiffres exacts dont votre artisan a besoin."
+  pubDate="2026-06-08"
+  tldr={"Un lave-vaisselle professionnel à capot pour boulangerie nécessite huit conditions de site AVANT son arrivée : "+
+"<strong>(1) disjoncteur dédié 32 A courbe C en 400V/3N/50Hz (norme française) avec différentiel</strong> ; "+
+"<strong>(2) arrivée d'eau froide G 3/4\", pression 2,5–6 bars</strong> ; "+
+"<strong>(3) évacuation G 1½\", ≤ 1,5 m vers siphon de sol ou évacuation murale</strong> ; "+
+"<strong>(4) ventilation pour la vapeur du cycle de rinçage</strong> ; "+
+"<strong>(5) sol plan avec emprise 0,65 m² et dégagement arrière 200 mm, vertical 2,115 m capot ouvert</strong> ; "+
+"<strong>(6) sol supportant 165 kg en charge avec pente vers le siphon</strong> ; "+
+"<strong>(7) décision sur l'usage d'une arrivée d'eau préchauffée (minimum 10°C ; 50–60°C économise l'énergie)</strong> ; et "+
+"<strong>(8) pas de circuit partagé avec équipements à forte intensité (batteurs, fours à sole)</strong>. "+
+"Les exploitants qui traitent les huit avant la livraison paient 0 € de surprise le jour J. Ceux qui ne le font pas paient 250–1 500 € à l'électricien et au plombier — parfois plus si un mur doit être ouvert. Cet article détaille chaque point avec les chiffres exacts pour votre artisan local."}
+  faqs={[
+    { q: "Puis-je installer un lave-vaisselle pro sur un circuit ménager standard 16 A ?", a: "Non. Le JD-3 consomme 13 kW au total (courant nominal 21,5 A) et exige un disjoncteur dédié 32 A courbe C. Un circuit 16 A déclenche en quelques secondes lorsque la résistance s'amorce. Partager le circuit avec un batteur ou un four déclenche systématiquement. Faites tirer une ligne dédiée par un électricien habilité avant la livraison — 150–400 € en France selon la distance au tableau." },
+    { q: "Faut-il amener l'eau chaude à la machine, ou seulement de l'eau froide ?", a: "L'eau froide suffit (température d'entrée ≥10°C). La machine dispose de sa propre résistance qui chauffe l'eau de lavage à 60–65°C puis le rinçage final à ≥82°C. Cependant si vous avez de l'eau déjà préchauffée à 50–60°C disponible à bas coût (récupération de chaleur d'un autre process, solaire thermique, chauffage urbain), la connecter économise 15–25% sur le cycle de chauffe. NE JAMAIS connecter d'eau sous 10°C — le thermistor d'entrée renverra une erreur." },
+    { q: "Quelle est la mauvaise surprise la plus fréquente le jour de l'installation ?", a: "Évacuation insuffisante. La machine évacue à ~25 L/min par flexible G 1½\", et ce flexible ne peut parcourir plus de 1,5 m jusqu'à un siphon de sol (ou siphon mural via piège à eau). Beaucoup de boulangeries ont leur siphon à 3–4 m — ou pire, pas de siphon de sol. Le plombier pose un siphon neuf (300–1 500 € selon découpe de sol) ou installe une pompe de relevage (150–400 € + 50 €/an d'entretien). Tous deux évitables si le site est vérifié avant la commande." },
+    { q: "Faut-il une hotte de ventilation au-dessus du lave-vaisselle ?", a: "Fortement recommandé mais pas légalement obligatoire dans la plupart des juridictions pour une machine à capot (le capot contient déjà l'essentiel de la vapeur). Le cycle de séchage 30 s libère un petit panache à l'ouverture. Sans ventilation, le plafond de la boulangerie développe de la condensation sur plusieurs mois et la VMC travaille davantage. Un simple extracteur de cuisine au-dessus de l'appareil (ou ventilation naturelle si une fenêtre est à moins de 2 m) suffit. Les hottes commerciales Type I sont surdimensionnées." },
+    { q: "Combien coûte vraiment une installation complète ?", a: "Site prêt : 0 € (juste à brancher — l'opérateur connecte l'eau et l'évacuation avec les flexibles fournis). Adaptation typique : 200–500 € pour l'électricien habilité (ligne dédiée 32 A + différentiel) + 150–400 € pour le plombier (rallonge d'évacuation ou pompe). Pire cas (pas de capacité au tableau, pas de siphon de sol) : 1 500–3 000 € s'il faut un tableau divisionnaire ou découpe de sol. Le but de cet article : faire l'évaluation AVANT de commander, pas après l'arrivée du camion." },
+  ]}
+>
+
+<h2>Pourquoi cette checklist compte plus que la fiche technique</h2>
+<p>Les artisans boulangers qui achètent un lave-vaisselle pro relisent généralement la fiche technique deux ou trois fois avant de signer — puissance, productivité, encombrement. Ils lisent rarement les exigences d'installation avec le même soin. Résultat : le camion arrive au jour 90, l'électricien habilité arrive, regarde le tableau et dit "vous n'avez pas de capacité sur ce circuit, il faut tirer une ligne du tableau principal — 350 € de main-d'œuvre, 80 € de matériel, je peux le faire mercredi prochain ?".</p>
+
+<p>Cette conversation est évitable. Chaque point ci-dessous est quelque chose que votre artisan peut vérifier en 20 minutes de visite, AVANT que vous signiez le bon de commande. Les chiffres ci-dessous concernent le V-TAI JD-3 (400V/3N/50Hz pour la France, 13 kW). Les autres modèles s'adaptent dans des proportions similaires ; vérifiez la fiche exacte.</p>
+
+<h2>Point 1 : Disjoncteur dédié 32 A courbe C, 400V/3N/50Hz (norme France)</h2>
+<p>Le JD-3 consomme 13 kW au total — 9 kW pour la résistance, 0,75 kW pour la pompe plus commandes. Courant nominal 21,5 A. Un disjoncteur 32 A courbe C donne la marge nécessaire à l'appel de la résistance.</p>
+
+<p><strong>Courbe C, pas courbe B :</strong> Les disjoncteurs courbe B déclenchent à 3–5× le courant nominal ; courbe C à 5–10×. Le pic d'appel de la résistance suffit à déclencher une courbe B en faux positif. Si vous demandez à votre électricien "un 32 A", vous risquez d'avoir une courbe B par défaut. Spécifiez courbe C explicitement.</p>
+
+<p><strong>Circuit dédié, pas partagé :</strong> Le lave-vaisselle ne DOIT PAS partager son disjoncteur avec un batteur spiral, un four à sole, une friteuse, ou tout équipement tirant plus de 2 kW par intermittence. Les appels combinés déclenchent. La ligne du tableau principal au lave-vaisselle ne sert que lui.</p>
+
+<p><strong>Différentiel :</strong> La NF C 15-100 exige un dispositif différentiel 30 mA sur tout circuit en zone humide. Faites confirmer par votre électricien.</p>
+
+<p><strong>Tensions alternatives :</strong> Le JD-3 sort par défaut en 380V/3N/50Hz. Pour la France et l'UE moderne, spécifiez 400V/50Hz à la commande (les réseaux européens sont réellement à 400V triphasé, pas 380V — la différence compte pour la résistance). Tension incorrecte = résistance grillée au premier cycle.</p>
+
+<h2>Point 2 : Arrivée d'eau froide — G 3/4", pression 2,5–6 bars</h2>
+<p>Le flexible d'arrivée fourni a un raccord femelle G 3/4" côté bâtiment. Si l'arrivée de votre boulangerie se termine en 1/2" (courant dans les vieux immeubles parisiens haussmanniens), il faut un adaptateur 1/2"→3/4". Que le plombier l'installe avant la livraison.</p>
+
+<p><strong>Pression :</strong> Sous 2,5 bars, le rinçage final n'atteint pas la pression de pulvérisation correcte et les plaques sortent avec résidu de détergent. Au-dessus de 6 bars, l'électrovanne d'entrée s'use prématurément. La plupart des réseaux municipaux conviennent — mais si votre boulangerie est en étage élevé ou sur une ligne rurale basse pression, installez une pompe de surpression (~200–400 €) ou un réducteur (~50–100 €) respectivement.</p>
+
+<p><strong>Température d'entrée :</strong> Minimum 10°C — en dessous, le thermistor d'entrée renvoie une erreur et la machine refuse de démarrer. Maximum 60°C — au-dessus, le flexible caoutchouc se dégrade en 12–18 mois. Si vous avez de l'eau préchauffée gratuite à 50–60°C (boucle de récupération, solaire), connectez-la et économisez 15–25%. Sinon, eau froide réseau.</p>
+
+<h2>Point 3 : Évacuation — flexible G 1½", ≤ 1,5 m vers siphon</h2>
+<p>L'évacuation est le point qui surprend le plus les exploitants le jour J. Le JD-3 évacue à ~25 L/min par flexible G 1½" pendant environ 8 secondes par cycle. Ce flexible ne peut parcourir plus de 1,5 m vers une de :</p>
+
+<ul>
+  <li><strong>Un siphon de sol</strong> dans la cuisine (évacuation par gravité, le plus simple)</li>
+  <li><strong>Une évacuation murale</strong> avec siphon (un peu plus complexe)</li>
+  <li><strong>Une pompe de relevage</strong> si aucun des deux n'est disponible (alimentation propre)</li>
+</ul>
+
+<p>Les exploitants découvrent souvent le jour de l'installation que le seul siphon est à 4 m sur un sol carrelé. Trois options du plombier : découper le carrelage et poser un drain neuf (800–1 500 €), installer une pompe en cuvette sous le lave-vaisselle (150–400 € + entretien annuel), ou — le pire — laisser le flexible libre dans un seau (JAMAIS acceptable ; risque de glissade et infraction sanitaire).</p>
+
+<p><strong>Pente de l'évacuation :</strong> Le flexible doit descendre vers le siphon. Même une légère remontée fait refluer les eaux usées vers la cuve, ce que l'opérateur perçoit comme un "cycle lent" ou "évacuation qui ne se vide pas". C'est mécanique ; aucun correctif firmware n'existe.</p>
+
+<h2>Point 4 : Ventilation pour la vapeur du rinçage</h2>
+<p>Une machine à capot libère de la vapeur à chaque ouverture — environ 0,3 m³ d'air chaud humide par cycle. Sur 30 cycles par heure, 9 m³/h de condensation rejetée dans l'air de la boulangerie.</p>
+
+<p>Sans ventilation : condensation au plafond après 2–3 mois, peinture qui s'écaille au-dessus du lave-vaisselle, VMC qui tourne 15–20% plus longtemps, et — en hiver dans le nord — givre sur les fenêtres adjacentes.</p>
+
+<p>La solution est bon marché : extracteur de cuisine 200–400 m³/h installé au mur ou plafond à 1–2 m de l'appareil, soufflant à l'extérieur. Environ 80–200 € en matériel plus installation. Les hottes commerciales Type I complètes sont surdimensionnées pour un lave-plaques ; elles sont conçues pour les extractions chargées de graisse de cuisson.</p>
+
+<p>Note : les machines à capot (comme le JD-3) demandent bien moins de ventilation que les modèles à convoyeur. Si vous évaluez un convoyeur, comptez 1 000–3 000 € pour une hotte adéquate.</p>
+
+<h2>Point 5 : Emprise, dégagements et hauteur capot ouvert</h2>
+<p>Emprise du JD-3 : 0,65 m² (804 × 816 mm). C'est le minimum absolu. Pour ouvrir le capot, il faut :</p>
+
+<ul>
+  <li><strong>200 mm de dégagement arrière</strong> pour l'air et la sortie de vapeur</li>
+  <li><strong>100 mm de dégagement latéral</strong> au moins d'un côté (les deux idéalement)</li>
+  <li><strong>2 115 mm vertical</strong> capot ouvert. C'est le point le plus souvent oublié, surtout en sous-sol ou sous poutre basse.</li>
+</ul>
+
+<p>Mesurez le plafond, les poutres, les conduites apparentes. Si votre cuisine fait 2,0 m sous plafond (fréquent dans des locaux commerciaux rénovés à Paris ou Lyon), le JD-3 ne passe pas. Solutions : abaisser le sol, relever le plafond, ou opter pour un modèle sous-comptoir.</p>
+
+<p><strong>Ouverture du capot :</strong> Le capot du JD-3 s'ouvre vers le haut, pas latéralement, donc pas besoin de dégagement latéral d'oscillation — mais les rayonnages voisins doivent libérer la position ouverte d'au moins 50 mm.</p>
+
+<h2>Point 6 : Sol — plan, drainant, supportant 165 kg en charge</h2>
+<p>Le JD-3 pèse 145 kg à vide, 165 kg avec la cuve pleine. La plupart des sols de cuisine pro tiennent sans problème, mais quelques points :</p>
+
+<ul>
+  <li><strong>Plan à 5 mm près sur l'emprise.</strong> Une machine inclinée a un niveau d'eau de cuve mal lu. Niveau à bulle au positionnement ; pieds réglables fournis.</li>
+  <li><strong>Pente vers siphon de sol.</strong> En cas de fuite (joint qui lâche, flexible qui se débranche), l'eau doit aller au siphon, pas stagner sous l'appareil. Sol idéalement incliné 1–2% vers le siphon.</li>
+  <li><strong>Revêtement :</strong> Béton scellé, carrelage de cuisine, vinyle commercial. Évitez parquet, moquette (oui, ça existe dans certaines boulangeries de vente), béton brut. La projection abîme le sol au fil des ans.</li>
+</ul>
+
+<h2>Point 7 : Décision eau chaude — entrée préchauffée ou eau froide réseau ?</h2>
+<p>C'est le plus stratégique des huit parce qu'il affecte le coût opérationnel à long terme, pas le coût du jour J.</p>
+
+<p><strong>Entrée froide (par défaut) :</strong> Le plus simple. La résistance interne 9 kW chauffe l'eau de l'ambiant à 60–65°C de lavage puis ≥82°C de rinçage final. Coût énergétique : environ 0,15–0,30 € par cycle au tarif heures pleines EDF.</p>
+
+<p><strong>Entrée préchauffée (50–60°C) :</strong> Économise 15–25% par cycle. Pertinent si vous avez déjà une boucle de récupération de chaleur d'un four, un système solaire thermique, ou du chauffage urbain — toute source d'eau chaude essentiellement gratuite. Pas pertinent si vous installeriez un ballon électrique dédié pour l'alimenter — vous déplaceriez juste la chauffe de l'intérieur du lave-vaisselle vers l'extérieur, sans gain net.</p>
+
+<p>Règle : si votre source d'eau chaude est déjà payée (chaleur fatale, solaire, urbain), connectez-la. Si vous deviez payer pour chauffer, ne vous embêtez pas.</p>
+
+<h2>Point 8 : Circuit isolé, décisions isolées</h2>
+<p>Même après l'installation du disjoncteur dédié, les exploitants branchent parfois le lave-vaisselle sur une multiprise partagée avec un batteur planétaire ou un four à sole par commodité. Non.</p>
+
+<p>L'intérêt d'un disjoncteur dédié est d'isoler l'appel du lave-vaisselle de l'appel d'autres équipements. Les appels combinés déclenchent même un 32 A. Symptôme : le disjoncteur saute "au hasard" mais seulement pendant la mise en route matinale quand tout démarre en même temps. Solution : former le personnel — la prise du lave-vaisselle est pour le lave-vaisselle.</p>
+
+<p>C'est le moins cher des huit (gratuit) et le plus couramment enfreint.</p>
+
+<h2>À quoi ça ressemble quand les huit sont en place</h2>
+<p>Jour de livraison, site prêt : le chauffeur amène le JD-3 sur transpalette. L'opérateur connecte le flexible G 3/4" fourni au robinet mural, conduit le flexible G 1½" fourni au siphon de sol à 1 m, branche le câble 32 A fourni à la prise murale, met de niveau les quatre pieds à la bulle, remplit la cuve, lance un cycle de rinçage chaud en vérifiant ≥82°C, et lance sa première vraie charge 25 minutes après l'arrivée du camion. Pas d'électricien, pas de plombier, pas de facture surprise.</p>
+
+<p>C'est accessible à toute boulangerie qui passe 30 minutes avec un électricien habilité et 15 minutes avec un plombier AVANT de passer commande. La visite coûte 0–100 € (la plupart des artisans la chiffrent gratuite si vous êtes un client potentiel récurrent).</p>
+
+<h2>Téléchargez notre PDF de préparation de site</h2>
+<p>La fiche technique du V-TAI <a href="/fr/product/">JD-3</a> inclut une page de check-list de préparation que votre artisan peut utiliser directement. Écrivez-nous à info@v-tai.com et nous envoyons le PDF — sans formulaire, sans appel commercial.</p>
+
+</BlogPostLayout>
