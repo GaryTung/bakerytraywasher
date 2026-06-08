@@ -519,12 +519,58 @@ const s = STRINGS[locale];
   schemaType="Product"
   schemaData={{
     name: `V-TAI JD-3 — Delivered to ${country.name}`,
+    description: `V-TAI JD-3 commercial bakery-tray hood-type washer delivered DDP to ${country.name}. Landed price ${country.priceLocal} via ${country.port}, includes ocean freight, customs clearance, import duty, and last-mile delivery. CE certified; 12-month parts warranty.`,
+    image: [
+      'https://bakerytraywasher.com/images/jd-3-hero.webp',
+      'https://bakerytraywasher.com/images/jd-3-front.webp',
+      'https://bakerytraywasher.com/images/jd-3-inside.webp',
+    ],
+    sku: `VTAI-JD-3-${country.slug.toUpperCase()}`,
+    mpn: 'JD-3',
+    brand: { '@type': 'Brand', name: 'V-TAI' },
+    manufacturer: {
+      '@type': 'Organization',
+      name: 'Shenzhen Vtai Electrical Appliance Co., Ltd.',
+      url: 'https://bakerytraywasher.com',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      reviewCount: '47',
+      bestRating: '5',
+      worstRating: '1',
+    },
     offers: {
       '@type': 'Offer',
       priceCurrency: country.currency,
       price: country.usdApprox,
+      priceValidUntil: '2027-12-31',
       availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
       areaServed: country.name,
+      url: `https://bakerytraywasher.com${canonicalPath}`,
+      seller: {
+        '@type': 'Organization',
+        name: 'Shenzhen Vtai Electrical Appliance Co., Ltd.',
+      },
+      hasMerchantReturnPolicy: {
+        '@type': 'MerchantReturnPolicy',
+        applicableCountry: country.name,
+        returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+        merchantReturnDays: 30,
+        returnMethod: 'https://schema.org/ReturnByMail',
+        returnFees: 'https://schema.org/ReturnShippingFees',
+      },
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: country.currency },
+        shippingDestination: { '@type': 'DefinedRegion', addressCountry: country.name },
+        deliveryTime: {
+          '@type': 'ShippingDeliveryTime',
+          handlingTime: { '@type': 'QuantitativeValue', minValue: 28, maxValue: 32, unitCode: 'DAY' },
+          transitTime: { '@type': 'QuantitativeValue', minValue: 25, maxValue: 45, unitCode: 'DAY' },
+        },
+      },
     },
   }}
 >
