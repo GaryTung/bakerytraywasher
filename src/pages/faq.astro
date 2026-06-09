@@ -34,14 +34,6 @@ const faqs = [
   description="Common questions about the V-TAI JD-3 bakery tray washer: price, specifications, shipping, warranty, installation, and more."
   locale={locale}
   canonicalPath="/faq/"
-  schemaType="FAQPage"
-  schemaData={{
-    mainEntity: faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
-    })),
-  }}
 >
 <BreadcrumbNav items={[{label: 'Home', href: '/'}, {label: 'FAQ'}]} />
 
