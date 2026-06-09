@@ -120,6 +120,22 @@ const sisterImages = [
   </div>
 </section>
 
+{a.factoryHeading && (
+  <!-- Inside Our Factory (photo gallery) -->
+  <section class="section">
+    <div class="container-page">
+      <h2 class="mb-4 text-center">{a.factoryHeading}</h2>
+      {a.factoryIntro && <p class="text-center text-bakery-navy/70 max-w-3xl mx-auto mb-8">{a.factoryIntro}</p>}
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <img src="/images/factory-materials.webp" alt="Folded SUS304 stainless steel panels stacked in the V-TAI factory" class="w-full aspect-[4/3] object-cover rounded-card" loading="lazy" />
+        <img src="/images/factory-assembly.webp" alt="V-TAI JD-3 stainless steel chamber under assembly on the production line" class="w-full aspect-[4/3] object-cover rounded-card" loading="lazy" />
+        <img src="/images/factory-production-line.webp" alt="Row of JD-3 hood-type bakery tray washers in mid-production at the V-TAI plant" class="w-full aspect-[4/3] object-cover rounded-card" loading="lazy" />
+        <img src="/images/factory-inventory.webp" alt="Finished JD-3 units packaged and staged for export shipment from the V-TAI factory" class="w-full aspect-[4/3] object-cover rounded-card" loading="lazy" />
+      </div>
+    </div>
+  </section>
+)}
+
 <!-- Certifications -->
 <section class="section">
   <div class="container-prose">

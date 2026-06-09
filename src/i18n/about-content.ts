@@ -26,6 +26,8 @@ export interface AboutContent {
   beliefs: AboutBelief[];
   factsHeading: string;
   factsLabels: string[]; // 8 short labels under each big number
+  factoryHeading?: string;   // optional — "Inside Our Factory" gallery title
+  factoryIntro?: string;     // optional — 1–2 sentence intro under the gallery title
   certHeading: string;
   certItems: string[];   // each has HTML <strong> at start
   shipHeading: string;
@@ -77,6 +79,8 @@ const en: AboutContent = {
   ],
   factsHeading: 'Manufacturing Facts',
   factsLabels: ['Smart manufacturing base', 'Annual production capacity', 'Defect rate (industry-leading)', 'Vertically controlled supply chain', 'Countries served', 'Years as certified manufacturer', 'Waste reduction (vs industry avg)', 'Faster turnaround vs industry'],
+  factoryHeading: 'Inside Our Factory',
+  factoryIntro: "These photos come straight off the production floor at our Pearl River Delta facility. From folded sheet metal to finished JD-3 units staged for export, every machine you order is built, tested, and packaged here before shipping.",
   certHeading: 'Certifications & Standards',
   certItems: [
     '<strong>CE Safety</strong> — full EU compliance, accepted globally including most US states, GCC, APAC, LATAM, Africa',
@@ -142,6 +146,8 @@ const es: AboutContent = {
   ],
   factsHeading: 'Datos de Fabricación',
   factsLabels: ['Base de fabricación inteligente', 'Capacidad anual de producción', 'Tasa de defectos (líder en industria)', 'Cadena de suministro verticalmente controlada', 'Países atendidos', 'Años como fabricante certificado', 'Reducción de desperdicio (vs promedio)', 'Tiempo de entrega más rápido vs industria'],
+  factoryHeading: 'Dentro de Nuestra Fábrica',
+  factoryIntro: 'Estas fotos vienen directamente de la planta de producción de nuestras instalaciones en el delta del río Perla. Desde la chapa plegada hasta las unidades JD-3 terminadas listas para exportar, cada máquina que pide se fabrica, prueba y empaqueta aquí antes del envío.',
   certHeading: 'Certificaciones y Estándares',
   certItems: [
     '<strong>Seguridad CE</strong> — cumplimiento total UE, aceptado globalmente incluyendo la mayoría de estados de EE.UU., CCG, APAC, Latinoamérica, África',
@@ -207,6 +213,8 @@ const fr: AboutContent = {
   ],
   factsHeading: 'Faits de fabrication',
   factsLabels: ['Base de fabrication intelligente', 'Capacité de production annuelle', 'Taux de défaut (leader du secteur)', 'Chaîne d\'approvisionnement verticalement contrôlée', 'Pays servis', 'Années en tant que fabricant certifié', 'Réduction des déchets (vs moyenne)', 'Délai plus rapide vs industrie'],
+  factoryHeading: 'À l\'intérieur de notre usine',
+  factoryIntro: 'Ces photos sortent directement de l\'atelier de production de notre site du delta de la Rivière des Perles. De la tôle pliée jusqu\'aux unités JD-3 finies prêtes à l\'export, chaque machine que vous commandez est fabriquée, testée et emballée ici avant expédition.',
   certHeading: 'Certifications et normes',
   certItems: [
     '<strong>Sécurité CE</strong> — conformité UE complète, acceptée mondialement y compris la plupart des États américains, le CCG, APAC, LATAM, Afrique',
@@ -272,6 +280,8 @@ const de: AboutContent = {
   ],
   factsHeading: 'Fertigungsdaten',
   factsLabels: ['Smart-Manufacturing-Basis', 'Jährliche Produktionskapazität', 'Ausschussquote (branchenführend)', 'Vertikal kontrollierte Lieferkette', 'Bediente Länder', 'Jahre als zertifizierter Hersteller', 'Abfallreduktion (vs Branchenmittel)', 'Schnellerer Durchsatz vs Branche'],
+  factoryHeading: 'In unserer Fabrik',
+  factoryIntro: 'Diese Bilder stammen direkt aus der Fertigungshalle unseres Werks im Perlflussdelta. Vom gekanteten Blech bis zur fertigen, exportfertigen JD-3 — jede Maschine, die Sie bestellen, wird hier gefertigt, geprüft und verpackt, bevor sie verschickt wird.',
   certHeading: 'Zertifizierungen & Standards',
   certItems: [
     '<strong>CE-Sicherheit</strong> — volle EU-Konformität, weltweit anerkannt einschließlich der meisten US-Staaten, GCC, APAC, LATAM, Afrika',
@@ -337,6 +347,8 @@ const ru: AboutContent = {
   ],
   factsHeading: 'Производственные факты',
   factsLabels: ['Умная производственная база', 'Годовая производственная мощность', 'Уровень брака (лидер в отрасли)', 'Вертикально контролируемая цепочка поставок', 'Обслуживаемые страны', 'Лет как сертифицированный производитель', 'Снижение отходов (vs средний по отрасли)', 'Более быстрый цикл vs отрасль'],
+  factoryHeading: 'Внутри нашего завода',
+  factoryIntro: 'Эти фотографии сделаны прямо в цехе нашего производства в дельте реки Жемчужной. От гнутого металлического листа до готовых к экспорту JD-3 — каждая машина, которую вы заказываете, собирается, тестируется и упаковывается здесь перед отправкой.',
   certHeading: 'Сертификаты и стандарты',
   certItems: [
     '<strong>Безопасность CE</strong> — полное соответствие ЕС, принято глобально включая большинство штатов США, ССАГПЗ, АТР, ЛАТАМ, Африку',
@@ -402,6 +414,8 @@ const th: AboutContent = {
   ],
   factsHeading: 'ข้อเท็จจริงด้านการผลิต',
   factsLabels: ['ฐานการผลิตอัจฉริยะ', 'กำลังการผลิตประจำปี', 'อัตราข้อบกพร่อง (ผู้นำในอุตสาหกรรม)', 'ซัพพลายเชนควบคุมแนวตั้ง', 'ประเทศที่ให้บริการ', 'ปีในฐานะผู้ผลิตที่ได้รับการรับรอง', 'การลดของเสีย (vs ค่าเฉลี่ยอุตสาหกรรม)', 'เวลาส่งมอบเร็วกว่าอุตสาหกรรม'],
+  factoryHeading: 'ภายในโรงงานของเรา',
+  factoryIntro: 'ภาพเหล่านี้ถ่ายตรงจากพื้นที่ผลิตในโรงงานของเราในสามเหลี่ยมปากแม่น้ำเพิร์ล ตั้งแต่แผ่นโลหะดัดงอจนถึงเครื่อง JD-3 สำเร็จรูปที่จัดเตรียมเพื่อส่งออก — เครื่องทุกเครื่องที่คุณสั่งซื้อจะถูกประกอบ ทดสอบ และบรรจุที่นี่ก่อนการจัดส่ง',
   certHeading: 'การรับรองและมาตรฐาน',
   certItems: [
     '<strong>ความปลอดภัย CE</strong> — สอดคล้องกับ EU เต็มรูปแบบ ได้รับการยอมรับทั่วโลกรวมถึงรัฐส่วนใหญ่ของสหรัฐฯ, GCC, APAC, LATAM, แอฟริกา',
@@ -467,6 +481,8 @@ const vi: AboutContent = {
   ],
   factsHeading: 'Sự thật về sản xuất',
   factsLabels: ['Cơ sở sản xuất thông minh', 'Năng lực sản xuất hàng năm', 'Tỷ lệ khuyết tật (dẫn đầu ngành)', 'Chuỗi cung ứng kiểm soát theo chiều dọc', 'Quốc gia được phục vụ', 'Năm như nhà sản xuất được chứng nhận', 'Giảm chất thải (vs trung bình ngành)', 'Thời gian hoàn thành nhanh hơn so với ngành'],
+  factoryHeading: 'Bên trong nhà máy của chúng tôi',
+  factoryIntro: 'Những bức ảnh này chụp trực tiếp tại xưởng sản xuất trong cơ sở của chúng tôi ở vùng đồng bằng sông Châu Giang. Từ tấm kim loại đã gấp đến máy JD-3 thành phẩm chờ xuất khẩu — mỗi máy bạn đặt đều được lắp ráp, kiểm tra và đóng gói tại đây trước khi vận chuyển.',
   certHeading: 'Chứng nhận & Tiêu chuẩn',
   certItems: [
     '<strong>An toàn CE</strong> — tuân thủ EU đầy đủ, được chấp nhận trên toàn cầu bao gồm hầu hết các bang Hoa Kỳ, GCC, APAC, LATAM, Châu Phi',
@@ -532,6 +548,8 @@ const ar: AboutContent = {
   ],
   factsHeading: 'حقائق التصنيع',
   factsLabels: ['قاعدة تصنيع ذكية', 'القدرة الإنتاجية السنوية', 'معدل العيوب (الرائد في الصناعة)', 'سلسلة توريد متحكم بها رأسياً', 'الدول المخدومة', 'سنوات كمصنع معتمد', 'تقليل النفايات (مقابل متوسط الصناعة)', 'وقت تسليم أسرع مقابل الصناعة'],
+  factoryHeading: 'داخل مصنعنا',
+  factoryIntro: 'هذه الصور مأخوذة مباشرة من أرضية الإنتاج في منشأتنا بدلتا نهر اللؤلؤ. من الصفائح المعدنية المثنية إلى وحدات JD-3 الجاهزة للتصدير — كل آلة تطلبها تُصنّع وتُختبر وتُعبَّأ هنا قبل الشحن.',
   certHeading: 'الشهادات والمعايير',
   certItems: [
     '<strong>السلامة CE</strong> — توافق كامل مع الاتحاد الأوروبي، مقبول عالمياً بما في ذلك معظم ولايات الولايات المتحدة، دول الخليج، آسيا والمحيط الهادئ، أمريكا اللاتينية، أفريقيا',
@@ -607,6 +625,8 @@ const zh: AboutContent = {
   ],
   factsHeading: '制造实力',
   factsLabels: ['智能制造基地', '年产能', '不良率（行业领先）', '垂直整合的供应链', '服务国家数', '认证制造经验', '废料减排（vs 行业均值）', '交付速度提升（vs 行业）'],
+  factoryHeading: '走进我们的工厂',
+  factoryIntro: '这些照片直接拍摄于珠三角生产基地的车间现场。从折弯成型的不锈钢板，到打包出口前的成品 JD-3，您订购的每一台机器都在这里完成生产、测试和包装，然后才发往全球客户。',
   certHeading: '认证与标准',
   certItems: [
     '<strong>CE 安全认证</strong> — 符合欧盟全面合规，全球普遍接受（含美国大部分州、海湾国家、亚太、拉美、非洲）',

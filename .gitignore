@@ -29,3 +29,6 @@ Thumbs.db
 
 # misc
 *.tsbuildinfo
+
+# raw image staging (source JPGs converted into public/images/*.webp)
+.image-staging/
