@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
-import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import HeroShowcase from '../../components/HeroShowcase.astro';
+import ProductGallery from '../../components/ProductGallery.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
 import CTASection from '../../components/CTASection.astro';
@@ -50,11 +51,27 @@ const faqs = [
       </div>
       <p class="mt-4 text-sm text-bakery-navy/60">⚡ Respondemos en 12 horas hábiles · Sin spam</p>
     </div>
-    <ImagePlaceholder src="/images/jd-3-hero.webp" alt="Lavadora V-TAI JD-3 con bandejas de panadería" ratio="4/3" label="JD-3 foto principal" />
+    <HeroShowcase
+      mainAlt="Lavavajillas de campana V-TAI JD-3, vista frontal completa de la máquina"
+      thumbAlt="Seis bandejas de horno de 600×400 mm cargadas en vertical en el rack del JD-3"
+      specValue="600×400"
+      specLabel="mm bandejas ✓"
+    />
   </div>
 </section>
 
 <TrustBadgeStrip locale={locale} />
+
+<ProductGallery
+  title="Una mirada de cerca al JD-3"
+  subtitle="Fotos reales desde la planta — no renders. Esta es la máquina que recibe."
+  items={[
+    { img: '/images/jd-3-inside.webp', alt: 'Cámara de lavado SUS304 con doble brazo giratorio', caption: 'Cámara SUS304 · doble brazo de lavado giratorio' },
+    { img: '/images/jd-3-trays-loaded.webp', alt: 'Seis bandejas cargadas en vertical en el rack', caption: '6 bandejas por ciclo, cargadas en vertical' },
+    { img: '/images/jd-3-led-control.webp', alt: 'Panel LED mostrando temperaturas de lavado y enjuague', caption: 'Lectura en vivo de temperatura de lavado y enjuague' },
+    { img: '/images/factory-production-line.webp', alt: 'Línea de producción del JD-3 en la fábrica V-TAI', caption: 'Fabricada en nuestra propia planta de 8.000 m²' },
+  ]}
+/>
 
 <section class="section">
   <div class="container-page">

@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
-import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import HeroShowcase from '../../components/HeroShowcase.astro';
+import ProductGallery from '../../components/ProductGallery.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import CTASection from '../../components/CTASection.astro';
 import FAQSection from '../../components/FAQSection.astro';
@@ -38,10 +39,26 @@ const faqs = [
         <a href="/th/product/" class="btn-secondary">ดูสเปค</a>
       </div>
     </div>
-    <ImagePlaceholder src="/images/jd-3-hero.webp" alt="V-TAI JD-3 เครื่องล้างถาด" ratio="4/3" label="JD-3 รูปหลัก" />
+    <HeroShowcase
+      mainAlt="เครื่องล้างจานแบบกระโจม V-TAI JD-3 มุมมองด้านหน้าเต็มเครื่อง"
+      thumbAlt="ถาดอบขนาด 600×400 มม. หกถาดวางตั้งในแร็คของ JD-3"
+      specValue="600×400"
+      specLabel="มม. ถาด ✓"
+    />
   </div>
 </section>
 <TrustBadgeStrip locale={locale} />
+
+<ProductGallery
+  title="ดู JD-3 ใกล้ ๆ"
+  subtitle="ภาพถ่ายจริงจากโรงงาน ไม่ใช่ภาพเรนเดอร์ นี่คือเครื่องที่คุณจะได้รับ"
+  items={[
+    { img: '/images/jd-3-inside.webp', alt: 'ห้องล้าง SUS304 พร้อมแขนฉีดน้ำหมุนคู่', caption: 'ห้องล้าง SUS304 · แขนฉีดน้ำหมุนคู่' },
+    { img: '/images/jd-3-trays-loaded.webp', alt: 'ถาดหกใบวางตั้งในแร็ค', caption: '6 ถาดต่อรอบ วางตั้งในแร็ค' },
+    { img: '/images/jd-3-led-control.webp', alt: 'แผง LED แสดงอุณหภูมิน้ำล้างและน้ำสุดท้าย', caption: 'แสดงอุณหภูมิน้ำล้างและน้ำสุดท้ายแบบเรียลไทม์' },
+    { img: '/images/factory-production-line.webp', alt: 'สายการผลิต JD-3 ที่โรงงาน V-TAI', caption: 'ผลิตในโรงงานของเราเองขนาด 8,000 ตร.ม.' },
+  ]}
+/>
 <section class="section bg-bakery-cream"><div class="container-page">
 <h2 class="text-center mb-10">ธุรกิจของคุณคืออะไร?</h2>
 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">

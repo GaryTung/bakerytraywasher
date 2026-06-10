@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
-import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import HeroShowcase from '../../components/HeroShowcase.astro';
+import ProductGallery from '../../components/ProductGallery.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
 import CTASection from '../../components/CTASection.astro';
@@ -43,11 +44,27 @@ const faqs = [
         <a href="/ru/product/" class="btn-secondary">Спецификации</a>
       </div>
     </div>
-    <ImagePlaceholder src="/images/jd-3-hero.webp" alt="V-TAI JD-3 мойка противней" ratio="4/3" label="JD-3 основное фото" />
+    <HeroShowcase
+      mainAlt="Купольная посудомоечная машина V-TAI JD-3, полный вид спереди"
+      thumbAlt="Шесть противней 600×400 мм, установленных вертикально в корзине JD-3"
+      specValue="600×400"
+      specLabel="мм противни ✓"
+    />
   </div>
 </section>
 
 <TrustBadgeStrip locale={locale} />
+
+<ProductGallery
+  title="JD-3 крупным планом"
+  subtitle="Реальные фото из цеха, а не рендеры. Именно эту машину вы получите."
+  items={[
+    { img: '/images/jd-3-inside.webp', alt: 'Камера SUS304 с двумя вращающимися коромыслами', caption: 'Камера SUS304 · два вращающихся коромысла' },
+    { img: '/images/jd-3-trays-loaded.webp', alt: 'Шесть противней установлены вертикально в корзине', caption: '6 противней за цикл, установленных вертикально' },
+    { img: '/images/jd-3-led-control.webp', alt: 'LED-панель с температурой мойки и ополаскивания', caption: 'Индикация температуры мойки и ополаскивания в реальном времени' },
+    { img: '/images/factory-production-line.webp', alt: 'Производственная линия JD-3 на заводе V-TAI', caption: 'Произведено на нашем заводе площадью 8 000 м²' },
+  ]}
+/>
 
 <section class="section">
   <div class="container-page">

@@ -1,0 +1,37 @@
+---
+// Real-photo product showcase used on every locale homepage to replace the
+// previous all-emoji / all-text visual rhythm. Each item is a real product or
+// factory photo with a short localized caption.
+interface GalleryItem { img: string; alt: string; caption: string }
+interface Props {
+  title: string;
+  subtitle?: string;
+  items: GalleryItem[];
+  bg?: boolean;   // tint the section background
+}
+const { title, subtitle, items, bg = false } = Astro.props;
+---
+<section class={`section ${bg ? 'bg-bakery-cream' : ''}`}>
+  <div class="container-page">
+    <div class="max-w-2xl mx-auto text-center mb-10">
+      <h2 class="mb-3">{title}</h2>
+      {subtitle && <p class="text-bakery-navy/70 text-lg">{subtitle}</p>}
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+      {items.map((it) => (
+        <figure class="group">
+          <div class="rounded-card overflow-hidden ring-1 ring-bakery-navy/10 shadow-sm bg-white">
+            <img
+              src={it.img}
+              alt={it.alt}
+              class="w-full aspect-[3/4] object-cover transition duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption class="text-sm text-bakery-navy/75 mt-3 text-center leading-snug">{it.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

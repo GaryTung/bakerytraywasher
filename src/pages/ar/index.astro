@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
-import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import HeroShowcase from '../../components/HeroShowcase.astro';
+import ProductGallery from '../../components/ProductGallery.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import CTASection from '../../components/CTASection.astro';
 import FAQSection from '../../components/FAQSection.astro';
@@ -40,10 +41,26 @@ const faqs = [
         <a href="/ar/product/" class="btn-secondary">المواصفات</a>
       </div>
     </div>
-    <ImagePlaceholder src="/images/jd-3-hero.webp" alt="V-TAI JD-3 غسالة صواني" ratio="4/3" label="JD-3 صورة" />
+    <HeroShowcase
+      mainAlt="غسالة أطباق بغطاء قبة V-TAI JD-3، منظر أمامي كامل للآلة"
+      thumbAlt="ست صواني خبز 600×400 مم محمَّلة عمودياً في رف الغسل لـ JD-3"
+      specValue="600×400"
+      specLabel="مم صواني ✓"
+    />
   </div>
 </section>
 <TrustBadgeStrip locale={locale} />
+
+<ProductGallery
+  title="نظرة عن قرب على JD-3"
+  subtitle="صور حقيقية من أرضية المصنع — وليست صوراً مُولّدة. هذه هي الآلة التي ستستلمها."
+  items={[
+    { img: '/images/jd-3-inside.webp', alt: 'حجرة غسل SUS304 بذراعَيْ غسل دوّارَيْن', caption: 'حجرة SUS304 · ذراعا غسل دوّاران' },
+    { img: '/images/jd-3-trays-loaded.webp', alt: 'ست صواني محمَّلة عمودياً في الرف', caption: '6 صواني لكل دورة، محمَّلة عمودياً' },
+    { img: '/images/jd-3-led-control.webp', alt: 'لوحة LED تعرض حرارة الغسل والشطف', caption: 'عرض مباشر لحرارة الغسل والشطف' },
+    { img: '/images/factory-production-line.webp', alt: 'خط إنتاج JD-3 في مصنع V-TAI', caption: 'مصنوعة في منشأتنا الخاصة بمساحة 8,000 م²' },
+  ]}
+/>
 <section class="section bg-bakery-cream">
   <div class="container-page">
     <h2 class="text-center mb-10">ما هو نشاطك التجاري؟</h2>

@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
-import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import HeroShowcase from '../../components/HeroShowcase.astro';
+import ProductGallery from '../../components/ProductGallery.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
 import CTASection from '../../components/CTASection.astro';
@@ -46,11 +47,27 @@ const faqs = [
         <a href="/fr/product/" class="btn-secondary">Voir les Spécifications</a>
       </div>
     </div>
-    <ImagePlaceholder src="/images/jd-3-hero.webp" alt="Lave-plaques V-TAI JD-3 avec plaques de boulangerie" ratio="4/3" label="JD-3 photo principale" />
+    <HeroShowcase
+      mainAlt="Lave-vaisselle à capot V-TAI JD-3, vue de face complète de la machine"
+      thumbAlt="Six plaques de boulangerie 600×400 mm chargées à la verticale dans le rack du JD-3"
+      specValue="600×400"
+      specLabel="mm plaques ✓"
+    />
   </div>
 </section>
 
 <TrustBadgeStrip locale={locale} />
+
+<ProductGallery
+  title="Le JD-3 de plus près"
+  subtitle="Des photos réelles prises à l'usine — pas des rendus. C'est la machine que vous recevez."
+  items={[
+    { img: '/images/jd-3-inside.webp', alt: 'Cuve de lavage SUS304 avec double bras rotatif', caption: 'Cuve SUS304 · double bras de lavage rotatif' },
+    { img: '/images/jd-3-trays-loaded.webp', alt: 'Six plaques chargées à la verticale dans le rack', caption: '6 plaques par cycle, chargées à la verticale' },
+    { img: '/images/jd-3-led-control.webp', alt: 'Panneau LED affichant les températures de lavage et rinçage', caption: 'Affichage en direct des températures de lavage et rinçage' },
+    { img: '/images/factory-production-line.webp', alt: 'Ligne de production du JD-3 à l\'usine V-TAI', caption: 'Fabriquée dans notre propre usine de 8 000 m²' },
+  ]}
+/>
 
 <section class="section">
   <div class="container-page">

@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../components/TrustBadgeStrip.astro';
-import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import HeroShowcase from '../components/HeroShowcase.astro';
+import ProductGallery from '../components/ProductGallery.astro';
 import YouTubeShort from '../components/YouTubeShort.astro';
 import PriceCalloutBox from '../components/PriceCalloutBox.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
@@ -62,7 +63,12 @@ const compareRows = [
       <p class="mt-4 text-sm text-bakery-navy/60">⚡ Replies within 12 business hours · No spam, ever</p>
     </div>
     <div>
-      <ImagePlaceholder src="/images/jd-3-hero.webp" alt="V-TAI JD-3 hood-type bakery tray washer with stacked 600×400 mm baking trays beside it" ratio="4/3" label="JD-3 hero photo" />
+      <HeroShowcase
+        mainAlt="V-TAI JD-3 hood-type bakery tray washer, full machine front view"
+        thumbAlt="Six 600×400 mm baking trays loaded upright in the JD-3 wash rack"
+        specValue="600×400"
+        specLabel="mm trays · fits ✓"
+      />
     </div>
   </div>
 </section>
@@ -95,6 +101,18 @@ const compareRows = [
     </div>
   </div>
 </section>
+
+<!-- Real product gallery -->
+<ProductGallery
+  title="A Closer Look at the JD-3"
+  subtitle="Real photos from the factory floor — not renders. This is the machine you receive."
+  items={[
+    { img: '/images/jd-3-inside.webp', alt: 'JD-3 stainless steel wash chamber with dual rotating wash arms and mesh filters', caption: 'SUS304 chamber · dual rotating wash arms' },
+    { img: '/images/jd-3-trays-loaded.webp', alt: 'Six 600×400 mm baking trays loaded upright in the JD-3 rack', caption: '6 baking trays per cycle, loaded upright' },
+    { img: '/images/jd-3-led-control.webp', alt: 'JD-3 LED control panel showing wash and rinse temperatures', caption: 'Live wash + rinse temperature readout' },
+    { img: '/images/factory-production-line.webp', alt: 'Row of JD-3 washers in production at the V-TAI factory', caption: 'Built in our own 8,000 m² facility' },
+  ]}
+/>
 
 <!-- Video demo -->
 <section class="section bg-bakery-cream">

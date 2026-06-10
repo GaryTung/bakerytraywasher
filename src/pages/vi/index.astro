@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
-import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import HeroShowcase from '../../components/HeroShowcase.astro';
+import ProductGallery from '../../components/ProductGallery.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import CTASection from '../../components/CTASection.astro';
 import FAQSection from '../../components/FAQSection.astro';
@@ -37,10 +38,26 @@ const faqs = [
         <a href="/vi/product/" class="btn-secondary">Xem thông số</a>
       </div>
     </div>
-    <ImagePlaceholder src="/images/jd-3-hero.webp" alt="V-TAI JD-3" ratio="4/3" label="JD-3" />
+    <HeroShowcase
+      mainAlt="Máy rửa bát kiểu nắp chụp V-TAI JD-3, ảnh chính diện toàn máy"
+      thumbAlt="Sáu khay nướng 600×400 mm xếp đứng trong giá rửa của JD-3"
+      specValue="600×400"
+      specLabel="mm khay ✓"
+    />
   </div>
 </section>
 <TrustBadgeStrip locale={locale} />
+
+<ProductGallery
+  title="Nhìn gần hơn vào JD-3"
+  subtitle="Ảnh thật chụp tại xưởng — không phải ảnh dựng. Đây chính là cỗ máy bạn nhận được."
+  items={[
+    { img: '/images/jd-3-inside.webp', alt: 'Khoang rửa SUS304 với hai tay phun xoay', caption: 'Khoang SUS304 · hai tay phun xoay' },
+    { img: '/images/jd-3-trays-loaded.webp', alt: 'Sáu khay xếp đứng trong giá rửa', caption: '6 khay mỗi chu kỳ, xếp đứng trong giá' },
+    { img: '/images/jd-3-led-control.webp', alt: 'Bảng LED hiển thị nhiệt độ rửa và tráng', caption: 'Hiển thị nhiệt độ rửa và tráng theo thời gian thực' },
+    { img: '/images/factory-production-line.webp', alt: 'Dây chuyền sản xuất JD-3 tại nhà máy V-TAI', caption: 'Sản xuất tại nhà máy 8.000 m² của chính chúng tôi' },
+  ]}
+/>
 <section class="section bg-bakery-cream"><div class="container-page">
 <h2 class="text-center mb-10">Doanh nghiệp của bạn?</h2>
 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">

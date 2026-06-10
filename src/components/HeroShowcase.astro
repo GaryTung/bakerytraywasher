@@ -1,0 +1,48 @@
+---
+// Polished hero product visual used on every locale homepage.
+// Fixes the previous broken crop (a tall portrait machine photo forced into a
+// 4/3 landscape box with object-cover). Here the full machine is shown with
+// object-contain on a soft gradient card, with a floating loaded-trays thumbnail
+// and a numeric spec badge for visual interest.
+interface Props {
+  mainImg?: string;
+  mainAlt: string;
+  thumbImg?: string;
+  thumbAlt: string;
+  specValue?: string;   // numeric / universal, e.g. "600×400"
+  specLabel: string;    // short localized label, e.g. "mm trays"
+}
+const {
+  mainImg = '/images/jd-3-hero.webp',
+  mainAlt,
+  thumbImg = '/images/jd-3-trays-loaded.webp',
+  thumbAlt,
+  specValue = '600×400',
+  specLabel,
+} = Astro.props;
+---
+<div class="relative max-w-md mx-auto lg:mx-0 lg:ml-auto">
+  <!-- Main framed product photo -->
+  <div class="rounded-2xl bg-gradient-to-br from-white via-white to-bakery-cream/60 ring-1 ring-bakery-navy/10 shadow-xl overflow-hidden">
+    <img
+      src={mainImg}
+      alt={mainAlt}
+      class="w-full aspect-[4/5] object-contain p-2"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </div>
+
+  <!-- Floating loaded-trays thumbnail (bottom-left) -->
+  <div class="absolute -bottom-5 -left-4 sm:-left-6 w-28 sm:w-36 rounded-xl overflow-hidden ring-4 ring-white shadow-lg">
+    <img src={thumbImg} alt={thumbAlt} class="w-full aspect-square object-cover" loading="eager" decoding="async" />
+  </div>
+
+  <!-- Floating numeric spec badge (top-right). dir=ltr keeps the dimension
+       notation (e.g. 600×400) correctly ordered even on RTL (Arabic) pages. -->
+  <div class="absolute -top-4 -right-3 sm:-right-5 bg-bakery-navy rounded-2xl shadow-lg px-4 py-3 text-center">
+    <p dir="ltr" class="text-xl sm:text-2xl font-bold text-bakery-orange leading-none">{specValue}</p>
+    <p class="text-[11px] text-white/85 mt-1 whitespace-nowrap">{specLabel}</p>
+  </div>
+</div>

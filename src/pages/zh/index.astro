@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
-import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import HeroShowcase from '../../components/HeroShowcase.astro';
+import ProductGallery from '../../components/ProductGallery.astro';
 import YouTubeShort from '../../components/YouTubeShort.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import CTASection from '../../components/CTASection.astro';
@@ -48,11 +49,27 @@ const faqs = [
         <a href="/zh/product/" class="btn-secondary">查看规格</a>
       </div>
     </div>
-    <ImagePlaceholder src="/images/jd-3-hero.webp" alt="V-TAI JD-3 烘焙烤盘清洗机" ratio="4/3" label="JD-3 主图" />
+    <HeroShowcase
+      mainAlt="V-TAI JD-3 揭盖式商用烤盘清洗机整机正面图"
+      thumbAlt="JD-3 内筐竖向装载六个 600×400 mm 烤盘"
+      specValue="600×400"
+      specLabel="mm 烤盘 ✓"
+    />
   </div>
 </section>
 
 <TrustBadgeStrip locale={locale} />
+
+<ProductGallery
+  title="近距离看看 JD-3"
+  subtitle="全部为工厂车间实拍，非效果图。您收到的就是这台机器。"
+  items={[
+    { img: '/images/jd-3-inside.webp', alt: 'SUS304 不锈钢洗涤腔体与上下双旋转喷淋臂', caption: 'SUS304 腔体 · 上下双旋转喷淋臂' },
+    { img: '/images/jd-3-trays-loaded.webp', alt: '内筐竖向装载六个烤盘', caption: '每次 6 个烤盘，竖向装载' },
+    { img: '/images/jd-3-led-control.webp', alt: 'LED 控制面板显示主洗与终洗水温', caption: '实时显示主洗与终洗水温' },
+    { img: '/images/factory-production-line.webp', alt: 'V-TAI 工厂 JD-3 生产线', caption: '在我们自有的 8,000 ㎡ 工厂生产' },
+  ]}
+/>
 
 <section class="section bg-bakery-cream">
   <div class="container-page">
