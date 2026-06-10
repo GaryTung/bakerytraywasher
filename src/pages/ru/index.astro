@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
 import HeroShowcase from '../../components/HeroShowcase.astro';
 import ProductGallery from '../../components/ProductGallery.astro';
+import DeliveryBand from '../../components/DeliveryBand.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
 import CTASection from '../../components/CTASection.astro';
@@ -59,8 +60,8 @@ const faqs = [
   title="JD-3 крупным планом"
   subtitle="Реальные фото из цеха, а не рендеры. Именно эту машину вы получите."
   items={[
-    { img: '/images/jd-3-inside.webp', alt: 'Камера SUS304 с двумя вращающимися коромыслами', caption: 'Камера SUS304 · два вращающихся коромысла' },
-    { img: '/images/jd-3-trays-loaded.webp', alt: 'Шесть противней установлены вертикально в корзине', caption: '6 противней за цикл, установленных вертикально' },
+    { img: '/images/jd-3-wash-arms.webp', alt: 'Вращающееся коромысло JD-3 над шестью загруженными противнями', caption: 'Два вращающихся коромысла достают до каждого противня' },
+    { img: '/images/jd-3-circuit-diagram.webp', alt: 'Электросхема внутри сервисной панели JD-3', caption: 'Электросхема едет внутри каждой машины' },
     { img: '/images/jd-3-led-control.webp', alt: 'LED-панель с температурой мойки и ополаскивания', caption: 'Индикация температуры мойки и ополаскивания в реальном времени' },
     { img: '/images/factory-production-line.webp', alt: 'Производственная линия JD-3 на заводе V-TAI', caption: 'Произведено на нашем заводе площадью 8 000 м²' },
   ]}
@@ -110,6 +111,15 @@ const faqs = [
 </section>
 
 <FAQSection items={faqs} title="Быстрые вопросы от владельцев пекарен" />
+
+<DeliveryBand
+  eyebrow="Глобальная доставка"
+  title="Мы упаковываем, отгружаем и растаможиваем — вам остаётся подключить"
+  lead="Каждая JD-3 покидает завод в экспортной упаковке и идёт морским фрахтом до вашего порта. Для 18 ключевых рынков мы берём на себя весь путь по единой цене DDP: фрахт, таможенное оформление, импортную пошлину и доставку до двери."
+  points={["Экспортная обрешётка", "Растаможено (DDP)", "Доставка до двери"]}
+  ctaLabel="Цены DDP по странам"
+  ctaHref="/ru/pricing/by-country/"
+/>
 
 <CTASection locale={locale} title="Готовы покончить с ручной мойкой?" subtitle="Индивидуальный расчёт за 12 часов." />
 </BaseLayout>

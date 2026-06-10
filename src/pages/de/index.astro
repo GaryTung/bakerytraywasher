@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
 import HeroShowcase from '../../components/HeroShowcase.astro';
 import ProductGallery from '../../components/ProductGallery.astro';
+import DeliveryBand from '../../components/DeliveryBand.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import CTASection from '../../components/CTASection.astro';
 import FAQSection from '../../components/FAQSection.astro';
@@ -52,8 +53,8 @@ const faqs = [
   title="Die JD-3 aus der Nähe"
   subtitle="Echte Fotos aus der Fertigung — keine Renderings. Das ist die Maschine, die Sie erhalten."
   items={[
-    { img: '/images/jd-3-inside.webp', alt: 'SUS304-Waschkammer mit zwei rotierenden Waschspülarmen', caption: 'SUS304-Kammer · zwei rotierende Waschspülarme' },
-    { img: '/images/jd-3-trays-loaded.webp', alt: 'Sechs Backbleche hochkant im Spülkorb', caption: '6 Backbleche pro Zyklus, hochkant eingesetzt' },
+    { img: '/images/jd-3-wash-arms.webp', alt: 'Rotierender Wascharm des JD-3 über sechs eingesetzten Backblechen', caption: 'Zwei rotierende Wascharme erreichen jedes Blech' },
+    { img: '/images/jd-3-circuit-diagram.webp', alt: 'Schaltplan im Service-Panel der JD-3', caption: 'Schaltplan reist in jeder Maschine mit' },
     { img: '/images/jd-3-led-control.webp', alt: 'LED-Panel mit Wasch- und Klarspültemperatur', caption: 'Live-Anzeige der Wasch- und Klarspültemperatur' },
     { img: '/images/factory-production-line.webp', alt: 'JD-3 Produktionslinie im V-TAI Werk', caption: 'Gefertigt in unserem eigenen 8.000 m² Werk' },
   ]}
@@ -71,5 +72,14 @@ const faqs = [
 <PriceCalloutBox locale={locale} />
 </div></section>
 <FAQSection items={faqs} title="Häufige Fragen" />
+<DeliveryBand
+  eyebrow="Weltweite Lieferung"
+  title="Wir verpacken, verschiffen und verzollen — Sie schließen nur an"
+  lead="Jede JD-3 verlässt das Werk exportfertig verpackt und reist per Seefracht zu Ihrem Hafen. Für 18 große Märkte übernehmen wir den gesamten Weg zu einem DDP-Preis: Fracht, Zollabwicklung, Einfuhrzoll und Lieferung bis vor Ihre Tür."
+  points={["Exportverpackung", "Verzollt (DDP)", "Bis vor Ihre Tür geliefert"]}
+  ctaLabel="DDP-Preise nach Land ansehen"
+  ctaHref="/de/pricing/by-country/"
+/>
+
 <CTASection locale={locale} title="Bereit, das manuelle Spülen zu beenden?" subtitle="Individuelles Angebot in 12 Stunden" />
 </BaseLayout>

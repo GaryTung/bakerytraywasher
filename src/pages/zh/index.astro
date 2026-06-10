@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
 import HeroShowcase from '../../components/HeroShowcase.astro';
 import ProductGallery from '../../components/ProductGallery.astro';
+import DeliveryBand from '../../components/DeliveryBand.astro';
 import YouTubeShort from '../../components/YouTubeShort.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import CTASection from '../../components/CTASection.astro';
@@ -64,8 +65,8 @@ const faqs = [
   title="近距离看看 JD-3"
   subtitle="全部为工厂车间实拍，非效果图。您收到的就是这台机器。"
   items={[
-    { img: '/images/jd-3-inside.webp', alt: 'SUS304 不锈钢洗涤腔体与上下双旋转喷淋臂', caption: 'SUS304 腔体 · 上下双旋转喷淋臂' },
-    { img: '/images/jd-3-trays-loaded.webp', alt: '内筐竖向装载六个烤盘', caption: '每次 6 个烤盘，竖向装载' },
+    { img: '/images/jd-3-wash-arms.webp', alt: 'JD-3 旋转喷淋臂在六个已装载烤盘上方喷淋', caption: '上下双旋转喷淋臂，覆盖每个烤盘' },
+    { img: '/images/jd-3-circuit-diagram.webp', alt: 'JD-3 维修面板内的接线电路图', caption: '电路图随每台机器内附' },
     { img: '/images/jd-3-led-control.webp', alt: 'LED 控制面板显示主洗与终洗水温', caption: '实时显示主洗与终洗水温' },
     { img: '/images/factory-production-line.webp', alt: 'V-TAI 工厂 JD-3 生产线', caption: '在我们自有的 8,000 ㎡ 工厂生产' },
   ]}
@@ -111,6 +112,15 @@ const faqs = [
 </section>
 
 <FAQSection items={faqs} title="常见问题" />
+
+<DeliveryBand
+  eyebrow="全球交付"
+  title="我们打包、海运、清关 —— 您只需接上水电"
+  lead="每台 JD-3 出厂即按出口标准打木箱，海运直达您所在港口。针对 18 个主要市场，我们用一个 DDP 到岸价承包全程：海运、清关、进口关税，以及最后一公里送货上门。"
+  points={["出口级木箱包装", "全程清关（DDP）", "送货上门到家门口"]}
+  ctaLabel="查看各国 DDP 到岸价"
+  ctaHref="/zh/pricing/by-country/"
+/>
 
 <CTASection locale={locale} title="准备好告别手洗烤盘了吗？" subtitle="12 小时内为您定制报价。" />
 </BaseLayout>

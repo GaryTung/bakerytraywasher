@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
 import HeroShowcase from '../../components/HeroShowcase.astro';
 import ProductGallery from '../../components/ProductGallery.astro';
+import DeliveryBand from '../../components/DeliveryBand.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import CTASection from '../../components/CTASection.astro';
 import FAQSection from '../../components/FAQSection.astro';
@@ -52,8 +53,8 @@ const faqs = [
   title="Nhìn gần hơn vào JD-3"
   subtitle="Ảnh thật chụp tại xưởng — không phải ảnh dựng. Đây chính là cỗ máy bạn nhận được."
   items={[
-    { img: '/images/jd-3-inside.webp', alt: 'Khoang rửa SUS304 với hai tay phun xoay', caption: 'Khoang SUS304 · hai tay phun xoay' },
-    { img: '/images/jd-3-trays-loaded.webp', alt: 'Sáu khay xếp đứng trong giá rửa', caption: '6 khay mỗi chu kỳ, xếp đứng trong giá' },
+    { img: '/images/jd-3-wash-arms.webp', alt: 'Tay phun xoay của JD-3 phun trên sáu khay đã xếp', caption: 'Hai tay phun xoay phủ tới mọi khay' },
+    { img: '/images/jd-3-circuit-diagram.webp', alt: 'Sơ đồ mạch bên trong bảng dịch vụ của JD-3', caption: 'Sơ đồ mạch đi kèm trong mỗi máy' },
     { img: '/images/jd-3-led-control.webp', alt: 'Bảng LED hiển thị nhiệt độ rửa và tráng', caption: 'Hiển thị nhiệt độ rửa và tráng theo thời gian thực' },
     { img: '/images/factory-production-line.webp', alt: 'Dây chuyền sản xuất JD-3 tại nhà máy V-TAI', caption: 'Sản xuất tại nhà máy 8.000 m² của chính chúng tôi' },
   ]}
@@ -68,5 +69,14 @@ const faqs = [
 <PriceCalloutBox locale={locale} />
 </div></section>
 <FAQSection items={faqs} title="Câu hỏi thường gặp" />
+<DeliveryBand
+  eyebrow="Giao hàng toàn cầu"
+  title="Chúng tôi đóng kiện, vận chuyển và thông quan — bạn chỉ việc cắm điện"
+  lead="Mỗi máy JD-3 rời nhà máy trong kiện gỗ đạt chuẩn xuất khẩu và đi đường biển tới cảng của bạn. Với 18 thị trường lớn, chúng tôi lo trọn hành trình theo một giá DDP: cước biển, thông quan, thuế nhập khẩu và giao tận cửa."
+  points={["Đóng kiện xuất khẩu", "Đã thông quan (DDP)", "Giao tận cửa"]}
+  ctaLabel="Xem giá DDP theo quốc gia"
+  ctaHref="/vi/pricing/by-country/"
+/>
+
 <CTASection locale={locale} title="Sẵn sàng chấm dứt rửa tay?" subtitle="Báo giá tùy chỉnh trong 12 giờ" />
 </BaseLayout>

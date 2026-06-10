@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
 import HeroShowcase from '../../components/HeroShowcase.astro';
 import ProductGallery from '../../components/ProductGallery.astro';
+import DeliveryBand from '../../components/DeliveryBand.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
 import CTASection from '../../components/CTASection.astro';
@@ -62,8 +63,8 @@ const faqs = [
   title="Le JD-3 de plus près"
   subtitle="Des photos réelles prises à l'usine — pas des rendus. C'est la machine que vous recevez."
   items={[
-    { img: '/images/jd-3-inside.webp', alt: 'Cuve de lavage SUS304 avec double bras rotatif', caption: 'Cuve SUS304 · double bras de lavage rotatif' },
-    { img: '/images/jd-3-trays-loaded.webp', alt: 'Six plaques chargées à la verticale dans le rack', caption: '6 plaques par cycle, chargées à la verticale' },
+    { img: '/images/jd-3-wash-arms.webp', alt: 'Bras de lavage rotatif du JD-3 au-dessus de six plaques chargées', caption: 'Doubles bras rotatifs qui atteignent chaque plaque' },
+    { img: '/images/jd-3-circuit-diagram.webp', alt: 'Schéma de câblage à l\'intérieur du panneau de service du JD-3', caption: 'Le schéma électrique voyage dans chaque machine' },
     { img: '/images/jd-3-led-control.webp', alt: 'Panneau LED affichant les températures de lavage et rinçage', caption: 'Affichage en direct des températures de lavage et rinçage' },
     { img: '/images/factory-production-line.webp', alt: 'Ligne de production du JD-3 à l\'usine V-TAI', caption: 'Fabriquée dans notre propre usine de 8 000 m²' },
   ]}
@@ -124,6 +125,15 @@ const faqs = [
 </section>
 
 <FAQSection items={faqs} title="Questions Rapides des Boulangers" />
+
+<DeliveryBand
+  eyebrow="Livraison mondiale"
+  title="On l'emballe, on l'expédie, on dédouane — vous n'avez qu'à le brancher"
+  lead="Chaque JD-3 quitte l'usine emballé pour l'export et voyage par fret maritime jusqu'à votre port. Pour 18 marchés majeurs, nous gérons tout le trajet sur un prix DDP unique : fret, dédouanement, droits d'importation et livraison du dernier kilomètre à votre porte."
+  points={["Caisse d'export", "Dédouané (DDP)", "Livré à votre porte"]}
+  ctaLabel="Voir les prix DDP par pays"
+  ctaHref="/fr/pricing/by-country/"
+/>
 
 <CTASection locale={locale} title="Prêt à en finir avec le lavage manuel ?" subtitle="Devis personnalisé en 12 heures. Certifié CE, à partir de 4 400 $ FOB Shenzhen." />
 </BaseLayout>

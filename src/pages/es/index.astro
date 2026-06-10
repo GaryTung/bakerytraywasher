@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
 import HeroShowcase from '../../components/HeroShowcase.astro';
 import ProductGallery from '../../components/ProductGallery.astro';
+import DeliveryBand from '../../components/DeliveryBand.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
 import CTASection from '../../components/CTASection.astro';
@@ -66,8 +67,8 @@ const faqs = [
   title="Una mirada de cerca al JD-3"
   subtitle="Fotos reales desde la planta — no renders. Esta es la máquina que recibe."
   items={[
-    { img: '/images/jd-3-inside.webp', alt: 'Cámara de lavado SUS304 con doble brazo giratorio', caption: 'Cámara SUS304 · doble brazo de lavado giratorio' },
-    { img: '/images/jd-3-trays-loaded.webp', alt: 'Seis bandejas cargadas en vertical en el rack', caption: '6 bandejas por ciclo, cargadas en vertical' },
+    { img: '/images/jd-3-wash-arms.webp', alt: 'Brazo de lavado giratorio del JD-3 sobre seis bandejas cargadas', caption: 'Doble brazo giratorio que alcanza cada bandeja' },
+    { img: '/images/jd-3-circuit-diagram.webp', alt: 'Diagrama de cableado dentro del panel de servicio del JD-3', caption: 'El diagrama eléctrico viaja dentro de cada unidad' },
     { img: '/images/jd-3-led-control.webp', alt: 'Panel LED mostrando temperaturas de lavado y enjuague', caption: 'Lectura en vivo de temperatura de lavado y enjuague' },
     { img: '/images/factory-production-line.webp', alt: 'Línea de producción del JD-3 en la fábrica V-TAI', caption: 'Fabricada en nuestra propia planta de 8.000 m²' },
   ]}
@@ -148,6 +149,15 @@ const faqs = [
 </section>
 
 <FAQSection items={faqs} title="Preguntas Frecuentes de Dueños de Panaderías" />
+
+<DeliveryBand
+  eyebrow="Entrega global"
+  title="Nosotros lo embalamos, lo enviamos y despachamos aduanas — usted solo lo conecta"
+  lead="Cada JD-3 sale de fábrica embalado para exportación y viaja por flete marítimo a su puerto. Para 18 mercados principales gestionamos todo el trayecto en un solo precio DDP: flete, despacho de aduanas, aranceles de importación y entrega de última milla hasta su puerta."
+  points={["Embalaje de exportación", "Aduanas despachadas (DDP)", "Entregado en su puerta"]}
+  ctaLabel="Ver precios DDP por país"
+  ctaHref="/es/pricing/by-country/"
+/>
 
 <CTASection locale={locale} title="¿Listo para Terminar el Lavado Manual?" subtitle="Cotización personalizada en 12 horas. CE-certificada, desde $4,400 FOB Shenzhen." />
 </BaseLayout>

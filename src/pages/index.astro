@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../components/TrustBadgeStrip.astro';
 import HeroShowcase from '../components/HeroShowcase.astro';
 import ProductGallery from '../components/ProductGallery.astro';
+import DeliveryBand from '../components/DeliveryBand.astro';
 import YouTubeShort from '../components/YouTubeShort.astro';
 import PriceCalloutBox from '../components/PriceCalloutBox.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
@@ -107,8 +108,8 @@ const compareRows = [
   title="A Closer Look at the JD-3"
   subtitle="Real photos from the factory floor — not renders. This is the machine you receive."
   items={[
-    { img: '/images/jd-3-inside.webp', alt: 'JD-3 stainless steel wash chamber with dual rotating wash arms and mesh filters', caption: 'SUS304 chamber · dual rotating wash arms' },
-    { img: '/images/jd-3-trays-loaded.webp', alt: 'Six 600×400 mm baking trays loaded upright in the JD-3 rack', caption: '6 baking trays per cycle, loaded upright' },
+    { img: '/images/jd-3-wash-arms.webp', alt: 'JD-3 rotating wash arm spraying over six loaded baking trays', caption: 'Dual rotating wash arms reach every tray' },
+    { img: '/images/jd-3-circuit-diagram.webp', alt: 'Wiring and circuit diagram mounted inside the JD-3 service panel', caption: 'Wiring diagram travels inside every unit' },
     { img: '/images/jd-3-led-control.webp', alt: 'JD-3 LED control panel showing wash and rinse temperatures', caption: 'Live wash + rinse temperature readout' },
     { img: '/images/factory-production-line.webp', alt: 'Row of JD-3 washers in production at the V-TAI factory', caption: 'Built in our own 8,000 m² facility' },
   ]}
@@ -230,6 +231,15 @@ const compareRows = [
 </section>
 
 <FAQSection items={faqs} title="Quick Questions From Bakery Owners" />
+
+<DeliveryBand
+  eyebrow="Global delivery"
+  title="We Crate It, Ship It, and Clear Customs — You Just Plug It In"
+  lead="Every JD-3 leaves our factory crated for export and travels by ocean freight to your port. For 18 major markets we handle the whole journey on one DDP price — freight, customs clearance, import duty, and last-mile delivery to your door."
+  points={["Export-grade crating", "Customs cleared (DDP)", "Delivered to your door"]}
+  ctaLabel="See DDP pricing by country"
+  ctaHref="/pricing/by-country/"
+/>
 
 <CTASection locale={locale} />
 

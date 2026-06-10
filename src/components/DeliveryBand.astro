@@ -1,0 +1,50 @@
+---
+// Full-width logistics band: a real shipping photo as the background with a
+// dark navy overlay so white text stays legible (direction-independent, works
+// in both LTR and RTL). Used near the bottom of every locale homepage to add
+// a "we crate it and deliver it to your door, DDP" closing beat.
+interface Props {
+  bgImg?: string;
+  eyebrow?: string;
+  title: string;
+  lead: string;
+  points: string[];      // short check-list items
+  ctaLabel: string;
+  ctaHref: string;
+}
+const {
+  bgImg = '/images/jd-3-shipping.webp',
+  eyebrow,
+  title,
+  lead,
+  points,
+  ctaLabel,
+  ctaHref,
+} = Astro.props;
+---
+<section class="relative overflow-hidden">
+  <img src={bgImg} alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
+  <!-- Dark overlay for legibility. Kept dark enough for white text in both LTR
+       and RTL, but light enough that the shipping photo still reads through. -->
+  <div class="absolute inset-0 bg-bakery-navy/70"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-bakery-navy/85 via-bakery-navy/55 to-bakery-navy/75"></div>
+
+  <div class="relative container-page py-16 md:py-24">
+    <div class="max-w-2xl">
+      {eyebrow && <p class="eyebrow text-bakery-orange mb-3">{eyebrow}</p>}
+      <h2 class="text-white mb-4">{title}</h2>
+      <p class="text-white/85 text-lg mb-6 leading-relaxed">{lead}</p>
+      <ul class="flex flex-wrap gap-x-6 gap-y-3 mb-8">
+        {points.map((p) => (
+          <li class="flex items-center gap-2 text-white/90 font-medium">
+            <svg class="w-5 h-5 text-bakery-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>{p}</span>
+          </li>
+        ))}
+      </ul>
+      <a href={ctaHref} class="btn-primary">{ctaLabel}</a>
+    </div>
+  </div>
+</section>

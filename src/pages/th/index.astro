@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
 import HeroShowcase from '../../components/HeroShowcase.astro';
 import ProductGallery from '../../components/ProductGallery.astro';
+import DeliveryBand from '../../components/DeliveryBand.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import CTASection from '../../components/CTASection.astro';
 import FAQSection from '../../components/FAQSection.astro';
@@ -53,8 +54,8 @@ const faqs = [
   title="ดู JD-3 ใกล้ ๆ"
   subtitle="ภาพถ่ายจริงจากโรงงาน ไม่ใช่ภาพเรนเดอร์ นี่คือเครื่องที่คุณจะได้รับ"
   items={[
-    { img: '/images/jd-3-inside.webp', alt: 'ห้องล้าง SUS304 พร้อมแขนฉีดน้ำหมุนคู่', caption: 'ห้องล้าง SUS304 · แขนฉีดน้ำหมุนคู่' },
-    { img: '/images/jd-3-trays-loaded.webp', alt: 'ถาดหกใบวางตั้งในแร็ค', caption: '6 ถาดต่อรอบ วางตั้งในแร็ค' },
+    { img: '/images/jd-3-wash-arms.webp', alt: 'แขนฉีดน้ำหมุนของ JD-3 เหนือถาดหกใบที่วางในแร็ค', caption: 'แขนฉีดน้ำหมุนคู่ ครอบคลุมทุกถาด' },
+    { img: '/images/jd-3-circuit-diagram.webp', alt: 'แผนผังวงจรภายในแผงบริการของ JD-3', caption: 'แผนผังวงจรอยู่ในเครื่องทุกเครื่อง' },
     { img: '/images/jd-3-led-control.webp', alt: 'แผง LED แสดงอุณหภูมิน้ำล้างและน้ำสุดท้าย', caption: 'แสดงอุณหภูมิน้ำล้างและน้ำสุดท้ายแบบเรียลไทม์' },
     { img: '/images/factory-production-line.webp', alt: 'สายการผลิต JD-3 ที่โรงงาน V-TAI', caption: 'ผลิตในโรงงานของเราเองขนาด 8,000 ตร.ม.' },
   ]}
@@ -72,5 +73,14 @@ const faqs = [
 <PriceCalloutBox locale={locale} />
 </div></section>
 <FAQSection items={faqs} title="คำถามที่พบบ่อย" />
+<DeliveryBand
+  eyebrow="จัดส่งทั่วโลก"
+  title="เราตีลัง ขนส่ง และเคลียร์ศุลกากรให้ — คุณแค่เสียบใช้งาน"
+  lead="JD-3 ทุกเครื่องออกจากโรงงานพร้อมลังไม้มาตรฐานส่งออก และขนส่งทางทะเลถึงท่าเรือของคุณ สำหรับ 18 ตลาดหลัก เราดูแลตลอดเส้นทางในราคา DDP เดียว: ค่าระวาง พิธีการศุลกากร ภาษีนำเข้า และส่งถึงหน้าประตูคุณ"
+  points={["ลังไม้มาตรฐานส่งออก", "ผ่านศุลกากรแล้ว (DDP)", "ส่งถึงหน้าประตู"]}
+  ctaLabel="ดูราคา DDP รายประเทศ"
+  ctaHref="/th/pricing/by-country/"
+/>
+
 <CTASection locale={locale} title="พร้อมเลิกล้างมือแล้วใช่ไหม?" subtitle="ใบเสนอราคาภายใน 12 ชั่วโมง" />
 </BaseLayout>

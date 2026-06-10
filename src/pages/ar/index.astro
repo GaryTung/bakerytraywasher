@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadgeStrip from '../../components/TrustBadgeStrip.astro';
 import HeroShowcase from '../../components/HeroShowcase.astro';
 import ProductGallery from '../../components/ProductGallery.astro';
+import DeliveryBand from '../../components/DeliveryBand.astro';
 import PriceCalloutBox from '../../components/PriceCalloutBox.astro';
 import CTASection from '../../components/CTASection.astro';
 import FAQSection from '../../components/FAQSection.astro';
@@ -55,8 +56,8 @@ const faqs = [
   title="نظرة عن قرب على JD-3"
   subtitle="صور حقيقية من أرضية المصنع — وليست صوراً مُولّدة. هذه هي الآلة التي ستستلمها."
   items={[
-    { img: '/images/jd-3-inside.webp', alt: 'حجرة غسل SUS304 بذراعَيْ غسل دوّارَيْن', caption: 'حجرة SUS304 · ذراعا غسل دوّاران' },
-    { img: '/images/jd-3-trays-loaded.webp', alt: 'ست صواني محمَّلة عمودياً في الرف', caption: '6 صواني لكل دورة، محمَّلة عمودياً' },
+    { img: '/images/jd-3-wash-arms.webp', alt: 'ذراع الغسل الدوّار في JD-3 فوق ست صواني محمَّلة', caption: 'ذراعا غسل دوّاران يصلان كل صينية' },
+    { img: '/images/jd-3-circuit-diagram.webp', alt: 'مخطط الأسلاك داخل لوحة خدمة JD-3', caption: 'المخطط الكهربائي يسافر داخل كل آلة' },
     { img: '/images/jd-3-led-control.webp', alt: 'لوحة LED تعرض حرارة الغسل والشطف', caption: 'عرض مباشر لحرارة الغسل والشطف' },
     { img: '/images/factory-production-line.webp', alt: 'خط إنتاج JD-3 في مصنع V-TAI', caption: 'مصنوعة في منشأتنا الخاصة بمساحة 8,000 م²' },
   ]}
@@ -89,5 +90,14 @@ const faqs = [
   </div>
 </section>
 <FAQSection items={faqs} title="أسئلة شائعة" />
+<DeliveryBand
+  eyebrow="توصيل عالمي"
+  title="نحن نُعبّئ ونشحن ونخلّص الجمارك — وأنت فقط توصّل الكهرباء"
+  lead="كل جهاز JD-3 يغادر المصنع مُعبّأً في قفص خشبي بمعايير التصدير ويسافر بالشحن البحري إلى مينائك. لـ 18 سوقاً رئيسياً نتولّى الرحلة كاملة بسعر DDP واحد: الشحن، التخليص الجمركي، رسوم الاستيراد، والتوصيل حتى بابك."
+  points={["تغليف تصدير", "مُخلّص جمركياً (DDP)", "توصيل حتى الباب"]}
+  ctaLabel="أسعار DDP حسب الدولة"
+  ctaHref="/ar/pricing/by-country/"
+/>
+
 <CTASection locale={locale} title="جاهز لإنهاء الغسيل اليدوي؟" subtitle="عرض سعر مخصص خلال 12 ساعة." />
 </BaseLayout>
