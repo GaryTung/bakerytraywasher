@@ -1,0 +1,153 @@
+---
+import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+const locale = 'fr' as const;
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/commercial-dishwasher-faults-electrician-diagnose-circuit-diagram/"
+  slug="commercial-dishwasher-faults-electrician-diagnose-circuit-diagram"
+  title="Sept pannes de lave-vaisselle professionnel qu'un électricien local peut diagnostiquer avec le schéma électrique intégré"
+  description="La plupart des interventions de techniciens spécialisés sur lave-vaisselle professionnel coûtent entre 250 et 800 US$ avant qu'un seul composant ne soit touché. Pour sept des pannes les plus courantes — pas d'alimentation, pas de chauffe, pas de jet, déclenchement disjoncteur, pompe de vidange en continu, blocage capot, alarme température rinçage — un électricien industriel agréé, schéma en main, peut isoler le problème en 30 à 90 minutes. Voici ce qu'il faut lui pointer, avec les tensions, résistances et désignations de composants réelles."
+  pubDate="2026-06-10"
+  tldr={"Chaque V-TAI JD-3 quitte l'usine avec le schéma électrique complet plastifié et fixé à l'intérieur du panneau de service droit. Pour les sept pannes les plus fréquentes qui génèrent 80 % des appels SAV — "+
+"<strong>(1) pas d'alimentation, vérifier L1/L2/L3 sur le bornier d'arrivée</strong> ; "+
+"<strong>(2) pas de chauffe, mesurer la résistance de l'élément (~17 Ω par phase)</strong> ; "+
+"<strong>(3) pas de jet, isoler moteur de pompe vs bras de lavage bloqué</strong> ; "+
+"<strong>(4) disjoncteur saute au chauffage, vérifier l'isolement élément–châssis</strong> ; "+
+"<strong>(5) pompe de vidange en continu, vérifier flotteur et relais K3</strong> ; "+
+"<strong>(6) verrouillage de capot bloqué, vérifier continuité micro-interrupteur S2</strong> ; "+
+"<strong>(7) alarme température rinçage, vérifier thermistance booster et SSR2</strong> — "+
+"un électricien industriel agréé, schéma en main, peut isoler le problème en 30 à 90 minutes. Une intervention de spécialiste coûte 250 à 800 US$ sur la plupart des marchés. Cet article guide l'électricien à travers les sept pannes en utilisant les désignations imprimées sur le schéma. Donnez-lui cet article avant qu'il n'ouvre le panneau."}
+  faqs={[
+    { q: "Est-il légal qu'un électricien agréé ouvre le panneau de service ?", a: "Oui, dans toutes les juridictions où nous livrons. Le JD-3 est classé comme appareil commercial, pas comme équipement médical ou dangereux. Tout électricien habilité aux circuits industriels triphasés 380V/400V dans votre pays peut légalement ouvrir le panneau, mesurer les tensions, tester la continuité et remplacer des composants électriques. La garantie n'est pas annulée par un électricien qui diagnostique ou remplace un composant défaillant (par exemple un contacteur), tant que le diagnostic est documenté. Le remplacement de l'élément chauffant ou de la carte de commande exige notre pièce d'origine pour conserver la garantie." },
+    { q: "Quel équipement de mesure faut-il à l'électricien ?", a: "Un multimètre industriel standard mesurant : tension AC jusqu'à 600 V, tension DC jusqu'à 50 V, résistance jusqu'à 20 kΩ et continuité. Une pince ampèremétrique (50 A) aide pour la panne 4. Un mégohmmètre (500 V) n'est nécessaire que pour la panne 4. Aucun outil spécialisé requis. La plupart des contractants électriques transportent ce matériel en standard." },
+    { q: "Et si mon électricien ne sait pas lire le schéma ?", a: "Le schéma utilise les symboles standard CEI 60617 — universels entre pays. Les désignations de référence (K1, S2, F1, etc.) suivent la CEI 81346. Tout électricien formé ces 30 dernières années reconnaît ces symboles. Sinon, il ne devrait pas travailler sur une machine triphasée de 13 kW. Demandez un autre contractant ou contactez-nous par WhatsApp et nous le guidons en vidéo en 20 minutes." },
+    { q: "Quand l'électricien doit-il s'arrêter et vous contacter ?", a: "S'arrêter si : (a) la carte de commande (modèle VTC-3) montre des traces de brûlure visibles ou des condensateurs gonflés — remplacement uniquement ; (b) l'élément chauffant mesure un court-circuit direct au châssis après dépose du relais — idem ; (c) un faisceau de fils interne montre une isolation fondue. Ces trois conditions exigent des pièces d'origine. Nous expédions les pièces de rechange par courrier express international (généralement 5 jours ouvrés) au prix de la pièce. L'électricien finit l'installation à l'arrivée des pièces." },
+    { q: "Le schéma sera-t-il dans ma langue ?", a: "Le schéma lui-même utilise les symboles CEI standard (universels). Les étiquettes de composants sont en anglais par défaut. Nous pouvons fournir une feuille de surimpression localisée en espagnol, français, allemand, russe, thaï, vietnamien, arabe ou chinois simplifié — feuille A4 plastifiée livrée avec la machine sans frais supplémentaires si demandée à la commande, ou envoyée séparément (15 US$ + courrier) après achat. Le schéma de base reste universel." },
+  ]}
+>
+
+<h2>Pourquoi un schéma électrique change l'économie de la possession d'un lave-vaisselle professionnel</h2>
+<p>Dans la plupart des pays, un technicien spécialisé en lave-vaisselle professionnel facture entre 250 et 800 US$ par intervention avant de toucher un seul composant. Un électricien industriel agréé — la même personne qui câble l'éclairage et les circuits du four de votre boulangerie — facture généralement entre 60 et 150 US$ par heure. La différence n'est pas la compétence. La différence est l'accès au schéma.</p>
+
+<p>Les techniciens spécialisés disposent des schémas usine des marques pour lesquelles ils sont certifiés. Ils en font leur fossé économique. Un boulanger qui achète une machine Hobart, Jackson, Winterhalter ou Meiko sans contrat de support sous garantie a, de fait, payé pour une machine qu'aucun électricien local ne peut diagnostiquer — parce que le schéma est propriétaire et que le manuel de service est verrouillé derrière un identifiant revendeur.</p>
+
+<p>V-TAI livre le JD-3 avec le schéma électrique complet plastifié et fixé par collier à l'intérieur du panneau de service droit. Nous faisons cela pour une raison : dans 60+ pays, trouver un spécialiste V-TAI sous 24 heures est impossible, mais trouver un électricien industriel agréé ne l'est pas. Le schéma est le pont. Cet article s'adresse à l'électricien qui vient d'ouvrir le panneau pour la première fois.</p>
+
+<h2>Les quatre zones du schéma JD-3</h2>
+<p>Avant de diagnostiquer une panne spécifique, l'électricien doit s'orienter sur quatre zones :</p>
+
+<ul>
+  <li><strong>Zone A — Alimentation entrante.</strong> Le bornier triphasé d'arrivée (X1), le disjoncteur principal (Q1) et les trois contacteurs (K1 pompe de lavage, K2 pompe de rinçage, K3 pompe de vidange). Les trois contacteurs ont une bobine 24 VDC, contacts AC-3 25 A.</li>
+  <li><strong>Zone B — Chauffage.</strong> L'élément chauffant Incoloy 9 kW (E1), deux relais statiques (SSR1 pour la cuve de lavage, SSR2 pour le booster) et deux thermistances PT1000 (B1 cuve de lavage, B2 booster).</li>
+  <li><strong>Zone C — Commande.</strong> La carte de commande VTC-3, l'alimentation à découpage 24 VDC (G1) et le panneau LED d'interface utilisateur. La carte comporte six borniers numérotés TB1 à TB6.</li>
+  <li><strong>Zone D — Verrouillages de sécurité.</strong> Micro-interrupteur de capot (S2), flotteur (S3) niveau d'eau bas, coupe-circuit thermique (F2) sur l'élément chauffant à 95 °C, et le différentiel (RCD) côté entrée bâtiment.</li>
+</ul>
+
+<p>Chaque désignation de référence sur le schéma apparaît physiquement étiquetée sur le composant avec un autocollant imprimé. L'électricien n'a pas besoin de compter les bornes ni de deviner — la pièce marquée "K1" sur le schéma est le même contacteur physique avec "K1" sur son boîtier.</p>
+
+<h2>Panne 1 : La machine ne s'allume pas du tout</h2>
+<p><strong>Symptôme :</strong> L'opérateur enclenche l'interrupteur principal. Le panneau de commande reste éteint. Aucun clic de relais. Aucun ventilateur ne tourne.</p>
+
+<p><strong>À vérifier :</strong></p>
+<ol>
+  <li>Confirmer que le disjoncteur du bâtiment (32 A type C) est fermé. S'il a sauté, voir Panne 4.</li>
+  <li>Au bornier X1, mesurer la tension phase-phase : L1–L2, L2–L3, L1–L3. Attendu : 380 V ± 10 % (ou 400 V sur le système européen à quatre fils).</li>
+  <li>Si une phase manque, le problème est en amont — câblage bâtiment, pas la machine.</li>
+  <li>Si les trois phases sont présentes en X1, vérifier la sortie 24 VDC de l'alimentation G1 (entre bornes "+24V" et "GND"). Attendu : 24,0 V ± 0,5 V.</li>
+  <li>Si la sortie G1 est à 0 V mais l'entrée OK, remplacer G1. Module Meanwell standard sur rail DIN, ~25 US$.</li>
+  <li>Si G1 sort 24 V, la carte de commande (VTC-3) a échoué. Arrêter et nous contacter — remplacement usine uniquement.</li>
+</ol>
+
+<h2>Panne 2 : La machine s'allume mais ne chauffe pas</h2>
+<p><strong>Symptôme :</strong> Le panneau s'allume, les pompes tournent, mais l'eau de lavage reste froide et l'alarme température rinçage se déclenche au bout de ~5 minutes.</p>
+
+<p><strong>À vérifier :</strong></p>
+<ol>
+  <li>Isoler la machine au disjoncteur du bâtiment. Consignation/condamnation selon code local.</li>
+  <li>Ouvrir le panneau de service. Localiser les bornes de l'élément chauffant en Zone B.</li>
+  <li>Déconnecter un fil de phase de l'élément. Mesurer la résistance entre la borne déconnectée et les deux autres. Attendu : ~17 Ω par phase (élément 9 kW en triphasé 380V). Les trois phases doivent être à 5 % près l'une de l'autre.</li>
+  <li>Si une phase mesure une résistance infinie, l'élément a un enroulement ouvert — remplacer l'élément.</li>
+  <li>Si les trois phases mesurent correctement, l'élément est bon. La panne est en amont : vérifier SSR1 (lavage) ou SSR2 (booster). Hors tension, les SSR doivent être ouverts entre bornes AC. Avec 5 VDC appliqués sur les bornes de déclenchement DC (la carte de commande fait cela en marche normale), les bornes AC doivent être en court.</li>
+  <li>Si le SSR ne commute pas, le remplacer. SSR 40 A standard, ~18 US$.</li>
+  <li>Si les deux SSR et l'élément sont bons, la carte n'envoie pas le signal de déclenchement. Le plus souvent : une thermistance PT1000 (B1 ou B2) reporte une température hors plage et la carte est entrée en verrouillage de protection. Déconnecter chaque thermistance et mesurer : 1000 Ω à 0 °C, 1097 Ω à 25 °C, 1194 Ω à 50 °C. Thermistance dérivée → remplacer.</li>
+</ol>
+
+<h2>Panne 3 : Chauffe et pompes OK, mais pas de jet sur les plaques</h2>
+<p><strong>Symptôme :</strong> Le cycle se déroule normalement, la température monte comme prévu, mais les plaques sortent partiellement propres — les bras de lavage tournent à peine ou pas du tout.</p>
+
+<p><strong>À vérifier (mécanique d'abord, puis électrique) :</strong></p>
+<ol>
+  <li>Ouvrir le capot. Vérifier les bras supérieur et inférieur. Les faire tourner à la main — doivent tourner librement. Bloqués : démonter et nettoyer le roulement (tartre).</li>
+  <li>Démonter chaque bras et inspecter les jets. Bouchés : tremper le bras dans un détartrant.</li>
+  <li>Remonter les bras. Lancer le cycle. Observer la pression.</li>
+  <li>Si les bras ne tournent toujours pas : mesurer le courant absorbé par le moteur de pompe de lavage avec pince ampèremétrique en cycle. Plaque 0,75 kW, attendu 1,4 A par phase à pleine vitesse.</li>
+  <li>Si le moteur ne tire que 0,3–0,5 A et pas en pleine vitesse, l'impulseur cavite — entrée d'eau bouchée (vérifier la crépine au fond de la cuve) ou niveau d'eau trop bas (vérifier flotteur S3).</li>
+  <li>Si le moteur ne démarre pas, vérifier le contacteur K1. La bobine doit s'exciter au lancement du cycle. Bobine excitée mais contacteur non enclenché mécaniquement : remplacer K1. Standard 25 A AC-3, ~22 US$.</li>
+</ol>
+
+<h2>Panne 4 : Le disjoncteur saute au premier cycle de chauffe</h2>
+<p><strong>Symptôme :</strong> La machine s'allume bien. À l'instant où l'élément chauffant s'active (5–10 secondes dans le cycle de lavage), le disjoncteur 32 A du bâtiment saute.</p>
+
+<p><strong>À vérifier :</strong></p>
+<ol>
+  <li>D'abord, vérifier que le disjoncteur est de type C (pas de type B). Le type B déclenche à 3–5× courant nominal. Le type C à 5–10×. Le pic de démarrage de l'élément chauffant convient au type C mais fait sauter le type B au démarrage à froid.</li>
+  <li>Si type B : c'est un problème de câblage du bâtiment, pas la machine. Remplacer par type C 32 A.</li>
+  <li>Si type C et saute toujours : ceci indique un défaut à la terre dans l'élément chauffant. Isoler la machine. Déconnecter les deux fils de l'élément des SSR. Utiliser un mégohmmètre à 500 VDC entre chaque borne d'élément et le châssis. Attendu &gt;100 MΩ. Toute valeur en dessous de 1 MΩ confirme une rupture d'isolement interne — remplacer l'élément.</li>
+  <li>Si l'isolement de l'élément est bon mais que le différentiel (pas le disjoncteur) saute, la panne est ailleurs — vérifier le câble de mise à la terre du caisson et les enroulements du moteur de pompe de la même façon.</li>
+</ol>
+
+<h2>Panne 5 : La pompe de vidange tourne en continu</h2>
+<p><strong>Symptôme :</strong> La pompe de vidange (en bas à droite du caisson derrière la plinthe) tourne dès la mise sous tension et ne s'arrête pas. La cuve de lavage ne peut pas se remplir car tout est vidangé.</p>
+
+<p><strong>À vérifier :</strong></p>
+<ol>
+  <li>La pompe de vidange est commandée par le contacteur K3. La bobine de K3 est excitée par la carte de commande lorsqu'une commande de vidange est active OU lorsque le flotteur de haut niveau S4 reporte un trop-plein.</li>
+  <li>Mettre hors tension. Localiser S4 (flotteur en haut du trop-plein de la cuve de lavage). Déconnecter ses fils. Mesurer la continuité avec le flotteur en position normale "bas". Attendu : circuit ouvert (pas de continuité).</li>
+  <li>Si S4 mesure fermé (continuité) avec flotteur bas, le contact est resté fermé — la carte croit à un trop-plein et commande la vidange. Remplacer S4. Type reed standard, ~8 US$.</li>
+  <li>Si S4 mesure correctement mais K3 reste excité : mesurer 24 VDC aux bornes de la bobine de K3. Si 24 VDC présent, la carte est coincée en mode vidange — redémarrer et vérifier les LED d'état de la carte contre la légende du schéma (coin supérieur droit). Une LED rouge persistante "FAULT-DRAIN" indique une carte défaillante ; remplacer.</li>
+</ol>
+
+<h2>Panne 6 : Verrouillage de capot bloqué, capot coincé fermé</h2>
+<p><strong>Symptôme :</strong> Cycle de lavage terminé. L'opérateur tire la poignée. Le capot ne se lève pas. Le panneau peut afficher un indicateur "DOOR LOCKED".</p>
+
+<p><strong>À vérifier :</strong></p>
+<ol>
+  <li>Le verrouillage du capot est à sécurité positive : le solénoïde ne libère que lorsque (a) le cycle est entièrement terminé ET (b) la température booster est descendue sous 70 °C (sécurité vapeur). Si une condition manque, le verrou retient.</li>
+  <li>Attendre 3 minutes après fin de cycle — la plupart des cas "coincés" sont simplement le booster qui refroidit. Écouter le clic audible à la libération.</li>
+  <li>Si toujours verrouillé après 5 minutes : hors tension, ouvrir le panneau de service droit, localiser le micro-interrupteur S2 (pivot du capot, haut de chambre). Capot fermé, S2 doit être fermé (continuité). Capot ouvert, ouvert. Si S2 reporte "ouvert" alors que le capot est fermé, la logique de sécurité refuse de libérer le verrou.</li>
+  <li>Si S2 mesure correctement, vérifier le solénoïde Y1 — mesurer la résistance de bobine. Attendu 35–45 Ω. Dérivée = remplacer Y1, ~15 US$.</li>
+  <li>Déverrouillage manuel (urgence uniquement) : machine hors tension et capot dépressurisé (attendre 10 min après cycle), le verrou peut être rétracté manuellement avec un tournevis plat dans la fente de déverrouillage sous le boîtier. Solution temporaire — ne pas en dépendre. Diagnostiquer S2 ou Y1 ensuite.</li>
+</ol>
+
+<h2>Panne 7 : Alarme température de rinçage — n'atteint pas 82 °C</h2>
+<p><strong>Symptôme :</strong> Le cycle de lavage tourne, l'eau chauffe normalement, mais au rinçage final l'alarme température booster se déclenche. La machine refuse de terminer le cycle tant que la température de rinçage n'atteint pas 82 °C (norme NSF/ANSI 3, aussi EN 12046).</p>
+
+<p><strong>À vérifier :</strong></p>
+<ol>
+  <li>Cette panne a presque toujours une de trois causes : (a) eau d'entrée sous le minimum spécifié, (b) élément booster sous-performant, ou (c) thermistance booster B2 dérivée.</li>
+  <li>Mesurer la température d'eau d'entrée avec sonde sur le flexible en débit. Sous 10 °C : hors spécification — le booster ne peut pas récupérer. Solution : raccorder une arrivée préchauffée (50–60 °C) ou installer un échangeur en ligne.</li>
+  <li>Si l'entrée est OK, isoler l'élément booster et mesurer la résistance. Le booster est un élément séparé de ~3 kW (E2) avec son propre SSR (SSR2). Attendu : ~17 Ω. Élevée ou ouverte : remplacer le booster.</li>
+  <li>Si l'élément est bon, vérifier la thermistance B2 (PT1000) avec la même table résistance/température que la Panne 2. Thermistance dérivée = remplacer.</li>
+  <li>Si les trois passent, le SSR2 peut commuter par intermittence. Remplacer SSR2 en dernier recours. Le coût d'un SSR est largement inférieur au coût d'une boulangerie à l'arrêt 24 heures en attendant un spécialiste.</li>
+</ol>
+
+<h2>Quand s'arrêter et quoi nous envoyer</h2>
+<p>L'électricien doit s'arrêter et nous contacter si :</p>
+<ul>
+  <li>La carte de commande (VTC-3) montre des traces de brûlure visibles, condensateurs gonflés ou pistes carbonisées. Remplacement uniquement.</li>
+  <li>L'élément chauffant a une isolation fondue visible à l'entrée de câble. Remplacement uniquement.</li>
+  <li>Le faisceau dans le caisson présente une isolation fondue quelque part. Faisceau de remplacement expédié usine.</li>
+  <li>La panne n'est pas sur le schéma. Nous guidons l'électricien en vidéo par WhatsApp ou envoyons une révision actualisée du schéma.</li>
+</ul>
+
+<p>En nous contactant, envoyer :</p>
+<ul>
+  <li>Numéro de série de la machine (gravé sur la plaque signalétique, en haut à gauche du caisson).</li>
+  <li>Une photo de la condition de panne (composant brûlé, code erreur à l'écran, valeur mesurée multimètre visible).</li>
+  <li>Quelles pannes de cet article ont déjà été écartées.</li>
+</ul>
+
+<p>Nous répondons sous 12 heures ouvrées et expédions les pièces par courrier express international (DHL, FedEx, EMS) vers tout pays autorisant l'import d'équipement de cuisine. Arrivée typique : 5 jours ouvrés pour la plupart des marchés, 7 à 10 pour l'Afrique et l'Amérique latine reculée. Pour en savoir plus sur l'engagement service du JD-3, voir <a href="/fr/about/" class="underline">comment nous fabriquons et soutenons chaque unité</a>, et la <a href="/fr/product/" class="underline">page produit JD-3</a> pour les spécifications complètes et la commande.</p>
+
+</BlogPostLayout>

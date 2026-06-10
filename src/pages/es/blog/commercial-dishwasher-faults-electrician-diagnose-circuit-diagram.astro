@@ -1,0 +1,153 @@
+---
+import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+const locale = 'es' as const;
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/commercial-dishwasher-faults-electrician-diagnose-circuit-diagram/"
+  slug="commercial-dishwasher-faults-electrician-diagnose-circuit-diagram"
+  title="Siete fallas de lavavajillas comercial que un electricista local puede diagnosticar con el esquema eléctrico incorporado"
+  description="La mayoría de visitas de servicio especializado en lavavajillas comerciales cuestan entre US$250 y US$800 antes de tocar un solo componente. Para siete de las fallas más comunes — sin energía, sin calor, sin chorro, disparo de breaker, drenaje continuo, traba de puerta, alarma de temperatura de enjuague — un electricista industrial con licencia, usando el esquema eléctrico de la máquina, puede aislar el problema en 30–90 minutos. Aquí está lo que debe revisar, con voltajes, resistencias y designaciones de componentes reales."
+  pubDate="2026-06-10"
+  tldr={"Cada V-TAI JD-3 sale de fábrica con el esquema eléctrico completo plastificado y sujetado dentro del panel de servicio derecho. Para las siete fallas más comunes que generan el 80% de las llamadas de servicio — "+
+"<strong>(1) sin energía, revisar L1/L2/L3 en el bloque de terminales de entrada</strong>; "+
+"<strong>(2) sin calor, medir la resistencia del elemento calefactor (~17 Ω por fase)</strong>; "+
+"<strong>(3) sin chorro, aislar el motor de bomba vs. brazo de lavado bloqueado</strong>; "+
+"<strong>(4) breaker se dispara al calentar, revisar el aislamiento del elemento al chasis</strong>; "+
+"<strong>(5) bomba de drenaje funciona continuamente, revisar el flotador y el relé K3</strong>; "+
+"<strong>(6) traba de puerta atorada, revisar continuidad del microinterruptor S2</strong>; "+
+"<strong>(7) alarma de temperatura de enjuague, revisar el termistor del booster y SSR2</strong> — "+
+"un electricista industrial con licencia y con el esquema en mano puede aislar el problema en 30–90 minutos. Las visitas de servicio especializado cuestan US$250–$800 en la mayoría de los mercados. Este artículo guía al electricista a través de las siete fallas usando las designaciones impresas en el esquema. Entréguele este artículo antes de que abra el panel."}
+  faqs={[
+    { q: "¿Es legal que un electricista regular con licencia abra el panel de servicio?", a: "Sí, en todas las jurisdicciones a las que enviamos. El JD-3 está clasificado como electrodoméstico comercial, no equipo médico ni peligroso. Cualquier electricista con licencia para trabajar en circuitos industriales trifásicos de 380V/400V en su país puede legalmente abrir el panel de servicio, medir voltajes, probar continuidad y reemplazar componentes eléctricos. La garantía no se invalida porque un electricista diagnostique o reemplace un solo componente fallido (por ejemplo, un contactor), siempre que el diagnóstico quede documentado. Reemplazar el elemento calefactor o la tarjeta de control requiere nuestra parte original de fábrica para mantener la garantía." },
+    { q: "¿Qué equipo de prueba necesita el electricista?", a: "Un multímetro industrial estándar que mida: voltaje AC hasta 600V, voltaje DC hasta 50V, resistencia hasta 20 kΩ y continuidad. Un amperímetro de gancho (hasta 50A) ayuda para la falla 4. Un megóhmetro (500V) se necesita solo para la falla 4. No se requieren herramientas especiales. La mayoría de contratistas eléctricos llevan este equipo estándar." },
+    { q: "¿Y si mi electricista no sabe leer el esquema?", a: "El esquema usa símbolos estándar IEC 60617 — universales entre países. Las designaciones de referencia (K1, S2, F1, etc.) siguen IEC 81346. Cualquier electricista capacitado en los últimos 30 años reconoce estos símbolos. Si no, no debería estar trabajando en una máquina trifásica de 13 kW. Pida otro contratista o contáctenos por WhatsApp y lo guiamos por video en 20 minutos." },
+    { q: "¿Cuándo debe detenerse el electricista y llamarles?", a: "Detenerse si: (a) la tarjeta de control (modelo VTC-3) muestra marcas visibles de quemadura o capacitores hinchados — esto es reemplazo, no reparación; (b) el elemento calefactor mide cortocircuito directo al chasis después de retirar el relé — igual; (c) cualquier mazo de cables interno muestra aislamiento derretido. Estas tres condiciones requieren partes de fábrica. Enviamos repuestos por mensajería internacional express (típicamente 5 días hábiles globalmente) al costo de la pieza. El electricista termina la instalación cuando lleguen las partes." },
+    { q: "¿El esquema vendrá en mi idioma?", a: "El esquema mismo usa símbolos IEC estándar (universales). Las etiquetas de componentes están en inglés por defecto. Podemos suministrar una hoja superpuesta localizada en español, francés, alemán, ruso, tailandés, vietnamita, árabe o chino simplificado — lámina A4 enviada con la máquina sin costo extra si se especifica al pedir, o enviada por separado ($15 + mensajería) después de la compra. El esquema base sigue siendo universal." },
+  ]}
+>
+
+<h2>Por qué un esquema eléctrico cambia la economía de poseer un lavavajillas comercial</h2>
+<p>En la mayoría de países, un técnico especialista en lavavajillas comerciales cobra entre US$250 y US$800 por visita antes de tocar un solo componente. Un electricista industrial regular con licencia — la misma persona que cablea la iluminación y los circuitos del horno de su panadería — típicamente cobra entre US$60 y US$150 por hora. La diferencia no es la habilidad. La diferencia es el acceso al esquema eléctrico.</p>
+
+<p>Los técnicos especialistas tienen esquemas emitidos por la fábrica de las marcas en las que están certificados. Llevan ese conocimiento como su foso económico. Un panadero que compra una máquina Hobart, Jackson, Winterhalter o Meiko sin contrato de soporte en garantía ha pagado, en efecto, por una máquina que no puede hacer que un electricista local diagnostique — porque el esquema es propietario y el manual de servicio está detrás de un login de distribuidor.</p>
+
+<p>V-TAI envía el JD-3 con el esquema eléctrico completo plastificado y sujetado dentro del panel de servicio derecho. Hacemos esto por una razón: en 60+ países, encontrar un especialista V-TAI en 24 horas es imposible, pero encontrar un electricista industrial con licencia no lo es. El esquema es el puente. Este artículo es para el electricista que acaba de abrir el panel por primera vez.</p>
+
+<h2>Las cuatro zonas del esquema JD-3</h2>
+<p>Antes de diagnosticar cualquier falla específica, el electricista debe orientarse en cuatro zonas:</p>
+
+<ul>
+  <li><strong>Zona A — Alimentación entrante.</strong> El bloque de terminales trifásico de entrada (X1), el breaker principal (Q1) y los tres contactores (K1 para la bomba de lavado, K2 para la bomba de enjuague, K3 para la bomba de drenaje). Los tres contactores tienen bobina de 24 VDC, contactos AC-3 de 25 A.</li>
+  <li><strong>Zona B — Calefacción.</strong> El elemento calefactor Incoloy de 9 kW (E1), dos relés de estado sólido (SSR1 para el tanque de lavado, SSR2 para el booster) y dos termistores PT1000 (B1 tanque de lavado, B2 booster).</li>
+  <li><strong>Zona C — Control.</strong> La tarjeta de control VTC-3, la fuente conmutada de 24 VDC (G1) y el panel LED de interfaz de usuario. La tarjeta tiene seis bloques de terminales numerados TB1 a TB6.</li>
+  <li><strong>Zona D — Bloqueos de seguridad.</strong> Microinterruptor de campana (S2), flotador (S3) para bajo nivel de agua, cortacircuito térmico (F2) en el elemento calefactor a 95 °C, y el RCD (interruptor diferencial) del lado de entrada del edificio.</li>
+</ul>
+
+<p>Cada designación de referencia en el esquema aparece físicamente etiquetada en el componente con una calcomanía impresa. El electricista no necesita contar terminales ni adivinar — la parte marcada "K1" en el esquema es el mismo contactor físico con "K1" en su carcasa.</p>
+
+<h2>Falla 1: La máquina no enciende, sin energía</h2>
+<p><strong>Síntoma:</strong> El operador enciende el interruptor principal. El panel de control queda oscuro. Sin clic de relé. Sin ventilador girando.</p>
+
+<p><strong>Qué revisar:</strong></p>
+<ol>
+  <li>Confirmar que el breaker del edificio (32 A tipo C) está cerrado. Si se disparó, ver Falla 4.</li>
+  <li>En el bloque de terminales X1, medir voltaje fase a fase: L1–L2, L2–L3, L1–L3. Esperar 380 V ± 10% (o 400 V si está en el sistema europeo de cuatro hilos).</li>
+  <li>Si falta una fase, el problema está aguas arriba de la máquina — cableado del edificio, no del lavavajillas.</li>
+  <li>Si las tres fases están presentes en X1, revisar la salida de 24 VDC en la fuente G1 (entre los terminales "+24V" y "GND"). Esperar 24,0 V ± 0,5 V.</li>
+  <li>Si el voltaje en la salida de G1 es 0 V pero la entrada está bien, reemplazar G1. Unidad estándar tipo Meanwell en riel DIN, ~US$25.</li>
+  <li>Si G1 entrega 24 V, la tarjeta de control (VTC-3) ha fallado. Detenerse y contactarnos — solo reemplazo de fábrica.</li>
+</ol>
+
+<h2>Falla 2: La máquina enciende pero no calienta</h2>
+<p><strong>Síntoma:</strong> El panel de control se ilumina, las bombas funcionan, pero el agua de lavado permanece fría y la alarma de temperatura de enjuague se dispara después de ~5 minutos.</p>
+
+<p><strong>Qué revisar:</strong></p>
+<ol>
+  <li>Aislar la máquina en el breaker del edificio. Bloqueo y etiquetado según el código local.</li>
+  <li>Abrir el panel de servicio. Localizar los terminales del elemento calefactor en la Zona B.</li>
+  <li>Desconectar un cable de fase del elemento. Medir la resistencia entre el terminal desconectado y los otros dos. Esperar ~17 Ω por fase (elemento de 9 kW en trifásico 380V). Las tres fases deben estar dentro del 5% entre sí.</li>
+  <li>Si una fase lee resistencia infinita, el elemento tiene un devanado abierto — reemplazar el elemento.</li>
+  <li>Si las tres fases leen correctamente, el elemento está bien. La falla está aguas arriba: revisar SSR1 (lavado) o SSR2 (booster). Con la alimentación apagada, los SSR deben leer abierto entre terminales AC. Con 5 VDC aplicados a los terminales de disparo DC (la tarjeta de control hace esto en operación normal), los terminales AC deben leer corto.</li>
+  <li>Si el SSR no conmuta, reemplazarlo. SSR estándar de 40A, ~US$18.</li>
+  <li>Si ambos SSR y el elemento están bien, la tarjeta de control no está enviando la señal de disparo. Lo más común: un termistor PT1000 (B1 o B2) está reportando una temperatura fuera de rango y la tarjeta entró en bloqueo de protección. Desconectar cada termistor y medir resistencia: 1000 Ω a 0°C, 1097 Ω a 25°C, 1194 Ω a 50°C. Termistor derivado → reemplazar.</li>
+</ol>
+
+<h2>Falla 3: Calienta y bombas funcionan, pero no llega chorro a las bandejas</h2>
+<p><strong>Síntoma:</strong> El ciclo corre normalmente, la temperatura del agua sube como se espera, pero las bandejas salen solo parcialmente limpias — los brazos de lavado apenas giran o no giran.</p>
+
+<p><strong>Qué revisar (mecánico primero, luego eléctrico):</strong></p>
+<ol>
+  <li>Abrir la campana. Revisar los brazos superior e inferior. Girarlos a mano — deben girar libremente. Si están atorados, retirar y limpiar el cojinete (sarro de cal).</li>
+  <li>Sacar cada brazo y mirar los chorros. Si alguno está obstruido, sumergir el brazo en descalcificador.</li>
+  <li>Reinstalar los brazos. Iniciar ciclo. Observar la presión.</li>
+  <li>Si los brazos aún no giran: medir la corriente del motor de bomba de lavado con amperímetro de gancho durante el ciclo. Placa de identificación 0,75 kW, esperar 1,4 A por fase a velocidad nominal.</li>
+  <li>Si el motor consume solo 0,3–0,5 A y no a velocidad completa, el impulsor de la bomba está cavitando — entrada de agua bloqueada (revisar el filtro al fondo del tanque) o nivel de agua muy bajo (revisar flotador S3).</li>
+  <li>Si el motor no arranca, revisar el contactor K1. La bobina debe energizarse cuando inicia el ciclo. Si la bobina se energiza pero el contactor no cierra mecánicamente, reemplazar K1. Estándar 25A AC-3, ~US$22.</li>
+</ol>
+
+<h2>Falla 4: El breaker del edificio se dispara al primer ciclo de calentamiento</h2>
+<p><strong>Síntoma:</strong> La máquina enciende bien. En el instante en que dispara el elemento calefactor (5–10 segundos en el ciclo de lavado), el breaker de 32 A del edificio se dispara.</p>
+
+<p><strong>Qué revisar:</strong></p>
+<ol>
+  <li>Primero, verificar que el breaker sea Tipo C (no Tipo B). El Tipo B se dispara a 3–5× corriente nominal. El Tipo C a 5–10×. El pico de arranque del elemento calefactor es aceptable para Tipo C pero dispara el Tipo B en arranque en frío.</li>
+  <li>Si el breaker es Tipo B: es un problema de cableado del edificio, no de la máquina. Reemplazar con Tipo C 32 A.</li>
+  <li>Si el breaker es Tipo C y aún se dispara: esto apunta a una falla a tierra dentro del elemento calefactor. Aislar la máquina. Desconectar ambos cables del elemento de los SSR. Usar megóhmetro a 500 VDC entre cada terminal del elemento y el chasis. Esperar &gt;100 MΩ. Cualquier valor por debajo de 1 MΩ confirma ruptura del aislamiento interno del elemento — reemplazar el elemento.</li>
+  <li>Si el aislamiento del elemento está bien pero el RCD (no el breaker) se dispara, la falla está en otro lugar — revisar el cable de puesta a tierra del gabinete y los devanados del motor de la bomba de la misma forma.</li>
+</ol>
+
+<h2>Falla 5: La bomba de drenaje funciona continuamente, no se apaga</h2>
+<p><strong>Síntoma:</strong> La bomba de drenaje (ubicada en la parte inferior derecha del gabinete detrás del rodapié) funciona desde el momento que se enciende la máquina y no se apaga. El tanque de lavado no puede llenarse porque todo se drena.</p>
+
+<p><strong>Qué revisar:</strong></p>
+<ol>
+  <li>La bomba de drenaje es controlada por el contactor K3. La bobina de K3 se energiza por la tarjeta de control cuando un comando de drenaje está activo O cuando el flotador de alto nivel S4 reporta sobrellenado.</li>
+  <li>Apagar la máquina. Localizar S4 (flotador en la parte superior del rebosadero del tanque de lavado). Desconectar sus cables. Medir continuidad con el flotador en su posición normal "abajo". Esperar circuito abierto (sin continuidad).</li>
+  <li>Si S4 lee cerrado (continuidad) con el flotador abajo, el interruptor ha fallado en posición cerrada — la tarjeta cree que el tanque está sobrellenando y manda drenar. Reemplazar S4. Tipo reed estándar, ~US$8.</li>
+  <li>Si S4 lee correctamente pero K3 sigue energizándose: medir 24 VDC en los terminales de la bobina de K3. Si hay 24 VDC, la tarjeta de control está atorada en modo drenaje — reiniciar y verificar los LED de estado de la tarjeta contra la leyenda del esquema (esquina superior derecha). Un LED rojo persistente en "FAULT-DRAIN" indica falla de la tarjeta; reemplazar.</li>
+</ol>
+
+<h2>Falla 6: Traba de puerta no libera, la campana está atorada cerrada</h2>
+<p><strong>Síntoma:</strong> Ciclo de lavado terminado. El operador tira de la manija. La campana no sube. El panel de control puede mostrar un indicador "DOOR LOCKED".</p>
+
+<p><strong>Qué revisar:</strong></p>
+<ol>
+  <li>La traba de la campana es a prueba de fallas: el solenoide libera solo cuando (a) el ciclo está completo Y (b) la temperatura del booster ha bajado de 70°C (seguridad de vapor). Si alguna condición no se cumple, la traba retiene.</li>
+  <li>Esperar 3 minutos después de terminar el ciclo — la mayoría de casos "atorados" son simplemente el booster enfriándose. Escuchar el clic audible cuando la traba libera.</li>
+  <li>Si sigue trabada después de 5 minutos: apagar, abrir el panel de servicio derecho, localizar el microinterruptor S2 (posicionado en el pivote de la campana, arriba de la cámara). Con campana cerrada, S2 debe leer cerrado (continuidad). Con campana abierta, abierto. Si S2 está reportando "abierto" cuando la campana está realmente cerrada, la lógica de seguridad de la tarjeta se niega a liberar la traba.</li>
+  <li>Si S2 lee correctamente, revisar el solenoide de traba Y1 — medir la resistencia de la bobina. Esperar 35–45 Ω. Derivada = reemplazar Y1, ~US$15.</li>
+  <li>Anulación manual (solo emergencia): con la máquina apagada y la campana despresurizada (esperar 10 min después del ciclo), la traba se puede retraer manualmente con un destornillador plano insertado en la ranura de anulación bajo la carcasa de la traba. Esto es una solución temporal — no depender de ella. Diagnosticar S2 o Y1 después.</li>
+</ol>
+
+<h2>Falla 7: Alarma de temperatura de enjuague final — no alcanza 82°C</h2>
+<p><strong>Síntoma:</strong> El ciclo de lavado corre, el agua calienta normalmente, pero en el enjuague final la alarma de temperatura del booster se dispara. La máquina se niega a completar el ciclo hasta que la temperatura de enjuague alcance 82°C (estándar NSF/ANSI 3, también EN 12046).</p>
+
+<p><strong>Qué revisar:</strong></p>
+<ol>
+  <li>Esta falla casi siempre es una de tres causas: (a) agua de entrada por debajo del mínimo de la especificación, (b) elemento del booster con bajo rendimiento, o (c) termistor B2 del booster derivado.</li>
+  <li>Medir la temperatura del agua de entrada con sonda en la manguera bajo flujo. Por debajo de 10°C está fuera de especificación — el booster no puede recuperar. Solución: conectar un suministro precalentado (50–60°C) o instalar un intercambiador de calor en línea.</li>
+  <li>Si la entrada está bien, aislar el elemento del booster y medir resistencia. El booster es un elemento separado de ~3 kW (E2) con su propio SSR (SSR2). Esperar ~17 Ω en el elemento. Si está alto o abierto, reemplazar el booster.</li>
+  <li>Si el elemento está bien, revisar el termistor B2 (PT1000) con la misma tabla de resistencia vs. temperatura de la Falla 2. Termistor derivado = reemplazar.</li>
+  <li>Si los tres pasan, el SSR2 puede estar fallando intermitentemente. Reemplazar SSR2 como último paso. El costo de un SSR es mucho menor que el costo de una panadería detenida 24 horas esperando un especialista.</li>
+</ol>
+
+<h2>Cuándo detenerse y qué enviarnos</h2>
+<p>El electricista debe detenerse y contactarnos cuando:</p>
+<ul>
+  <li>La tarjeta de control (VTC-3) muestra marcas visibles de quemadura, capacitores hinchados o pistas chamuscadas. Solo reemplazo.</li>
+  <li>El elemento calefactor tiene aislamiento derretido visible en la entrada del cable. Solo reemplazo.</li>
+  <li>El mazo de cables dentro del gabinete muestra aislamiento derretido en cualquier parte. Mazo de reemplazo enviado desde fábrica.</li>
+  <li>La falla no está en el esquema. Guiaremos al electricista por video por WhatsApp o enviaremos una revisión actualizada del esquema.</li>
+</ul>
+
+<p>Al contactarnos, enviar:</p>
+<ul>
+  <li>Número de serie de la máquina (grabado en la placa de datos, arriba a la izquierda del gabinete).</li>
+  <li>Una foto de la condición de falla (componente quemado, código de error en pantalla, valor medido con multímetro visible).</li>
+  <li>Cuáles fallas de este artículo ya han descartado.</li>
+</ul>
+
+<p>Respondemos en 12 horas hábiles y enviamos partes por mensajería internacional express (DHL, FedEx, EMS) a cualquier país con despacho de aduanas para equipos de cocina. Llegada típica de partes: 5 días hábiles para la mayoría de mercados, 7–10 para África y América Latina remota. Para más sobre el compromiso de servicio del JD-3, ver <a href="/es/about/" class="underline">cómo fabricamos y respaldamos cada unidad</a>, y la <a href="/es/product/" class="underline">página del producto JD-3</a> para especificaciones completas y pedidos.</p>
+
+</BlogPostLayout>

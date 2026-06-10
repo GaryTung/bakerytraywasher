@@ -1,0 +1,153 @@
+---
+import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+const locale = 'vi' as const;
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/commercial-dishwasher-faults-electrician-diagnose-circuit-diagram/"
+  slug="commercial-dishwasher-faults-electrician-diagnose-circuit-diagram"
+  title="Bảy sự cố thường gặp của máy rửa bát công nghiệp mà thợ điện địa phương có thể chẩn đoán bằng sơ đồ mạch tích hợp sẵn"
+  description="Đa số đợt gọi kỹ thuật viên chuyên môn cho máy rửa bát công nghiệp tốn 250–800 USD trước khi họ chạm vào một linh kiện duy nhất. Với bảy sự cố phổ biến nhất — không có điện, không nóng, không có tia nước, nhảy CB, bơm xả chạy liên tục, khóa nắp kẹt, báo nhiệt độ tráng cuối — một thợ điện công nghiệp có giấy phép cầm sơ đồ mạch của máy có thể khoanh vùng vấn đề trong 30–90 phút. Đây là những điểm bạn cần chỉ cho họ, kèm các giá trị điện áp, điện trở và mã linh kiện thực tế."
+  pubDate="2026-06-10"
+  tldr={"Mỗi máy V-TAI JD-3 xuất xưởng đều có sơ đồ mạch điện đầy đủ được ép plastic và buộc dây rút bên trong bảng dịch vụ bên phải. Đối với bảy sự cố phổ biến nhất chiếm 80% các cuộc gọi bảo trì — "+
+"<strong>(1) không có điện, kiểm tra L1/L2/L3 tại khối đầu nối đầu vào</strong>; "+
+"<strong>(2) không nóng, đo điện trở thanh đốt (~17 Ω mỗi pha)</strong>; "+
+"<strong>(3) không có tia nước, phân biệt motor bơm vs tay phun bị tắc</strong>; "+
+"<strong>(4) CB nhảy khi bắt đầu nóng, kiểm tra cách điện thanh đốt-vỏ máy</strong>; "+
+"<strong>(5) bơm xả chạy liên tục, kiểm tra phao và relay K3</strong>; "+
+"<strong>(6) khóa nắp kẹt, kiểm tra thông mạch công tắc hành trình S2</strong>; "+
+"<strong>(7) báo nhiệt độ tráng cuối, kiểm tra cảm biến nhiệt booster và SSR2</strong> — "+
+"một thợ điện công nghiệp có giấy phép cầm sơ đồ có thể khoanh vùng vấn đề trong 30–90 phút. Các đợt gọi chuyên gia tốn 250–800 USD ở hầu hết các thị trường. Bài viết này hướng dẫn thợ điện qua từng sự cố trong số bảy sự cố bằng các mã linh kiện in trên sơ đồ. Đưa bài viết này cho họ trước khi họ mở bảng."}
+  faqs={[
+    { q: "Việc một thợ điện thông thường có giấy phép mở bảng dịch vụ có hợp pháp không?", a: "Có, ở mọi quốc gia chúng tôi giao hàng tới. JD-3 được phân loại là thiết bị thương mại, không phải thiết bị y tế hay nguy hiểm. Bất kỳ thợ điện nào có giấy phép làm việc với mạch công nghiệp ba pha 380V/400V ở quốc gia của bạn đều có thể mở bảng, đo điện áp, kiểm tra thông mạch và thay thế linh kiện điện. Bảo hành không bị mất hiệu lực khi thợ điện chẩn đoán hoặc thay thế một linh kiện hư hỏng đơn lẻ (ví dụ contactor), miễn là chẩn đoán được ghi chép. Thay thanh đốt hoặc bo điều khiển cần linh kiện chính hãng từ nhà máy để duy trì bảo hành." },
+    { q: "Thợ điện cần thiết bị đo gì?", a: "Một đồng hồ vạn năng công nghiệp tiêu chuẩn đo: điện áp AC đến 600V, điện áp DC đến 50V, điện trở đến 20 kΩ và thông mạch. Ampe kìm (đến 50A) hữu ích cho sự cố 4. Thiết bị đo điện trở cách điện (megger, 500V) chỉ cần cho sự cố 4. Không cần dụng cụ chuyên dụng. Hầu hết nhà thầu điện đều mang theo bộ này như tiêu chuẩn." },
+    { q: "Nếu thợ điện không đọc được sơ đồ mạch thì sao?", a: "Sơ đồ sử dụng ký hiệu chuẩn IEC 60617 — phổ biến trên toàn cầu. Mã linh kiện (K1, S2, F1, v.v.) theo IEC 81346. Bất kỳ thợ điện nào được đào tạo trong 30 năm qua đều nhận ra các ký hiệu này. Nếu không, họ không nên làm việc trên máy ba pha 13 kW. Hãy tìm nhà thầu khác hoặc liên hệ WhatsApp của chúng tôi, chúng tôi sẽ hướng dẫn qua video trong 20 phút." },
+    { q: "Khi nào thợ điện nên dừng và liên hệ với bạn?", a: "Dừng khi: (a) bo điều khiển (model VTC-3) có dấu cháy rõ rệt hoặc tụ điện phồng — chỉ thay thế, không sửa; (b) thanh đốt đo được ngắn mạch trực tiếp với vỏ sau khi tháo relay — tương tự; (c) bó dây bên trong tủ có lớp cách điện bị chảy ở bất kỳ đâu. Ba điều kiện này yêu cầu linh kiện chính hãng. Chúng tôi gửi qua chuyển phát nhanh quốc tế (thông thường 5 ngày làm việc trên toàn cầu) theo giá linh kiện. Thợ điện hoàn tất lắp đặt khi linh kiện đến." },
+    { q: "Sơ đồ có bằng ngôn ngữ của tôi không?", a: "Bản thân sơ đồ sử dụng ký hiệu IEC chuẩn (phổ quát). Nhãn linh kiện theo mặc định bằng tiếng Anh. Chúng tôi có thể cung cấp lớp phủ nhãn linh kiện địa phương hóa bằng tiếng Tây Ban Nha, Pháp, Đức, Nga, Thái, Việt, Ả Rập hoặc Trung Quốc giản thể theo yêu cầu — tờ A4 ép plastic gửi cùng máy không tính thêm phí nếu chỉ định khi đặt hàng, hoặc gửi riêng (15 USD + phí chuyển phát) sau mua hàng. Sơ đồ cơ bản vẫn phổ quát." },
+  ]}
+>
+
+<h2>Vì sao một sơ đồ mạch thay đổi kinh tế của việc sở hữu máy rửa bát công nghiệp</h2>
+<p>Ở hầu hết các quốc gia, một kỹ thuật viên chuyên về máy rửa bát công nghiệp tính phí 250–800 USD mỗi lần đến trước khi chạm vào một linh kiện duy nhất. Một thợ điện công nghiệp có giấy phép — cùng một người đi dây hệ thống đèn và mạch lò nướng cho tiệm bánh của bạn — thường tính 60–150 USD mỗi giờ. Sự khác biệt không phải ở kỹ năng. Sự khác biệt là quyền tiếp cận sơ đồ mạch.</p>
+
+<p>Các kỹ thuật viên chuyên môn có sơ đồ mạch do nhà máy phát hành cho các thương hiệu mà họ được chứng nhận. Họ giữ kiến thức đó như hào kinh tế của mình. Một chủ tiệm bánh mua máy Hobart, Jackson, Winterhalter hoặc Meiko mà không có hợp đồng hỗ trợ trong bảo hành thực chất đã trả tiền cho một cỗ máy mà thợ điện địa phương không thể chẩn đoán — vì sơ đồ thuộc sở hữu riêng và sổ tay dịch vụ bị khóa sau đăng nhập của đại lý.</p>
+
+<p>V-TAI gửi JD-3 kèm sơ đồ điện đầy đủ được ép plastic và buộc dây rút bên trong bảng dịch vụ bên phải. Chúng tôi làm điều này vì một lý do: ở hơn 60 quốc gia, tìm chuyên gia V-TAI trong 24 giờ là điều không thể, nhưng tìm thợ điện công nghiệp có giấy phép thì có. Sơ đồ là cây cầu. Bài viết này dành cho thợ điện vừa mở bảng lần đầu tiên.</p>
+
+<h2>Bốn vùng của sơ đồ JD-3</h2>
+<p>Trước khi chẩn đoán bất kỳ sự cố cụ thể nào, thợ điện cần định hướng theo bốn vùng:</p>
+
+<ul>
+  <li><strong>Vùng A — Nguồn vào.</strong> Khối đầu nối ba pha vào (X1), CB chính (Q1) và ba contactor (K1 cho bơm rửa, K2 cho bơm tráng, K3 cho bơm xả). Cả ba contactor đều có cuộn dây 24 VDC, tiếp điểm 25 A AC-3.</li>
+  <li><strong>Vùng B — Gia nhiệt.</strong> Thanh đốt Incoloy 9 kW (E1), hai relay bán dẫn (SSR1 cho khoang rửa, SSR2 cho booster) và hai cảm biến nhiệt PT1000 (B1 khoang rửa, B2 booster).</li>
+  <li><strong>Vùng C — Điều khiển.</strong> Bo điều khiển VTC-3, nguồn xung 24 VDC (G1) và bảng giao diện người dùng LED. Bo có sáu khối đầu nối đánh số TB1 đến TB6.</li>
+  <li><strong>Vùng D — Khóa an toàn.</strong> Công tắc hành trình nắp (S2), phao (S3) cho nước thấp, cầu chì nhiệt (F2) trên thanh đốt ở 95°C, và thiết bị bảo vệ dòng dư (RCD) phía nguồn vào tòa nhà.</li>
+</ul>
+
+<p>Mỗi mã linh kiện trên sơ đồ đều xuất hiện được dán nhãn vật lý trên chính linh kiện bằng một sticker in. Thợ điện không cần đếm các đầu nối hoặc đoán — bộ phận có nhãn "K1" trên sơ đồ là cùng contactor vật lý có "K1" trên vỏ.</p>
+
+<h2>Sự cố 1: Máy hoàn toàn không có điện</h2>
+<p><strong>Triệu chứng:</strong> Người vận hành bật công tắc chính. Bảng điều khiển vẫn tối. Không có tiếng click relay. Không có quạt quay.</p>
+
+<p><strong>Cần kiểm tra:</strong></p>
+<ol>
+  <li>Xác nhận CB của tòa nhà (32 A type C) đang đóng. Nếu đã nhảy, xem Sự cố 4.</li>
+  <li>Tại khối đầu nối X1, đo điện áp pha-pha: L1–L2, L2–L3, L1–L3. Kỳ vọng 380 V ± 10% (hoặc 400 V nếu trên hệ bốn dây của EU).</li>
+  <li>Nếu thiếu một pha, vấn đề ở phía trên máy — dây tòa nhà, không phải máy rửa bát.</li>
+  <li>Nếu cả ba pha có mặt ở X1, kiểm tra điện áp đầu ra 24 VDC ở nguồn G1 (giữa các đầu nối "+24V" và "GND"). Kỳ vọng 24,0 V ± 0,5 V.</li>
+  <li>Nếu đầu ra G1 là 0 V nhưng đầu vào tốt, thay G1. Bộ Meanwell ray DIN tiêu chuẩn, ~25 USD.</li>
+  <li>Nếu G1 xuất 24 V, bo điều khiển (VTC-3) đã hỏng. Dừng và liên hệ với chúng tôi — chỉ thay thế tại nhà máy.</li>
+</ol>
+
+<h2>Sự cố 2: Máy lên nguồn, không gia nhiệt</h2>
+<p><strong>Triệu chứng:</strong> Bảng điều khiển sáng lên, các bơm chạy, nhưng nước rửa vẫn lạnh và báo nhiệt độ tráng kích hoạt sau ~5 phút.</p>
+
+<p><strong>Cần kiểm tra:</strong></p>
+<ol>
+  <li>Cách ly máy tại CB tòa nhà. Khóa/gắn thẻ theo quy chuẩn địa phương.</li>
+  <li>Mở bảng dịch vụ. Tìm các đầu nối của thanh đốt trong Vùng B.</li>
+  <li>Tháo một dây pha khỏi thanh đốt. Đo điện trở giữa đầu nối đã tháo và hai đầu còn lại. Kỳ vọng ~17 Ω mỗi pha (thanh đốt 9 kW trên 380V ba pha). Cả ba pha phải nằm trong phạm vi 5% của nhau.</li>
+  <li>Nếu một pha đọc được điện trở vô cùng, thanh đốt có cuộn bị đứt — thay thanh đốt.</li>
+  <li>Nếu cả ba pha đọc đúng, thanh đốt ổn. Sự cố ở phía trên: kiểm tra SSR1 (rửa) hoặc SSR2 (booster). Khi tắt nguồn, SSR phải đọc mở giữa các đầu AC. Khi áp 5 VDC vào các đầu kích DC (bo điều khiển làm điều này trong vận hành bình thường), các đầu AC phải đọc đóng.</li>
+  <li>Nếu SSR không chuyển mạch, thay nó. SSR 40A tiêu chuẩn, ~18 USD.</li>
+  <li>Nếu cả hai SSR và thanh đốt đều ổn, bo điều khiển không gửi tín hiệu kích hoạt. Phổ biến nhất: cảm biến nhiệt PT1000 (B1 hoặc B2) bị lỗi báo nhiệt độ ngoài phạm vi và bo đã vào khóa bảo vệ. Tháo từng cảm biến và đo điện trở: 1000 Ω ở 0°C, 1097 Ω ở 25°C, 1194 Ω ở 50°C. Lệch → thay.</li>
+</ol>
+
+<h2>Sự cố 3: Gia nhiệt và bơm chạy, nhưng không có tia nước đến khay</h2>
+<p><strong>Triệu chứng:</strong> Chu kỳ chạy bình thường, nhiệt độ nước tăng như mong đợi, nhưng các khay ra chỉ sạch một phần — các tay rửa hầu như không quay hoặc không quay chút nào.</p>
+
+<p><strong>Cần kiểm tra (cơ học trước, sau đó điện):</strong></p>
+<ol>
+  <li>Mở nắp. Kiểm tra các tay rửa trên và dưới. Xoay bằng tay — phải xoay tự do. Nếu kẹt, tháo và làm sạch ổ trục (cặn vôi).</li>
+  <li>Tháo từng tay rửa và xem các tia phun. Nếu bị tắc, ngâm tay rửa trong chất tẩy cặn.</li>
+  <li>Lắp lại các tay. Khởi động chu kỳ. Quan sát áp suất.</li>
+  <li>Nếu các tay vẫn không quay: đo dòng tiêu thụ trên motor bơm rửa bằng ampe kìm trong khi chu kỳ chạy. Bảng nhãn 0,75 kW, kỳ vọng 1,4 A mỗi pha ở tốc độ tối đa.</li>
+  <li>Nếu motor chỉ tiêu thụ 0,3–0,5 A và không ở tốc độ đầy đủ, cánh bơm đang xâm thực — đầu vào nước bị tắc (kiểm tra lưới lọc ở đáy khoang rửa) hoặc mức nước khoang quá thấp (kiểm tra phao S3).</li>
+  <li>Nếu motor không chạy chút nào, kiểm tra contactor K1. Cuộn dây phải được kích hoạt khi chu kỳ bắt đầu. Nếu cuộn được kích hoạt nhưng contactor không hút vào cơ học, thay K1. Tiêu chuẩn 25A AC-3, ~22 USD.</li>
+</ol>
+
+<h2>Sự cố 4: CB tòa nhà nhảy trong chu kỳ gia nhiệt đầu tiên</h2>
+<p><strong>Triệu chứng:</strong> Máy lên nguồn tốt. Ngay khi thanh đốt được kích hoạt (5–10 giây vào chu kỳ rửa), CB 32 A của tòa nhà nhảy.</p>
+
+<p><strong>Cần kiểm tra:</strong></p>
+<ol>
+  <li>Đầu tiên, xác minh CB là Type C (không phải Type B). Type B nhảy ở 3–5× dòng định mức. Type C nhảy ở 5–10×. Đỉnh khởi động của thanh đốt phù hợp với Type C nhưng làm nhảy Type B khi khởi động lạnh.</li>
+  <li>Nếu CB là Type B: đây là vấn đề dây tòa nhà, không phải máy. Thay bằng Type C 32 A.</li>
+  <li>Nếu CB là Type C và vẫn nhảy: điều này chỉ ra lỗi chạm đất bên trong thanh đốt. Cách ly máy. Tháo cả hai dây thanh đốt khỏi các SSR. Sử dụng thiết bị đo điện trở cách điện ở 500 VDC giữa từng đầu thanh đốt và vỏ máy. Kỳ vọng &gt;100 MΩ. Bất kỳ giá trị nào dưới 1 MΩ xác nhận hỏng cách điện bên trong thanh đốt — thay thanh đốt.</li>
+  <li>Nếu cách điện thanh đốt tốt nhưng RCD (không phải CB) nhảy, lỗi ở nơi khác — kiểm tra dây tiếp đất tủ và cuộn motor bơm theo cùng cách.</li>
+</ol>
+
+<h2>Sự cố 5: Bơm xả chạy liên tục, không tắt</h2>
+<p><strong>Triệu chứng:</strong> Bơm xả (nằm ở góc dưới bên phải của tủ phía sau tấm chắn chân) chạy từ thời điểm máy lên nguồn và không dừng. Khoang rửa không thể đầy vì mọi thứ bị xả ra.</p>
+
+<p><strong>Cần kiểm tra:</strong></p>
+<ol>
+  <li>Bơm xả được điều khiển bởi contactor K3. Cuộn dây của K3 được kích hoạt bởi bo điều khiển khi lệnh xả đang hoạt động HOẶC khi phao mức cao S4 báo tràn.</li>
+  <li>Tắt máy. Tìm S4 (phao ở đầu ống tràn của khoang rửa). Tháo các dây. Đo thông mạch với phao ở vị trí "thấp" bình thường. Kỳ vọng mạch hở (không thông).</li>
+  <li>Nếu S4 đọc đóng (thông mạch) với phao ở dưới, công tắc đã hỏng ở vị trí đóng — bo cho rằng khoang đang tràn và phát lệnh xả. Thay S4. Kiểu reed tiêu chuẩn, ~8 USD.</li>
+  <li>Nếu S4 đọc đúng nhưng K3 vẫn được kích hoạt: đo 24 VDC tại các đầu cuộn dây K3. Nếu có 24 VDC, bo điều khiển bị kẹt ở chế độ xả — khởi động lại và kiểm tra LED trạng thái bo so với chú thích LED của sơ đồ (góc trên bên phải). LED đỏ liên tục tại "FAULT-DRAIN" chỉ ra lỗi bo; thay.</li>
+</ol>
+
+<h2>Sự cố 6: Khóa nắp không nhả, nắp kẹt đóng</h2>
+<p><strong>Triệu chứng:</strong> Chu kỳ rửa hoàn tất. Người vận hành kéo cần nắp. Nắp không nâng lên. Bảng điều khiển có thể hiển thị "DOOR LOCKED".</p>
+
+<p><strong>Cần kiểm tra:</strong></p>
+<ol>
+  <li>Khóa nắp là an toàn khi hỏng: solenoid khóa chỉ nhả khi (a) chu kỳ hoàn toàn hoàn tất VÀ (b) nhiệt độ booster đã giảm xuống dưới 70°C (an toàn hơi nước). Nếu một trong hai điều kiện không được đáp ứng, khóa giữ.</li>
+  <li>Đợi 3 phút sau khi hoàn thành chu kỳ — đa số các trường hợp "kẹt" chỉ đơn giản là booster đang nguội. Lắng nghe tiếng click có thể nghe được khi khóa nhả.</li>
+  <li>Nếu vẫn khóa sau 5 phút: tắt nguồn, mở bảng dịch vụ bên phải, tìm công tắc hành trình S2 (đặt ở chốt nắp, đỉnh khoang). Với nắp đóng, S2 phải đọc đóng (thông mạch). Với nắp mở, mở. Nếu S2 báo "mở" khi nắp thực sự đóng, logic an toàn của bo từ chối nhả khóa.</li>
+  <li>Nếu S2 đọc đúng, kiểm tra solenoid khóa Y1 — đo điện trở cuộn dây. Kỳ vọng 35–45 Ω. Lệch = thay Y1, ~15 USD.</li>
+  <li>Mở khóa thủ công (chỉ khẩn cấp): với máy đã tắt nguồn và nắp được giảm áp (đợi 10 phút sau chu kỳ), khóa có thể được rút thủ công bằng tua vít dẹt cắm vào khe ghi đè bên dưới vỏ khóa. Đây là giải pháp một lần để giúp người vận hành thoát khỏi tình huống — không phụ thuộc vào nó. Sau đó chẩn đoán S2 hoặc Y1 đúng cách.</li>
+</ol>
+
+<h2>Sự cố 7: Báo nhiệt độ tráng cuối — không đạt 82°C</h2>
+<p><strong>Triệu chứng:</strong> Chu kỳ rửa chạy, nước nóng bình thường, nhưng tại tráng cuối báo nhiệt độ booster kích hoạt. Máy từ chối hoàn thành chu kỳ cho đến khi nhiệt độ tráng đạt 82°C (chuẩn NSF/ANSI 3, cũng là EN 12046).</p>
+
+<p><strong>Cần kiểm tra:</strong></p>
+<ol>
+  <li>Sự cố này hầu như luôn có một trong ba nguyên nhân: (a) nước đầu vào lạnh dưới mức tối thiểu của thông số kỹ thuật, (b) thanh đốt booster hoạt động kém, hoặc (c) cảm biến nhiệt booster B2 bị lệch.</li>
+  <li>Đo nhiệt độ nước đầu vào bằng đầu dò tại ống vào dưới điều kiện chảy. Dưới 10°C là ngoài thông số — booster không thể phục hồi. Giải pháp: kết nối nguồn nước đã nung trước (50–60°C) hoặc lắp đặt bộ trao đổi nhiệt nội tuyến.</li>
+  <li>Nếu đầu vào ổn, cách ly thanh đốt booster và đo điện trở. Booster là thanh đốt riêng ~3 kW (E2) với SSR riêng (SSR2). Kỳ vọng ~17 Ω. Cao hoặc mở, thay booster.</li>
+  <li>Nếu thanh đốt ổn, kiểm tra cảm biến nhiệt B2 (PT1000) bằng cùng bảng điện trở-nhiệt độ như Sự cố 2. Cảm biến lệch = thay.</li>
+  <li>Nếu cả ba đều qua, SSR2 có thể đang gián đoạn không chuyển hoàn toàn. Thay SSR2 là bước cuối cùng. Giá của một SSR thấp hơn nhiều so với giá của một tiệm bánh dừng 24 giờ chờ chuyên gia.</li>
+</ol>
+
+<h2>Khi nào dừng, và gửi gì cho chúng tôi</h2>
+<p>Thợ điện nên dừng và liên hệ với chúng tôi khi:</p>
+<ul>
+  <li>Bo điều khiển (VTC-3) có dấu cháy rõ rệt, tụ điện phồng hoặc đường mạch bị cháy. Chỉ thay thế.</li>
+  <li>Thanh đốt có cách điện bị chảy nhìn thấy được tại lối vào cáp. Chỉ thay thế.</li>
+  <li>Bó dây bên trong tủ có cách điện bị chảy ở bất kỳ đâu. Bó dây thay thế gửi từ nhà máy.</li>
+  <li>Sự cố không có trên sơ đồ. Chúng tôi sẽ video hướng dẫn thợ điện qua WhatsApp hoặc gửi bản sửa đổi mới của sơ đồ.</li>
+</ul>
+
+<p>Khi liên hệ với chúng tôi, gửi:</p>
+<ul>
+  <li>Số serial của máy (khắc trên bảng nhãn dữ liệu, góc trên bên trái của tủ).</li>
+  <li>Một bức ảnh về tình trạng sự cố (linh kiện cháy, mã lỗi trên màn hình, giá trị đã đo với đồng hồ vạn năng có thể nhìn thấy).</li>
+  <li>Các sự cố nào trong bài viết này bạn đã loại trừ.</li>
+</ul>
+
+<p>Chúng tôi trả lời trong vòng 12 giờ làm việc và gửi linh kiện qua chuyển phát nhanh quốc tế (DHL, FedEx, EMS) đến bất kỳ quốc gia nào có thông quan thiết bị nhà bếp. Thời gian đến điển hình: 5 ngày làm việc cho hầu hết các thị trường, 7–10 cho châu Phi và châu Mỹ Latin xa xôi. Để biết thêm về cam kết dịch vụ của JD-3, xem <a href="/vi/about/" class="underline">cách chúng tôi sản xuất và đứng đằng sau từng máy</a>, và <a href="/vi/product/" class="underline">trang sản phẩm JD-3</a> để biết thông số đầy đủ và đặt hàng.</p>
+
+</BlogPostLayout>
