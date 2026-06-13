@@ -29,15 +29,27 @@ const publishedLabel: Record<Locale, string> = {
   ru: 'Опубликовано', th: 'เผยแพร่', vi: 'Đăng', ar: 'نُشر', zh: '发布时间',
 };
 
-const articleSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
+// Single Article JSON-LD, emitted ONCE via BaseLayout's SchemaOrg (schemaData
+// below). We intentionally do not also emit a second <script> here — that used
+// to produce two Article blocks per post. The locale-aware canonical URL
+// mirrors BaseLayout's own computation, so mainEntityOfPage is correct in every
+// language (the previous version dropped the /{locale} prefix on non-EN pages).
+const site = 'https://bakerytraywasher.com';
+const articleUrl = locale === 'en' ? `${site}${canonicalPath}` : `${site}/${locale}${canonicalPath}`;
+const articleData = {
   headline: title,
   description,
   datePublished: pubDate,
-  author: { '@type': 'Organization', name: 'V-TAI' },
-  publisher: { '@type': 'Organization', name: 'V-TAI', url: 'https://bakerytraywasher.com' },
-  mainEntityOfPage: `https://bakerytraywasher.com${canonicalPath}`,
+  inLanguage: locale,
+  image: `${site}/images/jd-3-hero.webp`,
+  author: { '@type': 'Organization', name: 'V-TAI', url: site },
+  publisher: {
+    '@type': 'Organization',
+    name: 'V-TAI',
+    url: site,
+    logo: { '@type': 'ImageObject', url: `${site}/images/logo.png` },
+  },
+  mainEntityOfPage: articleUrl,
 };
 ---
 <BaseLayout
@@ -46,6 +58,7 @@ const articleSchema = {
   locale={locale}
   canonicalPath={canonicalPath}
   schemaType="Article"
+  schemaData={articleData}
 >
 <BreadcrumbNav items={[
   { label: t(locale, 'nav.home'), href: lp('/') },
@@ -71,6 +84,4 @@ const articleSchema = {
 {faqs.length > 0 && <FAQSection items={faqs} locale={locale} />}
 
 <CTASection locale={locale} />
-
-<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 </BaseLayout>
