@@ -1,0 +1,112 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+const locale = 'en' as const;
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/commercial-dishwasher-running-cost/"
+  slug="commercial-dishwasher-running-cost"
+  title="What Does a Commercial Bakery Dishwasher Actually Cost to Run? The Per-Cycle, Per-Day, and Per-Year Breakdown"
+  description="Buyers obsess over the purchase price and forget the running cost. A commercial bakery dishwasher has four operating costs — water, electricity, detergent/rinse-aid, and descaling — and only one of them is large. Here is the honest, physics-based method to estimate each at your own utility rates, a worked example for a 150-trays-a-day café, and the five levers that cut the bill."
+  pubDate="2026-06-24"
+  tldr={"A commercial bakery dishwasher has four running costs, and they are smaller and more predictable than most buyers expect. "+
+"<strong>(1) Water</strong> — the JD-3 uses just 2.0–2.5 L per cycle, so even at 25 cycles a day that is only ~15–20 m³ a year. "+
+"<strong>(2) Electricity</strong> — the dominant cost, but it is not 13 kW running continuously. The real per-cycle energy is mostly the heat to bring 2–2.5 L of fresh rinse water to ≥82°C — about <strong>0.2 kWh per cycle by physics</strong> — plus tank-temperature maintenance and the 0.75 kW pump; figure roughly <strong>0.3–0.5 kWh per cycle</strong> in steady service, plus a one-off cold-start to heat the tank each morning. "+
+"<strong>(3) Detergent + rinse aid</strong> — a few cents per cycle, dose-dependent. "+
+"<strong>(4) Descaling + maintenance</strong> — a small recurring cost set by your water hardness. "+
+"Plug in your own utility tariff (the article shows exactly how). The five biggest levers to cut the bill: run full loads, add the heat-recovery option (15–25% energy saving), keep the insulated door sealed (cuts steam/heat loss up to 70%), dose detergent correctly, and descale on schedule so the heating element stays efficient."}
+  faqs={[
+    { q: "How much electricity does a commercial dishwasher use per cycle?", a: "Less than the nameplate suggests. The JD-3's 13 kW is peak draw, not continuous consumption. In steady service most of the per-cycle energy is reheating the 2.0–2.5 L of fresh rinse water to ≥82°C — about 0.2 kWh by physics (2.5 kg × 4.186 kJ/kg·°C × ~70°C rise ≈ 0.20 kWh) — plus maintaining the wash-tank temperature and running the 0.75 kW pump for two minutes. A reasonable steady-state estimate is 0.3–0.5 kWh per cycle, on top of a once-a-day cold start to bring the wash tank up to temperature. Multiply by your local kWh tariff to get the cost." },
+    { q: "How much water does it use, and what does that cost?", a: "2.0–2.5 L per cycle — a fraction of the 5–10 L many machines use, and far less than a running tap during hand-washing. At 25 cycles a day for 300 days, that is roughly 15–19 m³ a year. At a typical municipal rate the water itself usually costs only tens of dollars a year; the bigger water-related cost is the energy to heat it, which is why low water use matters twice — less water bought and less water heated." },
+    { q: "What is the single biggest running cost?", a: "Electricity, specifically the heating. Water, detergent, and descaling are all small; the heat to keep the wash tank hot and to bring each rinse to ≥82°C is where the money goes. That is why the two highest-value efficiency measures both target heat: the optional heat-recovery system (which uses waste heat from the high-temperature rinse to pre-warm incoming water, saving 15–25% of energy) and the sealed insulated door (which cuts steam and heat escape by up to 70%, so the tank reheats less often)." },
+    { q: "How do I work out my own running cost?", a: "Three numbers and your two utility tariffs. (1) Cycles per day = trays per day ÷ 6. (2) Water per day = cycles × 2.25 L; multiply by your water rate per m³. (3) Energy per day = cycles × ~0.4 kWh + one cold-start (~1 kWh to heat the tank); multiply by your electricity rate per kWh. Add a few cents per cycle for detergent and rinse aid, and a small monthly descaling allowance. The worked example below does exactly this for a 150-tray café — substitute your own rates." },
+    { q: "Does hard water increase running cost?", a: "Yes, indirectly but significantly. Hard water deposits limescale on the heating element, and scale is an insulator — a scaled element draws more energy to reach the same temperature and eventually fails early. So in a hard-water area, descaling on schedule (or fitting a softener) is not just maintenance, it is cost control: it keeps the element efficient and protects your single most expensive component. See our maintenance schedule for the descaling intervals by water hardness." },
+  ]}
+>
+
+<h2>The cost everyone forgets to add up</h2>
+<p>When a bakery owner shops for a commercial dishwasher, almost all the attention goes to the purchase price. That is the number on the quote, so that is the number people compare. But the purchase price is a one-time event. The <strong>running cost</strong> — what the machine consumes every single day for the next decade — is the number that actually shapes your kitchen's economics, and almost nobody works it out before buying.</p>
+
+<p>The good news is that for a well-designed compact machine, the running cost is both small and predictable. It has exactly four components, and only one of them is large. This article breaks down each one with an honest, physics-based method you can apply at your own utility rates — no hand-waving, no inflated "savings" claims. The numbers below are built around the V-TAI JD-3 (2.0–2.5 L per cycle, 13 kW peak, ≥82°C rinse, 6 trays per 2-minute cycle), but the method works for any commercial hood-type washer.</p>
+
+<h2>The four running costs</h2>
+<ol>
+  <li><strong>Water</strong> — the litres consumed per cycle.</li>
+  <li><strong>Electricity</strong> — overwhelmingly the heating, plus a small amount for the pump.</li>
+  <li><strong>Detergent + rinse aid</strong> — the chemical dosed into each cycle.</li>
+  <li><strong>Descaling + maintenance</strong> — the small recurring cost of keeping the machine efficient.</li>
+</ol>
+<p>Let's take them in order, smallest surprise to biggest.</p>
+
+<h2>Cost 1 — Water: smaller than a running tap</h2>
+<p>The JD-3 uses <strong>2.0–2.5 L per cycle.</strong> That is the whole fill for washing six trays. To put it in perspective: a single kitchen tap left running while someone scrubs trays by hand can pour out 6–12 L <em>per minute</em> — so a few minutes of hand-rinsing one rack can use more water than the machine uses to wash dozens.</p>
+
+<p>To estimate your water cost, you only need your cycles per day:</p>
+<ul>
+  <li><strong>Cycles per day</strong> = trays per day ÷ 6.</li>
+  <li><strong>Water per day</strong> = cycles × 2.25 L (midpoint).</li>
+  <li><strong>Water per year</strong> = water per day × your operating days.</li>
+</ul>
+<p>For most single-shop bakeries this lands at roughly <strong>15–20 m³ per year</strong> — at typical municipal water rates, usually only tens of dollars annually. Water is almost never the cost that matters. But low water use matters for a second reason: every litre you don't use is a litre you don't have to <em>heat</em> — which brings us to the cost that does matter.</p>
+
+<h2>Cost 2 — Electricity: it's the heat, not the nameplate</h2>
+<p>This is where buyers get the most confused, because they see "13 kW" on the spec sheet and multiply it by hours. <strong>That is wrong.</strong> The 13 kW is the <em>peak</em> draw — what the machine pulls in the instant the 9 kW heating element and the pump are both running. It is not continuous consumption. Once the wash tank is up to temperature, the element only fires intermittently to hold it there.</p>
+
+<p>The honest way to think about per-cycle energy is to separate three pieces:</p>
+
+<p><strong>(a) Heating the fresh rinse water — the unavoidable physics.</strong> Every cycle, 2.0–2.5 L of fresh water must be brought to the ≥82°C sanitizing rinse temperature. The energy for that is pure thermodynamics:</p>
+<div class="card bg-bakery-cream border-l-4 border-bakery-orange my-6">
+  <p class="font-semibold mb-1">The rinse-water calculation</p>
+  <p class="text-bakery-navy/80">Energy = mass × specific heat × temperature rise<br/>
+  = 2.5 kg × 4.186 kJ/kg·°C × (82 − 12)°C<br/>
+  = 2.5 × 4.186 × 70 ≈ <strong>732 kJ ≈ 0.20 kWh per cycle.</strong></p>
+  <p class="text-bakery-navy/70 text-sm mt-2">That ~0.2 kWh is the thermodynamic floor — no machine can rinse-sanitize for less. If your inlet water is warmer than 12°C, or you feed pre-heated water, it is less.</p>
+</div>
+
+<p><strong>(b) Maintaining the wash-tank temperature.</strong> Between cycles the tank loses some heat and the element tops it back up. This is where the <strong>sealed insulated door</strong> earns its keep — by cutting steam and heat escape by up to 70%, it slows the heat loss, so the element fires less often. A well-insulated, frequently-used machine spreads this cost thin across many cycles.</p>
+
+<p><strong>(c) The pump.</strong> The 0.75 kW wash pump runs for the ~2-minute cycle: 0.75 kW × (2 ÷ 60) h ≈ <strong>0.025 kWh per cycle.</strong> Negligible next to the heating.</p>
+
+<p>Add them up and a reasonable steady-state estimate is <strong>0.3–0.5 kWh per cycle</strong> in regular service, on top of a <strong>once-a-day cold start</strong> to heat the wash tank from cold (heating, say, a ~20 L tank by ~48°C is a one-off of roughly 1.1 kWh). To get your cost, multiply by your local electricity tariff. This is the number that dominates the running cost — which is exactly why the efficiency features below all target heat.</p>
+
+<h2>Cost 3 — Detergent and rinse aid: cents per cycle</h2>
+<p>Commercial dishwasher detergent and rinse aid are dosed in small, controlled amounts per cycle — typically a few cents' worth, though it varies with your water hardness (harder water needs more detergent) and your chemical supplier. The key to controlling this cost is correct dosing: an <strong>auto-dosing dispenser</strong> (a JD-3 option) meters the exact amount each cycle, which both protects your results and stops the silent waste of hand-pouring "a good glug" into every load. Over a year, correct dosing typically saves more chemical than the dispenser costs.</p>
+
+<h2>Cost 4 — Descaling and maintenance: set by your water</h2>
+<p>The last cost is the small, recurring spend on keeping the machine efficient: descaler, the occasional gasket, a periodic check. Its size is set almost entirely by your <strong>water hardness</strong>. In a soft-water area you descale quarterly and barely notice the cost; in a hard-water area you descale monthly and it adds up a little more — but it is still modest, and it is not optional, because skipping it makes Cost 2 (electricity) worse: a limescaled heating element is an insulated heating element, and it burns more energy to reach the same temperature. Our <a href="/blog/commercial-dishwasher-maintenance-schedule/" class="underline">maintenance schedule</a> gives the descaling intervals by water-hardness band.</p>
+
+<h2>A worked example: a 150-tray-a-day café</h2>
+<p>Let's put it together for a typical single-shop café washing <strong>150 trays a day, 300 days a year.</strong> That is 25 cycles a day, 7,500 cycles a year. We will use clearly-labelled <em>illustrative</em> utility rates — <strong>you must substitute your own local tariffs</strong>, which is the whole point of showing the method.</p>
+
+<div class="overflow-x-auto my-6">
+<table class="w-full text-sm border border-bakery-navy/10">
+  <thead class="bg-bakery-cream">
+    <tr><th class="text-left p-3">Cost</th><th class="text-left p-3">Per day (25 cycles)</th><th class="text-left p-3">Per year (illustrative rate)</th></tr>
+  </thead>
+  <tbody>
+    <tr class="border-t border-bakery-navy/10"><td class="p-3">Water (2.25 L/cycle)</td><td class="p-3">~56 L</td><td class="p-3">~17 m³ → tens of $ at a typical water rate</td></tr>
+    <tr class="border-t border-bakery-navy/10"><td class="p-3">Electricity (~0.4 kWh/cycle + 1 cold start)</td><td class="p-3">~11 kWh</td><td class="p-3">~3,300 kWh → the main line item, at your kWh rate</td></tr>
+    <tr class="border-t border-bakery-navy/10"><td class="p-3">Detergent + rinse aid</td><td class="p-3">a few $</td><td class="p-3">dose- and hardness-dependent</td></tr>
+    <tr class="border-t border-bakery-navy/10"><td class="p-3">Descaling + maintenance</td><td class="p-3">—</td><td class="p-3">modest; set by water hardness</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>The shape of the answer is always the same regardless of country: <strong>electricity (heating) is the dominant line, water is trivial, and chemicals and descaling are small.</strong> Knowing that shape tells you exactly where to focus to cut the bill.</p>
+
+<h2>The five levers that cut the running cost</h2>
+<p>Because the cost is dominated by heat, four of the five biggest savings target heat:</p>
+<ol>
+  <li><strong>Run full loads.</strong> The per-cycle energy is roughly the same whether you wash one tray or six. Washing six trays per cycle instead of two cuts your energy-per-tray by a third or more. Always fill the rack.</li>
+  <li><strong>Add the heat-recovery option.</strong> It captures waste heat from the high-temperature rinse to pre-warm incoming water, cutting energy use by <strong>15–25%</strong>. On a machine where heating is the main cost, that is the highest-value upgrade you can specify.</li>
+  <li><strong>Keep the insulated door sealed.</strong> The sealed insulated door cuts steam and heat escape by up to <strong>70%</strong> — but only if the gasket is intact. A worn gasket leaks heat and quietly raises every cycle's cost; replace it at the first sign of wear.</li>
+  <li><strong>Descale on schedule.</strong> A scaled heating element wastes energy. Keeping it clean keeps it efficient — maintenance is cost control, not just hygiene.</li>
+  <li><strong>Dose chemicals correctly.</strong> Auto-dosing meters the exact amount and stops both poor results and silent over-pouring.</li>
+</ol>
+
+<h2>Efficiency that's built in, not bolted on</h2>
+<p>The reason the running cost comes out low is that the efficiency is engineered into the machine, not left to the operator. The <strong>2.0–2.5 L per cycle</strong> means less water bought and — more importantly — less water heated. The <strong>sealed insulated door</strong> keeps the heat you have already paid for inside the chamber. The optional <strong>heat-recovery system</strong> reuses heat that would otherwise go up as steam. Together these are why a correctly-built compact machine runs for a few dollars of utilities a day rather than the open-ended cost of a tap left running and a staff member standing at the sink.</p>
+
+<p>For the full machine specification including the heat-recovery and auto-dosing options, see the <a href="/product/" class="underline">JD-3 product page</a>. To weigh the running cost against the labour it replaces, read our <a href="/blog/dishwasher-roi-for-small-bakery/" class="underline">ROI breakdown for a small bakery</a>, and to keep the running cost low over the machine's life, follow the <a href="/blog/commercial-dishwasher-maintenance-schedule/" class="underline">maintenance schedule</a>. Want help estimating the running cost for your specific trays-per-day and local tariffs? <a href="/get-quote/" class="underline">Ask us</a> — we reply within 12 business hours.</p>
+
+</BlogPostLayout>
