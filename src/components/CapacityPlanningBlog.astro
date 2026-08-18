@@ -1,0 +1,95 @@
+---
+import BlogPostLayout from '../layouts/BlogPostLayout.astro';
+import { capacityBlogCopy } from '../i18n/capacity-blog';
+import { localizePath, type Locale } from '../i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = capacityBlogCopy[locale];
+const lp = (path: string) => localizePath(path, locale);
+const rows = [
+  { trays: 60, cycles: 10, minutes: 20, share: '33%' },
+  { trays: 120, cycles: 20, minutes: 40, share: '67%' },
+  { trays: 180, cycles: 30, minutes: 60, share: '100%' },
+  { trays: 360, cycles: 60, minutes: 120, share: '200%' },
+];
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/bakery-tray-washer-capacity-calculator/"
+  slug="bakery-tray-washer-capacity-calculator"
+  title={copy.title}
+  description={copy.description}
+  pubDate="2026-08-19"
+  tldr={copy.tldr}
+  faqs={copy.faqs}
+>
+  <h2>{copy.introTitle}</h2>
+  {copy.intro.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.inputsTitle}</h2>
+  <p>{copy.inputsIntro}</p>
+  <ol>
+    {copy.inputs.map((item) => <li>{item}</li>)}
+  </ol>
+
+  <h2>{copy.formulaTitle}</h2>
+  <p>{copy.formulaIntro}</p>
+  <div class="grid gap-4 my-6">
+    {copy.formulas.map((item) => (
+      <section class="card bg-bakery-cream border-l-4 border-bakery-orange">
+        <h3 class="text-lg mb-2">{item.name}</h3>
+        <p class="font-semibold text-bakery-navy mb-2" dir="ltr">{item.formula}</p>
+        <p class="text-sm text-bakery-navy/70">{item.note}</p>
+      </section>
+    ))}
+  </div>
+
+  <h2>{copy.tableTitle}</h2>
+  <p>{copy.tableIntro}</p>
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-sm border border-bakery-navy/10">
+      <thead class="bg-bakery-cream">
+        <tr>
+          {copy.tableHeaders.map((header) => <th class="text-start p-3">{header}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr class="border-t border-bakery-navy/10">
+            <td class="p-3">{row.trays}</td>
+            <td class="p-3">{row.cycles}</td>
+            <td class="p-3">{row.minutes} min</td>
+            <td class="p-3">{row.share}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="text-sm text-bakery-navy/70"><strong>{copy.tableNote}</strong></p>
+
+  <h2>{copy.ceilingTitle}</h2>
+  <p>{copy.ceilingIntro}</p>
+  <ul>
+    {copy.ceilingItems.map((item) => <li>{item}</li>)}
+  </ul>
+
+  <h2>{copy.workflowTitle}</h2>
+  <p>{copy.workflowIntro}</p>
+  <ol>
+    {copy.workflowSteps.map((step) => <li>{step}</li>)}
+  </ol>
+
+  <h2>{copy.decisionTitle}</h2>
+  {copy.decision.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.nextTitle}</h2>
+  <p>{copy.nextIntro}</p>
+  <ul>
+    <li><a class="underline" href={lp('/product/')}>{copy.linkLabels.product}</a></li>
+    <li><a class="underline" href={lp('/product/jd-3-specifications/')}>{copy.linkLabels.specifications}</a></li>
+    <li><a class="underline" href={lp('/what-it-washes/baking-trays-600x400/')}>{copy.linkLabels.trayFit}</a></li>
+    <li><a class="underline" href={lp('/blog/pre-installation-checklist-commercial-dishwasher/')}>{copy.linkLabels.installation}</a></li>
+    <li><a class="underline" href={lp('/get-quote/')}>{copy.linkLabels.quote}</a></li>
+  </ul>
+</BlogPostLayout>
