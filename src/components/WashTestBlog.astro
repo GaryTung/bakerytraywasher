@@ -1,0 +1,75 @@
+---
+import BlogPostLayout from '../layouts/BlogPostLayout.astro';
+import { washTestBlogCopy } from '../i18n/wash-test-blog';
+import { localizePath, type Locale } from '../i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = washTestBlogCopy[locale];
+const lp = (path: string) => localizePath(path, locale);
+const specs = [
+  { label: copy.specLabels.rack, value: '650 × 550 mm' },
+  { label: copy.specLabels.standardLoad, value: copy.specValues.standardLoad },
+  { label: copy.specLabels.cycle, value: copy.specValues.cycle },
+  { label: copy.specLabels.water, value: '2.0–2.5 L' },
+  { label: copy.specLabels.rinse, value: '≥82°C' },
+];
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/bakery-tray-washer-sample-wash-test/"
+  slug="bakery-tray-washer-sample-wash-test"
+  title={copy.title}
+  description={copy.description}
+  pubDate="2026-08-19"
+  tldr={copy.tldr}
+  faqs={copy.faqs}
+>
+  <h2>{copy.answerTitle}</h2>
+  {copy.answer.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.sampleTitle}</h2>
+  <p>{copy.sampleIntro}</p>
+  <ol>{copy.sampleSteps.map((step) => <li>{step}</li>)}</ol>
+
+  <h2>{copy.controlsTitle}</h2>
+  <p>{copy.controlsIntro}</p>
+  <ul>{copy.controls.map((item) => <li>{item}</li>)}</ul>
+
+  <h3>{copy.verifiedTitle}</h3>
+  <p>{copy.verifiedIntro}</p>
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-sm border border-bakery-navy/10">
+      <thead class="bg-bakery-cream"><tr><th class="text-start p-3">{copy.factHeaders[0]}</th><th class="text-start p-3">{copy.factHeaders[1]}</th></tr></thead>
+      <tbody>{specs.map((row) => <tr class="border-t border-bakery-navy/10"><td class="p-3">{row.label}</td><td class="p-3" dir="ltr">{row.value}</td></tr>)}</tbody>
+    </table>
+  </div>
+
+  <h2>{copy.criteriaTitle}</h2>
+  <p>{copy.criteriaIntro}</p>
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-sm border border-bakery-navy/10">
+      <thead class="bg-bakery-cream"><tr>{copy.criteriaHeaders.map((header) => <th class="text-start p-3">{header}</th>)}</tr></thead>
+      <tbody>{copy.criteria.map((row) => <tr class="border-t border-bakery-navy/10"><td class="p-3 font-semibold">{row.check}</td><td class="p-3">{row.evidence}</td><td class="p-3">{row.pass}</td></tr>)}</tbody>
+    </table>
+  </div>
+
+  <h2>{copy.runTitle}</h2>
+  <ol>{copy.runSteps.map((step) => <li>{step}</li>)}</ol>
+
+  <h2>{copy.redFlagsTitle}</h2>
+  <ul>{copy.redFlags.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.decisionTitle}</h2>
+  {copy.decision.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.nextTitle}</h2>
+  <p>{copy.nextIntro}</p>
+  <ul>
+    <li><a class="underline" href={lp('/product/jd-3-specifications/')}>{copy.linkLabels.specifications}</a></li>
+    <li><a class="underline" href={lp('/what-it-washes/baking-trays-600x400/')}>{copy.linkLabels.trayFit}</a></li>
+    <li><a class="underline" href={lp('/blog/bakery-tray-washer-capacity-calculator/')}>{copy.linkLabels.capacity}</a></li>
+    <li><a class="underline" href={lp('/blog/pre-installation-checklist-commercial-dishwasher/')}>{copy.linkLabels.installation}</a></li>
+    <li><a class="underline" href={lp('/get-quote/')}>{copy.linkLabels.quote}</a></li>
+  </ul>
+</BlogPostLayout>
