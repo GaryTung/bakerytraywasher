@@ -1,0 +1,93 @@
+---
+import BlogPostLayout from '../layouts/BlogPostLayout.astro';
+import { aluminumTrayBlogCopy } from '../i18n/aluminum-tray-blog';
+import { localizePath, type Locale } from '../i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = aluminumTrayBlogCopy[locale];
+const lp = (path: string) => localizePath(path, locale);
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/aluminum-baking-trays-commercial-dishwasher/"
+  slug="aluminum-baking-trays-commercial-dishwasher"
+  title={copy.title}
+  description={copy.description}
+  pubDate="2026-08-26"
+  tldr={copy.tldr}
+  faqs={copy.faqs}
+>
+  <h2>{copy.answerTitle}</h2>
+  {copy.answer.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.factsTitle}</h2>
+  <ul>{copy.facts.map((fact) => <li>{fact}</li>)}</ul>
+
+  <h2>{copy.matrixTitle}</h2>
+  <p>{copy.matrixIntro}</p>
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-sm border border-bakery-navy/10">
+      <thead class="bg-bakery-cream">
+        <tr>{copy.matrixHeaders.map((header) => <th class="text-start p-3">{header}</th>)}</tr>
+      </thead>
+      <tbody>
+        {copy.matrixRows.map((row) => (
+          <tr class="border-t border-bakery-navy/10">
+            <td class="p-3 font-semibold">{row.surface}</td>
+            <td class="p-3">{row.risk}</td>
+            <td class="p-3">{row.check}</td>
+            <td class="p-3">{row.evidence}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>{copy.checksTitle}</h2>
+  {copy.checks.map((item) => (
+    <section>
+      <h3>{item.title}</h3>
+      <p>{item.body}</p>
+    </section>
+  ))}
+
+  <h2>{copy.testTitle}</h2>
+  <p>{copy.testIntro}</p>
+  <ol>{copy.testSteps.map((step) => <li>{step}</li>)}</ol>
+
+  <h2>{copy.resultTitle}</h2>
+  <p>{copy.resultIntro}</p>
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-sm border border-bakery-navy/10">
+      <thead class="bg-bakery-cream">
+        <tr>{copy.resultHeaders.map((header) => <th class="text-start p-3">{header}</th>)}</tr>
+      </thead>
+      <tbody>
+        {copy.resultRows.map((row) => (
+          <tr class="border-t border-bakery-navy/10">
+            <td class="p-3 font-semibold">{row.result}</td>
+            <td class="p-3">{row.meaning}</td>
+            <td class="p-3">{row.action}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>{copy.stopTitle}</h2>
+  <ul>{copy.stopItems.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.buyTitle}</h2>
+  {copy.buy.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.nextTitle}</h2>
+  <p>{copy.nextIntro}</p>
+  <ul>
+    <li><a class="underline" href={lp('/what-it-washes/sheet-pans/')}>{copy.linkLabels.sheetPans}</a></li>
+    <li><a class="underline" href={lp('/guides/dishwasher-detergent-for-bakery/')}>{copy.linkLabels.detergent}</a></li>
+    <li><a class="underline" href={lp('/blog/chemistry-of-washing-bakery-trays/')}>{copy.linkLabels.chemistry}</a></li>
+    <li><a class="underline" href={lp('/blog/bakery-tray-washer-sample-wash-test/')}>{copy.linkLabels.sampleWash}</a></li>
+    <li><a class="underline" href={lp('/get-quote/')}>{copy.linkLabels.quote}</a></li>
+  </ul>
+</BlogPostLayout>
