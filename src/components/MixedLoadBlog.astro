@@ -1,0 +1,64 @@
+---
+import BlogPostLayout from '../layouts/BlogPostLayout.astro';
+import { mixedLoadBlogCopy } from '../i18n/mixed-load-blog';
+import { localizePath, type Locale } from '../i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = mixedLoadBlogCopy[locale];
+const lp = (path: string) => localizePath(path, locale);
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/bakery-tray-washer-mixed-loads/"
+  slug="bakery-tray-washer-mixed-loads"
+  title={copy.title}
+  description={copy.description}
+  pubDate="2026-09-02"
+  tldr={copy.tldr}
+  faqs={copy.faqs}
+>
+  <h2>{copy.answerTitle}</h2>
+  {copy.answer.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.factsTitle}</h2>
+  <ul>{copy.facts.map((fact) => <li>{fact}</li>)}</ul>
+
+  <h2>{copy.baselineTitle}</h2>
+  <p>{copy.baselineIntro}</p>
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-sm border border-bakery-navy/10">
+      <thead class="bg-bakery-cream"><tr>{copy.baselineHeaders.map((header) => <th class="text-start p-3">{header}</th>)}</tr></thead>
+      <tbody>{copy.baselineRows.map((row) => <tr class="border-t border-bakery-navy/10"><td class="p-3 font-semibold">{row.fact}</td><td class="p-3" dir="ltr">{row.value}</td><td class="p-3">{row.meaning}</td></tr>)}</tbody>
+    </table>
+  </div>
+
+  <h2>{copy.matrixTitle}</h2>
+  <p>{copy.matrixIntro}</p>
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-sm border border-bakery-navy/10">
+      <thead class="bg-bakery-cream"><tr>{copy.matrixHeaders.map((header) => <th class="text-start p-3">{header}</th>)}</tr></thead>
+      <tbody>{copy.matrixRows.map((row) => <tr class="border-t border-bakery-navy/10"><td class="p-3 font-semibold">{row.family}</td><td class="p-3">{row.load}</td><td class="p-3">{row.reject}</td><td class="p-3">{row.rule}</td></tr>)}</tbody>
+    </table>
+  </div>
+
+  <h2>{copy.gatesTitle}</h2>
+  {copy.gates.map((item) => <section><h3>{item.title}</h3><p>{item.body}</p></section>)}
+
+  <h2>{copy.testTitle}</h2>
+  <p>{copy.testIntro}</p>
+  <ol>{copy.testSteps.map((step) => <li>{step}</li>)}</ol>
+
+  <h2>{copy.decisionTitle}</h2>
+  {copy.decision.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.nextTitle}</h2>
+  <p>{copy.nextIntro}</p>
+  <ul>
+    <li><a class="underline" href={lp('/product/jd-3-specifications/')}>{copy.linkLabels.specifications}</a></li>
+    <li><a class="underline" href={lp('/what-it-washes/mixing-bowls/')}>{copy.linkLabels.bowls}</a></li>
+    <li><a class="underline" href={lp('/what-it-washes/utensils-mixers/')}>{copy.linkLabels.utensils}</a></li>
+    <li><a class="underline" href={lp('/blog/bakery-tray-washer-sample-wash-test/')}>{copy.linkLabels.sampleWash}</a></li>
+    <li><a class="underline" href={lp('/get-quote/')}>{copy.linkLabels.quote}</a></li>
+  </ul>
+</BlogPostLayout>
