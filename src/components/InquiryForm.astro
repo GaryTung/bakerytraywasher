@@ -6,12 +6,15 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_ACCESS
 const thankYouPath = locale === 'en' ? '/thank-you/' : `/${locale}/thank-you/`;
 const thankYouUrl = `https://bakerytraywasher.com${thankYouPath}`;
 
-const countries = [
+const baseCountries = [
   'United States','United Kingdom','Australia','Canada','Germany','France','Spain','Italy','Netherlands',
-  'United Arab Emirates','Saudi Arabia','Qatar','Kuwait','Egypt','Morocco','Russia','Ukraine','Kazakhstan',
+  'United Arab Emirates','Saudi Arabia','Qatar','Kuwait','Egypt','Morocco','Ukraine','Kazakhstan',
   'Thailand','Vietnam','Singapore','Malaysia','Indonesia','Philippines','Japan','South Korea','India',
   'Brazil','Mexico','Argentina','Chile','Colombia','Peru','South Africa','Nigeria','Kenya','New Zealand','Other'
 ];
+const countries = locale === 'ru'
+  ? [...baseCountries.slice(0, 15), 'Россия', ...baseCountries.slice(15)]
+  : baseCountries;
 ---
 <form action="https://api.web3forms.com/submit" method="POST" class="quote-form space-y-4" data-thank-you={thankYouPath}>
   <input type="hidden" name="access_key" value={accessKey} />
