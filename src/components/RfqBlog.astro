@@ -1,0 +1,29 @@
+---
+import BlogPostLayout from '../layouts/BlogPostLayout.astro';
+import { rfqBlogCopy } from '../i18n/rfq-blog';
+import { localizePath, type Locale } from '../i18n/utils';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = rfqBlogCopy[locale];
+const lp = (p: string) => localizePath(p, locale);
+const refs = ['804 × 816 × 1,550 mm / 2,115 mm hood open','650 × 550 mm / 600 × 400 mm','6 trays per cycle','2 min / 180 standard trays per hour','13 kW; 380V / 3N / 50Hz; 21.5 A; 32 A type C breaker','G 3/4 in; 2.5–6 kg/cm²; 2.0–2.5 L per cycle','G 1½ in; drain within 1.5 m'];
+const faqItems = copy.faqs.map(([q,a]) => ({ q, a }));
+const links = ['/product/jd-3-specifications/','/blog/bakery-tray-washer-capacity-calculator/','/blog/bakery-tray-washer-sample-wash-test/','/blog/pre-installation-checklist-commercial-dishwasher/','/get-quote/'];
+---
+<BlogPostLayout locale={locale} canonicalPath="/blog/bakery-tray-washer-rfq-specification-checklist/" slug="bakery-tray-washer-rfq-specification-checklist" title={copy.title} description={copy.description} pubDate="2026-09-09" tldr={copy.tldr} faqs={faqItems}>
+  <h2>{copy.introTitle}</h2>
+  {copy.intro.map((p) => <p>{p}</p>)}
+  <h2>{copy.factsTitle}</h2>
+  <ul>{copy.facts.map((x) => <li>{x}</li>)}</ul>
+  <h2>{copy.briefTitle}</h2>
+  <p>{copy.briefIntro}</p>
+  <div class="overflow-x-auto my-6"><table class="w-full text-sm border border-bakery-navy/10"><tbody>{copy.briefRows.map(([label,text]) => <tr class="border-t border-bakery-navy/10"><th class="text-start p-3 bg-bakery-cream">{label}</th><td class="p-3">{text}</td></tr>)}</tbody></table></div>
+  <h2>{copy.referenceTitle}</h2>
+  <p>{copy.referenceIntro}</p>
+  <div class="overflow-x-auto my-6"><table class="w-full text-sm border border-bakery-navy/10"><tbody>{copy.referenceLabels.map((label,i) => <tr class="border-t border-bakery-navy/10"><th class="text-start p-3 bg-bakery-cream">{label}</th><td class="p-3" dir="ltr">{refs[i]}</td></tr>)}</tbody></table></div>
+  <h2>{copy.questionsTitle}</h2><ol>{copy.questions.map((x) => <li>{x}</li>)}</ol>
+  <h2>{copy.redFlagsTitle}</h2><ul>{copy.redFlags.map((x) => <li>{x}</li>)}</ul>
+  <h2>{copy.templateTitle}</h2><p>{copy.templateIntro}</p><ol>{copy.templateLines.map((x) => <li>{x}</li>)}</ol>
+  <h2>{copy.decisionTitle}</h2>{copy.decision.map((p) => <p>{p}</p>)}
+  <h2>{copy.nextTitle}</h2><p>{copy.nextIntro}</p><ul>{links.map((href,i) => <li><a class="underline" href={lp(href)}>{copy.links[i]}</a></li>)}</ul>
+</BlogPostLayout>
