@@ -528,11 +528,7 @@ const s = STRINGS[locale];
     sku: `VTAI-JD-3-${country.slug.toUpperCase()}`,
     mpn: 'JD-3',
     brand: { '@type': 'Brand', name: 'V-TAI' },
-    manufacturer: {
-      '@type': 'Organization',
-      name: 'Shenzhen Vtai Electrical Appliance Co., Ltd.',
-      url: 'https://bakerytraywasher.com',
-    },
+    manufacturer: { '@id': 'https://v-tai.com/#organization' },
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.8',
@@ -549,10 +545,7 @@ const s = STRINGS[locale];
       itemCondition: 'https://schema.org/NewCondition',
       areaServed: country.name,
       url: `https://bakerytraywasher.com${canonicalPath}`,
-      seller: {
-        '@type': 'Organization',
-        name: 'Shenzhen Vtai Electrical Appliance Co., Ltd.',
-      },
+      seller: { '@id': 'https://v-tai.com/#organization' },
       hasMerchantReturnPolicy: {
         '@type': 'MerchantReturnPolicy',
         applicableCountry: country.name,

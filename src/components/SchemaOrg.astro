@@ -2,16 +2,26 @@
 interface Props {
   type?: 'Organization' | 'Product' | 'Article' | 'FAQPage' | 'BreadcrumbList' | 'HowTo';
   data?: Record<string, any>;
+  currentUrl?: string;
 }
-const { type = 'Organization', data = {} } = Astro.props;
 
-const orgData = {
-  '@context': 'https://schema.org',
+const { type = 'Organization', data = {}, currentUrl = 'https://bakerytraywasher.com/' } = Astro.props;
+
+const organizationId = 'https://v-tai.com/#organization';
+const brandId = 'https://v-tai.com/#brand';
+const websiteId = 'https://bakerytraywasher.com/#website';
+
+const organization = {
   '@type': 'Organization',
+  '@id': organizationId,
   name: 'Shenzhen Vtai Electrical Appliance Co., Ltd.',
+  legalName: '深圳市威泰电器有限公司',
   alternateName: 'V-TAI',
-  url: 'https://bakerytraywasher.com',
-  logo: 'https://bakerytraywasher.com/images/logo.png',
+  url: 'https://v-tai.com/',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://bakerytraywasher.com/images/logo.png',
+  },
   email: 'info@v-tai.com',
   telephone: '+86-135-0962-3269',
   address: {
@@ -21,29 +31,50 @@ const orgData = {
     addressRegion: 'Guangdong',
     addressCountry: 'CN',
   },
-  sameAs: ['https://v-tai.com'],
+  sameAs: [
+    'https://v-tai.cn/',
+    'https://v-tai.com.cn/',
+  ],
 };
 
-// Validate Product schema. Google requires at minimum `name` plus one of
-// `offers` / `review` / `aggregateRating`. If a page declares
-// schemaType="Product" but doesn't supply complete data, we silently
-// downgrade to Article rather than emit an incomplete (and therefore
-// search-console-error-triggering) Product blob.
-let effectiveType = type;
-let effectiveData: Record<string, any> = data;
-if (type === 'Product') {
-  const hasName = typeof data.name === 'string' && data.name.length > 0;
-  const hasMonetization = Boolean(data.offers || data.review || data.aggregateRating);
-  if (!hasName || !hasMonetization) {
-    effectiveType = 'Article';
-    // Strip Product-only keys that don't apply to Article
-    const { offers, sku, brand, ...rest } = data;
-    effectiveData = rest;
-  }
-}
+const brand = {
+  '@type': 'Brand',
+  '@id': brandId,
+  name: 'V-TAI',
+  url: 'https://v-tai.com/',
+};
 
-const schema = type === 'Organization'
-  ? orgData
-  : { '@context': 'https://schema.org', '@type': effectiveType, ...effectiveData };
+const website = {
+  '@type': 'WebSite',
+  '@id': websiteId,
+  url: 'https://bakerytraywasher.com/',
+  name: 'V-TAI JD-3 Bakery Tray Washer',
+  alternateName: 'bakerytraywasher.com',
+  publisher: { '@id': organizationId },
+  about: { '@id': brandId },
+};
+
+const { '@context': _context, '@type': _dataType, ...providedData } = data;
+const pageNode = type === 'Organization' ? null : {
+  '@type': type,
+  '@id': data['@id'] || `${currentUrl}#${type.toLowerCase()}`,
+  ...providedData,
+  isPartOf: data.isPartOf || { '@id': websiteId },
+  ...(type === 'Article' ? {
+    mainEntityOfPage: data.mainEntityOfPage || currentUrl,
+    publisher: { '@id': organizationId },
+    author: data.author || { '@id': organizationId },
+  } : {}),
+  ...(type === 'Product' ? {
+    mainEntityOfPage: data.mainEntityOfPage || currentUrl,
+    brand: { '@id': brandId },
+    manufacturer: { '@id': organizationId },
+  } : {}),
+};
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [organization, brand, website, ...(pageNode ? [pageNode] : [])],
+};
 ---
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />

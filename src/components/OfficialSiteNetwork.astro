@@ -1,0 +1,28 @@
+---
+import type { Locale } from '../i18n/utils';
+import { officialSites, siteIdentity } from '../i18n/site-identity';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = siteIdentity[locale];
+---
+<section id="official-vtai-websites" class="section bg-white scroll-mt-24">
+  <div class="container-page">
+    <div class="max-w-3xl mb-8">
+      <p class="eyebrow mb-2">V-TAI</p>
+      <h2 class="mb-4">{copy.title}</h2>
+      <p class="text-bakery-navy/75">{copy.intro}</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {officialSites.map((site, index) => (
+        <article class="card">
+          <h3 class="text-lg mb-2">
+            <a href={site.url} class="text-bakery-orange hover:underline">{site.domain}</a>
+          </h3>
+          <p class="text-sm text-bakery-navy/75">{copy.roles[index]}</p>
+          <p class="mt-3 text-xs text-bakery-navy/55">{copy.operatedLabel}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

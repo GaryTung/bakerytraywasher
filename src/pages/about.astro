@@ -4,6 +4,7 @@ import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 import TrustBadgeStrip from '../components/TrustBadgeStrip.astro';
 import CTASection from '../components/CTASection.astro';
+import OfficialSiteNetwork from '../components/OfficialSiteNetwork.astro';
 const locale = 'en' as const;
 ---
 <BaseLayout
@@ -99,6 +100,8 @@ const locale = 'en' as const;
     <p class="mt-6 text-sm text-bakery-navy/60">For our full corporate product line, visit our brand site <a href="https://v-tai.com" class="underline">v-tai.com</a>.</p>
   </div>
 </section>
+
+<OfficialSiteNetwork locale={locale} />
 
 <!-- What we believe -->
 <section class="section">

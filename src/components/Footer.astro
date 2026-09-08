@@ -1,10 +1,12 @@
 ---
 import { t, localizePath, type Locale } from '../i18n/utils';
+import { siteIdentity } from '../i18n/site-identity';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const lp = (p: string) => localizePath(p, locale);
 const year = new Date().getFullYear();
+const identity = siteIdentity[locale];
 ---
 <footer class="bg-bakery-navy text-white mt-16">
   <div class="container-page py-12 grid md:grid-cols-5 gap-8">
@@ -60,9 +62,16 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="border-t border-white/10">
-    <div class="container-page py-4 flex flex-col md:flex-row items-center justify-between text-xs text-white/60">
-      <p>© {year} Shenzhen Vtai Electrical Appliance Co., Ltd. {t(locale, 'footer.rights')}</p>
-      <p class="mt-2 md:mt-0">bakerytraywasher.com | A V-TAI specialist site</p>
+    <div class="container-page py-5 grid md:grid-cols-[1fr_auto] gap-4 items-start text-xs text-white/65">
+      <div class="space-y-1">
+        <p>© {year} Shenzhen Vtai Electrical Appliance Co., Ltd. {t(locale, 'footer.rights')}</p>
+        <p>{identity.operator}</p>
+        <p>{identity.specialist}</p>
+      </div>
+      <div class="flex flex-wrap gap-x-3 gap-y-1 md:justify-end">
+        <a href={lp('/about/')} class="hover:text-white">{t(locale, 'nav.about')}</a>
+        <a href={lp('/about/') + '#official-vtai-websites'} class="hover:text-white">{identity.directoryLink}</a>
+      </div>
     </div>
   </div>
 </footer>

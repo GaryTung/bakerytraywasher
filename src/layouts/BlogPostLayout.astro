@@ -42,13 +42,8 @@ const articleData = {
   datePublished: pubDate,
   inLanguage: locale,
   image: `${site}/images/jd-3-hero.webp`,
-  author: { '@type': 'Organization', name: 'V-TAI', url: site },
-  publisher: {
-    '@type': 'Organization',
-    name: 'V-TAI',
-    url: site,
-    logo: { '@type': 'ImageObject', url: `${site}/images/logo.png` },
-  },
+  author: { '@id': 'https://v-tai.com/#organization' },
+  publisher: { '@id': 'https://v-tai.com/#organization' },
   mainEntityOfPage: articleUrl,
 };
 ---

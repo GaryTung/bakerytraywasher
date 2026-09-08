@@ -4,6 +4,7 @@ import BreadcrumbNav from '../components/BreadcrumbNav.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 import TrustBadgeStrip from '../components/TrustBadgeStrip.astro';
 import CTASection from '../components/CTASection.astro';
+import OfficialSiteNetwork from '../components/OfficialSiteNetwork.astro';
 import { type Locale, t, localizePath } from '../i18n/utils';
 import { aboutContent } from '../i18n/about-content';
 
@@ -89,6 +90,8 @@ const sisterImages = [
     <p class="mt-6 text-sm text-bakery-navy/60" set:html={sub(a.sisterFooter)} />
   </div>
 </section>
+
+<OfficialSiteNetwork locale={locale} />
 
 <!-- Beliefs -->
 <section class="section">
