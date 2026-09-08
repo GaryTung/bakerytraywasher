@@ -11,7 +11,9 @@ const identity = siteIdentity[locale];
 <footer class="bg-bakery-navy text-white mt-16">
   <div class="container-page py-12 grid md:grid-cols-5 gap-8">
     <div class="md:col-span-2">
-      <div class="font-display text-xl font-bold mb-3">V-TAI <span class="text-bakery-orange">JD-3</span></div>
+      <a href={lp('/')} class="inline-flex bg-white rounded-md px-3 py-2 mb-3" aria-label="V-TAI JD-3 Bakery Tray Washer">
+        <img src="/images/vtai-logo.png" alt="V-TAI" width="200" height="67" class="h-10 w-auto" loading="lazy" />
+      </a>
       <p class="text-sm text-white/80 leading-relaxed mb-4">
         {t(locale, 'footer.tagline')}
       </p>

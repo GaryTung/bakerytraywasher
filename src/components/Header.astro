@@ -11,9 +11,9 @@ const lp = (p: string) => localizePath(p, locale);
 ---
 <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-bakery-navy/5">
   <div class="container-page flex items-center justify-between h-16">
-    <a href={lp('/')} class="flex items-center gap-2 font-display font-bold text-bakery-navy text-lg">
-      <svg class="w-7 h-7 text-bakery-orange" viewBox="0 0 24 24" fill="currentColor"><path d="M5 5h14v3H5zM5 10h14v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1zm3 3v4h8v-4z"/></svg>
-      <span>V-TAI <span class="text-bakery-orange">JD-3</span></span>
+    <a href={lp('/')} class="flex items-center" aria-label="V-TAI JD-3 Bakery Tray Washer">
+      <img src="/images/vtai-logo.png" alt="V-TAI" width="200" height="67" class="h-10 w-auto" />
+      <span class="sr-only">V-TAI JD-3 Bakery Tray Washer</span>
     </a>
 
     <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-bakery-navy">
