@@ -1,0 +1,61 @@
+---
+import BlogPostLayout from '../layouts/BlogPostLayout.astro';
+import { deliveryInspectionBlogCopy } from '../i18n/delivery-inspection-blog';
+import { localizePath, type Locale } from '../i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = deliveryInspectionBlogCopy[locale];
+const lp = (path: string) => localizePath(path, locale);
+const links = [
+  '/shipping-payment/',
+  '/product/jd-3-installation/',
+  '/product/jd-3-specifications/',
+  '/blog/bakery-tray-washer-sample-wash-test/',
+  '/get-quote/',
+];
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/bakery-tray-washer-delivery-inspection-checklist/"
+  slug="bakery-tray-washer-delivery-inspection-checklist"
+  title={copy.title}
+  description={copy.description}
+  pubDate="2026-09-30"
+  tldr={copy.tldr}
+  faqs={copy.faqs.map(([q, a]) => ({ q, a }))}
+>
+  <h2>{copy.answerTitle}</h2>
+  {copy.answer.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.gatesTitle}</h2>
+  <p>{copy.gatesIntro}</p>
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-sm border border-bakery-navy/10">
+      <thead class="bg-bakery-cream"><tr>{copy.gateHeaders.map((header) => <th class="text-start p-3">{header}</th>)}</tr></thead>
+      <tbody>{copy.gates.map((row) => <tr class="border-t border-bakery-navy/10"><td class="p-3 font-semibold">{row.gate}</td><td class="p-3">{row.proves}</td><td class="p-3">{row.evidence}</td></tr>)}</tbody>
+    </table>
+  </div>
+
+  <h2>{copy.receivingTitle}</h2>
+  <p>{copy.receivingIntro}</p>
+  <ol>{copy.receivingSteps.map((step) => <li>{step}</li>)}</ol>
+
+  <h2>{copy.unpackTitle}</h2>
+  <p>{copy.unpackIntro}</p>
+  <ul>{copy.unpackChecks.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.commissionTitle}</h2>
+  <p>{copy.commissionIntro}</p>
+  <ol>{copy.commissionSteps.map((step) => <li>{step}</li>)}</ol>
+
+  <h2>{copy.evidenceTitle}</h2>
+  <ul>{copy.evidenceItems.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.redFlagsTitle}</h2>
+  <ul>{copy.redFlags.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.nextTitle}</h2>
+  <p>{copy.nextIntro}</p>
+  <ul>{links.map((href, index) => <li><a class="underline" href={lp(href)}>{copy.links[index]}</a></li>)}</ul>
+</BlogPostLayout>
