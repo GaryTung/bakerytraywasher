@@ -1,0 +1,56 @@
+---
+import BlogPostLayout from '../layouts/BlogPostLayout.astro';
+import { sparePartsBlogCopy } from '../i18n/spare-parts-blog';
+import { localizePath, type Locale } from '../i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = sparePartsBlogCopy[locale];
+const lp = (path: string) => localizePath(path, locale);
+const links = [
+  '/product/jd-3-specifications/',
+  '/blog/commercial-dishwasher-maintenance-schedule/',
+  '/blog/commercial-dishwasher-faults-electrician-diagnose-circuit-diagram/',
+  '/shipping-payment/',
+  '/get-quote/',
+];
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/bakery-tray-washer-spare-parts-checklist/"
+  slug="bakery-tray-washer-spare-parts-checklist"
+  title={copy.title}
+  description={copy.description}
+  pubDate="2026-10-07"
+  tldr={copy.tldr}
+  faqs={copy.faqs.map(([q, a]) => ({ q, a }))}
+>
+  <h2>{copy.answerTitle}</h2>
+  {copy.answer.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.frameworkTitle}</h2>
+  <p>{copy.frameworkIntro}</p>
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-sm border border-bakery-navy/10">
+      <thead class="bg-bakery-cream"><tr>{copy.classHeaders.map((header) => <th class="text-start p-3">{header}</th>)}</tr></thead>
+      <tbody>{copy.classes.map((row) => <tr class="border-t border-bakery-navy/10"><td class="p-3 font-semibold">{row.decision}</td><td class="p-3">{row.use}</td><td class="p-3">{row.evidence}</td></tr>)}</tbody>
+    </table>
+  </div>
+
+  <h2>{copy.questionsTitle}</h2>
+  {copy.questions.map((item) => <section><h3>{item.title}</h3><p>{item.body}</p></section>)}
+
+  <h2>{copy.evidenceTitle}</h2>
+  <ul>{copy.evidence.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.storageTitle}</h2>
+  <p>{copy.storageIntro}</p>
+  <ol>{copy.storageSteps.map((step) => <li>{step}</li>)}</ol>
+
+  <h2>{copy.redFlagsTitle}</h2>
+  <ul>{copy.redFlags.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.nextTitle}</h2>
+  <p>{copy.nextIntro}</p>
+  <ul>{links.map((href, index) => <li><a class="underline" href={lp(href)}>{copy.links[index]}</a></li>)}</ul>
+</BlogPostLayout>
