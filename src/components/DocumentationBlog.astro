@@ -1,0 +1,62 @@
+---
+import BlogPostLayout from '../layouts/BlogPostLayout.astro';
+import { documentationBlogCopy } from '../i18n/documentation-blog';
+import { localizePath, type Locale } from '../i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = documentationBlogCopy[locale];
+const lp = (path: string) => localizePath(path, locale);
+const links = [
+  '/product/jd-3-specifications/',
+  '/product/jd-3-installation/',
+  '/blog/bakery-tray-washer-operator-training-checklist/',
+  '/blog/bakery-tray-washer-warranty-checklist/',
+  '/contact/',
+];
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/bakery-tray-washer-documentation-checklist/"
+  slug="bakery-tray-washer-documentation-checklist"
+  title={copy.title}
+  description={copy.description}
+  pubDate="2026-10-28"
+  tldr={copy.tldr}
+  faqs={copy.faqs.map(([q, a]) => ({ q, a }))}
+>
+  <h2>{copy.answerTitle}</h2>
+  {copy.answer.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.matrixTitle}</h2>
+  <p>{copy.matrixIntro}</p>
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-sm border border-bakery-navy/10">
+      <thead class="bg-bakery-cream"><tr>{copy.matrixHeaders.map((header) => <th class="text-start p-3">{header}</th>)}</tr></thead>
+      <tbody>{copy.matrix.map((row) => <tr class="border-t border-bakery-navy/10"><td class="p-3 font-semibold">{row.group}</td><td class="p-3">{row.contents}</td><td class="p-3">{row.acceptance}</td></tr>)}</tbody>
+    </table>
+  </div>
+
+  <h2>{copy.controlTitle}</h2>
+  <ul>{copy.control.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.timingTitle}</h2>
+  <p>{copy.timingIntro}</p>
+  <ol>{copy.timing.map((step) => <li>{step}</li>)}</ol>
+
+  <h2>{copy.testTitle}</h2>
+  <p>{copy.testIntro}</p>
+  <ul>{copy.test.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.redFlagsTitle}</h2>
+  <ul>{copy.redFlags.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.clauseTitle}</h2>
+  <p>{copy.clauseIntro}</p>
+  <blockquote class="border-l-4 border-bakery-orange bg-bakery-cream p-5 my-6">{copy.clause}</blockquote>
+  <p>{copy.clauseNote}</p>
+
+  <h2>{copy.linksTitle}</h2>
+  <p>{copy.linksIntro}</p>
+  <ul>{links.map((href, index) => <li><a class="underline" href={lp(href)}>{copy.links[index]}</a></li>)}</ul>
+</BlogPostLayout>
