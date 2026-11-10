@@ -1,0 +1,80 @@
+---
+import BlogPostLayout from '../layouts/BlogPostLayout.astro';
+import { chainRolloutBlogCopy } from '../i18n/chain-rollout-blog';
+import { localizePath, type Locale } from '../i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = chainRolloutBlogCopy[locale];
+const lp = (path: string) => localizePath(path, locale);
+const links = [
+  '/blog/bakery-tray-washer-rfq-specification-checklist/',
+  '/blog/bakery-tray-washer-sample-wash-test/',
+  '/blog/bakery-tray-washer-operator-training-checklist/',
+  '/blog/bakery-tray-washer-spare-parts-checklist/',
+  '/blog/bakery-tray-washer-documentation-checklist/',
+];
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/bakery-chain-tray-washer-standardization/"
+  slug="bakery-chain-tray-washer-standardization"
+  title={copy.title}
+  description={copy.description}
+  pubDate="2026-11-11"
+  tldr={copy.tldr}
+  faqs={copy.faqs.map(([q, a]) => ({ q, a }))}
+>
+  <h2>{copy.answerTitle}</h2>
+  {copy.answer.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.standardTitle}</h2>
+  <p>{copy.standardIntro}</p>
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-sm border border-bakery-navy/10">
+      <thead class="bg-bakery-cream"><tr>{copy.standardHeaders.map((header) => <th class="text-start p-3">{header}</th>)}</tr></thead>
+      <tbody>{copy.standardRows.map((row) => <tr class="border-t border-bakery-navy/10">{row.map((cell, index) => <td class:list={["p-3", index === 0 && "font-semibold"]}>{cell}</td>)}</tr>)}</tbody>
+    </table>
+  </div>
+
+  <h2>{copy.baselineTitle}</h2>
+  <p>{copy.baselineIntro}</p>
+  <ul>{copy.baseline.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.pilotTitle}</h2>
+  <p>{copy.pilotIntro}</p>
+  {copy.pilotSteps.map((step) => <>
+    <h3>{step.title}</h3>
+    <p>{step.text}</p>
+  </>)}
+
+  <h2>{copy.siteTitle}</h2>
+  <p>{copy.siteIntro}</p>
+  <ul>{copy.siteChecks.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.governanceTitle}</h2>
+  <p>{copy.governanceIntro}</p>
+  <ul>{copy.governance.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.scoreTitle}</h2>
+  <p>{copy.scoreIntro}</p>
+  <dl class="card my-6">
+    <dt class="font-semibold">{copy.formulaLabels[0]}</dt>
+    <dd class="mb-4"><code>{copy.formulae[0]}</code></dd>
+    <dt class="font-semibold">{copy.formulaLabels[1]}</dt>
+    <dd><code>{copy.formulae[1]}</code></dd>
+  </dl>
+
+  <h2>{copy.rolloutTitle}</h2>
+  <ol>{copy.rollout.map((item) => <li>{item}</li>)}</ol>
+
+  <h2>{copy.redFlagsTitle}</h2>
+  <ul>{copy.redFlags.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.decisionTitle}</h2>
+  <p>{copy.decision}</p>
+
+  <h2>{copy.linksTitle}</h2>
+  <p>{copy.linksIntro}</p>
+  <ul>{links.map((href, index) => <li><a class="underline" href={lp(href)}>{copy.links[index]}</a></li>)}</ul>
+</BlogPostLayout>
