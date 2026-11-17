@@ -1,0 +1,64 @@
+---
+import BlogPostLayout from '../layouts/BlogPostLayout.astro';
+import { postWashDryingBlogCopy } from '../i18n/post-wash-drying-blog';
+import { localizePath, type Locale } from '../i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = postWashDryingBlogCopy[locale];
+const lp = (path: string) => localizePath(path, locale);
+const links = [
+  '/guides/bakery-tray-cleaning-best-practices/',
+  '/blog/bakery-tray-washer-mixed-loads/',
+  '/blog/aluminum-baking-trays-commercial-dishwasher/',
+  '/blog/bakery-tray-washer-burnt-on-grease/',
+  '/blog/bakery-tray-washer-operator-training-checklist/',
+];
+---
+<BlogPostLayout
+  locale={locale}
+  canonicalPath="/blog/dry-bakery-trays-after-machine-washing/"
+  slug="dry-bakery-trays-after-machine-washing"
+  title={copy.title}
+  description={copy.description}
+  pubDate="2026-11-18"
+  tldr={copy.tldr}
+  faqs={copy.faqs.map(([q, a]) => ({ q, a }))}
+>
+  <h2>{copy.answerTitle}</h2>
+  {copy.answer.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.workflowTitle}</h2>
+  <p>{copy.workflowIntro}</p>
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-sm border border-bakery-navy/10">
+      <thead class="bg-bakery-cream"><tr>{copy.workflowHeaders.map((header) => <th class="text-start p-3">{header}</th>)}</tr></thead>
+      <tbody>{copy.workflowRows.map((row) => <tr class="border-t border-bakery-navy/10">{row.map((cell, index) => <td class:list={["p-3", index === 0 && "font-semibold"]}>{cell}</td>)}</tr>)}</tbody>
+    </table>
+  </div>
+
+  <h2>{copy.planTitle}</h2>
+  <p>{copy.planIntro}</p>
+  {copy.planSteps.map((step) => <>
+    <h3>{step.title}</h3>
+    <p>{step.text}</p>
+  </>)}
+
+  <h2>{copy.releaseTitle}</h2>
+  <p>{copy.releaseIntro}</p>
+  <ul>{copy.releaseChecks.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.testTitle}</h2>
+  <p>{copy.testIntro}</p>
+  <ol>{copy.testSteps.map((item) => <li>{item}</li>)}</ol>
+
+  <h2>{copy.redFlagsTitle}</h2>
+  <ul>{copy.redFlags.map((item) => <li>{item}</li>)}</ul>
+
+  <h2>{copy.decisionTitle}</h2>
+  <p>{copy.decision}</p>
+
+  <h2>{copy.linksTitle}</h2>
+  <p>{copy.linksIntro}</p>
+  <ul>{links.map((href, index) => <li><a class="underline" href={lp(href)}>{copy.links[index]}</a></li>)}</ul>
+</BlogPostLayout>
